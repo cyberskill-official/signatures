@@ -1,0 +1,30 @@
+# One file per employee. The filename (without .yml) is the person's id and
+# becomes their URL: <base_url>people/stephen-cheng/
+#
+# Required: name, role, email
+# Everything else is optional. Omit a field and its row disappears cleanly -
+# nothing in the layout depends on a row being present.
+
+name: Stephen Cheng
+
+# Optional second line under the name, in the person's own script. Rendered
+# with lang="vi" so screen readers use the right phonetics.
+name_vi: Trịnh Thái Anh
+
+role: Founder
+
+email: info@cyberskill.world
+
+phone: "(+84) 906 878 091"
+phone_href: "+84906878091"      # digits only, for the tel: link
+
+# Source photo lives at src/avatars/<id>.png (or .jpg).
+# crop is [x, y, size] in source pixels - a subject-aware square around the
+# face. Omit it and the build centres a square on the upper third, which is a
+# reasonable default for a portrait but is worth checking on the contact sheet
+# that `make_avatars.py --sheet` produces.
+avatar: stephen-cheng.png
+crop: [108, 20, 250]
+
+# Ordering on the directory page. Lower sorts first; ties fall back to name.
+order: 0

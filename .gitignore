@@ -1,0 +1,5 @@
+build/vendor/node_modules/
+build/vendor/package-lock.json
+build/vendor/package.json
+__pycache__/
+.DS_Store

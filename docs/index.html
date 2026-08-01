@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="color-scheme" content="light"/>
+<title>Email signatures - CyberSkill</title>
+<style>
+  :root{--umber:#45210E;--ochre:#F4BA17;--accent:#9E5E3E;--ink:#22201E;
+        --muted:#6B6B6B;--line:#E6E0D8;--bg:#FBF9F7;--card:#FFFFFF;}
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);
+       font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+       -webkit-font-smoothing:antialiased;}
+  a{color:var(--umber);}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+  header.site{background:var(--umber);color:#fff;padding:34px 0 30px;}
+  header.site a{color:#fff;text-decoration:none;}
+  .brandrow{display:flex;align-items:center;gap:14px;}
+  .brandrow img{width:40px;height:40px;display:block;border-radius:8px;}
+  .brandname{font-size:15px;font-weight:700;letter-spacing:.14em;
+             text-transform:uppercase;}
+  header.site h1{margin:18px 0 6px;font-size:30px;letter-spacing:-.4px;}
+  header.site p{margin:0;color:#E8D9CD;max-width:62ch;}
+  .ochre{height:4px;background:var(--ochre);}
+  main{padding:38px 0 80px;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;}
+  .steps{padding:20px 24px;margin:0 0 34px;}
+  .steps h2{margin:0 0 10px;font-size:12px;letter-spacing:.09em;
+            text-transform:uppercase;color:var(--muted);}
+  .steps ol{margin:0;padding-left:20px;} .steps li{margin:5px 0;}
+  code{background:#F1ECE6;padding:1px 6px;border-radius:4px;font-size:.9em;}
+  .toolbar{display:flex;gap:12px;align-items:center;margin:0 0 18px;
+           flex-wrap:wrap;}
+  .search{flex:1 1 260px;padding:11px 14px;border:1px solid var(--line);
+          border-radius:9px;font-size:14px;background:#fff;}
+  .count{font-size:13px;color:var(--muted);}
+  .people{display:grid;gap:16px;
+          grid-template-columns:repeat(auto-fill,minmax(280px,1fr));}
+  .person{display:flex;gap:14px;align-items:center;padding:16px;
+          text-decoration:none;color:inherit;transition:.15s;}
+  .person:hover{border-color:var(--accent);
+                box-shadow:0 2px 14px rgba(69,33,14,.09);transform:translateY(-1px);}
+  .person img{width:56px;height:56px;display:block;flex:0 0 56px;}
+  .ph{width:56px;height:56px;flex:0 0 56px;border-radius:50%;
+      background:var(--umber);color:var(--ochre);display:flex;
+      align-items:center;justify-content:center;font-weight:700;font-size:19px;}
+  .person .n{font-weight:700;font-size:16px;}
+  .person .r{font-size:13px;color:var(--muted);}
+  .person .go{margin-left:auto;color:var(--accent);font-size:19px;}
+  .empty{padding:34px;text-align:center;color:var(--muted);}
+  footer.site{border-top:1px solid var(--line);padding:26px 0 50px;
+              color:var(--muted);font-size:13px;}
+  /* person page */
+  .crumb{font-size:13px;margin:0 0 18px;}
+  .crumb a{color:var(--muted);}
+  h1.person-name{margin:0 0 2px;font-size:27px;letter-spacing:-.3px;}
+  .person-role{margin:0 0 22px;color:var(--muted);}
+  .bar{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin:0 0 20px;}
+  .btn{background:var(--umber);color:#fff;border:0;border-radius:8px;
+       padding:12px 22px;font-size:14px;font-weight:600;cursor:pointer;}
+  .btn:hover{background:#5C2D14;} .btn[disabled]{opacity:.5;cursor:progress;}
+  .status{font-size:13px;color:var(--muted);}
+  .status.ok{color:#1B7F3B;font-weight:600;}
+  .status.err{color:#B3261E;font-weight:600;}
+  .grid{display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap;}
+  .col{min-width:0;} .col.narrow{flex:0 0 auto;} .col.desk{flex:0 1 556px;}
+  .colhead{font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+           color:var(--muted);margin:0 0 7px;}
+  .dim{text-transform:none;letter-spacing:0;font-weight:700;}
+  .dim.good{color:#1B7F3B;} .dim.bad{color:#B3261E;}
+  .surface{border:1px solid var(--line);border-radius:9px;padding:18px;
+           overflow-x:auto;background:#fff;}
+  /* The signature is fluid (width:100% capped at 520px), so a shrink-to-fit
+     flex column collapses it to min-content and the "desktop" preview stops
+     being a desktop preview. Pin the desktop surface wide enough for the
+     table to reach its full 520px. */
+  .surface.desk{width:556px;max-width:100%;}
+  .surface.w320{width:320px;flex:0 0 320px;}
+  .surface.dark{background:#1F1F1F;border-color:#3A3A3A;color:#E8E8E8;}
+  .surface.inv{background:#fff;filter:invert(1) hue-rotate(180deg);}
+  .surface.inv img{filter:invert(1) hue-rotate(180deg);}
+  .sub{font-size:12px;color:var(--muted);margin:0 0 7px;}
+  .dark3 .col{flex:1 1 320px;min-width:300px;}
+  details{margin-top:20px;} summary{cursor:pointer;font-size:13px;color:var(--muted);}
+  textarea{width:100%;height:150px;margin-top:10px;padding:12px;
+           font:12px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;
+           border:1px solid var(--line);border-radius:8px;background:#FAF8F6;}
+  .sec{margin:34px 0 12px;font-size:12px;letter-spacing:.09em;
+       text-transform:uppercase;color:var(--muted);}
+</style>
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="brandrow" href="./">
+      <img src="https://cyberskill-official.github.io/signatures/assets/shared/logo-36-2x.png?v=7b060983" alt=""/>
+      <span class="brandname">CyberSkill</span>
+    </a>
+    <h1>Email signatures</h1>
+    <p>Pick your name, verify, copy, paste into Gmail. One button, about a minute.</p>
+  </div>
+</header>
+<div class="ochre"></div>
+<main><div class="wrap">
+  <div class="card steps">
+    <h2>How to install yours</h2>
+    <ol>
+      <li>Find yourself below and open your page.</li>
+      <li>Press <strong>Verify &amp; copy</strong>. It checks every image URL
+          first and refuses to copy if any is unreachable.</li>
+      <li>In Gmail: <strong>Settings &rarr; See all settings &rarr; General
+          &rarr; Signature</strong>.</li>
+      <li>Paste with <strong>Cmd/Ctrl+V</strong>, then
+          <strong>Save changes</strong> at the very bottom of the page.</li>
+      <li>Send yourself a test and read it on your phone as well as your laptop.</li>
+    </ol>
+  </div>
+
+  <div class="toolbar">
+    <input class="search" id="q" type="search"
+           placeholder="Search by name, role or email" autocomplete="off"/>
+    <span class="count" id="count">1 person</span>
+  </div>
+
+  <div class="people" id="people"><a class="card person" href="people/stephen-cheng/" data-search="stephen cheng founder info@cyberskill.world"><img src="https://cyberskill-official.github.io/signatures/assets/people/stephen-cheng/avatar-80-2x.png?v=10ab46c8" alt=""/><div><div class="n">Stephen Cheng</div><div class="r">Founder</div></div><div class="go">&rarr;</div></a></div>
+  <div class="empty card" id="empty" style="display:none;">No match.</div>
+
+<script>
+(function () {
+  var q = document.getElementById('q'), list = document.getElementById('people'),
+      empty = document.getElementById('empty'), count = document.getElementById('count'),
+      cards = Array.prototype.slice.call(list.querySelectorAll('.person'));
+  function apply() {
+    var t = q.value.trim().toLowerCase(), shown = 0;
+    cards.forEach(function (c) {
+      var hit = !t || c.getAttribute('data-search').indexOf(t) > -1;
+      c.style.display = hit ? '' : 'none'; if (hit) shown++;
+    });
+    count.textContent = shown + (shown === 1 ? ' person' : ' people');
+    empty.style.display = shown ? 'none' : '';
+  }
+  q.addEventListener('input', apply);
+})();
+</script></div></main>
+<footer class="site"><div class="wrap">
+  <p>Generated from <code>src/people/</code>. To add someone, drop a YAML
+     record and a photo in <code>src/</code> and run <code>./install.sh</code>.
+     Nothing in <code>docs/</code> is edited by hand.</p>
+</div></footer>
+</body></html>

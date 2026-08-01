@@ -1,0 +1,12 @@
+{
+  "base": "https://cyberskill-official.github.io/signatures/",
+  "people": [
+    {
+      "id": "stephen-cheng",
+      "name": "Stephen Cheng",
+      "role": "Founder",
+      "chars": 5397,
+      "over_limit": false
+    }
+  ]
+}

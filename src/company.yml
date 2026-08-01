@@ -1,0 +1,20 @@
+# Company-wide values shared by every signature.
+# Changing anything here changes every employee's signature on the next build.
+
+name: CyberSkill
+tagline: Turn Your Will Into Real
+
+# Published GitHub Pages root. Every asset URL in every signature is built
+# from this. It must end with a slash.
+base_url: https://cyberskill-official.github.io/signatures/
+
+# Channels every employee shares. A person can override any of these in their
+# own record, or set it to null to drop the row entirely.
+website: cyberskill.world
+website_href: https://cyberskill.world
+
+socials:
+  - label: LinkedIn
+    href: https://linkedin.com/company/cyberskill
+  - label: Facebook
+    href: https://www.facebook.com/cyberskill.world
