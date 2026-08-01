@@ -9,7 +9,7 @@
 # full render suite before anyone accepts them.
 
 PyYAML==6.0.3
-Pillow==12.2.0
+Pillow==12.3.0
 
 # Build-time only. Needed to rasterise the icon set and to run the render and
 # cross-client suites. Not needed to add a person or rebuild the site.
