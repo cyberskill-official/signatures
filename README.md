@@ -1,19 +1,29 @@
 # CyberSkill email signatures
 
 One Gmail signature per employee, generated from a YAML record and a photo,
-published as a GitHub Pages site that staff use to install their own.
+published as a site that staff use to install their own.
 
-**Site:** https://cyberskill-official.github.io/signatures/
+**https://signatures.cyberskill.world**
 
-Staff never clone this repo. They open their page, press one button, and paste
-into Gmail.
+## If you work here
 
-**Adding or changing your own details? See [CONTRIBUTING.md](CONTRIBUTING.md).**
-Employees raise a pull request, or just open an issue and let a maintainer do
-it. Nobody needs Python, a browser install, or a build step - CI validates the
-pull request and rebuilds `docs/` after merge.
+Everything you need is on the site. Nothing to install, no build to run, no
+need to clone this repo.
 
-The rest of this README is for whoever maintains the design.
+| I want to | Go to |
+|---|---|
+| Install my signature | [find your name](https://signatures.cyberskill.world/), open your page, press **Verify & copy**, paste into Gmail |
+| Get one - I am not listed | [signatures.cyberskill.world/help](https://signatures.cyberskill.world/help/) |
+| Change my details or photo | [signatures.cyberskill.world/help](https://signatures.cyberskill.world/help/) |
+
+Raising the change yourself instead? [CONTRIBUTING.md](CONTRIBUTING.md) has
+the browser-only route and the local one.
+
+## If you maintain this
+
+The rest of this README is the design and the build. Start with
+[the colour architecture](#the-colour-architecture---the-decision-that-matters-most),
+which is the decision everything else follows from.
 
 ---
 

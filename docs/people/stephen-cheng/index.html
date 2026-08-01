@@ -22,7 +22,33 @@
              text-transform:uppercase;}
   header.site h1{margin:18px 0 6px;font-size:30px;letter-spacing:-.4px;}
   header.site p{margin:0;color:#E8D9CD;max-width:62ch;}
+  .tabs{display:flex;gap:8px;margin:20px 0 -6px;flex-wrap:wrap;}
+  .tab{display:inline-block;padding:8px 15px;border-radius:8px;font-size:14px;
+       font-weight:600;background:rgba(255,255,255,.10);color:#F3E7DC;}
+  .tab:hover{background:rgba(255,255,255,.18);}
+  .tab.on{background:var(--ochre);color:#3A1B0B;}
   .ochre{height:4px;background:var(--ochre);}
+  /* help page */
+  .lede{font-size:17px;line-height:1.6;max-width:62ch;margin:0 0 26px;}
+  .route{padding:22px 24px;margin:0 0 16px;}
+  .route h3{margin:0 0 4px;font-size:18px;}
+  .route .who{margin:0 0 14px;color:var(--muted);font-size:14px;}
+  .route ol,.route ul{margin:0;padding-left:20px;}
+  .route li{margin:7px 0;}
+  .cta{display:inline-block;background:var(--umber);color:#fff;border-radius:8px;
+       padding:11px 20px;font-size:14px;font-weight:600;text-decoration:none;
+       margin-top:14px;}
+  .cta:hover{background:#5C2D14;color:#fff;}
+  .cta.ghost{background:transparent;color:var(--umber);
+             box-shadow:inset 0 0 0 1.5px var(--line);}
+  .cta.ghost:hover{background:#F6F1EB;color:var(--umber);}
+  .note{border-left:3px solid var(--ochre);padding:2px 0 2px 14px;
+        margin:18px 0;color:var(--muted);font-size:14px;max-width:62ch;}
+  .faq{padding:6px 24px 10px;margin:0 0 16px;}
+  .faq details{border-top:1px solid var(--line);padding:14px 0;margin:0;}
+  .faq details:first-of-type{border-top:0;}
+  .faq summary{font-weight:600;color:var(--ink);font-size:15px;}
+  .faq p{margin:10px 0 0;color:var(--muted);max-width:62ch;}
   main{padding:38px 0 80px;}
   .card{background:var(--card);border:1px solid var(--line);border-radius:12px;}
   .steps{padding:20px 24px;margin:0 0 34px;}
@@ -99,11 +125,16 @@
     </a>
     <h1>Your email signature</h1>
     <p>Verify the images, copy, then paste into Gmail.</p>
+    <nav class="tabs">
+      <a class="tab on" href="../../" aria-current="page">All signatures</a>
+      <a class="tab" href="../../help/">Get one or change yours</a>
+    </nav>
   </div>
 </header>
 <div class="ochre"></div>
 <main><div class="wrap">
-  <p class="crumb"><a href="../../">&larr; All signatures</a></p>
+  <p class="crumb"><a href="../../">&larr; All signatures</a>
+     &nbsp;&middot;&nbsp; <a href="../../help/">Something here is wrong</a></p>
   <h1 class="person-name">Stephen Cheng</h1>
   <p class="person-role">Founder - CyberSkill</p>
 
@@ -267,8 +298,9 @@
 })();
 </script></div></main>
 <footer class="site"><div class="wrap">
-  <p>Generated from <code>src/people/</code>. To add someone, drop a YAML
-     record and a photo in <code>src/</code> and run <code>./install.sh</code>.
-     Nothing in <code>docs/</code> is edited by hand.</p>
+  <p>Something wrong, missing, or out of date?
+     <a href="../../help/">Ask for it to be changed</a> - it usually takes a
+     day. Nothing here is edited by hand; every signature is generated, so a
+     fix for one person can be a fix for everyone.</p>
 </div></footer>
 </body></html>

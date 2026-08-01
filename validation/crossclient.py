@@ -519,6 +519,35 @@ def audit_site(engines, people, findings, runs):
                 errors = []
                 page.on("pageerror", lambda e: errors.append(str(e)))
 
+                # The directory and the help page are what staff hit first, so
+                # they get the same overflow and dead-link checks as the
+                # install pages.
+                for path, name in (("", "index"), ("help/", "help")):
+                    page.goto(local + path, wait_until="networkidle")
+                    tag = f"site--{name}--{eng}--{label}"
+                    page.screenshot(path=os.path.join(OUT, f"{tag}.png"),
+                                    full_page=True)
+                    over = page.evaluate(
+                        "() => document.documentElement.scrollWidth - "
+                        "document.documentElement.clientWidth")
+                    if over > 1:
+                        add("HIGH", tag, "S1",
+                            f"{name} page scrolls horizontally by {over}px")
+                    # An internal link that 404s strands whoever followed it.
+                    dead = page.evaluate(
+                        """() => Array.from(document.querySelectorAll('a[href]'))
+                             .map(a => a.getAttribute('href'))
+                             .filter(h => h && !/^(https?:|mailto:|tel:|#)/.test(h))""")
+                    for href in set(dead):
+                        r = page.request.get(local + path + href)
+                        if not r.ok:
+                            add("HIGH", tag, "S4",
+                                f"{name} links to {href} -> {r.status}")
+                    runs.append({"kind": "site", "person": name, "engine": eng,
+                                 "width": width, "copyOk": None,
+                                 "status": f"{len(set(dead))} internal link(s) ok",
+                                 "screenshot": f"{tag}.png"})
+
                 for rec in people:
                     url = f"{local}people/{rec['id']}/"
                     page.goto(url, wait_until="networkidle")

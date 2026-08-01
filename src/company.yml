@@ -15,6 +15,10 @@ tagline: Turn Your Will Into Real
 base_url: https://signatures.cyberskill.world/
 custom_domain: signatures.cyberskill.world
 
+# Where the site sends people who need a signature or want to change theirs.
+# Used to build the request links on the help page - no trailing slash.
+repo: https://github.com/cyberskill-official/signatures
+
 # Channels every employee shares. A person can override any of these in their
 # own record, or set it to null to drop the row entirely.
 website: cyberskill.world

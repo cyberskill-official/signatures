@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-01 14:55:15",
+  "generated": "2026-08-01 15:11:55",
   "engines": [
     "chromium",
     "firefox"
@@ -5513,12 +5513,48 @@
     },
     {
       "kind": "site",
+      "person": "index",
+      "engine": "chromium",
+      "width": 1280,
+      "copyOk": null,
+      "status": "4 internal link(s) ok",
+      "screenshot": "site--index--chromium--desktop.png"
+    },
+    {
+      "kind": "site",
+      "person": "help",
+      "engine": "chromium",
+      "width": 1280,
+      "copyOk": null,
+      "status": "2 internal link(s) ok",
+      "screenshot": "site--help--chromium--desktop.png"
+    },
+    {
+      "kind": "site",
       "person": "stephen-cheng",
       "engine": "chromium",
       "width": 1280,
       "copyOk": true,
       "status": "All 6 images OK - copied. Paste into Gmail.",
       "screenshot": "site--stephen-cheng--chromium--desktop.png"
+    },
+    {
+      "kind": "site",
+      "person": "index",
+      "engine": "chromium",
+      "width": 390,
+      "copyOk": null,
+      "status": "4 internal link(s) ok",
+      "screenshot": "site--index--chromium--phone.png"
+    },
+    {
+      "kind": "site",
+      "person": "help",
+      "engine": "chromium",
+      "width": 390,
+      "copyOk": null,
+      "status": "2 internal link(s) ok",
+      "screenshot": "site--help--chromium--phone.png"
     },
     {
       "kind": "site",
@@ -5531,12 +5567,48 @@
     },
     {
       "kind": "site",
+      "person": "index",
+      "engine": "firefox",
+      "width": 1280,
+      "copyOk": null,
+      "status": "4 internal link(s) ok",
+      "screenshot": "site--index--firefox--desktop.png"
+    },
+    {
+      "kind": "site",
+      "person": "help",
+      "engine": "firefox",
+      "width": 1280,
+      "copyOk": null,
+      "status": "2 internal link(s) ok",
+      "screenshot": "site--help--firefox--desktop.png"
+    },
+    {
+      "kind": "site",
       "person": "stephen-cheng",
       "engine": "firefox",
       "width": 1280,
       "copyOk": true,
       "status": "All 6 images OK - copied. Paste into Gmail.",
       "screenshot": "site--stephen-cheng--firefox--desktop.png"
+    },
+    {
+      "kind": "site",
+      "person": "index",
+      "engine": "firefox",
+      "width": 390,
+      "copyOk": null,
+      "status": "4 internal link(s) ok",
+      "screenshot": "site--index--firefox--phone.png"
+    },
+    {
+      "kind": "site",
+      "person": "help",
+      "engine": "firefox",
+      "width": 390,
+      "copyOk": null,
+      "status": "2 internal link(s) ok",
+      "screenshot": "site--help--firefox--phone.png"
     },
     {
       "kind": "site",

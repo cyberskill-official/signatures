@@ -4,7 +4,7 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <meta name="color-scheme" content="light"/>
-<title>Email signatures - CyberSkill</title>
+<title>Get a signature - CyberSkill</title>
 <style>
   :root{--umber:#45210E;--ochre:#F4BA17;--accent:#9E5E3E;--ink:#22201E;
         --muted:#6B6B6B;--line:#E6E0D8;--bg:#FBF9F7;--card:#FFFFFF;}
@@ -119,67 +119,123 @@
 <body>
 <header class="site">
   <div class="wrap">
-    <a class="brandrow" href="./">
+    <a class="brandrow" href="../">
       <img src="https://signatures.cyberskill.world/assets/shared/logo-36-2x.png?v=7b060983" alt=""/>
       <span class="brandname">CyberSkill</span>
     </a>
-    <h1>Email signatures</h1>
-    <p>Pick your name, verify, copy, paste into Gmail. One button, about a minute.</p>
+    <h1>Get a signature</h1>
+    <p>Do not have one yet, or something changed? Start here.</p>
     <nav class="tabs">
-      <a class="tab on" href="./" aria-current="page">All signatures</a>
-      <a class="tab" href="./help/">Get one or change yours</a>
+      <a class="tab" href="../">All signatures</a>
+      <a class="tab on" href="../help/" aria-current="page">Get one or change yours</a>
     </nav>
   </div>
 </header>
 <div class="ochre"></div>
 <main><div class="wrap">
-  <div class="card steps">
-    <h2>How to install yours</h2>
+  <p class="lede">Everyone at CyberSkill can have a signature
+     on this site. If yours is not here yet, or something on it has changed,
+     here is how to sort it out.</p>
+
+  <div class="card route">
+    <h3>Just ask</h3>
+    <p class="who">The normal way. You need a GitHub account and nothing else.</p>
     <ol>
-      <li>Find yourself below and open your page.</li>
-      <li>Press <strong>Verify &amp; copy</strong>. It checks every image URL
-          first and refuses to copy if any is unreachable.</li>
-      <li>In Gmail: <strong>Settings &rarr; See all settings &rarr; General
-          &rarr; Signature</strong>.</li>
-      <li>Paste with <strong>Cmd/Ctrl+V</strong>, then
-          <strong>Save changes</strong> at the very bottom of the page.</li>
-      <li>Send yourself a test and read it on your phone as well as your laptop.</li>
+      <li>Open one of the forms below.</li>
+      <li>Fill in your name, job title and email. Add a phone number if you
+          want one on there.</li>
+      <li>Drag your photo into the photo box. Anything square-ish works.</li>
+      <li>Submit.</li>
     </ol>
+    
+      <a class="cta" href="https://github.com/cyberskill-official/signatures/issues/new?template=new-signature.yml">Request a signature</a>
+      <a class="cta ghost" href="https://github.com/cyberskill-official/signatures/issues/new?template=update-signature.yml">Update my details</a>
   </div>
 
-  <div class="toolbar">
-    <input class="search" id="q" type="search"
-           placeholder="Search by name, role or email" autocomplete="off"/>
-    <span class="count" id="count">1 person</span>
+  <div class="card route">
+    <h3>Or do it yourself</h3>
+    <p class="who">If you have used GitHub before. All of it happens in the
+       browser - nothing to install, nothing to run.</p>
+    <ol>
+      <li>Copy <code>src/people/_template.yml</code> to
+          <code>src/people/your-name.yml</code> and fill it in. That filename
+          becomes your web address, so use lowercase letters and hyphens.</li>
+      <li>Upload your photo to <code>src/avatars/</code> with a matching
+          filename.</li>
+      <li>Open a pull request with both changes on one branch.</li>
+    </ol>
+    <a class="cta ghost" href="https://github.com/cyberskill-official/signatures/blob/main/CONTRIBUTING.md">Full instructions</a>
   </div>
 
-  <div class="people" id="people"><a class="card person" href="people/stephen-cheng/" data-search="stephen cheng founder info@cyberskill.world"><img src="https://signatures.cyberskill.world/assets/people/stephen-cheng/avatar-80-2x.png?v=10ab46c8" alt=""/><div><div class="n">Stephen Cheng</div><div class="r">Founder</div></div><div class="go">&rarr;</div></a></div>
-  <div class="empty card" id="empty" style="display:none;">
-    No match. <a href="help/">Not listed yet?</a>
+  <div class="card route">
+    <h3>What happens next</h3>
+    <p class="who">Usually within a day.</p>
+    <ul>
+      <li>Someone turns your request into a change and checks it.</li>
+      <li>Automatic checks confirm it renders correctly on a phone and a
+          laptop, in light and dark mode, and that it survives what Gmail
+          does to pasted markup.</li>
+      <li>Once it is merged the site rebuilds itself and your page appears
+          under <strong>All signatures</strong>.</li>
+      <li>Open your page, press <strong>Verify &amp; copy</strong>, and paste
+          into Gmail.</li>
+    </ul>
+    <p class="note">Nothing you send can break anyone else's signature, and
+       nothing reaches the live site until a person has looked at it.</p>
   </div>
-  <p class="note" style="margin-top:22px;">Not on this list, or something here
-     is out of date? <a href="help/">Ask for it to be added or changed</a>.</p>
 
-<script>
-(function () {
-  var q = document.getElementById('q'), list = document.getElementById('people'),
-      empty = document.getElementById('empty'), count = document.getElementById('count'),
-      cards = Array.prototype.slice.call(list.querySelectorAll('.person'));
-  function apply() {
-    var t = q.value.trim().toLowerCase(), shown = 0;
-    cards.forEach(function (c) {
-      var hit = !t || c.getAttribute('data-search').indexOf(t) > -1;
-      c.style.display = hit ? '' : 'none'; if (hit) shown++;
-    });
-    count.textContent = shown + (shown === 1 ? ' person' : ' people');
-    empty.style.display = shown ? 'none' : '';
-  }
-  q.addEventListener('input', apply);
-})();
-</script></div></main>
+  <div class="card faq">
+    <details>
+      <summary>What ends up public?</summary>
+      <p>Your name, job title, work email, your photo, and the phone number if
+         you give one. Your photo is served from a public web address, which
+         is how images in email signatures work everywhere - a mail app has to
+         be able to fetch it. Use a photo you are happy to have public, and
+         leave it out if you would rather not.</p>
+    </details>
+    <details>
+      <summary>I do not want my phone number on it.</summary>
+      <p>Leave it out and the row disappears. Nothing else shifts. The same is
+         true of the photo, the Vietnamese name line, and the social links.</p>
+    </details>
+    <details>
+      <summary>What sort of photo?</summary>
+      <p>A normal head-and-shoulders portrait, square-ish, 512 pixels or
+         larger. It gets cropped to a circle automatically. If your photo is
+         framed unusually - very wide, or you are off to one side - say so in
+         your request and it will be adjusted by hand.</p>
+    </details>
+    <details>
+      <summary>My name has accents. Will they show correctly?</summary>
+      <p>Yes. Vietnamese diacritics are checked on every build, in every
+         browser engine, and a missing character fails the build rather than
+         shipping a blank box.</p>
+    </details>
+    <details>
+      <summary>The images are not showing in my email.</summary>
+      <p>Most mail apps block images until you allow them, and some people
+         keep them blocked permanently. That is expected. Every line of your
+         signature is real text, so nothing is lost and nothing moves - the
+         layout is identical either way.</p>
+    </details>
+    <details>
+      <summary>It looks slightly different in Outlook.</summary>
+      <p>Outlook for Windows draws email through Microsoft Word, which ignores
+         some styling. Links come out in Outlook's own blue instead of
+         inheriting the surrounding colour, and the block is about four pixels
+         shorter. Both are expected and neither can be prevented from the
+         markup.</p>
+    </details>
+    <details>
+      <summary>I pasted it and then my details changed.</summary>
+      <p>Request the change, then paste again once your page updates. Gmail
+         keeps its own copy of whatever you pasted, so an old signature stays
+         old until you replace it.</p>
+    </details>
+  </div></div></main>
 <footer class="site"><div class="wrap">
   <p>Something wrong, missing, or out of date?
-     <a href="./help/">Ask for it to be changed</a> - it usually takes a
+     <a href="../help/">Ask for it to be changed</a> - it usually takes a
      day. Nothing here is edited by hand; every signature is generated, so a
      fix for one person can be a fix for everyone.</p>
 </div></footer>

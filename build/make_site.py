@@ -39,7 +39,33 @@ CSS = """
              text-transform:uppercase;}
   header.site h1{margin:18px 0 6px;font-size:30px;letter-spacing:-.4px;}
   header.site p{margin:0;color:#E8D9CD;max-width:62ch;}
+  .tabs{display:flex;gap:8px;margin:20px 0 -6px;flex-wrap:wrap;}
+  .tab{display:inline-block;padding:8px 15px;border-radius:8px;font-size:14px;
+       font-weight:600;background:rgba(255,255,255,.10);color:#F3E7DC;}
+  .tab:hover{background:rgba(255,255,255,.18);}
+  .tab.on{background:var(--ochre);color:#3A1B0B;}
   .ochre{height:4px;background:var(--ochre);}
+  /* help page */
+  .lede{font-size:17px;line-height:1.6;max-width:62ch;margin:0 0 26px;}
+  .route{padding:22px 24px;margin:0 0 16px;}
+  .route h3{margin:0 0 4px;font-size:18px;}
+  .route .who{margin:0 0 14px;color:var(--muted);font-size:14px;}
+  .route ol,.route ul{margin:0;padding-left:20px;}
+  .route li{margin:7px 0;}
+  .cta{display:inline-block;background:var(--umber);color:#fff;border-radius:8px;
+       padding:11px 20px;font-size:14px;font-weight:600;text-decoration:none;
+       margin-top:14px;}
+  .cta:hover{background:#5C2D14;color:#fff;}
+  .cta.ghost{background:transparent;color:var(--umber);
+             box-shadow:inset 0 0 0 1.5px var(--line);}
+  .cta.ghost:hover{background:#F6F1EB;color:var(--umber);}
+  .note{border-left:3px solid var(--ochre);padding:2px 0 2px 14px;
+        margin:18px 0;color:var(--muted);font-size:14px;max-width:62ch;}
+  .faq{padding:6px 24px 10px;margin:0 0 16px;}
+  .faq details{border-top:1px solid var(--line);padding:14px 0;margin:0;}
+  .faq details:first-of-type{border-top:0;}
+  .faq summary{font-weight:600;color:var(--ink);font-size:15px;}
+  .faq p{margin:10px 0 0;color:var(--muted);max-width:62ch;}
   main{padding:38px 0 80px;}
   .card{background:var(--card);border:1px solid var(--line);border-radius:12px;}
   .steps{padding:20px 24px;margin:0 0 34px;}
@@ -121,7 +147,10 @@ def head(title, css_extra=""):
 <body>"""
 
 
-def site_header(company, logo_url, root, subtitle, h1):
+def site_header(company, logo_url, root, subtitle, h1, here=""):
+    def tab(label, href, key):
+        cur = ' aria-current="page"' if key == here else ""
+        return f'<a class="tab{" on" if key == here else ""}" href="{href}"{cur}>{label}</a>'
     return f"""
 <header class="site">
   <div class="wrap">
@@ -131,17 +160,28 @@ def site_header(company, logo_url, root, subtitle, h1):
     </a>
     <h1>{H.escape(h1)}</h1>
     <p>{subtitle}</p>
+    <nav class="tabs">
+      {tab("All signatures", root, "index")}
+      {tab("Get one or change yours", root + "help/", "help")}
+    </nav>
   </div>
 </header>
 <div class="ochre"></div>
 <main><div class="wrap">"""
 
 
-FOOTER = """</div></main>
+def footer(root):
+    """The site is read by staff, not by whoever maintains the build.
+
+    An earlier version explained the YAML layout here, which is useful to
+    nobody who arrived to copy their signature.
+    """
+    return f"""</div></main>
 <footer class="site"><div class="wrap">
-  <p>Generated from <code>src/people/</code>. To add someone, drop a YAML
-     record and a photo in <code>src/</code> and run <code>./install.sh</code>.
-     Nothing in <code>docs/</code> is edited by hand.</p>
+  <p>Something wrong, missing, or out of date?
+     <a href="{root}help/">Ask for it to be changed</a> - it usually takes a
+     day. Nothing here is edited by hand; every signature is generated, so a
+     fix for one person can be a fix for everyone.</p>
 </div></footer>
 </body></html>"""
 
@@ -149,6 +189,134 @@ FOOTER = """</div></main>
 def initials(name):
     parts = [p for p in name.split() if p]
     return (parts[0][:1] + (parts[-1][:1] if len(parts) > 1 else "")).upper()
+
+
+def build_help(company, base):
+    """The page for someone who has no signature yet, or whose details moved.
+
+    Written for whoever arrives without knowing what a pull request is. The
+    engineering route is here too, but second - leading with it turns a
+    two-minute request into a tutorial.
+    """
+    logo = asset_url(base, f"assets/shared/logo-{LOGO}-2x.png",
+                     shared_asset(f"logo-{LOGO}-2x.png"))
+    repo = (company.get("repo") or "").rstrip("/")
+    new_url = f"{repo}/issues/new?template=new-signature.yml" if repo else ""
+    upd_url = f"{repo}/issues/new?template=update-signature.yml" if repo else ""
+    contrib = f"{repo}/blob/main/CONTRIBUTING.md" if repo else ""
+
+    ask = f"""
+      <a class="cta" href="{new_url}">Request a signature</a>
+      <a class="cta ghost" href="{upd_url}">Update my details</a>""" if repo else """
+      <p class="note">No repository is configured in <code>src/company.yml</code>,
+         so the request links are missing. Ask whoever maintains this site.</p>"""
+
+    body = f"""
+  <p class="lede">Everyone at {H.escape(company['name'])} can have a signature
+     on this site. If yours is not here yet, or something on it has changed,
+     here is how to sort it out.</p>
+
+  <div class="card route">
+    <h3>Just ask</h3>
+    <p class="who">The normal way. You need a GitHub account and nothing else.</p>
+    <ol>
+      <li>Open one of the forms below.</li>
+      <li>Fill in your name, job title and email. Add a phone number if you
+          want one on there.</li>
+      <li>Drag your photo into the photo box. Anything square-ish works.</li>
+      <li>Submit.</li>
+    </ol>
+    {ask}
+  </div>
+
+  <div class="card route">
+    <h3>Or do it yourself</h3>
+    <p class="who">If you have used GitHub before. All of it happens in the
+       browser - nothing to install, nothing to run.</p>
+    <ol>
+      <li>Copy <code>src/people/_template.yml</code> to
+          <code>src/people/your-name.yml</code> and fill it in. That filename
+          becomes your web address, so use lowercase letters and hyphens.</li>
+      <li>Upload your photo to <code>src/avatars/</code> with a matching
+          filename.</li>
+      <li>Open a pull request with both changes on one branch.</li>
+    </ol>
+    {f'<a class="cta ghost" href="{contrib}">Full instructions</a>' if repo else ''}
+  </div>
+
+  <div class="card route">
+    <h3>What happens next</h3>
+    <p class="who">Usually within a day.</p>
+    <ul>
+      <li>Someone turns your request into a change and checks it.</li>
+      <li>Automatic checks confirm it renders correctly on a phone and a
+          laptop, in light and dark mode, and that it survives what Gmail
+          does to pasted markup.</li>
+      <li>Once it is merged the site rebuilds itself and your page appears
+          under <strong>All signatures</strong>.</li>
+      <li>Open your page, press <strong>Verify &amp; copy</strong>, and paste
+          into Gmail.</li>
+    </ul>
+    <p class="note">Nothing you send can break anyone else's signature, and
+       nothing reaches the live site until a person has looked at it.</p>
+  </div>
+
+  <div class="card faq">
+    <details>
+      <summary>What ends up public?</summary>
+      <p>Your name, job title, work email, your photo, and the phone number if
+         you give one. Your photo is served from a public web address, which
+         is how images in email signatures work everywhere - a mail app has to
+         be able to fetch it. Use a photo you are happy to have public, and
+         leave it out if you would rather not.</p>
+    </details>
+    <details>
+      <summary>I do not want my phone number on it.</summary>
+      <p>Leave it out and the row disappears. Nothing else shifts. The same is
+         true of the photo, the Vietnamese name line, and the social links.</p>
+    </details>
+    <details>
+      <summary>What sort of photo?</summary>
+      <p>A normal head-and-shoulders portrait, square-ish, 512 pixels or
+         larger. It gets cropped to a circle automatically. If your photo is
+         framed unusually - very wide, or you are off to one side - say so in
+         your request and it will be adjusted by hand.</p>
+    </details>
+    <details>
+      <summary>My name has accents. Will they show correctly?</summary>
+      <p>Yes. Vietnamese diacritics are checked on every build, in every
+         browser engine, and a missing character fails the build rather than
+         shipping a blank box.</p>
+    </details>
+    <details>
+      <summary>The images are not showing in my email.</summary>
+      <p>Most mail apps block images until you allow them, and some people
+         keep them blocked permanently. That is expected. Every line of your
+         signature is real text, so nothing is lost and nothing moves - the
+         layout is identical either way.</p>
+    </details>
+    <details>
+      <summary>It looks slightly different in Outlook.</summary>
+      <p>Outlook for Windows draws email through Microsoft Word, which ignores
+         some styling. Links come out in Outlook's own blue instead of
+         inheriting the surrounding colour, and the block is about four pixels
+         shorter. Both are expected and neither can be prevented from the
+         markup.</p>
+    </details>
+    <details>
+      <summary>I pasted it and then my details changed.</summary>
+      <p>Request the change, then paste again once your page updates. Gmail
+         keeps its own copy of whatever you pasted, so an old signature stays
+         old until you replace it.</p>
+    </details>
+  </div>"""
+
+    return (head(f"Get a signature - {company['name']}")
+            + site_header(company, logo, "../",
+                          "Do not have one yet, or something changed? "
+                          "Start here.",
+                          "Get a signature", here="help")
+            + body + footer("../"))
 
 
 def build_index(company, people, base):
@@ -192,7 +360,11 @@ def build_index(company, people, base):
   </div>
 
   <div class="people" id="people">{''.join(cards)}</div>
-  <div class="empty card" id="empty" style="display:none;">No match.</div>
+  <div class="empty card" id="empty" style="display:none;">
+    No match. <a href="help/">Not listed yet?</a>
+  </div>
+  <p class="note" style="margin-top:22px;">Not on this list, or something here
+     is out of date? <a href="help/">Ask for it to be added or changed</a>.</p>
 
 <script>
 (function () {{
@@ -215,8 +387,9 @@ def build_index(company, people, base):
     return (head(f"Email signatures - {company['name']}")
             + site_header(company, logo, "./",
                           "Pick your name, verify, copy, paste into Gmail. "
-                          "One button, about a minute.", "Email signatures")
-            + body + FOOTER)
+                          "One button, about a minute.", "Email signatures",
+                          here="index")
+            + body + footer("./"))
 
 
 def build_person(company, rec, base, sig):
@@ -226,9 +399,10 @@ def build_person(company, rec, base, sig):
     return (head(f"{rec['name']} - email signature")
             + site_header(company, logo, "../../",
                           "Verify the images, copy, then paste into Gmail.",
-                          "Your email signature")
+                          "Your email signature", here="index")
             + f"""
-  <p class="crumb"><a href="../../">&larr; All signatures</a></p>
+  <p class="crumb"><a href="../../">&larr; All signatures</a>
+     &nbsp;&middot;&nbsp; <a href="../../help/">Something here is wrong</a></p>
   <h1 class="person-name">{H.escape(rec['name'])}</h1>
   <p class="person-role">{H.escape(rec['role'])} - {H.escape(company['name'])}</p>
 
@@ -384,7 +558,7 @@ def build_person(company, rec, base, sig):
   window.addEventListener('load', measure);
   window.addEventListener('resize', measure);
 }})();
-</script>""" + FOOTER)
+</script>""" + footer("../../"))
 
 
 def main():
@@ -401,6 +575,12 @@ def main():
     os.makedirs(DOCS, exist_ok=True)
     with open(os.path.join(DOCS, "index.html"), "w", encoding="utf-8") as fh:
         fh.write(build_index(company, people, base))
+
+    helpdir = os.path.join(DOCS, "help")
+    os.makedirs(helpdir, exist_ok=True)
+    with open(os.path.join(helpdir, "index.html"), "w", encoding="utf-8") as fh:
+        fh.write(build_help(company, base))
+    print("  docs/help/index.html")
 
     # GitHub Pages runs Jekyll by default, which ignores files and folders
     # beginning with an underscore. .nojekyll turns that off so nothing is

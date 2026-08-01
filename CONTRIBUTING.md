@@ -3,6 +3,11 @@
 Every CyberSkill employee owns their own signature record. This page explains
 how to get one, and how to change it later.
 
+**If you just want a signature, you do not need this page.** Go to
+[signatures.cyberskill.world/help](https://signatures.cyberskill.world/help/),
+fill in the form, and someone will do it for you. This page is for raising the
+change yourself.
+
 Pick the route that matches how comfortable you are with GitHub. All three end
 in the same place: a pull request that a maintainer reviews and merges.
 
