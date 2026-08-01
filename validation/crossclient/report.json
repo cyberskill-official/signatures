@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-01 23:05:25",
+  "generated": "2026-08-01 23:40:18",
   "engines": [
     "chromium"
   ],
@@ -4602,7 +4602,7 @@
       "engine": "chromium",
       "width": 1280,
       "copyOk": null,
-      "status": "4 internal link(s) ok",
+      "status": "5 internal link(s) ok",
       "screenshot": "site--index--chromium--desktop.png"
     },
     {
@@ -4611,8 +4611,26 @@
       "engine": "chromium",
       "width": 1280,
       "copyOk": null,
-      "status": "2 internal link(s) ok",
+      "status": "3 internal link(s) ok",
       "screenshot": "site--help--chromium--desktop.png"
+    },
+    {
+      "kind": "site",
+      "person": "vi",
+      "engine": "chromium",
+      "width": 1280,
+      "copyOk": null,
+      "status": "5 internal link(s) ok",
+      "screenshot": "site--vi--chromium--desktop.png"
+    },
+    {
+      "kind": "site",
+      "person": "vi-help",
+      "engine": "chromium",
+      "width": 1280,
+      "copyOk": null,
+      "status": "3 internal link(s) ok",
+      "screenshot": "site--vi-help--chromium--desktop.png"
     },
     {
       "kind": "site",
@@ -4629,7 +4647,7 @@
       "engine": "chromium",
       "width": 390,
       "copyOk": null,
-      "status": "4 internal link(s) ok",
+      "status": "5 internal link(s) ok",
       "screenshot": "site--index--chromium--phone.png"
     },
     {
@@ -4638,8 +4656,26 @@
       "engine": "chromium",
       "width": 390,
       "copyOk": null,
-      "status": "2 internal link(s) ok",
+      "status": "3 internal link(s) ok",
       "screenshot": "site--help--chromium--phone.png"
+    },
+    {
+      "kind": "site",
+      "person": "vi",
+      "engine": "chromium",
+      "width": 390,
+      "copyOk": null,
+      "status": "5 internal link(s) ok",
+      "screenshot": "site--vi--chromium--phone.png"
+    },
+    {
+      "kind": "site",
+      "person": "vi-help",
+      "engine": "chromium",
+      "width": 390,
+      "copyOk": null,
+      "status": "3 internal link(s) ok",
+      "screenshot": "site--vi-help--chromium--phone.png"
     },
     {
       "kind": "site",

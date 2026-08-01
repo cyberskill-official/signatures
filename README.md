@@ -112,6 +112,7 @@ signatures/
 ├── docs/                 <- GitHub Pages root. 100% generated, never hand-edited.
 │   ├── index.html            signature directory
 │   ├── help/index.html       how to get one or change yours
+│   ├── vi/                   the same two pages in Vietnamese
 │   ├── 404.html              absolute links, so it works at any depth
 │   ├── robots.txt            follows index_site in company.yml
 │   ├── .nojekyll             stops Jekyll dropping files
@@ -126,16 +127,17 @@ signatures/
 │   ├── logo.png
 │   ├── people/_template.yml  copied by contributors; underscore = ignored
 │   ├── people/<id>.yml
-│   └── avatars/<id>.png
+│   ├── avatars/<id>.png
+│   └── locales/en.yml, vi.yml   every word of site chrome
 ├── build/                model, asset baker, generator, site builder
-├── tests/                pytest - records, input safety, workflow definitions
+├── tests/                pytest - records, input safety, workflows, locales
 ├── validation/
 │   ├── check.py              layout, contrast, blocked images
 │   └── crossclient.py        client sanitisers x 3 engines
 ├── .github/
 │   ├── ISSUE_TEMPLATE/       intake forms for staff with no GitHub knowledge
-│   ├── scripts/              issue_to_record.py - request to YAML + photo
-│   └── workflows/            validate, publish, request
+│   ├── scripts/              issue_to_record.py, pr_previews.py
+│   └── workflows/            validate, publish, request, previews-cleanup
 ├── requirements.txt      pinned; Dependabot watches it
 ├── LICENSE               photos, brand and code are NOT under the same terms
 ├── CONTRIBUTING.md

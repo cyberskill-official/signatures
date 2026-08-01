@@ -1,0 +1,54 @@
+name: Clean up previews
+
+# Removes a pull request's screenshots from the `previews` branch once the
+# pull request is closed.
+#
+# Without this the branch grows forever. It is only screenshots, so it grows
+# slowly - but a repository whose history is mostly PNGs of itself is a
+# repository nobody wants to clone.
+
+on:
+  pull_request:
+    types: [closed]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: previews-cleanup
+  cancel-in-progress: false
+
+jobs:
+  prune:
+    # Fork pull requests never published previews, so there is nothing to
+    # remove and the token is read-only anyway.
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    steps:
+      - name: Remove this pull request's previews
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          d=$(mktemp -d); cd "$d"
+          git init -q
+          git remote add origin \
+            "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}"
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          if ! git fetch -q --depth 1 origin previews 2>/dev/null; then
+            echo "No previews branch - nothing to clean up."
+            exit 0
+          fi
+          git checkout -q FETCH_HEAD && git checkout -q -B previews
+
+          if [ ! -d "pr-${PR_NUMBER}" ]; then
+            echo "No previews for #${PR_NUMBER}."
+            exit 0
+          fi
+
+          git rm -rq "pr-${PR_NUMBER}"
+          git commit -q -m "Drop previews for closed #${PR_NUMBER}"
+          git push -q origin previews
+          echo "Removed previews for #${PR_NUMBER}."

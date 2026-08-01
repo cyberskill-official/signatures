@@ -247,6 +247,26 @@ can never start rejecting real names.
 If your record is rejected, the failure message names the field and says what
 is wrong with it.
 
+### Changing the wording on the site
+
+Every word of the site outside a person's own details lives in
+[`src/locales/`](src/locales) - `en.yml` and `vi.yml`. Nothing is hardcoded in
+the build, so fixing an awkward sentence means editing a YAML file, not
+Python.
+
+The Vietnamese was drafted alongside the English and has not yet been read by
+a native speaker. If a sentence is stiff, wrong, or just not how anyone
+actually says it, change it - that is the most useful pull request on this
+list.
+
+Both files must define exactly the same keys. A missing one fails the build
+rather than falling back to English, because a page that is half-translated
+looks finished and only the people it fails will notice. If you add a string,
+add it to both.
+
+Person pages are deliberately not translated. They are mostly proper nouns
+and one button, and every string on them is tied to live JavaScript state.
+
 ### When someone leaves
 
 Set `active: false` on their record. Their page comes off the site, the record

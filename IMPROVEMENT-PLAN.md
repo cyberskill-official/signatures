@@ -135,7 +135,7 @@ both `pip` and `github-actions`.
 
 # P1 - high impact, do next
 
-## 5. The site is English-only
+## 5. The site is English-only  -  DONE
 
 CyberSkill is a Vietnamese company. The signature carefully tags Vietnamese
 names with `lang="vi"` and validates diacritic rendering across engines - and
@@ -152,6 +152,14 @@ correctly per page. Keep the person pages as they are - they are mostly
 proper nouns and one button.
 
 **Effort: 1 day, most of it translation review rather than code.**
+
+Done, with one caveat. Strings moved to `src/locales/{en,vi}.yml`; `vi/`
+variants of the index and help pages are generated, with a language link in
+the header and `lang`/`hreflang` set per page. A missing key fails the build
+rather than falling back to English.
+
+**The Vietnamese is a draft and has not been read by a native speaker.**
+Person pages stay English, as recommended.
 
 ## 6. Turning a request into a pull request is entirely manual
 
@@ -176,7 +184,7 @@ Two cautions for whoever builds it:
 
 **Effort: 1 day. Highest leverage item on this list once P0 is done.**
 
-## 7. Reviewers cannot see what a pull request looks like
+## 7. Reviewers cannot see what a pull request looks like  -  DONE
 
 CI uploads screenshots as an artifact. Reviewing a signature change means
 downloading a zip and opening PNGs.
@@ -190,6 +198,17 @@ the defects found in this project were found by looking at a picture, not by
 reading an assertion.
 
 **Effort: half a day for the inline image, 1 day for a real preview deploy.**
+
+Done, but not the way this suggested. The inline base64 image cannot work:
+GitHub's markdown sanitiser drops `data:` URIs on `<img>`, and one encoded
+screenshot is ~130,000 characters against a 65,536-character comment limit -
+twice the whole budget for a single image. Both are asserted in
+`tests/test_previews.py` so the idea does not come back.
+
+Instead the screenshots are pushed to an orphan `previews` branch under
+`pr-<n>/<sha>/` and linked from the comment. The SHA is in the path because
+GitHub proxies images through camo, which caches by URL - without it a
+re-pushed branch keeps showing the first screenshot taken.
 
 ## 8. Link previews are blank, and the site has no icon
 

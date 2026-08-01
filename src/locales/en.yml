@@ -1,0 +1,172 @@
+# English strings for the index, help and 404 pages.
+#
+# Person pages are not translated. They are mostly proper nouns and one
+# button, and every string on them is tied to live JavaScript state.
+#
+# Every key here must also exist in vi.yml. The build fails if one is missing
+# rather than falling back to English, because a half-translated page looks
+# finished and nobody reports it.
+
+meta:
+  name: English
+  html_lang: en
+  # What the OTHER language's link says, in that language.
+  switch_to: Tiếng Việt
+
+chrome:
+  skip: Skip to content
+  nav_all: All signatures
+  nav_help: Get one or change yours
+  theme_dark: Dark
+  theme_light: Light
+  theme_to_dark: Switch to the dark theme
+  theme_to_light: Switch to the light theme
+  footer_q: Something wrong, missing, or out of date?
+  footer_link: Ask for it to be changed
+  footer_rest: >-
+    - it usually takes a day. Nothing here is edited by hand; every signature
+    is generated, so a fix for one person can be a fix for everyone.
+
+index:
+  title: "Email signatures - {company}"
+  desc: >-
+    Email signatures for everyone at {company}. Open your page and copy your
+    signature straight into Gmail.
+  h1: Email signatures
+  subtitle: >-
+    Find your name, open your page, and press one button. Your signature is
+    then on your clipboard, ready to paste into Gmail.
+  search_label: Search by name or job title
+  search_placeholder: Search by name or job title
+  count_one: "{n} person"
+  count_many: "{n} people"
+  steps_h: How to install yours
+  step_1: Find yourself below and open your page.
+  step_2: >-
+    Press <strong>Verify &amp; copy</strong>. It checks every image URL first
+    and refuses to copy if any is unreachable.
+  step_3: >-
+    In Gmail: <strong>Settings &rarr; See all settings &rarr; General &rarr;
+    Signature</strong>.
+  step_4: >-
+    Paste with <strong>Cmd/Ctrl+V</strong>, then <strong>Save changes</strong>
+    at the very bottom of the page.
+  step_5: >-
+    Send yourself a test and read it on your phone as well as your laptop.
+  empty_pre: No match.
+  empty_link: Not listed yet?
+  note: Not on this list, or something here is out of date?
+  note_link: Ask for it to be added or changed
+
+help:
+  title: "Get a signature - {company}"
+  desc: >-
+    How to get an email signature at {company}, or change the details on the
+    one you have. Takes about a day.
+  h1: Get a signature
+  subtitle: Do not have one yet, or something changed? Start here.
+  lede: >-
+    Everyone at {company} can have a signature on this site. If yours is not
+    here yet, or something on it has changed, here is how to sort it out.
+
+  ask_h: Just ask
+  ask_who: The normal way. You need a GitHub account and nothing else.
+  ask_1: Open one of the forms below.
+  ask_2: >-
+    Fill in your name, job title and email. Add a phone number if you want one
+    on there.
+  ask_3: Drag your photo into the photo box. Anything square-ish works.
+  ask_4: Submit.
+  ask_cta_new: Request a signature
+  ask_cta_update: Update my details
+  ask_no_repo: >-
+    No repository is configured in <code>src/company.yml</code>, so the request
+    links are missing. Ask whoever maintains this site.
+
+  self_h: Or do it yourself
+  self_who: >-
+    If you have used GitHub before. All of it happens in the browser - nothing
+    to install, nothing to run.
+  self_1: >-
+    Copy <code>src/people/_template.yml</code> to
+    <code>src/people/your-name.yml</code> and fill it in. That filename becomes
+    your web address, so use lowercase letters and hyphens.
+  self_2: >-
+    Upload your photo to <code>src/avatars/</code> with a matching filename.
+  self_3: Open a pull request with both changes on one branch.
+  self_cta: Full instructions
+
+  next_h: What happens next
+  next_who: Usually within a day.
+  next_1: >-
+    Your request becomes a proposed change automatically, usually within a
+    couple of minutes. You get a comment on it with a link.
+  next_2: >-
+    Automatic checks confirm it renders correctly on a phone and a laptop, in
+    light and dark mode, and that it survives what Gmail does to pasted markup.
+  next_3: >-
+    A person then checks what a test cannot - that your name is spelled and
+    accented the way you wrote it, and that the photo is really you - and
+    approves it.
+  next_4: >-
+    The site rebuilds itself and your page appears under
+    <strong>All signatures</strong>.
+  next_5: >-
+    Open your page, press <strong>Verify &amp; copy</strong>, and paste into
+    Gmail.
+  next_note: >-
+    Nothing you send can break anyone else's signature, and nothing reaches the
+    live site until a person has looked at it.
+
+  faq_public_q: What ends up public?
+  faq_public_a: >-
+    Your name, job title, work email, your photo, and the phone number if you
+    give one. Your photo is served from a public web address, which is how
+    images in email signatures work everywhere - a mail app has to be able to
+    fetch it. Use a photo you are happy to have public, and leave it out if you
+    would rather not.
+  faq_phone_q: I do not want my phone number on it.
+  faq_phone_a: >-
+    Leave it out and the row disappears. Nothing else shifts. The same is true
+    of the photo, the Vietnamese name line, and the social links.
+  faq_photo_q: What sort of photo?
+  faq_photo_a: >-
+    A normal head-and-shoulders portrait, square-ish, 512 pixels or larger. It
+    gets cropped to a circle automatically. If your photo is framed unusually -
+    very wide, or you are off to one side - say so in your request and it will
+    be adjusted by hand.
+  faq_accents_q: My name has accents. Will they show correctly?
+  faq_accents_a: >-
+    Yes. Vietnamese diacritics are checked on every build, in every browser
+    engine, and a missing character fails the build rather than shipping a
+    blank box.
+  faq_images_q: The images are not showing in my email.
+  faq_images_a: >-
+    Most mail apps block images until you allow them, and some people keep them
+    blocked permanently. That is expected. Every line of your signature is real
+    text, so nothing is lost and nothing moves - the layout is identical either
+    way.
+  faq_outlook_q: It looks slightly different in Outlook.
+  faq_outlook_a: >-
+    Outlook for Windows draws email through Microsoft Word, which ignores some
+    styling. Links come out in Outlook's own blue instead of inheriting the
+    surrounding colour, and the block is about four pixels shorter. Both are
+    expected and neither can be prevented from the markup.
+  faq_stale_q: I pasted it and then my details changed.
+  faq_stale_a: >-
+    Request the change, then paste again once your page updates. Gmail keeps
+    its own copy of whatever you pasted, so an old signature stays old until
+    you replace it.
+
+notfound:
+  title: "Page not found - {company}"
+  desc: That signature page does not exist.
+  h1: Page not found
+  subtitle: >-
+    That page does not exist. It may have moved, or the person may no longer be
+    listed.
+  try_h: Try one of these
+  try_all: All signatures
+  try_all_rest: "- find your name in the list."
+  try_help: Get a signature
+  try_help_rest: "- if you are not listed yet, or your details changed."

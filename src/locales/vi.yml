@@ -1,0 +1,177 @@
+# Vietnamese strings.
+#
+# DRAFT - needs a native speaker to read it before it is trusted. It was
+# written to sound like a colleague explaining something, not like a
+# translated manual, so the wording is not always literal.
+#
+# Deliberately left in English:
+#   - GitHub, Gmail, Outlook, pull request, repository, pixel, clipboard.
+#     These are the words Vietnamese developers actually use.
+#   - "Verify & copy". It is the label printed on the button on the person
+#     page, which is not translated, so translating the instruction would
+#     tell people to press something that does not exist.
+
+meta:
+  name: Tiếng Việt
+  html_lang: vi
+  switch_to: English
+
+chrome:
+  skip: Đến nội dung chính
+  nav_all: Tất cả chữ ký
+  nav_help: Đăng ký hoặc cập nhật
+  theme_dark: Tối
+  theme_light: Sáng
+  theme_to_dark: Chuyển sang giao diện tối
+  theme_to_light: Chuyển sang giao diện sáng
+  footer_q: Có gì sai, thiếu, hoặc đã cũ?
+  footer_rest: >-
+    - thường mất khoảng một ngày. Không có gì ở đây được sửa thủ công; mọi chữ
+    ký đều được tạo tự động, nên sửa cho một người có thể là sửa cho tất cả.
+  footer_link: Yêu cầu chỉnh sửa
+
+index:
+  title: "Chữ ký email - {company}"
+  desc: >-
+    Chữ ký email cho mọi người tại {company}. Mở trang của bạn và sao chép chữ
+    ký thẳng vào Gmail.
+  h1: Chữ ký email
+  subtitle: >-
+    Tìm tên bạn, mở trang của bạn, và nhấn một nút. Chữ ký sẽ nằm sẵn trong
+    clipboard, chỉ việc dán vào Gmail.
+  search_label: Tìm theo tên hoặc chức danh
+  search_placeholder: Tìm theo tên hoặc chức danh
+  count_one: "{n} người"
+  count_many: "{n} người"
+  steps_h: Cách cài chữ ký của bạn
+  step_1: Tìm tên bạn bên dưới và mở trang của bạn.
+  step_2: >-
+    Nhấn <strong>Verify &amp; copy</strong>. Nút này kiểm tra từng địa chỉ ảnh
+    trước, và từ chối sao chép nếu có ảnh nào không tải được.
+  step_3: >-
+    Trong Gmail: <strong>Cài đặt &rarr; Xem tất cả cài đặt &rarr; Chung &rarr;
+    Chữ ký</strong> - hoặc <strong>Settings &rarr; See all settings &rarr;
+    General &rarr; Signature</strong> nếu bạn dùng Gmail tiếng Anh.
+  step_4: >-
+    Dán bằng <strong>Cmd/Ctrl+V</strong>, rồi nhấn <strong>Lưu thay đổi</strong>
+    (<strong>Save changes</strong>) ở cuối trang.
+  step_5: >-
+    Tự gửi cho mình một email thử và đọc trên cả điện thoại lẫn máy tính.
+  empty_pre: Không có kết quả.
+  empty_link: Bạn chưa có trong danh sách?
+  note: Bạn không có trong danh sách này, hoặc có thông tin gì đã cũ?
+  note_link: Yêu cầu thêm hoặc chỉnh sửa
+
+help:
+  title: "Đăng ký chữ ký - {company}"
+  desc: >-
+    Cách đăng ký chữ ký email tại {company}, hoặc thay đổi thông tin trên chữ
+    ký bạn đang dùng. Thường mất khoảng một ngày.
+  h1: Đăng ký chữ ký
+  subtitle: Bạn chưa có chữ ký, hoặc có gì đó đã thay đổi? Bắt đầu ở đây.
+  lede: >-
+    Mọi người tại {company} đều có thể có chữ ký trên trang này. Nếu chữ ký của
+    bạn chưa có ở đây, hoặc có thông tin gì đã thay đổi, dưới đây là cách xử lý.
+
+  ask_h: Chỉ cần yêu cầu
+  ask_who: Cách thông thường. Bạn chỉ cần một tài khoản GitHub, không cần gì thêm.
+  ask_1: Mở một trong hai biểu mẫu bên dưới.
+  ask_2: >-
+    Điền tên, chức danh và email của bạn. Thêm số điện thoại nếu bạn muốn hiển
+    thị số.
+  ask_3: Kéo ảnh của bạn vào ô ảnh. Ảnh gần vuông là được.
+  ask_4: Gửi đi.
+  ask_cta_new: Đăng ký chữ ký
+  ask_cta_update: Cập nhật thông tin
+  ask_no_repo: >-
+    Chưa có repository nào được cấu hình trong <code>src/company.yml</code>,
+    nên thiếu các liên kết yêu cầu. Hãy hỏi người quản trị trang này.
+
+  self_h: Hoặc tự làm
+  self_who: >-
+    Nếu bạn đã dùng GitHub trước đây. Mọi thứ đều làm trên trình duyệt - không
+    cần cài gì, không cần chạy gì.
+  self_1: >-
+    Sao chép <code>src/people/_template.yml</code> thành
+    <code>src/people/ten-cua-ban.yml</code> rồi điền vào. Tên tệp đó sẽ trở
+    thành địa chỉ web của bạn, nên hãy dùng chữ thường và dấu gạch ngang.
+  self_2: >-
+    Tải ảnh của bạn lên <code>src/avatars/</code> với tên tệp trùng khớp.
+  self_3: Mở một pull request với cả hai thay đổi trên cùng một nhánh.
+  self_cta: Hướng dẫn đầy đủ
+
+  next_h: Tiếp theo là gì
+  next_who: Thường trong vòng một ngày.
+  next_1: >-
+    Yêu cầu của bạn tự động trở thành một đề xuất thay đổi, thường trong vòng
+    vài phút. Bạn sẽ nhận được một bình luận kèm liên kết.
+  next_2: >-
+    Kiểm tra tự động xác nhận chữ ký hiển thị đúng trên điện thoại và máy tính,
+    ở cả giao diện sáng và tối, và chịu được những gì Gmail làm với mã được dán
+    vào.
+  next_3: >-
+    Sau đó một người sẽ kiểm tra những gì máy không kiểm tra được - tên bạn có
+    viết và bỏ dấu đúng như bạn đã ghi không, và ảnh có đúng là bạn không - rồi
+    duyệt.
+  next_4: >-
+    Trang web tự dựng lại và trang của bạn xuất hiện trong mục
+    <strong>Tất cả chữ ký</strong>.
+  next_5: >-
+    Mở trang của bạn, nhấn <strong>Verify &amp; copy</strong>, rồi dán vào
+    Gmail.
+  next_note: >-
+    Không có gì bạn gửi có thể làm hỏng chữ ký của người khác, và không có gì
+    lên trang thật trước khi có người xem qua.
+
+  faq_public_q: Những thông tin nào sẽ công khai?
+  faq_public_a: >-
+    Tên, chức danh, email công việc, ảnh của bạn, và số điện thoại nếu bạn cung
+    cấp. Ảnh của bạn nằm ở một địa chỉ web công khai - đó là cách hình ảnh
+    trong chữ ký email hoạt động ở mọi nơi, vì ứng dụng email phải tải được ảnh
+    về. Hãy dùng ảnh mà bạn thoải mái khi công khai, hoặc bỏ qua nếu bạn không
+    muốn.
+  faq_phone_q: Tôi không muốn hiện số điện thoại.
+  faq_phone_a: >-
+    Bỏ trống và dòng đó sẽ biến mất. Không có gì khác bị xê dịch. Ảnh, dòng tên
+    tiếng Việt và các liên kết mạng xã hội cũng vậy.
+  faq_photo_q: Ảnh như thế nào là được?
+  faq_photo_a: >-
+    Một ảnh chân dung bình thường từ vai trở lên, gần vuông, từ 512 pixel trở
+    lên. Ảnh sẽ tự động được cắt thành hình tròn. Nếu ảnh của bạn có bố cục
+    khác thường - quá rộng, hoặc bạn đứng lệch sang một bên - hãy ghi chú trong
+    yêu cầu và sẽ có người chỉnh tay.
+  faq_accents_q: Tên tôi có dấu. Có hiển thị đúng không?
+  faq_accents_a: >-
+    Có. Dấu tiếng Việt được kiểm tra ở mỗi lần dựng, trên mọi trình duyệt, và
+    một ký tự bị thiếu sẽ làm hỏng bản dựng chứ không bao giờ được xuất bản
+    thành ô trống.
+  faq_images_q: Ảnh không hiển thị trong email của tôi.
+  faq_images_a: >-
+    Hầu hết ứng dụng email chặn ảnh cho đến khi bạn cho phép, và một số người
+    chặn vĩnh viễn. Điều đó là bình thường. Mọi dòng trong chữ ký của bạn đều
+    là văn bản thật, nên không mất gì và không có gì xê dịch - bố cục giống hệt
+    nhau trong cả hai trường hợp.
+  faq_outlook_q: Chữ ký trông hơi khác trong Outlook.
+  faq_outlook_a: >-
+    Outlook trên Windows dựng email bằng Microsoft Word, vốn bỏ qua một số định
+    dạng. Liên kết sẽ hiện màu xanh riêng của Outlook thay vì thừa hưởng màu
+    xung quanh, và khối chữ ký thấp hơn khoảng bốn pixel. Cả hai đều nằm trong
+    dự kiến và không thể ngăn được từ phía mã.
+  faq_stale_q: Tôi đã dán rồi nhưng thông tin của tôi thay đổi.
+  faq_stale_a: >-
+    Hãy gửi yêu cầu thay đổi, rồi dán lại sau khi trang của bạn cập nhật. Gmail
+    giữ bản sao riêng của những gì bạn đã dán, nên chữ ký cũ vẫn cũ cho đến khi
+    bạn thay thế.
+
+notfound:
+  title: "Không tìm thấy trang - {company}"
+  desc: Trang chữ ký đó không tồn tại.
+  h1: Không tìm thấy trang
+  subtitle: >-
+    Trang đó không tồn tại. Có thể nó đã được chuyển đi, hoặc người đó không
+    còn trong danh sách.
+  try_h: Thử một trong những cách sau
+  try_all: Tất cả chữ ký
+  try_all_rest: "- tìm tên bạn trong danh sách."
+  try_help: Đăng ký chữ ký
+  try_help_rest: "- nếu bạn chưa có trong danh sách, hoặc thông tin đã thay đổi."

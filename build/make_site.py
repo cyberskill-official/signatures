@@ -14,22 +14,111 @@ each one explicitly before allowing a copy.
 """
 import argparse
 import html as H
+import json
 import os
 import sys
 
+import yaml
+
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from model import (AVATAR, DOCS, DOCS_PEOPLE, LOGO, OCHRE, TABLE_W, UMBER,
-                   asset_url, load_company, load_people, person_asset,
+from model import (AVATAR, DOCS, DOCS_PEOPLE, LOGO, OCHRE, SRC, TABLE_W,
+                   UMBER, asset_url, load_company, load_people, person_asset,
                    shared_asset)
+
+LOCALES = os.path.join(SRC, "locales")
+# English is the reference. Every other locale must define exactly the same
+# keys - see load_locales for why a missing one is fatal.
+DEFAULT_LOCALE = "en"
+
+
+def load_locales():
+    """Read src/locales/*.yml as {code: {section.key: text}}.
+
+    A missing key is a build failure rather than an English fallback. The
+    fallback is the tempting option and it is the wrong one: it produces a
+    page that looks finished, reads half-translated to the only people who
+    would notice, and never appears in any log.
+    """
+    out = {}
+    for fn in sorted(os.listdir(LOCALES)):
+        if not fn.endswith(".yml"):
+            continue
+        code = os.path.splitext(fn)[0]
+        with open(os.path.join(LOCALES, fn), encoding="utf-8") as fh:
+            doc = yaml.safe_load(fh) or {}
+        flat = {}
+        for section, items in doc.items():
+            if not isinstance(items, dict):
+                raise SystemExit(f"{fn}: '{section}' must be a map of strings")
+            for k, v in items.items():
+                flat[f"{section}.{k}"] = "" if v is None else str(v)
+        out[code] = flat
+
+    if DEFAULT_LOCALE not in out:
+        raise SystemExit(f"src/locales/{DEFAULT_LOCALE}.yml is missing")
+
+    ref = set(out[DEFAULT_LOCALE])
+    for code, flat in out.items():
+        if code == DEFAULT_LOCALE:
+            continue
+        missing, extra = sorted(ref - set(flat)), sorted(set(flat) - ref)
+        if missing or extra:
+            lines = [f"src/locales/{code}.yml does not match "
+                     f"{DEFAULT_LOCALE}.yml:"]
+            lines += [f"  missing: {k}" for k in missing]
+            lines += [f"  unknown: {k}" for k in extra]
+            raise SystemExit("\n".join(lines))
+    return out
+
+
+class T:
+    """Lookup for one locale. Values are formatted, then escaped only where
+    the caller asks - several strings intentionally carry <code> and <strong>.
+    """
+
+    def __init__(self, code, strings):
+        self.code = code
+        self.s = strings
+
+    def __call__(self, key, **kw):
+        try:
+            v = self.s[key]
+        except KeyError:
+            raise SystemExit(f"locale {self.code}: no string named '{key}'")
+        return v.format(**kw) if kw else v
+
+    def esc(self, key, **kw):
+        return H.escape(self(key, **kw))
+
+# Every colour that differs between light and dark is a variable, so a theme
+# is one block of values rather than a restatement of every rule. Two things
+# are deliberately NOT variables:
+#
+#   - the header, which is umber in both themes by design
+#   - the preview surfaces, which pin literal colours further down, because a
+#     "light mail client" preview that follows the page theme demonstrates
+#     nothing and light text on a white surface disappears entirely
+DARK = ("--ink:#EDE8E3;--muted:#A5A19D;--line:#3A342E;--bg:#17140F;"
+        "--card:#211C16;--link:#F0C463;--cta-bg:#F4BA17;--cta-fg:#3A1B0B;"
+        "--cta-bg-h:#FFD166;--ghost-fg:#F0C463;--ghost-line:#4A423A;"
+        "--ghost-bg-h:#2B241C;--code-bg:#2B241C;--code-fg:#EDE8E3;"
+        "--field-bg:#211C16;--ok:#6FD68E;--err:#FF9B92;--ph-bg:#2B241C;")
 
 CSS = """
   :root{--umber:#45210E;--ochre:#F4BA17;--accent:#9E5E3E;--ink:#22201E;
-        --muted:#6B6B6B;--line:#E6E0D8;--bg:#FBF9F7;--card:#FFFFFF;}
+        --muted:#6B6B6B;--line:#E6E0D8;--bg:#FBF9F7;--card:#FFFFFF;
+        --link:#45210E;--cta-bg:#45210E;--cta-fg:#FFFFFF;--cta-bg-h:#5C2D14;
+        --ghost-fg:#45210E;--ghost-line:#E6E0D8;--ghost-bg-h:#F6F1EB;
+        --code-bg:#F1ECE6;--code-fg:inherit;--field-bg:#FAF8F6;
+        --ok:#1B7F3B;--err:#B3261E;--ph-bg:#45210E;}
+  html{color-scheme:light;}
+  html[data-theme="dark"]{color-scheme:dark;}
+  @media (prefers-color-scheme: dark){html:not([data-theme="light"]){color-scheme:dark;}}
   *{box-sizing:border-box;}
   body{margin:0;background:var(--bg);color:var(--ink);
        font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
        -webkit-font-smoothing:antialiased;}
-  a{color:var(--umber);}
+  a{color:var(--link);}
   .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
   header.site{background:var(--umber);color:#fff;padding:34px 0 30px;}
   header.site a{color:#fff;text-decoration:none;}
@@ -52,13 +141,13 @@ CSS = """
   .route .who{margin:0 0 14px;color:var(--muted);font-size:14px;}
   .route ol,.route ul{margin:0;padding-left:20px;}
   .route li{margin:7px 0;}
-  .cta{display:inline-block;background:var(--umber);color:#fff;border-radius:8px;
+  .cta{display:inline-block;background:var(--cta-bg);color:var(--cta-fg);border-radius:8px;
        padding:11px 20px;font-size:14px;font-weight:600;text-decoration:none;
        margin-top:14px;}
-  .cta:hover{background:#5C2D14;color:#fff;}
-  .cta.ghost{background:transparent;color:var(--umber);
-             box-shadow:inset 0 0 0 1.5px var(--line);}
-  .cta.ghost:hover{background:#F6F1EB;color:var(--umber);}
+  .cta:hover{background:var(--cta-bg-h);color:var(--cta-fg);}
+  .cta.ghost{background:transparent;color:var(--ghost-fg);
+             box-shadow:inset 0 0 0 1.5px var(--ghost-line);}
+  .cta.ghost:hover{background:var(--ghost-bg-h);color:var(--ghost-fg);}
   .note{border-left:3px solid var(--ochre);padding:2px 0 2px 14px;
         margin:18px 0;color:var(--muted);font-size:14px;max-width:62ch;}
   .faq{padding:6px 24px 10px;margin:0 0 16px;}
@@ -72,11 +161,13 @@ CSS = """
   .steps h2{margin:0 0 10px;font-size:12px;letter-spacing:.09em;
             text-transform:uppercase;color:var(--muted);}
   .steps ol{margin:0;padding-left:20px;} .steps li{margin:5px 0;}
-  code{background:#F1ECE6;padding:1px 6px;border-radius:4px;font-size:.9em;}
+  code{background:var(--code-bg);color:var(--code-fg);padding:1px 6px;
+       border-radius:4px;font-size:.9em;}
   .toolbar{display:flex;gap:12px;align-items:center;margin:0 0 18px;
            flex-wrap:wrap;}
   .search{flex:1 1 260px;padding:11px 14px;border:1px solid var(--line);
-          border-radius:9px;font-size:14px;background:#fff;}
+          border-radius:9px;font-size:14px;background:var(--card);
+          color:var(--ink);}
   .count{font-size:13px;color:var(--muted);}
   .people{display:grid;gap:16px;
           grid-template-columns:repeat(auto-fill,minmax(280px,1fr));}
@@ -86,7 +177,7 @@ CSS = """
                 box-shadow:0 2px 14px rgba(69,33,14,.09);transform:translateY(-1px);}
   .person img{width:56px;height:56px;display:block;flex:0 0 56px;}
   .ph{width:56px;height:56px;flex:0 0 56px;border-radius:50%;
-      background:var(--umber);color:var(--ochre);display:flex;
+      background:var(--ph-bg);color:var(--ochre);display:flex;
       align-items:center;justify-content:center;font-weight:700;font-size:19px;}
   .person .n{font-weight:700;font-size:16px;}
   .person .r{font-size:13px;color:var(--muted);}
@@ -100,20 +191,24 @@ CSS = """
   h2.person-name{margin:0 0 2px;font-size:27px;letter-spacing:-.3px;}
   .person-role{margin:0 0 22px;color:var(--muted);}
   .bar{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin:0 0 20px;}
-  .btn{background:var(--umber);color:#fff;border:0;border-radius:8px;
+  .btn{background:var(--cta-bg);color:var(--cta-fg);border:0;border-radius:8px;
        padding:12px 22px;font-size:14px;font-weight:600;cursor:pointer;}
-  .btn:hover{background:#5C2D14;} .btn[disabled]{opacity:.5;cursor:progress;}
+  .btn:hover{background:var(--cta-bg-h);} .btn[disabled]{opacity:.5;cursor:progress;}
   .status{font-size:13px;color:var(--muted);}
-  .status.ok{color:#1B7F3B;font-weight:600;}
-  .status.err{color:#B3261E;font-weight:600;}
+  .status.ok{color:var(--ok);font-weight:600;}
+  .status.err{color:var(--err);font-weight:600;}
   .grid{display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap;}
   .col{min-width:0;} .col.narrow{flex:0 0 auto;} .col.desk{flex:0 1 556px;}
   .colhead{font-size:11px;letter-spacing:.09em;text-transform:uppercase;
            color:var(--muted);margin:0 0 7px;}
   .dim{text-transform:none;letter-spacing:0;font-weight:700;}
-  .dim.good{color:#1B7F3B;} .dim.bad{color:#B3261E;}
-  .surface{border:1px solid var(--line);border-radius:9px;padding:18px;
-           overflow-x:auto;background:#fff;}
+  .dim.good{color:var(--ok);} .dim.bad{color:var(--err);}
+  /* Pinned, never inherited, in every theme. These four rules ARE the
+     product: each one shows what a mail client renders, so a surface that
+     follows the page theme is showing the reader their own browser instead
+     of their recipient's inbox. */
+  .surface{border:1px solid #D8D2CA;border-radius:9px;padding:18px;
+           overflow-x:auto;background:#FFFFFF;color:#22201E;}
   /* The signature is fluid (width:100% capped at 520px), so a shrink-to-fit
      flex column collapses it to min-content and the "desktop" preview stops
      being a desktop preview. Pin the desktop surface wide enough for the
@@ -121,14 +216,16 @@ CSS = """
   .surface.desk{width:556px;max-width:100%;}
   .surface.w320{width:320px;flex:0 0 320px;}
   .surface.dark{background:#1F1F1F;border-color:#3A3A3A;color:#E8E8E8;}
-  .surface.inv{background:#fff;filter:invert(1) hue-rotate(180deg);}
+  .surface.inv{background:#FFFFFF;color:#22201E;
+               filter:invert(1) hue-rotate(180deg);}
   .surface.inv img{filter:invert(1) hue-rotate(180deg);}
   .sub{font-size:12px;color:var(--muted);margin:0 0 7px;}
   .dark3 .col{flex:1 1 320px;min-width:300px;}
   details{margin-top:20px;} summary{cursor:pointer;font-size:13px;color:var(--muted);}
   textarea{width:100%;height:150px;margin-top:10px;padding:12px;
            font:12px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;
-           border:1px solid var(--line);border-radius:8px;background:#FAF8F6;}
+           border:1px solid var(--line);border-radius:8px;
+           background:var(--field-bg);color:var(--ink);}
   /* Keyboard focus. Every interactive element here has custom styling that
      overrode the browser default without replacing it, so tabbing to the
      copy button showed nothing at all. */
@@ -145,36 +242,53 @@ CSS = """
   @media (prefers-reduced-motion: reduce){
     *{transition:none !important;animation:none !important;}
   }
-  /* Dark mode for the site chrome only.
-     The preview surfaces must NOT follow it - a "Light" preview that goes
-     dark stops demonstrating anything, and text inheriting a light colour
-     onto a white surface disappears entirely. Both surfaces pin their own
-     colour rather than inheriting. */
-  @media (prefers-color-scheme: dark){
-    :root{--ink:#EDE8E3;--muted:#A5A19D;--line:#3A342E;--bg:#17140F;
-          --card:#211C16;}
-    a{color:#F0C463;}
-    .cta,.btn{background:var(--ochre);color:#3A1B0B;}
-    .cta:hover,.btn:hover{background:#FFD166;color:#3A1B0B;}
-    .cta.ghost{background:transparent;color:#F0C463;
-               box-shadow:inset 0 0 0 1.5px #4A423A;}
-    .cta.ghost:hover{background:#2B241C;color:#F0C463;}
-    code{background:#2B241C;color:#EDE8E3;}
-    .search,textarea{background:#211C16;color:var(--ink);
-                     border-color:var(--line);}
-    .status.ok,.dim.good{color:#6FD68E;}
-    .status.err,.dim.bad{color:#FF9B92;}
-    .ph{background:#2B241C;}
-    .surface{background:#FFFFFF;color:#22201E;border-color:#D8D2CA;}
-    .surface.dark{background:#1F1F1F;color:#E8E8E8;border-color:#3A3A3A;}
-    .surface.inv{background:#FFFFFF;color:#22201E;}
-  }
   .sec{margin:34px 0 12px;font-size:12px;letter-spacing:.09em;
        text-transform:uppercase;color:var(--muted);}
+  /* Theme control. Hidden until the inline script in <head> marks the page
+     as scripted, because a button that cannot do anything is worse than no
+     button - without JS the OS preference below still applies. */
+  .themebtn{display:none;}
+  html.js .themebtn{display:inline-flex;align-items:center;gap:7px;
+        padding:8px 13px;border:0;border-radius:8px;
+        background:rgba(255,255,255,.10);color:#F3E7DC;font:inherit;
+        font-size:14px;font-weight:600;cursor:pointer;}
+  html.js .themebtn:hover{background:rgba(255,255,255,.18);}
+  .themebtn svg{width:16px;height:16px;display:block;}
+  /* The icon names the destination, not the current state - a sun while
+     already light reads as "you are here", which is not what a button means.
+     CSS does the swap so it is right on first paint; the script only has to
+     keep the label in step. */
+  .themebtn .sun{display:none;} .themebtn .moon{display:block;}
+  html[data-theme="dark"] .themebtn .sun{display:block;}
+  html[data-theme="dark"] .themebtn .moon{display:none;}
+  @media (prefers-color-scheme: dark){
+    html:not([data-theme="light"]) .themebtn .sun{display:block;}
+    html:not([data-theme="light"]) .themebtn .moon{display:none;}
+  }
+  .navrow{display:flex;align-items:flex-end;gap:12px;}
+  .navrow .tabs{flex:1 1 auto;}
+  .navtools{display:flex;align-items:center;gap:8px;margin-left:auto;
+            margin-bottom:-6px;}
+  /* Outlined rather than filled, so it does not read as a third page in the
+     tab group beside it. */
+  .langlink{display:inline-flex;align-items:center;gap:7px;background:none;
+            box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.28);}
+  .langlink:hover{background:rgba(255,255,255,.12);}
+  .langlink svg{width:15px;height:15px;display:block;opacity:.85;}
 """
 
+# Dark applies two ways: automatically from the OS, and explicitly from the
+# toggle. The :not() is what lets an explicit "light" win over a dark OS -
+# without it the media query would keep overriding the user's own choice.
+CSS += ("""
+  @media (prefers-color-scheme: dark){
+    html:not([data-theme="light"]){%s}
+  }
+  html[data-theme="dark"]{%s}
+""" % (DARK, DARK))
 
-def head(title, desc, base, canonical, company, lang="en", css_extra=""):
+
+def head(title, desc, base, canonical, company, t, css_extra=""):
     """Document head, including what a link preview needs.
 
     This URL gets pasted into Slack, Zalo and email. Without og: tags it
@@ -195,9 +309,9 @@ def head(title, desc, base, canonical, company, lang="en", css_extra=""):
                       shared_asset("apple-touch-icon.png"))
     robots = ("index,follow" if company.get("index_site")
               else "noindex,nofollow")
-    t, d = H.escape(title), H.escape(desc)
+    ti, d = H.escape(title), H.escape(desc)
     return f"""<!doctype html>
-<html lang="{lang}">
+<html lang="{t('meta.html_lang')}">
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
@@ -210,24 +324,51 @@ def head(title, desc, base, canonical, company, lang="en", css_extra=""):
 <link rel="apple-touch-icon" href="{touch}"/>
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="{H.escape(company['name'])}"/>
-<meta property="og:title" content="{t}"/>
+<meta property="og:title" content="{ti}"/>
 <meta property="og:description" content="{d}"/>
 <meta property="og:url" content="{canonical}"/>
 <meta property="og:image" content="{og}"/>
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="630"/>
 <meta name="twitter:card" content="summary_large_image"/>
-<title>{t}</title>
+<title>{ti}</title>
+<script>/* Before first paint, or the page flashes the wrong theme on every
+  load for anyone who chose one. Also marks the document as scripted, which
+  is what reveals the toggle - without JS the OS preference still applies and
+  a dead button would be worse than none. */
+(function(){{var r=document.documentElement;r.className+=' js';
+try{{var t=localStorage.getItem('theme');
+if(t==='dark'||t==='light')r.setAttribute('data-theme',t);}}catch(e){{}}}})();</script>
 <style>{CSS}{css_extra}</style>
 </head>
 <body>
-<a class="skip" href="#main">Skip to content</a>"""
+<a class="skip" href="#main">{H.escape(t("chrome.skip"))}</a>"""
 
 
-def site_header(company, logo_url, root, subtitle, h1, here=""):
+def site_header(company, logo_url, root, subtitle, h1, t, alt=None, here=""):
+    """`alt` is (href, label, lang) for the other language, or None on a page
+    that has no translation."""
     def tab(label, href, key):
         cur = ' aria-current="page"' if key == here else ""
-        return f'<a class="tab{" on" if key == here else ""}" href="{href}"{cur}>{label}</a>'
+        return f'<a class="tab{" on" if key == here else ""}" href="{href}"{cur}>{H.escape(label)}</a>'
+
+    dark_j, light_j = json.dumps(t("chrome.theme_dark")), json.dumps(t("chrome.theme_light"))
+    to_dark_j, to_light_j = (json.dumps(t("chrome.theme_to_dark")),
+                             json.dumps(t("chrome.theme_to_light")))
+    langlink = ""
+    if alt:
+        href, label, code = alt
+        # hreflang and lang both matter: hreflang tells a crawler what is on
+        # the other end, lang tells a screen reader how to pronounce the label
+        # it is about to read, which is the whole point of writing it in the
+        # other language.
+        globe = ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"'
+                 ' stroke-width="2" aria-hidden="true"><circle cx="12" cy="12"'
+                 ' r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18'
+                 'M12 3a15 15 0 0 0 0 18"/></svg>')
+        langlink = (f'<a class="tab langlink" href="{H.escape(href)}" '
+                    f'hreflang="{code}" lang="{code}">{globe}'
+                    f'{H.escape(label)}</a>')
     return f"""
 <header class="site">
   <div class="wrap">
@@ -237,17 +378,54 @@ def site_header(company, logo_url, root, subtitle, h1, here=""):
     </a>
     <h1>{H.escape(h1)}</h1>
     <p>{subtitle}</p>
-    <nav class="tabs">
-      {tab("All signatures", root, "index")}
-      {tab("Get one or change yours", root + "help/", "help")}
-    </nav>
+    <div class="navrow">
+      <nav class="tabs">
+        {tab(t("chrome.nav_all"), root, "index")}
+        {tab(t("chrome.nav_help"), root + "help/", "help")}
+      </nav>
+      <div class="navtools">{langlink}
+      <button class="themebtn" id="themebtn" type="button">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.6M12 19.4V22
+          M2 12h2.6M19.4 12H22M4.9 4.9l1.9 1.9M17.2 17.2l1.9 1.9
+          M19.1 4.9l-1.9 1.9M6.8 17.2l-1.9 1.9"/>
+        </svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linejoin="round" aria-hidden="true">
+          <path d="M20 14.2A8.2 8.2 0 0 1 9.8 4a8.4 8.4 0 1 0 10.2 10.2z"/>
+        </svg>
+        <span class="themebtn-t">{H.escape(t("chrome.theme_dark"))}</span>
+      </button></div>
+    </div>
+<script>/* The button's icon is swapped by CSS so it is correct before this
+  runs; this only keeps the word and the accessible name in step, and follows
+  the OS for anyone who has never chosen. */
+(function(){{
+  var b=document.getElementById('themebtn'),r=document.documentElement,
+      mq=window.matchMedia('(prefers-color-scheme: dark)');
+  function isDark(){{var a=r.getAttribute('data-theme');
+    return a?a==='dark':mq.matches;}}
+  var W={{d:{dark_j},l:{light_j},ad:{to_dark_j},al:{to_light_j}}};
+  function sync(){{var d=isDark();
+    b.querySelector('.themebtn-t').textContent=d?W.l:W.d;
+    b.setAttribute('aria-label',d?W.al:W.ad);}}
+  sync();
+  b.addEventListener('click',function(){{
+    var next=isDark()?'light':'dark';
+    r.setAttribute('data-theme',next);
+    try{{localStorage.setItem('theme',next);}}catch(e){{}}
+    sync();}});
+  try{{if(!localStorage.getItem('theme'))mq.addEventListener('change',sync);}}
+  catch(e){{}}
+}})();</script>
   </div>
 </header>
 <div class="ochre"></div>
 <main id="main"><div class="wrap">"""
 
 
-def footer(root):
+def footer(root, t):
     """The site is read by staff, not by whoever maintains the build.
 
     An earlier version explained the YAML layout here, which is useful to
@@ -255,10 +433,9 @@ def footer(root):
     """
     return f"""</div></main>
 <footer class="site"><div class="wrap">
-  <p>Something wrong, missing, or out of date?
-     <a href="{root}help/">Ask for it to be changed</a> - it usually takes a
-     day. Nothing here is edited by hand; every signature is generated, so a
-     fix for one person can be a fix for everyone.</p>
+  <p>{H.escape(t("chrome.footer_q"))}
+     <a href="{root}help/">{H.escape(t("chrome.footer_link"))}</a>
+     {H.escape(t("chrome.footer_rest"))}</p>
 </div></footer>
 </body></html>"""
 
@@ -268,7 +445,7 @@ def initials(name):
     return (parts[0][:1] + (parts[-1][:1] if len(parts) > 1 else "")).upper()
 
 
-def build_404(company, base):
+def build_404(company, base, t):
     """Served by Pages for any missing path.
 
     Links are absolute, not relative: this one file answers /nope/ and
@@ -278,25 +455,24 @@ def build_404(company, base):
     """
     logo = asset_url(base, f"assets/shared/logo-{LOGO}-2x.png",
                      shared_asset(f"logo-{LOGO}-2x.png"))
-    return (head(f"Page not found - {company['name']}",
-                 "That signature page does not exist.", base, base, company)
-            + site_header(company, logo, base,
-                          "That page does not exist. It may have moved, or "
-                          "the person may no longer be listed.",
-                          "Page not found")
+    return (head(t("notfound.title", company=company["name"]),
+                 t("notfound.desc"), base, base, company, t)
+            + site_header(company, logo, base, t.esc("notfound.subtitle"),
+                          t("notfound.h1"), t)
             + f"""
   <div class="card route">
-    <h3>Try one of these</h3>
+    <h3>{t.esc("notfound.try_h")}</h3>
     <ul>
-      <li><a href="{base}">All signatures</a> - find your name in the list.</li>
-      <li><a href="{base}help/">Get a signature</a> - if you are not listed
-          yet, or your details changed.</li>
+      <li><a href="{base}">{t.esc("notfound.try_all")}</a>
+          {t.esc("notfound.try_all_rest")}</li>
+      <li><a href="{base}help/">{t.esc("notfound.try_help")}</a>
+          {t.esc("notfound.try_help_rest")}</li>
     </ul>
   </div>"""
-            + footer(base))
+            + footer(base, t))
 
 
-def build_help(company, base):
+def build_help(company, base, t, alt=None):
     """The page for someone who has no signature yet, or whose details moved.
 
     Written for whoever arrives without knowing what a pull request is. The
@@ -313,127 +489,61 @@ def build_help(company, base):
     contrib = f"{repo}/blob/main/CONTRIBUTING.md" if repo else ""
 
     ask = f"""
-      <a class="cta" href="{new_url}">Request a signature</a>
-      <a class="cta ghost" href="{upd_url}">Update my details</a>""" if repo else """
-      <p class="note">No repository is configured in <code>src/company.yml</code>,
-         so the request links are missing. Ask whoever maintains this site.</p>"""
+      <a class="cta" href="{new_url}">{t.esc("help.ask_cta_new")}</a>
+      <a class="cta ghost" href="{upd_url}">{t.esc("help.ask_cta_update")}</a>""" \
+        if repo else f"""
+      <p class="note">{t("help.ask_no_repo")}</p>"""
+
+    def li(key):
+        return f"<li>{t(key)}</li>"
+
+    def faq(q, a):
+        return (f"<details><summary>{t.esc(q)}</summary>"
+                f"<p>{t(a)}</p></details>")
 
     body = f"""
-  <p class="lede">Everyone at {H.escape(company['name'])} can have a signature
-     on this site. If yours is not here yet, or something on it has changed,
-     here is how to sort it out.</p>
+  <p class="lede">{t("help.lede", company=H.escape(company["name"]))}</p>
 
   <div class="card route">
-    <h3>Just ask</h3>
-    <p class="who">The normal way. You need a GitHub account and nothing else.</p>
-    <ol>
-      <li>Open one of the forms below.</li>
-      <li>Fill in your name, job title and email. Add a phone number if you
-          want one on there.</li>
-      <li>Drag your photo into the photo box. Anything square-ish works.</li>
-      <li>Submit.</li>
-    </ol>
+    <h3>{t.esc("help.ask_h")}</h3>
+    <p class="who">{t.esc("help.ask_who")}</p>
+    <ol>{"".join(li(f"help.ask_{i}") for i in (1, 2, 3, 4))}</ol>
     {ask}
   </div>
 
   <div class="card route">
-    <h3>Or do it yourself</h3>
-    <p class="who">If you have used GitHub before. All of it happens in the
-       browser - nothing to install, nothing to run.</p>
-    <ol>
-      <li>Copy <code>src/people/_template.yml</code> to
-          <code>src/people/your-name.yml</code> and fill it in. That filename
-          becomes your web address, so use lowercase letters and hyphens.</li>
-      <li>Upload your photo to <code>src/avatars/</code> with a matching
-          filename.</li>
-      <li>Open a pull request with both changes on one branch.</li>
-    </ol>
-    {f'<a class="cta ghost" href="{contrib}">Full instructions</a>' if repo else ''}
+    <h3>{t.esc("help.self_h")}</h3>
+    <p class="who">{t("help.self_who")}</p>
+    <ol>{"".join(li(f"help.self_{i}") for i in (1, 2, 3))}</ol>
+    {f'<a class="cta ghost" href="{contrib}">{t.esc("help.self_cta")}</a>' if repo else ""}
   </div>
 
   <div class="card route">
-    <h3>What happens next</h3>
-    <p class="who">Usually within a day.</p>
-    <ul>
-      <li>Your request becomes a proposed change automatically, usually
-          within a couple of minutes. You get a comment on it with a link.</li>
-      <li>Automatic checks confirm it renders correctly on a phone and a
-          laptop, in light and dark mode, and that it survives what Gmail
-          does to pasted markup.</li>
-      <li>A person then checks what a test cannot - that your name is spelled
-          and accented the way you wrote it, and that the photo is really
-          you - and approves it.</li>
-      <li>The site rebuilds itself and your page appears under
-          <strong>All signatures</strong>.</li>
-      <li>Open your page, press <strong>Verify &amp; copy</strong>, and paste
-          into Gmail.</li>
-    </ul>
-    <p class="note">Nothing you send can break anyone else's signature, and
-       nothing reaches the live site until a person has looked at it.</p>
+    <h3>{t.esc("help.next_h")}</h3>
+    <p class="who">{t.esc("help.next_who")}</p>
+    <ul>{"".join(li(f"help.next_{i}") for i in (1, 2, 3, 4, 5))}</ul>
+    <p class="note">{t.esc("help.next_note")}</p>
   </div>
 
   <div class="card faq">
-    <details>
-      <summary>What ends up public?</summary>
-      <p>Your name, job title, work email, your photo, and the phone number if
-         you give one. Your photo is served from a public web address, which
-         is how images in email signatures work everywhere - a mail app has to
-         be able to fetch it. Use a photo you are happy to have public, and
-         leave it out if you would rather not.</p>
-    </details>
-    <details>
-      <summary>I do not want my phone number on it.</summary>
-      <p>Leave it out and the row disappears. Nothing else shifts. The same is
-         true of the photo, the Vietnamese name line, and the social links.</p>
-    </details>
-    <details>
-      <summary>What sort of photo?</summary>
-      <p>A normal head-and-shoulders portrait, square-ish, 512 pixels or
-         larger. It gets cropped to a circle automatically. If your photo is
-         framed unusually - very wide, or you are off to one side - say so in
-         your request and it will be adjusted by hand.</p>
-    </details>
-    <details>
-      <summary>My name has accents. Will they show correctly?</summary>
-      <p>Yes. Vietnamese diacritics are checked on every build, in every
-         browser engine, and a missing character fails the build rather than
-         shipping a blank box.</p>
-    </details>
-    <details>
-      <summary>The images are not showing in my email.</summary>
-      <p>Most mail apps block images until you allow them, and some people
-         keep them blocked permanently. That is expected. Every line of your
-         signature is real text, so nothing is lost and nothing moves - the
-         layout is identical either way.</p>
-    </details>
-    <details>
-      <summary>It looks slightly different in Outlook.</summary>
-      <p>Outlook for Windows draws email through Microsoft Word, which ignores
-         some styling. Links come out in Outlook's own blue instead of
-         inheriting the surrounding colour, and the block is about four pixels
-         shorter. Both are expected and neither can be prevented from the
-         markup.</p>
-    </details>
-    <details>
-      <summary>I pasted it and then my details changed.</summary>
-      <p>Request the change, then paste again once your page updates. Gmail
-         keeps its own copy of whatever you pasted, so an old signature stays
-         old until you replace it.</p>
-    </details>
+    {"".join(faq(f"help.faq_{k}_q", f"help.faq_{k}_a") for k in
+             ("public", "phone", "photo", "accents", "images", "outlook",
+              "stale"))}
   </div>"""
 
-    return (head(f"Get a signature - {company['name']}",
-                 f"How to get an email signature at {company['name']}, or "
-                 f"change the details on the one you have. Takes about a day.",
-                 base, base + "help/", company)
-            + site_header(company, logo, "../",
-                          "Do not have one yet, or something changed? "
-                          "Start here.",
-                          "Get a signature", here="help")
-            + body + footer("../"))
+    n = company["name"]
+    return (head(t("help.title", company=n), t("help.desc", company=n),
+                 base, base + "help/", company, t)
+            + site_header(company, logo, "../", t.esc("help.subtitle"),
+                          t("help.h1"), t, alt, here="help")
+            + body + footer("../", t))
 
 
-def build_index(company, people, base):
+def build_index(company, people, base, t, alt=None, people_root="people/"):
+    """`people_root` exists because person pages are built once, in the
+    default locale, at /people/. A translated index sits one directory deeper,
+    so a bare "people/<id>/" from there points at a directory that does not
+    exist. This is the only cross-locale link in the site."""
     logo = asset_url(base, f"assets/shared/logo-{LOGO}-2x.png",
                      shared_asset(f"logo-{LOGO}-2x.png"))
     cards = []
@@ -445,44 +555,44 @@ def build_index(company, people, base):
         else:
             thumb = f'<div class="ph">{H.escape(initials(r["name"]))}</div>'
         cards.append(
-            f'<a class="card person" href="people/{r["id"]}/" '
+            f'<a class="card person" href="{people_root}{r["id"]}/" '
             f'data-search="{H.escape((r["name"] + " " + r["role"] + " " + r["email"]).lower())}">'
             f'{thumb}<div><div class="n">{H.escape(r["name"])}</div>'
             f'<div class="r">{H.escape(r["role"])}</div></div>'
             f'<div class="go">&rarr;</div></a>')
 
     n = len(people)
+    steps = "".join(f"<li>{t(f'index.step_{i}')}</li>" for i in range(1, 6))
+    # The count is rebuilt live by the script below, so both forms cross into
+    # JavaScript as JSON. Vietnamese has no plural form and simply repeats the
+    # same string - which is exactly why the choice belongs in the locale file
+    # and not in an `n == 1` in the template.
+    one_j = json.dumps(t("index.count_one", n="\x00"))
+    many_j = json.dumps(t("index.count_many", n="\x00"))
     body = f"""
   <div class="card steps">
-    <h2>How to install yours</h2>
-    <ol>
-      <li>Find yourself below and open your page.</li>
-      <li>Press <strong>Verify &amp; copy</strong>. It checks every image URL
-          first and refuses to copy if any is unreachable.</li>
-      <li>In Gmail: <strong>Settings &rarr; See all settings &rarr; General
-          &rarr; Signature</strong>.</li>
-      <li>Paste with <strong>Cmd/Ctrl+V</strong>, then
-          <strong>Save changes</strong> at the very bottom of the page.</li>
-      <li>Send yourself a test and read it on your phone as well as your laptop.</li>
-    </ol>
+    <h2>{t.esc("index.steps_h")}</h2>
+    <ol>{steps}</ol>
   </div>
 
   <div class="toolbar">
-    <label class="vh" for="q">Search by name, role or email</label>
+    <label class="vh" for="q">{t.esc("index.search_label")}</label>
     <input class="search" id="q" type="search"
-           placeholder="Search by name, role or email" autocomplete="off"/>
-    <span class="count" id="count">{n} {'person' if n == 1 else 'people'}</span>
+           placeholder="{t.esc("index.search_placeholder")}" autocomplete="off"/>
+    <span class="count" id="count">{
+      t.esc("index.count_one" if n == 1 else "index.count_many", n=n)}</span>
   </div>
 
   <div class="people" id="people">{''.join(cards)}</div>
   <div class="empty card" id="empty" style="display:none;">
-    No match. <a href="help/">Not listed yet?</a>
+    {t.esc("index.empty_pre")} <a href="help/">{t.esc("index.empty_link")}</a>
   </div>
-  <p class="note" style="margin-top:22px;">Not on this list, or something here
-     is out of date? <a href="help/">Ask for it to be added or changed</a>.</p>
+  <p class="note" style="margin-top:22px;">{t.esc("index.note")}
+     <a href="help/">{t.esc("index.note_link")}</a>.</p>
 
 <script>
 (function () {{
+  var ONE = {one_j}, MANY = {many_j};
   var q = document.getElementById('q'), list = document.getElementById('people'),
       empty = document.getElementById('empty'), count = document.getElementById('count'),
       cards = Array.prototype.slice.call(list.querySelectorAll('.person'));
@@ -492,35 +602,32 @@ def build_index(company, people, base):
       var hit = !t || c.getAttribute('data-search').indexOf(t) > -1;
       c.style.display = hit ? '' : 'none'; if (hit) shown++;
     }});
-    count.textContent = shown + (shown === 1 ? ' person' : ' people');
+    count.textContent = (shown === 1 ? ONE : MANY).replace('\\x00', shown);
     empty.style.display = shown ? 'none' : '';
   }}
   q.addEventListener('input', apply);
 }})();
 </script>"""
 
-    return (head(f"Email signatures - {company['name']}",
-                 f"Find your name, press one button, paste into Gmail. "
-                 f"Official {company['name']} email signatures.",
-                 base, base, company)
-            + site_header(company, logo, "./",
-                          "Pick your name, verify, copy, paste into Gmail. "
-                          "One button, about a minute.", "Email signatures",
-                          here="index")
-            + body + footer("./"))
+    nm = company["name"]
+    return (head(t("index.title", company=nm), t("index.desc", company=nm),
+                 base, base, company, t)
+            + site_header(company, logo, "./", t.esc("index.subtitle"),
+                          t("index.h1"), t, alt, here="index")
+            + body + footer("./", t))
 
 
-def build_person(company, rec, base, sig):
+def build_person(company, rec, base, sig, t):
     logo = asset_url(base, f"assets/shared/logo-{LOGO}-2x.png",
                      shared_asset(f"logo-{LOGO}-2x.png"))
     esc = H.escape(sig)
     return (head(f"{rec['name']} - email signature",
                  f"Install {rec['name']}'s {company['name']} email signature: "
                  f"verify the images, copy, paste into Gmail.",
-                 base, f"{base}people/{rec['id']}/", company)
+                 base, f"{base}people/{rec['id']}/", company, t)
             + site_header(company, logo, "../../",
                           "Verify the images, copy, then paste into Gmail.",
-                          "Your email signature", here="index")
+                          "Your email signature", t, here="index")
             + f"""
   <p class="crumb"><a href="../../">&larr; All signatures</a>
      &nbsp;&middot;&nbsp; <a href="../../help/">Something here is wrong</a></p>
@@ -679,7 +786,7 @@ def build_person(company, rec, base, sig):
   window.addEventListener('load', measure);
   window.addEventListener('resize', measure);
 }})();
-</script>""" + footer("../../"))
+</script>""" + footer("../../", t))
 
 
 def main():
@@ -693,18 +800,63 @@ def main():
         base += "/"
     people = load_people(company)
 
-    os.makedirs(DOCS, exist_ok=True)
-    with open(os.path.join(DOCS, "index.html"), "w", encoding="utf-8") as fh:
-        fh.write(build_index(company, people, base))
+    locales = load_locales()
+    en = T(DEFAULT_LOCALE, locales[DEFAULT_LOCALE])
+    others = [c for c in sorted(locales) if c != DEFAULT_LOCALE]
 
-    helpdir = os.path.join(DOCS, "help")
-    os.makedirs(helpdir, exist_ok=True)
-    with open(os.path.join(helpdir, "index.html"), "w", encoding="utf-8") as fh:
-        fh.write(build_help(company, base))
-    print("  docs/help/index.html")
+    def site_dir(code):
+        return DOCS if code == DEFAULT_LOCALE else os.path.join(DOCS, code)
 
+    def site_url(code):
+        return base if code == DEFAULT_LOCALE else f"{base}{code}/"
+
+    # With exactly two languages the switch is unambiguous. A third would
+    # need a menu rather than a link, and this is the line that would tell
+    # you - it fails loudly instead of silently linking to the wrong one.
+    if len(others) > 1:
+        raise SystemExit(
+            f"{len(locales)} locales found ({', '.join(sorted(locales))}). "
+            f"The header switch is a single link and can only offer one "
+            f"alternative - it needs to become a menu first.")
+
+    for code in [DEFAULT_LOCALE] + others:
+        t = T(code, locales[code])
+        d = site_dir(code)
+        os.makedirs(d, exist_ok=True)
+
+        # The link points at the same page in the other language, not at that
+        # language's home page - being thrown back to the front page is how
+        # people give up on a language switch.
+        alt = None
+        if others:
+            oc = others[0] if code == DEFAULT_LOCALE else DEFAULT_LOCALE
+            ot = T(oc, locales[oc])
+            here = f"{oc}/" if code == DEFAULT_LOCALE else "../"
+            alt = (here, ot("meta.name"), ot("meta.html_lang"))
+
+        with open(os.path.join(d, "index.html"), "w", encoding="utf-8") as fh:
+            fh.write(build_index(
+                company, people, site_url(code), t, alt,
+                "people/" if code == DEFAULT_LOCALE else "../people/"))
+
+        helpdir = os.path.join(d, "help")
+        os.makedirs(helpdir, exist_ok=True)
+        alt_help = None
+        if alt:
+            oc = others[0] if code == DEFAULT_LOCALE else DEFAULT_LOCALE
+            ot = T(oc, locales[oc])
+            href = f"../{oc}/help/" if code == DEFAULT_LOCALE else "../../help/"
+            alt_help = (href, ot("meta.name"), ot("meta.html_lang"))
+        with open(os.path.join(helpdir, "index.html"), "w",
+                  encoding="utf-8") as fh:
+            fh.write(build_help(company, site_url(code), t, alt_help))
+        rel = os.path.relpath(helpdir, DOCS)
+        print(f"  docs/{rel}/index.html ({code})")
+
+    # Pages serves exactly one 404, from the root, whatever path was asked
+    # for. There is no way to pick a language for it, so it is English.
     with open(os.path.join(DOCS, "404.html"), "w", encoding="utf-8") as fh:
-        fh.write(build_404(company, base))
+        fh.write(build_404(company, base, en))
 
     # robots.txt and the meta robots tag say the same thing, because they do
     # different jobs: robots.txt asks crawlers not to fetch, the meta tag asks
@@ -719,8 +871,10 @@ def main():
     print(f"  docs/robots.txt ({'indexed' if indexed else 'noindex'})")
 
     if indexed:
-        urls = [base, base + "help/"] + [
-            f"{base}people/{r['id']}/" for r in people]
+        urls = ([base, base + "help/"]
+                + [f"{base}{c}/" for c in others]
+                + [f"{base}{c}/help/" for c in others]
+                + [f"{base}people/{r['id']}/" for r in people])
         entries = "".join(f"<url><loc>{H.escape(u)}</loc></url>" for u in urls)
         with open(os.path.join(DOCS, "sitemap.xml"), "w",
                   encoding="utf-8") as fh:
@@ -754,7 +908,7 @@ def main():
         with open(os.path.join(d, "signature.html"), encoding="utf-8") as fh:
             sig = fh.read()
         with open(os.path.join(d, "index.html"), "w", encoding="utf-8") as fh:
-            fh.write(build_person(company, rec, base, sig))
+            fh.write(build_person(company, rec, base, sig, en))
         print(f"  docs/people/{rec['id']}/index.html")
 
     print(f"site -> docs/index.html + {len(people)} person page(s)")

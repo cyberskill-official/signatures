@@ -20,14 +20,28 @@
 <meta property="og:image:height" content="630"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <title>Get a signature - CyberSkill</title>
+<script>/* Before first paint, or the page flashes the wrong theme on every
+  load for anyone who chose one. Also marks the document as scripted, which
+  is what reveals the toggle - without JS the OS preference still applies and
+  a dead button would be worse than none. */
+(function(){var r=document.documentElement;r.className+=' js';
+try{var t=localStorage.getItem('theme');
+if(t==='dark'||t==='light')r.setAttribute('data-theme',t);}catch(e){}})();</script>
 <style>
   :root{--umber:#45210E;--ochre:#F4BA17;--accent:#9E5E3E;--ink:#22201E;
-        --muted:#6B6B6B;--line:#E6E0D8;--bg:#FBF9F7;--card:#FFFFFF;}
+        --muted:#6B6B6B;--line:#E6E0D8;--bg:#FBF9F7;--card:#FFFFFF;
+        --link:#45210E;--cta-bg:#45210E;--cta-fg:#FFFFFF;--cta-bg-h:#5C2D14;
+        --ghost-fg:#45210E;--ghost-line:#E6E0D8;--ghost-bg-h:#F6F1EB;
+        --code-bg:#F1ECE6;--code-fg:inherit;--field-bg:#FAF8F6;
+        --ok:#1B7F3B;--err:#B3261E;--ph-bg:#45210E;}
+  html{color-scheme:light;}
+  html[data-theme="dark"]{color-scheme:dark;}
+  @media (prefers-color-scheme: dark){html:not([data-theme="light"]){color-scheme:dark;}}
   *{box-sizing:border-box;}
   body{margin:0;background:var(--bg);color:var(--ink);
        font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
        -webkit-font-smoothing:antialiased;}
-  a{color:var(--umber);}
+  a{color:var(--link);}
   .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
   header.site{background:var(--umber);color:#fff;padding:34px 0 30px;}
   header.site a{color:#fff;text-decoration:none;}
@@ -50,13 +64,13 @@
   .route .who{margin:0 0 14px;color:var(--muted);font-size:14px;}
   .route ol,.route ul{margin:0;padding-left:20px;}
   .route li{margin:7px 0;}
-  .cta{display:inline-block;background:var(--umber);color:#fff;border-radius:8px;
+  .cta{display:inline-block;background:var(--cta-bg);color:var(--cta-fg);border-radius:8px;
        padding:11px 20px;font-size:14px;font-weight:600;text-decoration:none;
        margin-top:14px;}
-  .cta:hover{background:#5C2D14;color:#fff;}
-  .cta.ghost{background:transparent;color:var(--umber);
-             box-shadow:inset 0 0 0 1.5px var(--line);}
-  .cta.ghost:hover{background:#F6F1EB;color:var(--umber);}
+  .cta:hover{background:var(--cta-bg-h);color:var(--cta-fg);}
+  .cta.ghost{background:transparent;color:var(--ghost-fg);
+             box-shadow:inset 0 0 0 1.5px var(--ghost-line);}
+  .cta.ghost:hover{background:var(--ghost-bg-h);color:var(--ghost-fg);}
   .note{border-left:3px solid var(--ochre);padding:2px 0 2px 14px;
         margin:18px 0;color:var(--muted);font-size:14px;max-width:62ch;}
   .faq{padding:6px 24px 10px;margin:0 0 16px;}
@@ -70,11 +84,13 @@
   .steps h2{margin:0 0 10px;font-size:12px;letter-spacing:.09em;
             text-transform:uppercase;color:var(--muted);}
   .steps ol{margin:0;padding-left:20px;} .steps li{margin:5px 0;}
-  code{background:#F1ECE6;padding:1px 6px;border-radius:4px;font-size:.9em;}
+  code{background:var(--code-bg);color:var(--code-fg);padding:1px 6px;
+       border-radius:4px;font-size:.9em;}
   .toolbar{display:flex;gap:12px;align-items:center;margin:0 0 18px;
            flex-wrap:wrap;}
   .search{flex:1 1 260px;padding:11px 14px;border:1px solid var(--line);
-          border-radius:9px;font-size:14px;background:#fff;}
+          border-radius:9px;font-size:14px;background:var(--card);
+          color:var(--ink);}
   .count{font-size:13px;color:var(--muted);}
   .people{display:grid;gap:16px;
           grid-template-columns:repeat(auto-fill,minmax(280px,1fr));}
@@ -84,7 +100,7 @@
                 box-shadow:0 2px 14px rgba(69,33,14,.09);transform:translateY(-1px);}
   .person img{width:56px;height:56px;display:block;flex:0 0 56px;}
   .ph{width:56px;height:56px;flex:0 0 56px;border-radius:50%;
-      background:var(--umber);color:var(--ochre);display:flex;
+      background:var(--ph-bg);color:var(--ochre);display:flex;
       align-items:center;justify-content:center;font-weight:700;font-size:19px;}
   .person .n{font-weight:700;font-size:16px;}
   .person .r{font-size:13px;color:var(--muted);}
@@ -98,20 +114,24 @@
   h2.person-name{margin:0 0 2px;font-size:27px;letter-spacing:-.3px;}
   .person-role{margin:0 0 22px;color:var(--muted);}
   .bar{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin:0 0 20px;}
-  .btn{background:var(--umber);color:#fff;border:0;border-radius:8px;
+  .btn{background:var(--cta-bg);color:var(--cta-fg);border:0;border-radius:8px;
        padding:12px 22px;font-size:14px;font-weight:600;cursor:pointer;}
-  .btn:hover{background:#5C2D14;} .btn[disabled]{opacity:.5;cursor:progress;}
+  .btn:hover{background:var(--cta-bg-h);} .btn[disabled]{opacity:.5;cursor:progress;}
   .status{font-size:13px;color:var(--muted);}
-  .status.ok{color:#1B7F3B;font-weight:600;}
-  .status.err{color:#B3261E;font-weight:600;}
+  .status.ok{color:var(--ok);font-weight:600;}
+  .status.err{color:var(--err);font-weight:600;}
   .grid{display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap;}
   .col{min-width:0;} .col.narrow{flex:0 0 auto;} .col.desk{flex:0 1 556px;}
   .colhead{font-size:11px;letter-spacing:.09em;text-transform:uppercase;
            color:var(--muted);margin:0 0 7px;}
   .dim{text-transform:none;letter-spacing:0;font-weight:700;}
-  .dim.good{color:#1B7F3B;} .dim.bad{color:#B3261E;}
-  .surface{border:1px solid var(--line);border-radius:9px;padding:18px;
-           overflow-x:auto;background:#fff;}
+  .dim.good{color:var(--ok);} .dim.bad{color:var(--err);}
+  /* Pinned, never inherited, in every theme. These four rules ARE the
+     product: each one shows what a mail client renders, so a surface that
+     follows the page theme is showing the reader their own browser instead
+     of their recipient's inbox. */
+  .surface{border:1px solid #D8D2CA;border-radius:9px;padding:18px;
+           overflow-x:auto;background:#FFFFFF;color:#22201E;}
   /* The signature is fluid (width:100% capped at 520px), so a shrink-to-fit
      flex column collapses it to min-content and the "desktop" preview stops
      being a desktop preview. Pin the desktop surface wide enough for the
@@ -119,14 +139,16 @@
   .surface.desk{width:556px;max-width:100%;}
   .surface.w320{width:320px;flex:0 0 320px;}
   .surface.dark{background:#1F1F1F;border-color:#3A3A3A;color:#E8E8E8;}
-  .surface.inv{background:#fff;filter:invert(1) hue-rotate(180deg);}
+  .surface.inv{background:#FFFFFF;color:#22201E;
+               filter:invert(1) hue-rotate(180deg);}
   .surface.inv img{filter:invert(1) hue-rotate(180deg);}
   .sub{font-size:12px;color:var(--muted);margin:0 0 7px;}
   .dark3 .col{flex:1 1 320px;min-width:300px;}
   details{margin-top:20px;} summary{cursor:pointer;font-size:13px;color:var(--muted);}
   textarea{width:100%;height:150px;margin-top:10px;padding:12px;
            font:12px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;
-           border:1px solid var(--line);border-radius:8px;background:#FAF8F6;}
+           border:1px solid var(--line);border-radius:8px;
+           background:var(--field-bg);color:var(--ink);}
   /* Keyboard focus. Every interactive element here has custom styling that
      overrode the browser default without replacing it, so tabbing to the
      copy button showed nothing at all. */
@@ -143,32 +165,44 @@
   @media (prefers-reduced-motion: reduce){
     *{transition:none !important;animation:none !important;}
   }
-  /* Dark mode for the site chrome only.
-     The preview surfaces must NOT follow it - a "Light" preview that goes
-     dark stops demonstrating anything, and text inheriting a light colour
-     onto a white surface disappears entirely. Both surfaces pin their own
-     colour rather than inheriting. */
-  @media (prefers-color-scheme: dark){
-    :root{--ink:#EDE8E3;--muted:#A5A19D;--line:#3A342E;--bg:#17140F;
-          --card:#211C16;}
-    a{color:#F0C463;}
-    .cta,.btn{background:var(--ochre);color:#3A1B0B;}
-    .cta:hover,.btn:hover{background:#FFD166;color:#3A1B0B;}
-    .cta.ghost{background:transparent;color:#F0C463;
-               box-shadow:inset 0 0 0 1.5px #4A423A;}
-    .cta.ghost:hover{background:#2B241C;color:#F0C463;}
-    code{background:#2B241C;color:#EDE8E3;}
-    .search,textarea{background:#211C16;color:var(--ink);
-                     border-color:var(--line);}
-    .status.ok,.dim.good{color:#6FD68E;}
-    .status.err,.dim.bad{color:#FF9B92;}
-    .ph{background:#2B241C;}
-    .surface{background:#FFFFFF;color:#22201E;border-color:#D8D2CA;}
-    .surface.dark{background:#1F1F1F;color:#E8E8E8;border-color:#3A3A3A;}
-    .surface.inv{background:#FFFFFF;color:#22201E;}
-  }
   .sec{margin:34px 0 12px;font-size:12px;letter-spacing:.09em;
        text-transform:uppercase;color:var(--muted);}
+  /* Theme control. Hidden until the inline script in <head> marks the page
+     as scripted, because a button that cannot do anything is worse than no
+     button - without JS the OS preference below still applies. */
+  .themebtn{display:none;}
+  html.js .themebtn{display:inline-flex;align-items:center;gap:7px;
+        padding:8px 13px;border:0;border-radius:8px;
+        background:rgba(255,255,255,.10);color:#F3E7DC;font:inherit;
+        font-size:14px;font-weight:600;cursor:pointer;}
+  html.js .themebtn:hover{background:rgba(255,255,255,.18);}
+  .themebtn svg{width:16px;height:16px;display:block;}
+  /* The icon names the destination, not the current state - a sun while
+     already light reads as "you are here", which is not what a button means.
+     CSS does the swap so it is right on first paint; the script only has to
+     keep the label in step. */
+  .themebtn .sun{display:none;} .themebtn .moon{display:block;}
+  html[data-theme="dark"] .themebtn .sun{display:block;}
+  html[data-theme="dark"] .themebtn .moon{display:none;}
+  @media (prefers-color-scheme: dark){
+    html:not([data-theme="light"]) .themebtn .sun{display:block;}
+    html:not([data-theme="light"]) .themebtn .moon{display:none;}
+  }
+  .navrow{display:flex;align-items:flex-end;gap:12px;}
+  .navrow .tabs{flex:1 1 auto;}
+  .navtools{display:flex;align-items:center;gap:8px;margin-left:auto;
+            margin-bottom:-6px;}
+  /* Outlined rather than filled, so it does not read as a third page in the
+     tab group beside it. */
+  .langlink{display:inline-flex;align-items:center;gap:7px;background:none;
+            box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.28);}
+  .langlink:hover{background:rgba(255,255,255,.12);}
+  .langlink svg{width:15px;height:15px;display:block;opacity:.85;}
+
+  @media (prefers-color-scheme: dark){
+    html:not([data-theme="light"]){--ink:#EDE8E3;--muted:#A5A19D;--line:#3A342E;--bg:#17140F;--card:#211C16;--link:#F0C463;--cta-bg:#F4BA17;--cta-fg:#3A1B0B;--cta-bg-h:#FFD166;--ghost-fg:#F0C463;--ghost-line:#4A423A;--ghost-bg-h:#2B241C;--code-bg:#2B241C;--code-fg:#EDE8E3;--field-bg:#211C16;--ok:#6FD68E;--err:#FF9B92;--ph-bg:#2B241C;}
+  }
+  html[data-theme="dark"]{--ink:#EDE8E3;--muted:#A5A19D;--line:#3A342E;--bg:#17140F;--card:#211C16;--link:#F0C463;--cta-bg:#F4BA17;--cta-fg:#3A1B0B;--cta-bg-h:#FFD166;--ghost-fg:#F0C463;--ghost-line:#4A423A;--ghost-bg-h:#2B241C;--code-bg:#2B241C;--code-fg:#EDE8E3;--field-bg:#211C16;--ok:#6FD68E;--err:#FF9B92;--ph-bg:#2B241C;}
 </style>
 </head>
 <body>
@@ -181,28 +215,57 @@
     </a>
     <h1>Get a signature</h1>
     <p>Do not have one yet, or something changed? Start here.</p>
-    <nav class="tabs">
-      <a class="tab" href="../">All signatures</a>
-      <a class="tab on" href="../help/" aria-current="page">Get one or change yours</a>
-    </nav>
+    <div class="navrow">
+      <nav class="tabs">
+        <a class="tab" href="../">All signatures</a>
+        <a class="tab on" href="../help/" aria-current="page">Get one or change yours</a>
+      </nav>
+      <div class="navtools"><a class="tab langlink" href="../vi/help/" hreflang="vi" lang="vi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>Tiếng Việt</a>
+      <button class="themebtn" id="themebtn" type="button">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.6M12 19.4V22
+          M2 12h2.6M19.4 12H22M4.9 4.9l1.9 1.9M17.2 17.2l1.9 1.9
+          M19.1 4.9l-1.9 1.9M6.8 17.2l-1.9 1.9"/>
+        </svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linejoin="round" aria-hidden="true">
+          <path d="M20 14.2A8.2 8.2 0 0 1 9.8 4a8.4 8.4 0 1 0 10.2 10.2z"/>
+        </svg>
+        <span class="themebtn-t">Dark</span>
+      </button></div>
+    </div>
+<script>/* The button's icon is swapped by CSS so it is correct before this
+  runs; this only keeps the word and the accessible name in step, and follows
+  the OS for anyone who has never chosen. */
+(function(){
+  var b=document.getElementById('themebtn'),r=document.documentElement,
+      mq=window.matchMedia('(prefers-color-scheme: dark)');
+  function isDark(){var a=r.getAttribute('data-theme');
+    return a?a==='dark':mq.matches;}
+  var W={d:"Dark",l:"Light",ad:"Switch to the dark theme",al:"Switch to the light theme"};
+  function sync(){var d=isDark();
+    b.querySelector('.themebtn-t').textContent=d?W.l:W.d;
+    b.setAttribute('aria-label',d?W.al:W.ad);}
+  sync();
+  b.addEventListener('click',function(){
+    var next=isDark()?'light':'dark';
+    r.setAttribute('data-theme',next);
+    try{localStorage.setItem('theme',next);}catch(e){}
+    sync();});
+  try{if(!localStorage.getItem('theme'))mq.addEventListener('change',sync);}
+  catch(e){}
+})();</script>
   </div>
 </header>
 <div class="ochre"></div>
 <main id="main"><div class="wrap">
-  <p class="lede">Everyone at CyberSkill can have a signature
-     on this site. If yours is not here yet, or something on it has changed,
-     here is how to sort it out.</p>
+  <p class="lede">Everyone at CyberSkill can have a signature on this site. If yours is not here yet, or something on it has changed, here is how to sort it out.</p>
 
   <div class="card route">
     <h3>Just ask</h3>
     <p class="who">The normal way. You need a GitHub account and nothing else.</p>
-    <ol>
-      <li>Open one of the forms below.</li>
-      <li>Fill in your name, job title and email. Add a phone number if you
-          want one on there.</li>
-      <li>Drag your photo into the photo box. Anything square-ish works.</li>
-      <li>Submit.</li>
-    </ol>
+    <ol><li>Open one of the forms below.</li><li>Fill in your name, job title and email. Add a phone number if you want one on there.</li><li>Drag your photo into the photo box. Anything square-ish works.</li><li>Submit.</li></ol>
     
       <a class="cta" href="https://github.com/cyberskill-official/signatures/issues/new?template=new-signature.yml">Request a signature</a>
       <a class="cta ghost" href="https://github.com/cyberskill-official/signatures/issues/new?template=update-signature.yml">Update my details</a>
@@ -210,93 +273,24 @@
 
   <div class="card route">
     <h3>Or do it yourself</h3>
-    <p class="who">If you have used GitHub before. All of it happens in the
-       browser - nothing to install, nothing to run.</p>
-    <ol>
-      <li>Copy <code>src/people/_template.yml</code> to
-          <code>src/people/your-name.yml</code> and fill it in. That filename
-          becomes your web address, so use lowercase letters and hyphens.</li>
-      <li>Upload your photo to <code>src/avatars/</code> with a matching
-          filename.</li>
-      <li>Open a pull request with both changes on one branch.</li>
-    </ol>
+    <p class="who">If you have used GitHub before. All of it happens in the browser - nothing to install, nothing to run.</p>
+    <ol><li>Copy <code>src/people/_template.yml</code> to <code>src/people/your-name.yml</code> and fill it in. That filename becomes your web address, so use lowercase letters and hyphens.</li><li>Upload your photo to <code>src/avatars/</code> with a matching filename.</li><li>Open a pull request with both changes on one branch.</li></ol>
     <a class="cta ghost" href="https://github.com/cyberskill-official/signatures/blob/main/CONTRIBUTING.md">Full instructions</a>
   </div>
 
   <div class="card route">
     <h3>What happens next</h3>
     <p class="who">Usually within a day.</p>
-    <ul>
-      <li>Your request becomes a proposed change automatically, usually
-          within a couple of minutes. You get a comment on it with a link.</li>
-      <li>Automatic checks confirm it renders correctly on a phone and a
-          laptop, in light and dark mode, and that it survives what Gmail
-          does to pasted markup.</li>
-      <li>A person then checks what a test cannot - that your name is spelled
-          and accented the way you wrote it, and that the photo is really
-          you - and approves it.</li>
-      <li>The site rebuilds itself and your page appears under
-          <strong>All signatures</strong>.</li>
-      <li>Open your page, press <strong>Verify &amp; copy</strong>, and paste
-          into Gmail.</li>
-    </ul>
-    <p class="note">Nothing you send can break anyone else's signature, and
-       nothing reaches the live site until a person has looked at it.</p>
+    <ul><li>Your request becomes a proposed change automatically, usually within a couple of minutes. You get a comment on it with a link.</li><li>Automatic checks confirm it renders correctly on a phone and a laptop, in light and dark mode, and that it survives what Gmail does to pasted markup.</li><li>A person then checks what a test cannot - that your name is spelled and accented the way you wrote it, and that the photo is really you - and approves it.</li><li>The site rebuilds itself and your page appears under <strong>All signatures</strong>.</li><li>Open your page, press <strong>Verify &amp; copy</strong>, and paste into Gmail.</li></ul>
+    <p class="note">Nothing you send can break anyone else&#x27;s signature, and nothing reaches the live site until a person has looked at it.</p>
   </div>
 
   <div class="card faq">
-    <details>
-      <summary>What ends up public?</summary>
-      <p>Your name, job title, work email, your photo, and the phone number if
-         you give one. Your photo is served from a public web address, which
-         is how images in email signatures work everywhere - a mail app has to
-         be able to fetch it. Use a photo you are happy to have public, and
-         leave it out if you would rather not.</p>
-    </details>
-    <details>
-      <summary>I do not want my phone number on it.</summary>
-      <p>Leave it out and the row disappears. Nothing else shifts. The same is
-         true of the photo, the Vietnamese name line, and the social links.</p>
-    </details>
-    <details>
-      <summary>What sort of photo?</summary>
-      <p>A normal head-and-shoulders portrait, square-ish, 512 pixels or
-         larger. It gets cropped to a circle automatically. If your photo is
-         framed unusually - very wide, or you are off to one side - say so in
-         your request and it will be adjusted by hand.</p>
-    </details>
-    <details>
-      <summary>My name has accents. Will they show correctly?</summary>
-      <p>Yes. Vietnamese diacritics are checked on every build, in every
-         browser engine, and a missing character fails the build rather than
-         shipping a blank box.</p>
-    </details>
-    <details>
-      <summary>The images are not showing in my email.</summary>
-      <p>Most mail apps block images until you allow them, and some people
-         keep them blocked permanently. That is expected. Every line of your
-         signature is real text, so nothing is lost and nothing moves - the
-         layout is identical either way.</p>
-    </details>
-    <details>
-      <summary>It looks slightly different in Outlook.</summary>
-      <p>Outlook for Windows draws email through Microsoft Word, which ignores
-         some styling. Links come out in Outlook's own blue instead of
-         inheriting the surrounding colour, and the block is about four pixels
-         shorter. Both are expected and neither can be prevented from the
-         markup.</p>
-    </details>
-    <details>
-      <summary>I pasted it and then my details changed.</summary>
-      <p>Request the change, then paste again once your page updates. Gmail
-         keeps its own copy of whatever you pasted, so an old signature stays
-         old until you replace it.</p>
-    </details>
+    <details><summary>What ends up public?</summary><p>Your name, job title, work email, your photo, and the phone number if you give one. Your photo is served from a public web address, which is how images in email signatures work everywhere - a mail app has to be able to fetch it. Use a photo you are happy to have public, and leave it out if you would rather not.</p></details><details><summary>I do not want my phone number on it.</summary><p>Leave it out and the row disappears. Nothing else shifts. The same is true of the photo, the Vietnamese name line, and the social links.</p></details><details><summary>What sort of photo?</summary><p>A normal head-and-shoulders portrait, square-ish, 512 pixels or larger. It gets cropped to a circle automatically. If your photo is framed unusually - very wide, or you are off to one side - say so in your request and it will be adjusted by hand.</p></details><details><summary>My name has accents. Will they show correctly?</summary><p>Yes. Vietnamese diacritics are checked on every build, in every browser engine, and a missing character fails the build rather than shipping a blank box.</p></details><details><summary>The images are not showing in my email.</summary><p>Most mail apps block images until you allow them, and some people keep them blocked permanently. That is expected. Every line of your signature is real text, so nothing is lost and nothing moves - the layout is identical either way.</p></details><details><summary>It looks slightly different in Outlook.</summary><p>Outlook for Windows draws email through Microsoft Word, which ignores some styling. Links come out in Outlook's own blue instead of inheriting the surrounding colour, and the block is about four pixels shorter. Both are expected and neither can be prevented from the markup.</p></details><details><summary>I pasted it and then my details changed.</summary><p>Request the change, then paste again once your page updates. Gmail keeps its own copy of whatever you pasted, so an old signature stays old until you replace it.</p></details>
   </div></div></main>
 <footer class="site"><div class="wrap">
   <p>Something wrong, missing, or out of date?
-     <a href="../help/">Ask for it to be changed</a> - it usually takes a
-     day. Nothing here is edited by hand; every signature is generated, so a
-     fix for one person can be a fix for everyone.</p>
+     <a href="../help/">Ask for it to be changed</a>
+     - it usually takes a day. Nothing here is edited by hand; every signature is generated, so a fix for one person can be a fix for everyone.</p>
 </div></footer>
 </body></html>

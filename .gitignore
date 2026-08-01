@@ -4,6 +4,9 @@
 # Cross-client evidence: 30+ PNGs per run, regenerated on demand and uploaded
 # by CI as a build artifact. report.json is small and reviewable, so it stays.
 validation/crossclient/*.png
+# Recursive too: a page name containing a slash once wrote a PNG into a
+# subdirectory, where the pattern above did not reach it.
+validation/crossclient/**/*.png
 
 build/vendor/node_modules/
 build/vendor/package-lock.json

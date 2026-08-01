@@ -522,7 +522,30 @@ def audit_site(engines, people, findings, runs):
                 # The directory and the help page are what staff hit first, so
                 # they get the same overflow and dead-link checks as the
                 # install pages.
-                for path, name in (("", "index"), ("help/", "help")):
+                #
+                # Discovered from disk, not listed here. A hardcoded pair
+                # silently stopped covering half the site the day a second
+                # language was added, and a translated page is exactly where
+                # an overflow or a dead relative link would appear first.
+                pages = []
+                for d, _, files in os.walk(DOCS):
+                    if "index.html" not in files:
+                        continue
+                    rel = os.path.relpath(d, DOCS).replace(os.sep, "/")
+                    rel = "" if rel == "." else rel + "/"
+                    if rel.startswith("people/"):
+                        continue          # covered by the signature runs
+                    pages.append((rel, rel.rstrip("/") or "index"))
+                if not pages:
+                    raise SystemExit("no site pages found under docs/")
+
+                # "vi/help" is a legitimate page name and an illegal filename
+                # fragment - left alone it writes site--vi/help--*.png, which
+                # creates a directory and slips past the .gitignore that only
+                # matches PNGs one level down.
+                pages = [(p, n.replace("/", "-")) for p, n in pages]
+
+                for path, name in sorted(pages):
                     page.goto(local + path, wait_until="networkidle")
                     tag = f"site--{name}--{eng}--{label}"
                     page.screenshot(path=os.path.join(OUT, f"{tag}.png"),
