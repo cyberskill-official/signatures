@@ -1,10 +1,22 @@
 name: Publish
 
-# Rebuilds docs/ after anything lands on main, so contributors never have to
-# run the build themselves. GitHub Pages then serves docs/ from this branch.
+# Rebuilds docs/ after anything lands on main and deploys it, so contributors
+# never run the build themselves.
 #
-# No loop: this only triggers on src/ and build/ changes, and it only ever
-# writes to docs/.
+# Why this deploys an artifact instead of relying on the branch:
+#
+#   A push made with GITHUB_TOKEN does not trigger any workflow, and that
+#   includes GitHub's own pages-build-deployment. With Pages set to "deploy
+#   from a branch", this job would commit docs/ and the live site would never
+#   update - a silent failure that looks like success in the Actions log.
+#   Uploading the built tree and calling deploy-pages publishes directly, so
+#   the deploy is part of this run and shows up in it.
+#
+# REQUIRES: Settings -> Pages -> Source = "GitHub Actions".
+# The custom domain is stored in repository settings, not in docs/CNAME, so
+# switching the source keeps signatures.cyberskill.world and its certificate.
+# docs/CNAME is still generated and committed; Pages ignores it under this
+# source, and it keeps the branch-deploy fallback intact.
 
 on:
   push:
@@ -16,15 +28,20 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: write   # commit the rebuilt docs/
+  pages: write      # deploy it
+  id-token: write   # OIDC, required by deploy-pages
 
 concurrency:
-  group: publish
+  group: pages
   cancel-in-progress: false
 
 jobs:
   publish:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
 
@@ -41,10 +58,13 @@ jobs:
       - name: Rebuild site
         run: ./install.sh --skip-icons
 
+      # Committing is for the record and for the branch-deploy fallback. The
+      # deploy below is what actually publishes, so a failure to commit must
+      # not stop the site updating.
       - name: Commit if anything changed
         run: |
           if git diff --quiet -- docs/; then
-            echo "docs/ already current - nothing to publish."
+            echo "docs/ already current - nothing to commit."
             exit 0
           fi
           git config user.name  "github-actions[bot]"
@@ -52,4 +72,17 @@ jobs:
           git add docs/
           git commit -m "Rebuild docs/ from ${GITHUB_SHA::7}"
           git push
-          echo "Published. Pages will deploy shortly."
+
+      - name: Package the site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
+      - name: Deploy to Pages
+        id: deploy
+        uses: actions/deploy-pages@v4
+
+      - name: Where it went
+        run: |
+          echo "Deployed: ${{ steps.deploy.outputs.page_url }}"
+          echo "Give it a moment, then: ./install.sh --verify-remote"

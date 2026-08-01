@@ -1,11 +1,11 @@
 {
-  "base": "http://127.0.0.1:49111/",
+  "base": "https://signatures.cyberskill.world/",
   "people": [
     {
       "id": "stephen-cheng",
       "name": "Stephen Cheng",
       "role": "Founder",
-      "chars": 5242,
+      "chars": 5320,
       "over_limit": false
     }
   ]

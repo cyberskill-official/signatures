@@ -95,9 +95,31 @@ signatures/
 └── install.sh            rebuild + verify
 ```
 
-Pages is configured as **deploy from branch `main`, folder `/docs`**, which
-keeps generated output completely separate from source. Nothing in `docs/` is
+Generated output stays completely separate from source. Nothing in `docs/` is
 edited by hand; the whole tree is reproducible from `src/` plus `build/`.
+
+### Repository settings this depends on
+
+| Setting | Value | Why |
+|---|---|---|
+| Settings -> Pages -> Source | **GitHub Actions** | see below |
+| Settings -> Actions -> General -> Workflow permissions | either option works | the workflows request what they need explicitly |
+| Branch protection on `main` | none, or allow `github-actions[bot]` | `publish.yml` commits the rebuilt `docs/` |
+
+**Pages must deploy from Actions, not from the branch.** A push made with
+`GITHUB_TOKEN` does not trigger any workflow, and that includes GitHub's own
+`pages-build-deployment`. Under "deploy from a branch", `publish.yml` would
+commit `docs/` and the live site would never update - the Actions log would
+still be green. Uploading the built tree and calling `deploy-pages` makes the
+deploy part of the same run, so it either happens or the run fails.
+
+The custom domain is stored in repository settings, not in `docs/CNAME`, so
+this source change keeps `signatures.cyberskill.world` and its certificate.
+`docs/CNAME` is still generated and committed; Pages ignores it under this
+source, and it keeps the branch-deploy fallback intact.
+
+Workflow-level `permissions:` blocks grant what each job needs, so the repo's
+default token setting does not have to be loosened.
 
 ---
 

@@ -117,21 +117,27 @@ jobs:
         if: always() && github.event.pull_request.head.repo.full_name == github.repository
         continue-on-error: true
         uses: actions/github-script@v7
+        # Passed through env, never interpolated into the script body. The
+        # table contains backticks, which would terminate a JS template
+        # literal, and a branch or record could otherwise inject script.
+        env:
+          TABLE: ${{ steps.summary.outputs.table }}
+          JOB_STATUS: ${{ job.status }}
         with:
           script: |
-            const ok = '${{ job.status }}' === 'success';
+            const ok = process.env.JOB_STATUS === 'success';
             const body = [
               '<!-- signature-check -->',
               ok ? '### All checks passed' : '### Checks failed',
               '',
               '| id | name | role | signature size |',
               '|---|---|---|---|',
-              `${{ steps.summary.outputs.table }}`,
+              process.env.TABLE || '| - | no manifest produced | | |',
               '',
               ok
-                ? 'Once this merges, the site rebuilds automatically. Your page will be at '
-                  + '`https://signatures.cyberskill.world/people/<id>/` within a minute or two - '
-                  + 'open it and press **Verify and copy**.'
+                ? 'Once this merges, the site rebuilds and deploys automatically. Your page '
+                  + 'will be at https://signatures.cyberskill.world/people/<id>/ within a '
+                  + 'minute or two - open it and press **Verify and copy**.'
                 : 'Open the failed step above to see what went wrong. Nothing reaches the live '
                   + 'site until this passes and a maintainer merges.',
             ].join('\n');

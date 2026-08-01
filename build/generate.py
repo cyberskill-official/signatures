@@ -169,9 +169,18 @@ def main():
         print(f"  {rec['id']:22} {len(html):>5} chars "
               f"({len(html)/10000*100:4.1f}% of Gmail limit){flag}")
 
-    with open(os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                          "manifest.json"), "w") as fh:
-        json.dump(manifest, fh, indent=2)
+    # Only the real build owns the manifest. Validation regenerates against a
+    # localhost base URL into a temp dir; letting that write here would leave
+    # build/manifest.json describing signatures nobody ships, with character
+    # counts short by the length of the real domain. CI reads this file to
+    # report each signature's size, so a stale one is a wrong answer rather
+    # than a missing one.
+    if os.path.abspath(args.out_root) == os.path.abspath(DOCS_PEOPLE):
+        with open(os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                               "manifest.json"), "w") as fh:
+            json.dump(manifest, fh, indent=2)
+    else:
+        print(f"  (temp out-root: build/manifest.json left alone)")
     print(f"{len(people)} signature(s) -> {args.out_root}/<id>/signature.html")
 
 
