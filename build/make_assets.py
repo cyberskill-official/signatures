@@ -69,9 +69,33 @@ def default_crop(im):
     return [max(0, (w - size) // 2), max(0, int(h * 0.10)), size]
 
 
+def icons_present():
+    return all(os.path.isfile(os.path.join(SHARED_ASSETS, f"icon-{n}-2x.png"))
+               for n in ICON_NAMES)
+
+
 def build_icons():
-    from playwright.sync_api import sync_playwright
+    """Rasterise the shared icons. Needs Playwright and the vendored Lucide.
+
+    Both are only required to CHANGE the icon set. They are build-time tools,
+    not runtime dependencies, so if the icons are already committed we skip
+    rather than fail - otherwise a routine rebuild or a --verify-remote run
+    breaks on any machine that has not installed Playwright.
+    """
+    try:
+        from playwright.sync_api import sync_playwright
+    except ImportError:
+        if icons_present():
+            print("  icons: Playwright not installed - reusing committed PNGs")
+            return
+        raise SystemExit(
+            "Icons are missing and Playwright is not installed.\n"
+            "  pip install playwright --break-system-packages\n"
+            "  python3 -m playwright install chromium")
     if not os.path.isdir(LUCIDE):
+        if icons_present():
+            print("  icons: Lucide not vendored - reusing committed PNGs")
+            return
         raise SystemExit("Lucide not vendored: cd build/vendor && npm install lucide-static")
     os.makedirs(SHARED_ASSETS, exist_ok=True)
     px = 36

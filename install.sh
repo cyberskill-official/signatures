@@ -83,10 +83,25 @@ done
 if [[ $VERIFY_REMOTE -eq 1 ]]; then
   echo "==> verifying published URLs"
   unreachable=0
-  # Check every distinct image URL referenced by any signature.
-  urls=$( { grep -ho 'src="https://[^"]*"' docs/people/*/signature.html || true; } \
-          | sed 's/^src="//;s/"$//' | sort -u )
-  for url in $urls; do
+
+  # Collect every distinct image URL referenced by any signature.
+  # An empty list is treated as a FAILURE, not a pass: a verification step
+  # that silently checks nothing is worse than no verification at all.
+  url_file=$(mktemp)
+  for f in docs/people/*/signature.html; do
+    grep -o 'src="https://[^"]*"' "$f" | sed 's/^src="//; s/"$//' >> "$url_file" || true
+  done
+  sort -u -o "$url_file" "$url_file"
+  n_urls=$(wc -l < "$url_file" | tr -d ' ')
+
+  if [[ "$n_urls" -eq 0 ]]; then
+    bad "no image URLs found to verify - extraction is broken, refusing to pass"
+    rm -f "$url_file"; exit 1
+  fi
+  echo "    $n_urls distinct image URL(s)"
+
+  while IFS= read -r url; do
+    [[ -z "$url" ]] && continue
     code=$(curl -s -o /dev/null -w '%{http_code}' -L --max-time 15 "$url" || echo 000)
     ctype=$(curl -s -o /dev/null -w '%{content_type}' -L --max-time 15 "$url" || echo '')
     if [[ "$code" == "200" && "$ctype" == image/* ]]; then
@@ -94,7 +109,9 @@ if [[ $VERIFY_REMOTE -eq 1 ]]; then
     else
       bad "$url  ($code ${ctype:-no content-type})"; unreachable=1
     fi
-  done
+  done < "$url_file"
+  rm -f "$url_file"
+
   if [[ $unreachable -ne 0 ]]; then
     echo
     bad "Commit and push docs/ , wait for the Pages deploy, then re-run."
