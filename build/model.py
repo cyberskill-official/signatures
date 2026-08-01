@@ -66,6 +66,11 @@ def load_company():
     if not base.startswith("https://") or not base.endswith("/"):
         raise RecordError(
             "company.yml: base_url must be https:// and end with a slash")
+    domain = c.get("custom_domain")
+    if domain and domain not in base:
+        raise RecordError(
+            f"company.yml: custom_domain '{domain}' does not appear in "
+            f"base_url '{base}' - one of them is stale")
     return c
 
 

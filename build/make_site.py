@@ -362,6 +362,20 @@ def main():
     # silently dropped from the published site.
     open(os.path.join(DOCS, ".nojekyll"), "w").close()
 
+    # Regenerate docs/CNAME so the custom domain survives any rebuild. GitHub
+    # writes this file when the domain is first saved in Settings, but relying
+    # on that one commit means a clean rebuild, a bad merge, or a force-push
+    # can detach the domain without anyone noticing.
+    domain = company.get("custom_domain")
+    cname = os.path.join(DOCS, "CNAME")
+    if domain:
+        with open(cname, "w", encoding="utf-8") as fh:
+            fh.write(domain + "\n")
+        print(f"  docs/CNAME -> {domain}")
+    elif os.path.isfile(cname):
+        os.remove(cname)
+        print("  docs/CNAME removed (no custom_domain set)")
+
     for rec in people:
         d = os.path.join(DOCS_PEOPLE, rec["id"])
         os.makedirs(d, exist_ok=True)

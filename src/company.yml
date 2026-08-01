@@ -4,9 +4,16 @@
 name: CyberSkill
 tagline: Turn Your Will Into Real
 
-# Published GitHub Pages root. Every asset URL in every signature is built
-# from this. It must end with a slash.
-base_url: https://cyberskill-official.github.io/signatures/
+# Published site root. Every asset URL in every signature is built from this,
+# so it must be the FINAL public URL before anyone installs a signature -
+# Gmail re-hosts images through its own proxy at paste time, and a signature
+# pasted against an old URL can only be fixed by pasting again.
+#
+# custom_domain is written to docs/CNAME on every build. GitHub creates that
+# file when you first save the domain in Settings, but generating it here
+# means a clean rebuild can never silently detach the domain.
+base_url: https://signatures.cyberskill.world/
+custom_domain: signatures.cyberskill.world
 
 # Channels every employee shares. A person can override any of these in their
 # own record, or set it to null to drop the row entirely.
