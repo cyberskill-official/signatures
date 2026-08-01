@@ -50,13 +50,68 @@ REQUIRED = ("name", "role", "email")
 ALLOWED = {
     "name", "name_vi", "role", "email", "phone", "phone_href",
     "website", "website_href", "socials", "avatar", "crop", "order",
+    "active",
 }
 
 ID_RE = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
 
+# --------------------------------------------------------------------------
+# Input safety
+#
+# Records arrive by pull request from people who are not reviewing their own
+# HTML. Every value here is interpolated into markup that is both published on
+# the site and pasted into mail clients, so a record is untrusted input.
+#
+# Three layers, because each catches what the others cannot:
+#   1. escaping at render time  - handles quotes and angle brackets
+#   2. scheme allowlisting here - escaping does NOT stop javascript: URLs
+#   3. shape limits here        - a job title has no business containing markup
+# --------------------------------------------------------------------------
+SAFE_SCHEMES = ("https://", "mailto:", "tel:")
+PHONE_HREF_RE = re.compile(r"^\+?[0-9]{4,20}$")
+CTRL_RE = re.compile("[\\x00-\\x08\\x0b\\x0c\\x0e-\\x1f\\x7f"         "\\u200b-\\u200f\\u2028\\u2029\\u202a-\\u202e\\ufeff]")
+ANGLE_RE = re.compile(r"[<>]")
+TEXT_LIMITS = {"name": 60, "name_vi": 60, "role": 80, "email": 120,
+               "phone": 40, "website": 80, "label": 40}
+
 
 class RecordError(ValueError):
     pass
+
+
+def check_text(where, field, value, limit=None):
+    """Reject anything a name or job title has no reason to contain."""
+    if not isinstance(value, str):
+        raise RecordError(f"{where}: {field} must be text, got {type(value).__name__}")
+    if ANGLE_RE.search(value):
+        raise RecordError(f"{where}: {field} contains < or >, which is markup, "
+                          f"not a name")
+    if CTRL_RE.search(value):
+        raise RecordError(f"{where}: {field} contains control or zero-width "
+                          f"characters")
+    limit = limit or TEXT_LIMITS.get(field, 200)
+    if len(value) > limit:
+        raise RecordError(f"{where}: {field} is {len(value)} characters, "
+                          f"over the {limit} limit")
+    return value
+
+
+def check_url(where, field, value):
+    """Allowlist schemes. This is the layer escaping cannot provide.
+
+    Escaping a javascript: URL produces a working javascript: URL - the
+    dangerous part is the scheme, not the punctuation.
+    """
+    if not isinstance(value, str):
+        raise RecordError(f"{where}: {field} must be text")
+    if not value.startswith(SAFE_SCHEMES):
+        raise RecordError(
+            f"{where}: {field} is {value[:40]!r} - only "
+            f"{', '.join(SAFE_SCHEMES)} are allowed")
+    if CTRL_RE.search(value) or ANGLE_RE.search(value) or '"' in value:
+        raise RecordError(f"{where}: {field} contains characters that cannot "
+                          f"appear in a URL here")
+    return value
 
 
 def load_company():
@@ -71,6 +126,22 @@ def load_company():
         raise RecordError(
             f"company.yml: custom_domain '{domain}' does not appear in "
             f"base_url '{base}' - one of them is stale")
+
+    # company.yml is edited less often than a person record, but it reaches
+    # every signature, so it gets the same checks rather than being trusted
+    # because a maintainer wrote it.
+    for field in ("name", "tagline", "website"):
+        if c.get(field):
+            check_text("company.yml", field, c[field], limit=120)
+    for field in ("website_href", "repo"):
+        if c.get(field):
+            check_url("company.yml", field, c[field])
+    for i, s in enumerate(c.get("socials") or []):
+        if not isinstance(s, dict) or "label" not in s or "href" not in s:
+            raise RecordError(
+                f"company.yml: socials[{i}] needs both a label and an href")
+        check_text("company.yml", "label", s["label"])
+        check_url("company.yml", f"socials[{i}].href", s["href"])
     return c
 
 
@@ -111,6 +182,10 @@ def load_people(company):
             raise RecordError(
                 f"{fn}: phone is set but phone_href is missing - the tel: "
                 f"link needs digits only")
+        if rec.get("phone_href") and not PHONE_HREF_RE.match(str(rec["phone_href"])):
+            raise RecordError(
+                f"{fn}: phone_href must be digits with an optional leading + "
+                f"- it goes straight into a tel: link")
 
         rec["id"] = pid
         rec["company"] = company["name"]
@@ -119,6 +194,7 @@ def load_people(company):
         rec.setdefault("socials", company.get("socials") or [])
         rec.setdefault("order", 999)
         rec.setdefault("name_vi", None)
+        rec.setdefault("active", True)
 
         if rec.get("avatar"):
             path = os.path.join(AVATARS_SRC, rec["avatar"])
@@ -134,6 +210,35 @@ def load_people(company):
             if (not isinstance(crop, (list, tuple)) or len(crop) != 3
                     or not all(isinstance(v, int) for v in crop)):
                 raise RecordError(f"{fn}: crop must be [x, y, size] integers")
+
+        # ---- input safety, after defaults are merged so company-wide values
+        # are checked too. A bad social link in company.yml would otherwise
+        # reach every signature unvalidated.
+        for field in ("name", "name_vi", "role", "email", "phone", "website"):
+            if rec.get(field):
+                check_text(fn, field, rec[field])
+        if rec.get("website_href"):
+            check_url(fn, "website_href", rec["website_href"])
+        if not isinstance(rec["socials"], list):
+            raise RecordError(f"{fn}: socials must be a list")
+        for i, s in enumerate(rec["socials"]):
+            if not isinstance(s, dict) or "label" not in s or "href" not in s:
+                raise RecordError(
+                    f"{fn}: socials[{i}] needs both a label and an href")
+            if set(s) - {"label", "href"}:
+                raise RecordError(
+                    f"{fn}: socials[{i}] has unknown key(s) "
+                    f"{sorted(set(s) - {'label', 'href'})}")
+            check_text(fn, "label", s["label"])
+            check_url(fn, f"socials[{i}].href", s["href"])
+
+        if not isinstance(rec["active"], bool):
+            raise RecordError(f"{fn}: active must be true or false")
+        if not rec["active"]:
+            # Kept in the repo so the record and its history survive, but not
+            # built and not published. See README, "When someone leaves".
+            print(f"  {pid:22} active: false - skipped")
+            continue
 
         people.append(rec)
 

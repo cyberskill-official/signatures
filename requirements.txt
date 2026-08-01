@@ -1,0 +1,17 @@
+# Pinned so a rebuild produces the same bytes on any machine.
+#
+# This is not pedantry. Different Pillow versions encode identical pixels to
+# different PNG bytes, which changed every asset's ?v= content hash and showed
+# up as a diff on unrelated builds. make_assets.py now skips writes when the
+# pixels match, but pinning fixes the cause rather than the symptom.
+#
+# Dependabot watches this file; bumps arrive as pull requests that run the
+# full render suite before anyone accepts them.
+
+PyYAML==6.0.3
+Pillow==12.2.0
+
+# Build-time only. Needed to rasterise the icon set and to run the render and
+# cross-client suites. Not needed to add a person or rebuild the site.
+playwright==1.62.0
+pytest==9.1.1

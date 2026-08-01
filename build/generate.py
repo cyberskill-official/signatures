@@ -23,6 +23,7 @@ Rules that must not be quietly changed:
     present as real text, so alt would duplicate it for a screen reader.
 """
 import argparse
+import html
 import json
 import os
 import re
@@ -34,14 +35,24 @@ from model import (ACCENT, AVATAR, DOCS_PEOPLE, GUTTER, ICON, ICON_GAP, LOGO,
                    load_company, load_people, person_asset, shared_asset)
 
 
+def esc(v):
+    """Escape for a text node or a double-quoted attribute.
+
+    Records arrive by pull request, so every value that reaches markup goes
+    through here. model.py separately allowlists URL schemes, which escaping
+    cannot do - an escaped javascript: URL still runs.
+    """
+    return html.escape("" if v is None else str(v), quote=True)
+
+
 def link(text, href, size=14):
-    return (f'<a href="{href}" style="color:inherit;text-decoration:underline;'
-            f'font-size:{size}px;"><span style="white-space:nowrap;">'
-            f'{text}</span></a>')
+    return (f'<a href="{esc(href)}" style="color:inherit;'
+            f'text-decoration:underline;font-size:{size}px;">'
+            f'<span style="white-space:nowrap;">{esc(text)}</span></a>')
 
 
 def img(src, w, h, extra=""):
-    return (f'<img src="{src}" width="{w}" height="{h}" alt="" '
+    return (f'<img src="{esc(src)}" width="{w}" height="{h}" alt="" '
             f'style="display:block;width:{w}px;height:{h}px;border:0;'
             f'outline:none;-ms-interpolation-mode:bicubic;{extra}"/>')
 
@@ -84,12 +95,13 @@ def contact_table(rec, base):
 
 def identity_block(rec):
     parts = [f'<div style="font-size:22px;line-height:28px;font-weight:bold;'
-             f'letter-spacing:-0.2px;{MSO}">{rec["name"]}</div>']
+             f'letter-spacing:-0.2px;{MSO}">{esc(rec["name"])}</div>']
     if rec.get("name_vi"):
         parts.append(f'<div style="font-size:15px;line-height:20px;'
-                     f'padding-top:2px;{MSO}" lang="vi">{rec["name_vi"]}</div>')
+                     f'padding-top:2px;{MSO}" lang="vi">'
+                     f'{esc(rec["name_vi"])}</div>')
     parts.append(f'<div style="font-size:14px;line-height:20px;padding-top:2px;'
-                 f'{MSO}">{rec["role"]} - {rec["company"]}</div>')
+                 f'{MSO}">{esc(rec["role"])} - {esc(rec["company"])}</div>')
     return "".join(parts)
 
 
@@ -103,7 +115,7 @@ def footer_lockup(company, base):
             f'<td width="10" style="width:10px;font-size:0;line-height:0;">'
             f'&nbsp;</td>'
             f'<td valign="middle" style="font-size:12px;line-height:16px;{MSO}">'
-            f'{company["tagline"]}</td></tr></table>')
+            f'{esc(company["tagline"])}</td></tr></table>')
 
 
 def build(rec, company, base):

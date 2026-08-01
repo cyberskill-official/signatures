@@ -97,7 +97,7 @@ CSS = """
   /* person page */
   .crumb{font-size:13px;margin:0 0 18px;}
   .crumb a{color:var(--muted);}
-  h1.person-name{margin:0 0 2px;font-size:27px;letter-spacing:-.3px;}
+  h2.person-name{margin:0 0 2px;font-size:27px;letter-spacing:-.3px;}
   .person-role{margin:0 0 22px;color:var(--muted);}
   .bar{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin:0 0 20px;}
   .btn{background:var(--umber);color:#fff;border:0;border-radius:8px;
@@ -129,22 +129,99 @@ CSS = """
   textarea{width:100%;height:150px;margin-top:10px;padding:12px;
            font:12px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;
            border:1px solid var(--line);border-radius:8px;background:#FAF8F6;}
+  /* Keyboard focus. Every interactive element here has custom styling that
+     overrode the browser default without replacing it, so tabbing to the
+     copy button showed nothing at all. */
+  .skip{position:absolute;left:-9999px;top:0;background:var(--ochre);
+        color:#3A1B0B;padding:12px 18px;border-radius:0 0 8px 0;
+        font-weight:700;z-index:100;text-decoration:none;}
+  .skip:focus{left:0;}
+  a:focus-visible,button:focus-visible,input:focus-visible,
+  summary:focus-visible{outline:3px solid var(--ochre);outline-offset:3px;
+                        border-radius:4px;}
+  header.site a:focus-visible{outline-color:#FFFFFF;}
+  .vh{position:absolute;width:1px;height:1px;margin:-1px;padding:0;
+      overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;}
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none !important;animation:none !important;}
+  }
+  /* Dark mode for the site chrome only.
+     The preview surfaces must NOT follow it - a "Light" preview that goes
+     dark stops demonstrating anything, and text inheriting a light colour
+     onto a white surface disappears entirely. Both surfaces pin their own
+     colour rather than inheriting. */
+  @media (prefers-color-scheme: dark){
+    :root{--ink:#EDE8E3;--muted:#A5A19D;--line:#3A342E;--bg:#17140F;
+          --card:#211C16;}
+    a{color:#F0C463;}
+    .cta,.btn{background:var(--ochre);color:#3A1B0B;}
+    .cta:hover,.btn:hover{background:#FFD166;color:#3A1B0B;}
+    .cta.ghost{background:transparent;color:#F0C463;
+               box-shadow:inset 0 0 0 1.5px #4A423A;}
+    .cta.ghost:hover{background:#2B241C;color:#F0C463;}
+    code{background:#2B241C;color:#EDE8E3;}
+    .search,textarea{background:#211C16;color:var(--ink);
+                     border-color:var(--line);}
+    .status.ok,.dim.good{color:#6FD68E;}
+    .status.err,.dim.bad{color:#FF9B92;}
+    .ph{background:#2B241C;}
+    .surface{background:#FFFFFF;color:#22201E;border-color:#D8D2CA;}
+    .surface.dark{background:#1F1F1F;color:#E8E8E8;border-color:#3A3A3A;}
+    .surface.inv{background:#FFFFFF;color:#22201E;}
+  }
   .sec{margin:34px 0 12px;font-size:12px;letter-spacing:.09em;
        text-transform:uppercase;color:var(--muted);}
 """
 
 
-def head(title, css_extra=""):
+def head(title, desc, base, canonical, company, lang="en", css_extra=""):
+    """Document head, including what a link preview needs.
+
+    This URL gets pasted into Slack, Zalo and email. Without og: tags it
+    renders as a bare link with no card, which is a poor first impression for
+    a page asking people to trust it with a photograph.
+
+    Indexing defaults to OFF. Every employee's name, job title, work email and
+    photo are on this site; making that harvestable by default is a decision
+    nobody made. Set `index_site: true` in company.yml to allow crawlers.
+    Note that robots.txt alone would not be enough - it asks crawlers not to
+    fetch, not to omit from results - so the meta tag is what does the work.
+    """
+    og = asset_url(base, "assets/shared/og-card.png",
+                   shared_asset("og-card.png"))
+    icon = asset_url(base, "assets/shared/favicon-32.png",
+                     shared_asset("favicon-32.png"))
+    touch = asset_url(base, "assets/shared/apple-touch-icon.png",
+                      shared_asset("apple-touch-icon.png"))
+    robots = ("index,follow" if company.get("index_site")
+              else "noindex,nofollow")
+    t, d = H.escape(title), H.escape(desc)
     return f"""<!doctype html>
-<html lang="en">
+<html lang="{lang}">
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<meta name="color-scheme" content="light"/>
-<title>{H.escape(title)}</title>
+<meta name="color-scheme" content="light dark"/>
+<meta name="theme-color" content="{UMBER}"/>
+<meta name="robots" content="{robots}"/>
+<meta name="description" content="{d}"/>
+<link rel="canonical" href="{canonical}"/>
+<link rel="icon" type="image/png" sizes="32x32" href="{icon}"/>
+<link rel="apple-touch-icon" href="{touch}"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="{H.escape(company['name'])}"/>
+<meta property="og:title" content="{t}"/>
+<meta property="og:description" content="{d}"/>
+<meta property="og:url" content="{canonical}"/>
+<meta property="og:image" content="{og}"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<title>{t}</title>
 <style>{CSS}{css_extra}</style>
 </head>
-<body>"""
+<body>
+<a class="skip" href="#main">Skip to content</a>"""
 
 
 def site_header(company, logo_url, root, subtitle, h1, here=""):
@@ -167,7 +244,7 @@ def site_header(company, logo_url, root, subtitle, h1, here=""):
   </div>
 </header>
 <div class="ochre"></div>
-<main><div class="wrap">"""
+<main id="main"><div class="wrap">"""
 
 
 def footer(root):
@@ -191,6 +268,34 @@ def initials(name):
     return (parts[0][:1] + (parts[-1][:1] if len(parts) > 1 else "")).upper()
 
 
+def build_404(company, base):
+    """Served by Pages for any missing path.
+
+    Links are absolute, not relative: this one file answers /nope/ and
+    /people/nobody/ alike, and a relative href would resolve differently for
+    each. The likeliest visitor is someone whose id changed or who was
+    offboarded, so it leads with the directory rather than an apology.
+    """
+    logo = asset_url(base, f"assets/shared/logo-{LOGO}-2x.png",
+                     shared_asset(f"logo-{LOGO}-2x.png"))
+    return (head(f"Page not found - {company['name']}",
+                 "That signature page does not exist.", base, base, company)
+            + site_header(company, logo, base,
+                          "That page does not exist. It may have moved, or "
+                          "the person may no longer be listed.",
+                          "Page not found")
+            + f"""
+  <div class="card route">
+    <h3>Try one of these</h3>
+    <ul>
+      <li><a href="{base}">All signatures</a> - find your name in the list.</li>
+      <li><a href="{base}help/">Get a signature</a> - if you are not listed
+          yet, or your details changed.</li>
+    </ul>
+  </div>"""
+            + footer(base))
+
+
 def build_help(company, base):
     """The page for someone who has no signature yet, or whose details moved.
 
@@ -200,7 +305,9 @@ def build_help(company, base):
     """
     logo = asset_url(base, f"assets/shared/logo-{LOGO}-2x.png",
                      shared_asset(f"logo-{LOGO}-2x.png"))
-    repo = (company.get("repo") or "").rstrip("/")
+    # repo is scheme-checked in load_company; escaped here so a query string
+    # or an ampersand cannot end an attribute early.
+    repo = H.escape((company.get("repo") or "").rstrip("/"), quote=True)
     new_url = f"{repo}/issues/new?template=new-signature.yml" if repo else ""
     upd_url = f"{repo}/issues/new?template=update-signature.yml" if repo else ""
     contrib = f"{repo}/blob/main/CONTRIBUTING.md" if repo else ""
@@ -311,7 +418,10 @@ def build_help(company, base):
     </details>
   </div>"""
 
-    return (head(f"Get a signature - {company['name']}")
+    return (head(f"Get a signature - {company['name']}",
+                 f"How to get an email signature at {company['name']}, or "
+                 f"change the details on the one you have. Takes about a day.",
+                 base, base + "help/", company)
             + site_header(company, logo, "../",
                           "Do not have one yet, or something changed? "
                           "Start here.",
@@ -354,6 +464,7 @@ def build_index(company, people, base):
   </div>
 
   <div class="toolbar">
+    <label class="vh" for="q">Search by name, role or email</label>
     <input class="search" id="q" type="search"
            placeholder="Search by name, role or email" autocomplete="off"/>
     <span class="count" id="count">{n} {'person' if n == 1 else 'people'}</span>
@@ -384,7 +495,10 @@ def build_index(company, people, base):
 }})();
 </script>"""
 
-    return (head(f"Email signatures - {company['name']}")
+    return (head(f"Email signatures - {company['name']}",
+                 f"Find your name, press one button, paste into Gmail. "
+                 f"Official {company['name']} email signatures.",
+                 base, base, company)
             + site_header(company, logo, "./",
                           "Pick your name, verify, copy, paste into Gmail. "
                           "One button, about a minute.", "Email signatures",
@@ -396,14 +510,17 @@ def build_person(company, rec, base, sig):
     logo = asset_url(base, f"assets/shared/logo-{LOGO}-2x.png",
                      shared_asset(f"logo-{LOGO}-2x.png"))
     esc = H.escape(sig)
-    return (head(f"{rec['name']} - email signature")
+    return (head(f"{rec['name']} - email signature",
+                 f"Install {rec['name']}'s {company['name']} email signature: "
+                 f"verify the images, copy, paste into Gmail.",
+                 base, f"{base}people/{rec['id']}/", company)
             + site_header(company, logo, "../../",
                           "Verify the images, copy, then paste into Gmail.",
                           "Your email signature", here="index")
             + f"""
   <p class="crumb"><a href="../../">&larr; All signatures</a>
      &nbsp;&middot;&nbsp; <a href="../../help/">Something here is wrong</a></p>
-  <h1 class="person-name">{H.escape(rec['name'])}</h1>
+  <h2 class="person-name">{H.escape(rec['name'])}</h2>
   <p class="person-role">{H.escape(rec['role'])} - {H.escape(company['name'])}</p>
 
   <div class="bar">
@@ -581,6 +698,32 @@ def main():
     with open(os.path.join(helpdir, "index.html"), "w", encoding="utf-8") as fh:
         fh.write(build_help(company, base))
     print("  docs/help/index.html")
+
+    with open(os.path.join(DOCS, "404.html"), "w", encoding="utf-8") as fh:
+        fh.write(build_404(company, base))
+
+    # robots.txt and the meta robots tag say the same thing, because they do
+    # different jobs: robots.txt asks crawlers not to fetch, the meta tag asks
+    # them not to list. Neither protects the images, which have to stay
+    # publicly fetchable for mail clients to load them.
+    indexed = bool(company.get("index_site"))
+    with open(os.path.join(DOCS, "robots.txt"), "w", encoding="utf-8") as fh:
+        if indexed:
+            fh.write(f"User-agent: *\nAllow: /\nSitemap: {base}sitemap.xml\n")
+        else:
+            fh.write("User-agent: *\nDisallow: /\n")
+    print(f"  docs/robots.txt ({'indexed' if indexed else 'noindex'})")
+
+    if indexed:
+        urls = [base, base + "help/"] + [
+            f"{base}people/{r['id']}/" for r in people]
+        entries = "".join(f"<url><loc>{H.escape(u)}</loc></url>" for u in urls)
+        with open(os.path.join(DOCS, "sitemap.xml"), "w",
+                  encoding="utf-8") as fh:
+            fh.write('<?xml version="1.0" encoding="UTF-8"?>'
+                     '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
+                     f'{entries}</urlset>\n')
+        print(f"  docs/sitemap.xml ({len(urls)} urls)")
 
     # GitHub Pages runs Jekyll by default, which ignores files and folders
     # beginning with an underscore. .nojekyll turns that off so nothing is

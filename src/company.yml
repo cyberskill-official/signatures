@@ -19,6 +19,18 @@ custom_domain: signatures.cyberskill.world
 # Used to build the request links on the help page - no trailing slash.
 repo: https://github.com/cyberskill-official/signatures
 
+# Allow search engines to index the site.
+#
+# Off by default. Every employee's name, job title, work email and photo are
+# on this site, and making that harvestable is a decision somebody should make
+# deliberately rather than inherit. Staff reach the site by link, so indexing
+# buys little. Set to true if you would rather it be findable by search - the
+# build then emits a permissive robots.txt and a sitemap.
+#
+# Either way the images stay publicly fetchable. Mail clients have to be able
+# to load them, so that part cannot be closed off.
+index_site: false
+
 # Channels every employee shares. A person can override any of these in their
 # own record, or set it to null to drop the row entirely.
 website: cyberskill.world

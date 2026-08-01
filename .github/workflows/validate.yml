@@ -23,22 +23,28 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262  # v4
         with:
           fetch-depth: 0
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065  # v5
         with:
           python-version: "3.12"
 
       - name: Install build dependencies
-        run: pip install pyyaml pillow playwright
+        run: pip install -r requirements.txt
+
+      # Runs before the browser install so a bad record fails in seconds
+      # rather than after a two-minute download. Covers the record schema and
+      # every injection payload that once reached the published page.
+      - name: Unit tests
+        run: python3 -m pytest tests/ -q
 
       # Three engines, because email is not one renderer. WebKit is Apple Mail
       # on macOS and iOS and every iOS browser; Gecko is Thunderbird; Blink is
       # Chrome, Edge, Android WebViews and the web clients.
       - name: Cache browsers
-        uses: actions/cache@v4
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830  # v4
         with:
           path: ~/.cache/ms-playwright
           key: playwright-3-${{ runner.os }}-${{ hashFiles('.github/workflows/validate.yml') }}
@@ -116,7 +122,7 @@ jobs:
       - name: Comment on the pull request
         if: always() && github.event.pull_request.head.repo.full_name == github.repository
         continue-on-error: true
-        uses: actions/github-script@v7
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b  # v7
         # Passed through env, never interpolated into the script body. The
         # table contains backticks, which would terminate a JS template
         # literal, and a branch or record could otherwise inject script.
@@ -161,7 +167,7 @@ jobs:
 
       - name: Upload screenshots
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02  # v4
         with:
           name: render-evidence
           path: |

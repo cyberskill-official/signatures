@@ -36,6 +36,11 @@ email: you@cyberskill.world
 # after which people are ordered by name.
 # order: 10
 
+# Set to false when someone leaves. The record and its history stay in git,
+# but nothing is built or published. See "When someone leaves" in README.md -
+# it also covers what to do about their photo, which this does not remove.
+# active: false
+
 # These default to the values in src/company.yml. Set them only if yours
 # differ from everyone else's.
 # website: cyberskill.world

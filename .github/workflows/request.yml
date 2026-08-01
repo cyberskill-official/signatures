@@ -1,0 +1,133 @@
+name: Request to pull request
+
+# Turns a signature request issue into a branch, a record, a photo and a pull
+# request. The existing validation then checks it like any other contribution.
+#
+# Without this, the issue forms collect structured data and a maintainer
+# retypes it as YAML - the bottleneck the forms were meant to remove, moved
+# one step later.
+
+on:
+  issues:
+    types: [opened, edited, labeled]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+concurrency:
+  group: request-${{ github.event.issue.number }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    # Two gates. The label check picks out signature requests from any other
+    # issue. The author check matters more: this repository is public, so
+    # without it anyone with a GitHub account could make a workflow that holds
+    # contents:write create branches on demand.
+    if: >-
+      contains(github.event.issue.labels.*.name, 'signature') &&
+      contains(fromJSON('["OWNER","MEMBER","COLLABORATOR"]'),
+               github.event.issue.author_association)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262  # v4
+
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065  # v5
+        with:
+          python-version: "3.12"
+
+      - name: Install build dependencies
+        run: pip install -r requirements.txt
+
+      - name: Which form was used
+        id: mode
+        run: |
+          if [ "${{ contains(github.event.issue.labels.*.name, 'update') }}" = "true" ]; then
+            echo "mode=update" >> "$GITHUB_OUTPUT"
+          else
+            echo "mode=new" >> "$GITHUB_OUTPUT"
+          fi
+
+      # The issue body is untrusted input. It reaches the script through a
+      # file, never through a shell interpolation - ${{ github.event.issue.body }}
+      # inline in a run: block is a shell injection waiting to happen.
+      - name: Save the issue
+        env:
+          ISSUE: ${{ toJSON(github.event.issue) }}
+        run: printf '%s' "$ISSUE" > /tmp/issue.json
+
+      - name: Build the record
+        id: record
+        run: python3 .github/scripts/issue_to_record.py /tmp/issue.json ${{ steps.mode.outputs.mode }}
+
+      - name: Rebuild the site
+        run: ./install.sh --skip-icons
+
+      - name: Check it
+        run: python3 -m pytest tests/ -q
+
+      - name: Open the pull request
+        id: pr
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ID: ${{ steps.record.outputs.id }}
+          NAME: ${{ steps.record.outputs.name }}
+          NUM: ${{ github.event.issue.number }}
+          MODE: ${{ steps.mode.outputs.mode }}
+        run: |
+          branch="request/${NUM}-${ID}"
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B "$branch"
+          git add src/ docs/
+          if git diff --cached --quiet; then
+            echo "Nothing changed - the request matches what is already there."
+            exit 0
+          fi
+          git commit -m "${MODE^} signature for ${NAME} (#${NUM})"
+          git push -f origin "$branch"
+
+          existing=$(gh pr list --head "$branch" --json number --jq '.[0].number')
+          if [ -n "$existing" ]; then
+            echo "Updated existing PR #$existing"
+            echo "pr=$existing" >> "$GITHUB_OUTPUT"
+          else
+            url=$(gh pr create --head "$branch" --base main \
+              --title "${MODE^} signature for ${NAME}" \
+              --body "Generated from #${NUM}. Closes #${NUM}.
+
+          Check before merging:
+          - the name is spelled and accented the way they wrote it
+          - the photo is cropped sensibly - see \`docs/assets/_avatar-sheet.png\`
+          - the phone number dials correctly
+
+          Everything under \`docs/\` here is generated. Do not hand-edit it.")
+            echo "Opened $url"
+            echo "pr=$url" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Tell them
+        if: always()
+        continue-on-error: true
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b  # v7
+        env:
+          RESULT: ${{ job.status }}
+          PR: ${{ steps.pr.outputs.pr }}
+          ERR: ${{ steps.record.outputs.error }}
+        with:
+          script: |
+            const ok = process.env.RESULT === 'success';
+            const body = ok
+              ? `Thanks - this is now a pull request: ${process.env.PR}\n\n`
+                + 'It gets checked automatically, then a maintainer merges it. '
+                + 'Your page appears on the site a minute or two after that, '
+                + 'and you will be able to open it and press **Verify & copy**.'
+              : 'I could not build a record from this request.\n\n```\n'
+                + (process.env.ERR || 'See the workflow run for details.')
+                + '\n```\n\nEdit the issue and it will try again.';
+            await github.rest.issues.createComment({
+              owner: context.repo.owner, repo: context.repo.repo,
+              issue_number: context.issue.number, body,
+            });

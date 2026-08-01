@@ -20,8 +20,8 @@ import sys
 from PIL import Image, ImageDraw
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from model import (ACCENT, AVATAR, ICON_NAMES, LOGO, PEOPLE_ASSETS, SHARED_ASSETS,
-                   SRC, load_company, load_people)
+from model import (ACCENT, AVATAR, ICON_NAMES, LOGO, OCHRE, PEOPLE_ASSETS,
+                   SHARED_ASSETS, SRC, UMBER, load_company, load_people)
 
 SS = 8  # supersample factor for smooth baked edges
 
@@ -77,6 +77,59 @@ def rounded_bake(src_img, out_px, radius_ratio, path):
     out = Image.new("RGBA", (out_px * 4, out_px * 4), (0, 0, 0, 0))
     out.paste(c, (0, 0), m)
     save_stable(out.resize((out_px, out_px), Image.LANCZOS), path)
+
+
+def find_font(size):
+    """Best available bold sans, or None.
+
+    Only used for the link-preview card, which degrades to a logo-only image
+    if no font is found. Never let a missing font fail the build.
+    """
+    for p in ("/usr/share/fonts/truetype/liberation2/LiberationSans-Bold.ttf",
+              "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf",
+              "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+              "/System/Library/Fonts/Supplemental/Arial Bold.ttf",
+              "C:/Windows/Fonts/arialbd.ttf"):
+        if os.path.isfile(p):
+            try:
+                from PIL import ImageFont
+                return ImageFont.truetype(p, size)
+            except Exception:
+                pass
+    return None
+
+
+def build_site_images(logo_src, company):
+    """Favicon, touch icon and the Open Graph card.
+
+    This URL gets pasted into Slack, Zalo and email when staff are told about
+    it. Without these it renders as a bare link with no title card, on a page
+    whose whole job is to look trustworthy enough that people hand over a
+    photograph.
+    """
+    os.makedirs(SHARED_ASSETS, exist_ok=True)
+    logo = Image.open(logo_src).convert("RGBA")
+
+    for px, name in ((32, "favicon-32.png"), (180, "apple-touch-icon.png")):
+        rounded_bake(logo, px, 0.18, os.path.join(SHARED_ASSETS, name))
+
+    # 1200x630 is the size every major platform crops toward.
+    W, HT = 1200, 630
+    card = Image.new("RGB", (W, HT), UMBER)
+    d = ImageDraw.Draw(card)
+    d.rectangle((0, HT - 10, W, HT), fill=OCHRE)
+
+    mark = logo.resize((150, 150), Image.LANCZOS)
+    card.paste(mark, (90, 150), mark)
+
+    font_lg, font_sm = find_font(70), find_font(32)
+    if font_lg and font_sm:
+        d.text((90, 340), company["name"], font=font_lg, fill="#FFFFFF")
+        d.text((90, 430), "Email signatures", font=font_lg, fill=OCHRE)
+        d.text((90, 520), company.get("tagline", ""), font=font_sm,
+               fill="#E8D9CD")
+    save_stable(card, os.path.join(SHARED_ASSETS, "og-card.png"))
+    print("  site images: favicon-32, apple-touch-icon, og-card")
 
 
 def default_crop(im):
@@ -151,8 +204,10 @@ def main():
     if not args.skip_icons:
         build_icons()
     os.makedirs(SHARED_ASSETS, exist_ok=True)
-    rounded_bake(Image.open(os.path.join(SRC, "logo.png")), LOGO * 2, 0.18,
+    logo_src = os.path.join(SRC, "logo.png")
+    rounded_bake(Image.open(logo_src), LOGO * 2, 0.18,
                  os.path.join(SHARED_ASSETS, f"logo-{LOGO}-2x.png"))
+    build_site_images(logo_src, company)
 
     crops = []
     for rec in people:

@@ -1,0 +1,62 @@
+Copyright (c) 2026 CyberSkill Software Solutions Consultancy and Development
+Joint Stock Company. All rights reserved.
+
+This repository contains three different kinds of material, and they are not
+under the same terms. Stating that explicitly matters here because the
+repository holds photographs of identifiable people.
+
+
+1. EMPLOYEE PHOTOGRAPHS AND PERSONAL DETAILS
+   Everything under src/avatars/, src/people/, and the generated copies under
+   docs/assets/people/.
+
+   All rights reserved. These are photographs of identifiable individuals,
+   published with their consent for the sole purpose of CyberSkill email
+   signatures. They may not be copied, redistributed, or used for any other
+   purpose. Consent to appear here is not consent to appear anywhere else.
+
+   Any individual pictured may have their photograph and details removed on
+   request. See "When someone leaves" in README.md.
+
+
+2. CYBERSKILL BRAND ASSETS
+   src/logo.png, the generated logo and icon PNGs, the brand colours, and the
+   tagline "Turn Your Will Into Real".
+
+   All rights reserved. Trade marks of CyberSkill.
+
+
+3. THE BUILD AND VALIDATION CODE
+   Everything under build/, validation/, tests/, install.sh, and the
+   documentation.
+
+   Licensed under the MIT License:
+
+   Permission is hereby granted, free of charge, to any person obtaining a
+   copy of this software and associated documentation files (the "Software"),
+   to deal in the Software without restriction, including without limitation
+   the rights to use, copy, modify, merge, publish, distribute, sublicense,
+   and/or sell copies of the Software, and to permit persons to whom the
+   Software is furnished to do so, subject to the following conditions:
+
+   The above copyright notice and this permission notice shall be included in
+   all copies or substantial portions of the Software.
+
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+   THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+   FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+   DEALINGS IN THE SOFTWARE.
+
+
+THIRD-PARTY MATERIAL
+
+   The four contact icons are derived from Lucide (https://lucide.dev),
+   licensed under the ISC License, recoloured and rasterised. Lucide is in
+   turn derived from Feather, ISC licensed, Copyright (c) 2013-2022 Cole
+   Bemis.
+
+   No third-party brand marks are used anywhere. LinkedIn and Facebook are
+   named in link text only, never depicted - see "Icons" in README.md.

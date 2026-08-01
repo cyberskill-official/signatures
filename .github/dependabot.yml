@@ -1,0 +1,27 @@
+version: 2
+
+updates:
+  # Actions are pinned to commit SHAs, which is the safe form but also an
+  # invisible one - a pinned SHA never appears outdated. Dependabot reads the
+  # version comment beside each pin and raises a PR when the tag moves.
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    commit-message:
+      prefix: "ci"
+    labels: ["dependencies"]
+    groups:
+      actions:
+        patterns: ["*"]
+
+  - package-ecosystem: pip
+    directory: /
+    schedule:
+      interval: monthly
+    commit-message:
+      prefix: "deps"
+    labels: ["dependencies"]
+    groups:
+      build:
+        patterns: ["*"]

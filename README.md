@@ -75,6 +75,36 @@ in `src/company.yml`. Changing one there changes every signature.
 
 ---
 
+## When someone leaves
+
+Set `active: false` in their record and rebuild:
+
+```yaml
+active: false      # keeps the record and its history, stops publishing it
+```
+
+The build skips them, their page disappears from the site and the directory,
+and the record stays in git so you can see what was published and when.
+
+**Their avatar file is not removed by this, and that is deliberate.** Mail
+already sent still points at that URL. Deleting the image breaks the signature
+in every message they ever sent, including ones in other people's archives.
+Leaving it means their photograph stays fetchable at a public URL after they
+have gone.
+
+Neither is automatically right. Decide per person:
+
+| If | Do |
+|---|---|
+| Routine departure | `active: false` only. Old mail keeps rendering. |
+| They asked to be removed | `active: false`, then delete `src/avatars/<id>.png` and `docs/assets/people/<id>/`, and rebuild. Old mail shows a broken image. |
+| Legal or safety reason | As above, and tell them old mail will show a placeholder. |
+
+A removal request is not optional - see `LICENSE`, which records that consent
+to appear here is not consent to appear anywhere else.
+
+---
+
 ## Repository layout
 
 ```
