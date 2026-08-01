@@ -21,15 +21,58 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  # A separate job that ALWAYS runs, so the decision is visible.
+  #
+  # This was originally a job-level `if:` on author_association. That silently
+  # skipped the whole workflow, which is indistinguishable from a workflow
+  # that is broken - and it rejected the repository owner, because
+  # author_association only reports MEMBER when organisation membership is
+  # public. Private membership reports CONTRIBUTOR or NONE.
+  #
+  # Ask for the actual permission instead, and log what was decided either
+  # way. The gate still matters: this repository is public, so without it
+  # anyone with a GitHub account could make a workflow holding contents:write
+  # create branches on demand.
+  gate:
+    runs-on: ubuntu-latest
+    outputs:
+      ok: ${{ steps.check.outputs.ok }}
+    steps:
+      - id: check
+        env:
+          GH_TOKEN: ${{ github.token }}
+          USER_LOGIN: ${{ github.event.issue.user.login }}
+          ASSOC: ${{ github.event.issue.author_association }}
+          LABELS: ${{ join(github.event.issue.labels.*.name, ',') }}
+        run: |
+          echo "author:      $USER_LOGIN"
+          echo "association: $ASSOC"
+          echo "labels:      ${LABELS:-<none>}"
+
+          if [[ ",$LABELS," != *",signature,"* ]]; then
+            echo "::notice::Not a signature request - no 'signature' label. Nothing to do."
+            echo "ok=false" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+
+          perm=$(gh api "repos/${GITHUB_REPOSITORY}/collaborators/${USER_LOGIN}/permission" \
+                   --jq .permission 2>/dev/null || echo unknown)
+          echo "permission:  $perm"
+
+          # Fall back to author_association if the permission API is not
+          # readable, so a token-scope change degrades to the old behaviour
+          # rather than blocking everyone.
+          if [[ "$perm" == "admin" || "$perm" == "maintain" || "$perm" == "write" ]] \
+             || [[ "$ASSOC" == "OWNER" || "$ASSOC" == "MEMBER" || "$ASSOC" == "COLLABORATOR" ]]; then
+            echo "::notice::$USER_LOGIN has write access - building the request."
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "::notice::$USER_LOGIN has '$perm' permission and association '$ASSOC'. Not building. Ask a maintainer to raise this one."
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+          fi
+
   build:
-    # Two gates. The label check picks out signature requests from any other
-    # issue. The author check matters more: this repository is public, so
-    # without it anyone with a GitHub account could make a workflow that holds
-    # contents:write create branches on demand.
-    if: >-
-      contains(github.event.issue.labels.*.name, 'signature') &&
-      contains(fromJSON('["OWNER","MEMBER","COLLABORATOR"]'),
-               github.event.issue.author_association)
+    needs: gate
+    if: needs.gate.outputs.ok == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262  # v4
