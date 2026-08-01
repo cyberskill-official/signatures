@@ -1,0 +1,218 @@
+# Contributing
+
+Every CyberSkill employee owns their own signature record. This page explains
+how to get one, and how to change it later.
+
+Pick the route that matches how comfortable you are with GitHub. All three end
+in the same place: a pull request that a maintainer reviews and merges.
+
+| Route | Who it is for | What you need |
+|---|---|---|
+| [Open a request](#route-1-open-a-request-no-github-knowledge) | Most people | A GitHub account |
+| [Edit in the browser](#route-2-edit-in-the-browser) | You have used GitHub a little | A GitHub account |
+| [Work locally](#route-3-work-locally) | Maintainers | Git, Python 3, a terminal |
+
+You never need to install anything to get a signature. You never need to run a
+build. Automation does that when your change is merged.
+
+---
+
+## Route 1: open a request (no GitHub knowledge)
+
+1. Go to [Issues -> New issue](https://github.com/cyberskill-official/signatures/issues/new/choose).
+2. Choose **Request a new signature** or **Update my signature**.
+3. Fill in the form and submit. Attach your photo by dragging it into the
+   photo field.
+
+A maintainer turns your request into a pull request. You will be tagged on it
+so you can confirm the details are right before it merges.
+
+That is the whole process. Stop here unless you want to raise the change
+yourself.
+
+---
+
+## Route 2: edit in the browser
+
+Nothing here needs a terminal. GitHub does the branching and the pull request
+for you.
+
+### Adding yourself
+
+**Step 1 - copy the template.**
+
+Open [`src/people/_template.yml`](src/people/_template.yml), press the pencil
+icon, and copy everything in the file.
+
+**Step 2 - create your record.**
+
+Go to [`src/people/`](src/people), press **Add file -> Create new file**, and
+name it after yourself in lowercase with hyphens:
+
+```
+mai-tran.yml
+```
+
+That filename becomes your web address, so `mai-tran.yml` publishes to
+`https://signatures.cyberskill.world/people/mai-tran/`. Use only lowercase
+letters, numbers and hyphens - the build rejects anything else rather than
+publishing a broken URL.
+
+Paste the template in and fill it out:
+
+```yaml
+name: Mai Tran
+role: Software Engineer
+email: mai@cyberskill.world
+
+phone: "(+84) 912 345 678"
+phone_href: "+84912345678"
+```
+
+`phone_href` is the same number with every space, bracket and plus-sign
+removed except the leading `+`. It is what your phone dials when someone taps
+the number, so it has to be digits only.
+
+Leave out any line you do not want. No phone means no phone row, and nothing
+else moves.
+
+**Step 3 - add your photo.**
+
+Go to [`src/avatars/`](src/avatars), press **Add file -> Upload files**, and
+drop in a square-ish photo named to match your record exactly:
+
+```
+mai-tran.png
+```
+
+Anything from about 512px upwards is plenty. The build crops a circle from the
+upper third of the frame, which suits a normal head-and-shoulders portrait. If
+your photo is framed unusually, say so in the pull request and a maintainer
+will set the crop for you - you do not need to work out coordinates.
+
+No photo is fine too. Leave the `avatar` line out and your signature renders
+without a portrait, with your initials on the directory page.
+
+**Step 4 - open the pull request.**
+
+On each file, choose **Create a new branch for this commit and start a pull
+request**, then press **Propose new file**.
+
+Put both changes on the same branch so they arrive as one pull request.
+
+### Changing something later
+
+Open your own file under [`src/people/`](src/people), press the pencil icon,
+edit, and propose the change. Same as above, minus the photo.
+
+To change your photo, upload a new one over the old filename.
+
+---
+
+## Route 3: work locally
+
+For maintainers and anyone adding several people at once.
+
+```bash
+git clone https://github.com/cyberskill-official/signatures.git
+cd signatures
+pip install pyyaml pillow --break-system-packages
+
+git checkout -b add-mai-tran
+cp src/people/_template.yml src/people/mai-tran.yml
+# edit it, and put the photo at src/avatars/mai-tran.png
+
+python3 build/make_assets.py --sheet   # check the crop in docs/assets/_avatar-sheet.png
+./install.sh --skip-icons              # rebuild and run the local checks
+```
+
+To run the full validation suite as well:
+
+```bash
+pip install playwright --break-system-packages
+python3 -m playwright install chromium
+python3 validation/check.py
+```
+
+Committing `docs/` is optional. If you do commit it, it has to match a clean
+build exactly - CI compares them and fails on any hand-edit. If you leave it
+alone, CI rebuilds and commits it after merge.
+
+---
+
+## What happens to your pull request
+
+Every pull request runs the same checks:
+
+| Check | What it catches |
+|---|---|
+| Record validation | missing fields, a bad filename, a phone without a `phone_href`, a photo that is not there |
+| Build | anything that stops your signature generating |
+| Gmail compatibility | markup Gmail would strip, or a signature over the 10,000 character limit |
+| Rendering | overflow at phone width, contrast failures, links that lost their underline |
+| Generated output | a hand-edit to `docs/` |
+
+The run posts a comment on your pull request with your signature's size and a
+preview link. If something fails, the comment says which check and why.
+
+After a maintainer merges, automation rebuilds the site and GitHub Pages
+publishes it. Your page appears at:
+
+```
+https://signatures.cyberskill.world/people/<your-id>/
+```
+
+Give it a minute or two, then open it and press **Verify and copy**.
+
+---
+
+## Ground rules
+
+**Only edit your own record.** Changing someone else's details, or anything in
+`src/company.yml`, needs their agreement or a maintainer's.
+
+**Never hand-edit `docs/`.** The whole folder is generated from `src/` and
+`build/`. An edit there is silently overwritten on the next build, so it looks
+like it worked and then quietly stops working. CI fails the pull request to
+stop that reaching main.
+
+**Company-wide values live in `src/company.yml`.** The tagline, the shared
+website and the social links are there. Changing one changes every employee's
+signature, so those changes go through a maintainer.
+
+**Your photo is published.** It ends up at a public URL so mail clients can
+fetch it, which is how hosted email images work everywhere. Use a photo you are
+happy to have public.
+
+---
+
+## Record reference
+
+```yaml
+name: Mai Tran                 # required
+role: Software Engineer        # required
+email: mai@cyberskill.world    # required
+
+name_vi: Trần Thị Mai          # optional second line, tagged as Vietnamese
+phone: "(+84) 912 345 678"     # optional
+phone_href: "+84912345678"     #   required if phone is set - digits only
+avatar: mai-tran.png           # optional, file in src/avatars/
+crop: [108, 20, 250]           # optional [x, y, size]; a maintainer sets this
+order: 10                      # optional sort key on the directory page
+
+website: cyberskill.world      # optional override of company.yml
+website_href: https://cyberskill.world
+socials:                       # optional override of company.yml
+  - {label: LinkedIn, href: https://linkedin.com/in/maitran}
+```
+
+Anything not listed above is rejected, so a typo in a field name fails the
+pull request instead of silently doing nothing.
+
+---
+
+## If you get stuck
+
+Open an issue and describe what happened. A broken pull request is not a
+problem - nothing reaches the live site until a maintainer merges it, and
+nothing you can put in `src/` can break anyone else's signature.

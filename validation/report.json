@@ -1,8 +1,7 @@
 {
-  "generated": "2026-08-01 13:21:59",
+  "generated": "2026-08-01 14:37:36",
   "people": [
-    "stephen-cheng",
-    "mai-tran"
+    "stephen-cheng"
   ],
   "runs": [
     {
@@ -48,7 +47,7 @@
       ],
       "imgs": [
         {
-          "src": "http://127.0.0.1:38427/assets/people/stephen-cheng/avatar-80-2x.png?v=bb7d78e0",
+          "src": "http://127.0.0.1:60295/assets/people/stephen-cheng/avatar-80-2x.png?v=10ab46c8",
           "alt": "",
           "wAttr": "80",
           "hAttr": "80",
@@ -64,7 +63,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:38427/assets/shared/icon-mail-2x.png?v=e478dc4a",
+          "src": "http://127.0.0.1:60295/assets/shared/icon-mail-2x.png?v=e478dc4a",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -80,7 +79,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:38427/assets/shared/icon-phone-2x.png?v=d3d73cc4",
+          "src": "http://127.0.0.1:60295/assets/shared/icon-phone-2x.png?v=d3d73cc4",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -96,7 +95,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:38427/assets/shared/icon-globe-2x.png?v=9a8d610f",
+          "src": "http://127.0.0.1:60295/assets/shared/icon-globe-2x.png?v=9a8d610f",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -112,7 +111,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:38427/assets/shared/icon-users-2x.png?v=117751d0",
+          "src": "http://127.0.0.1:60295/assets/shared/icon-users-2x.png?v=117751d0",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -128,7 +127,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:38427/assets/shared/logo-36-2x.png?v=0cda5174",
+          "src": "http://127.0.0.1:60295/assets/shared/logo-36-2x.png?v=7b060983",
           "alt": "",
           "wAttr": "36",
           "hAttr": "36",
@@ -552,7 +551,7 @@
       ],
       "imgs": [
         {
-          "src": "http://127.0.0.1:38427/assets/people/stephen-cheng/avatar-80-2x.png?v=bb7d78e0",
+          "src": "http://127.0.0.1:60295/assets/people/stephen-cheng/avatar-80-2x.png?v=10ab46c8",
           "alt": "",
           "wAttr": "80",
           "hAttr": "80",
@@ -568,7 +567,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:38427/assets/shared/icon-mail-2x.png?v=e478dc4a",
+          "src": "http://127.0.0.1:60295/assets/shared/icon-mail-2x.png?v=e478dc4a",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -584,7 +583,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:38427/assets/shared/icon-phone-2x.png?v=d3d73cc4",
+          "src": "http://127.0.0.1:60295/assets/shared/icon-phone-2x.png?v=d3d73cc4",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -600,7 +599,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:38427/assets/shared/icon-globe-2x.png?v=9a8d610f",
+          "src": "http://127.0.0.1:60295/assets/shared/icon-globe-2x.png?v=9a8d610f",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -616,7 +615,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:38427/assets/shared/icon-users-2x.png?v=117751d0",
+          "src": "http://127.0.0.1:60295/assets/shared/icon-users-2x.png?v=117751d0",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -632,7 +631,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:38427/assets/shared/logo-36-2x.png?v=0cda5174",
+          "src": "http://127.0.0.1:60295/assets/shared/logo-36-2x.png?v=7b060983",
           "alt": "",
           "wAttr": "36",
           "hAttr": "36",
@@ -1030,968 +1029,6 @@
       "state": "forceddark",
       "mode": "dark",
       "screenshot": "stephen-cheng-dark-forceddark.png"
-    },
-    {
-      "tableW": 520,
-      "tableH": 248,
-      "docScrollW": 900,
-      "links": [
-        {
-          "href": "mailto:mai.tran@cyberskill.world",
-          "text": "mai.tran@cyberskill.world",
-          "decoration": "underline",
-          "h": 16,
-          "fontSize": 14
-        },
-        {
-          "href": "tel:+84901234567",
-          "text": "(+84) 901 234 567",
-          "decoration": "underline",
-          "h": 16,
-          "fontSize": 14
-        },
-        {
-          "href": "https://cyberskill.world",
-          "text": "cyberskill.world",
-          "decoration": "underline",
-          "h": 16,
-          "fontSize": 14
-        },
-        {
-          "href": "https://linkedin.com/company/cyberskill",
-          "text": "LinkedIn",
-          "decoration": "underline",
-          "h": 16,
-          "fontSize": 14
-        },
-        {
-          "href": "https://www.facebook.com/cyberskill.world",
-          "text": "Facebook",
-          "decoration": "underline",
-          "h": 16,
-          "fontSize": 14
-        }
-      ],
-      "imgs": [
-        {
-          "src": "http://127.0.0.1:38427/assets/shared/icon-mail-2x.png?v=e478dc4a",
-          "alt": "",
-          "wAttr": "18",
-          "hAttr": "18",
-          "natural": [
-            36,
-            36
-          ],
-          "box": [
-            18,
-            18
-          ],
-          "cellW": 18,
-          "complete": true
-        },
-        {
-          "src": "http://127.0.0.1:38427/assets/shared/icon-phone-2x.png?v=d3d73cc4",
-          "alt": "",
-          "wAttr": "18",
-          "hAttr": "18",
-          "natural": [
-            36,
-            36
-          ],
-          "box": [
-            18,
-            18
-          ],
-          "cellW": 18,
-          "complete": true
-        },
-        {
-          "src": "http://127.0.0.1:38427/assets/shared/icon-globe-2x.png?v=9a8d610f",
-          "alt": "",
-          "wAttr": "18",
-          "hAttr": "18",
-          "natural": [
-            36,
-            36
-          ],
-          "box": [
-            18,
-            18
-          ],
-          "cellW": 18,
-          "complete": true
-        },
-        {
-          "src": "http://127.0.0.1:38427/assets/shared/icon-users-2x.png?v=117751d0",
-          "alt": "",
-          "wAttr": "18",
-          "hAttr": "18",
-          "natural": [
-            36,
-            36
-          ],
-          "box": [
-            18,
-            18
-          ],
-          "cellW": 18,
-          "complete": true
-        },
-        {
-          "src": "http://127.0.0.1:38427/assets/shared/logo-36-2x.png?v=0cda5174",
-          "alt": "",
-          "wAttr": "36",
-          "hAttr": "36",
-          "natural": [
-            72,
-            72
-          ],
-          "box": [
-            36,
-            36
-          ],
-          "cellW": 36,
-          "complete": true
-        }
-      ],
-      "texts": [
-        {
-          "text": "Mai Tran",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 22,
-          "fontWeight": "700"
-        },
-        {
-          "text": "Tr\u1ea7n Th\u1ecb Mai",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 15,
-          "fontWeight": "400"
-        },
-        {
-          "text": "Head of Engineering - CyberSkill",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 14,
-          "fontWeight": "400"
-        },
-        {
-          "text": "mai.tran@cyberskill.world",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 14,
-          "fontWeight": "400"
-        },
-        {
-          "text": "(+84) 901 234 567",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 14,
-          "fontWeight": "400"
-        },
-        {
-          "text": "cyberskill.world",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 14,
-          "fontWeight": "400"
-        },
-        {
-          "text": "LinkedIn",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 14,
-          "fontWeight": "400"
-        },
-        {
-          "text": "Facebook",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 14,
-          "fontWeight": "400"
-        },
-        {
-          "text": "Turn Your Will Into Real",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 12,
-          "fontWeight": "400"
-        }
-      ],
-      "rules": [
-        {
-          "w": 3,
-          "h": 194,
-          "bgcolorAttr": "#F4BA17"
-        }
-      ],
-      "colspans": [
-        {
-          "value": 2,
-          "tableCols": 2
-        },
-        {
-          "value": 2,
-          "tableCols": 2
-        },
-        {
-          "value": 2,
-          "tableCols": 2
-        },
-        {
-          "value": 3,
-          "tableCols": 3
-        },
-        {
-          "value": 3,
-          "tableCols": 3
-        }
-      ],
-      "contactLefts": [
-        53,
-        53,
-        53,
-        53,
-        53
-      ],
-      "bodyText": "Mai Tran\nTr\u1ea7n Th\u1ecb Mai\nHead of Engineering - CyberSkill\n\u00a0\n\tmai.tran@cyberskill.world\n\u00a0\n\n\t(+84) 901 234 567\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn | Facebook\n\n\u00a0\n\n\t\u00a0\tTurn Your Will Into Real",
-      "forbidden": {
-        "styleTags": 0,
-        "classAttrs": 0,
-        "radius": 0
-      },
-      "person": "mai-tran",
-      "width": "desktop",
-      "viewport": 900,
-      "images": "loaded",
-      "screenshot": "mai-tran-desktop-loaded.png"
-    },
-    {
-      "tableW": 520,
-      "tableH": 248,
-      "docScrollW": 900,
-      "links": [
-        {
-          "href": "mailto:mai.tran@cyberskill.world",
-          "text": "mai.tran@cyberskill.world",
-          "decoration": "underline",
-          "h": 16,
-          "fontSize": 14
-        },
-        {
-          "href": "tel:+84901234567",
-          "text": "(+84) 901 234 567",
-          "decoration": "underline",
-          "h": 16,
-          "fontSize": 14
-        },
-        {
-          "href": "https://cyberskill.world",
-          "text": "cyberskill.world",
-          "decoration": "underline",
-          "h": 16,
-          "fontSize": 14
-        },
-        {
-          "href": "https://linkedin.com/company/cyberskill",
-          "text": "LinkedIn",
-          "decoration": "underline",
-          "h": 16,
-          "fontSize": 14
-        },
-        {
-          "href": "https://www.facebook.com/cyberskill.world",
-          "text": "Facebook",
-          "decoration": "underline",
-          "h": 16,
-          "fontSize": 14
-        }
-      ],
-      "imgs": [
-        {
-          "src": "/__blocked__/missing-0.png",
-          "alt": "",
-          "wAttr": "18",
-          "hAttr": "18",
-          "natural": [
-            0,
-            0
-          ],
-          "box": [
-            18,
-            18
-          ],
-          "cellW": 18,
-          "complete": false
-        },
-        {
-          "src": "/__blocked__/missing-1.png",
-          "alt": "",
-          "wAttr": "18",
-          "hAttr": "18",
-          "natural": [
-            0,
-            0
-          ],
-          "box": [
-            18,
-            18
-          ],
-          "cellW": 18,
-          "complete": false
-        },
-        {
-          "src": "/__blocked__/missing-2.png",
-          "alt": "",
-          "wAttr": "18",
-          "hAttr": "18",
-          "natural": [
-            0,
-            0
-          ],
-          "box": [
-            18,
-            18
-          ],
-          "cellW": 18,
-          "complete": false
-        },
-        {
-          "src": "/__blocked__/missing-3.png",
-          "alt": "",
-          "wAttr": "18",
-          "hAttr": "18",
-          "natural": [
-            0,
-            0
-          ],
-          "box": [
-            18,
-            18
-          ],
-          "cellW": 18,
-          "complete": false
-        },
-        {
-          "src": "/__blocked__/missing-4.png",
-          "alt": "",
-          "wAttr": "36",
-          "hAttr": "36",
-          "natural": [
-            0,
-            0
-          ],
-          "box": [
-            36,
-            36
-          ],
-          "cellW": 36,
-          "complete": false
-        }
-      ],
-      "texts": [
-        {
-          "text": "Mai Tran",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 22,
-          "fontWeight": "700"
-        },
-        {
-          "text": "Tr\u1ea7n Th\u1ecb Mai",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 15,
-          "fontWeight": "400"
-        },
-        {
-          "text": "Head of Engineering - CyberSkill",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 14,
-          "fontWeight": "400"
-        },
-        {
-          "text": "mai.tran@cyberskill.world",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 14,
-          "fontWeight": "400"
-        },
-        {
-          "text": "(+84) 901 234 567",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 14,
-          "fontWeight": "400"
-        },
-        {
-          "text": "cyberskill.world",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 14,
-          "fontWeight": "400"
-        },
-        {
-          "text": "LinkedIn",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 14,
-          "fontWeight": "400"
-        },
-        {
-          "text": "Facebook",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 14,
-          "fontWeight": "400"
-        },
-        {
-          "text": "Turn Your Will Into Real",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 12,
-          "fontWeight": "400"
-        }
-      ],
-      "rules": [
-        {
-          "w": 3,
-          "h": 194,
-          "bgcolorAttr": "#F4BA17"
-        }
-      ],
-      "colspans": [
-        {
-          "value": 2,
-          "tableCols": 2
-        },
-        {
-          "value": 2,
-          "tableCols": 2
-        },
-        {
-          "value": 2,
-          "tableCols": 2
-        },
-        {
-          "value": 3,
-          "tableCols": 3
-        },
-        {
-          "value": 3,
-          "tableCols": 3
-        }
-      ],
-      "contactLefts": [
-        53,
-        53,
-        53,
-        53,
-        53
-      ],
-      "bodyText": "Mai Tran\nTr\u1ea7n Th\u1ecb Mai\nHead of Engineering - CyberSkill\n\u00a0\n\tmai.tran@cyberskill.world\n\u00a0\n\n\t(+84) 901 234 567\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn | Facebook\n\n\u00a0\n\n\t\u00a0\tTurn Your Will Into Real",
-      "forbidden": {
-        "styleTags": 0,
-        "classAttrs": 0,
-        "radius": 0
-      },
-      "person": "mai-tran",
-      "width": "desktop",
-      "viewport": 900,
-      "images": "blocked",
-      "screenshot": "mai-tran-desktop-blocked.png"
-    },
-    {
-      "tableW": 288,
-      "tableH": 248,
-      "docScrollW": 320,
-      "links": [
-        {
-          "href": "mailto:mai.tran@cyberskill.world",
-          "text": "mai.tran@cyberskill.world",
-          "decoration": "underline",
-          "h": 16,
-          "fontSize": 14
-        },
-        {
-          "href": "tel:+84901234567",
-          "text": "(+84) 901 234 567",
-          "decoration": "underline",
-          "h": 16,
-          "fontSize": 14
-        },
-        {
-          "href": "https://cyberskill.world",
-          "text": "cyberskill.world",
-          "decoration": "underline",
-          "h": 16,
-          "fontSize": 14
-        },
-        {
-          "href": "https://linkedin.com/company/cyberskill",
-          "text": "LinkedIn",
-          "decoration": "underline",
-          "h": 16,
-          "fontSize": 14
-        },
-        {
-          "href": "https://www.facebook.com/cyberskill.world",
-          "text": "Facebook",
-          "decoration": "underline",
-          "h": 16,
-          "fontSize": 14
-        }
-      ],
-      "imgs": [
-        {
-          "src": "http://127.0.0.1:38427/assets/shared/icon-mail-2x.png?v=e478dc4a",
-          "alt": "",
-          "wAttr": "18",
-          "hAttr": "18",
-          "natural": [
-            36,
-            36
-          ],
-          "box": [
-            18,
-            18
-          ],
-          "cellW": 18,
-          "complete": true
-        },
-        {
-          "src": "http://127.0.0.1:38427/assets/shared/icon-phone-2x.png?v=d3d73cc4",
-          "alt": "",
-          "wAttr": "18",
-          "hAttr": "18",
-          "natural": [
-            36,
-            36
-          ],
-          "box": [
-            18,
-            18
-          ],
-          "cellW": 18,
-          "complete": true
-        },
-        {
-          "src": "http://127.0.0.1:38427/assets/shared/icon-globe-2x.png?v=9a8d610f",
-          "alt": "",
-          "wAttr": "18",
-          "hAttr": "18",
-          "natural": [
-            36,
-            36
-          ],
-          "box": [
-            18,
-            18
-          ],
-          "cellW": 18,
-          "complete": true
-        },
-        {
-          "src": "http://127.0.0.1:38427/assets/shared/icon-users-2x.png?v=117751d0",
-          "alt": "",
-          "wAttr": "18",
-          "hAttr": "18",
-          "natural": [
-            36,
-            36
-          ],
-          "box": [
-            18,
-            18
-          ],
-          "cellW": 18,
-          "complete": true
-        },
-        {
-          "src": "http://127.0.0.1:38427/assets/shared/logo-36-2x.png?v=0cda5174",
-          "alt": "",
-          "wAttr": "36",
-          "hAttr": "36",
-          "natural": [
-            72,
-            72
-          ],
-          "box": [
-            36,
-            36
-          ],
-          "cellW": 36,
-          "complete": true
-        }
-      ],
-      "texts": [
-        {
-          "text": "Mai Tran",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 22,
-          "fontWeight": "700"
-        },
-        {
-          "text": "Tr\u1ea7n Th\u1ecb Mai",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 15,
-          "fontWeight": "400"
-        },
-        {
-          "text": "Head of Engineering - CyberSkill",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 14,
-          "fontWeight": "400"
-        },
-        {
-          "text": "mai.tran@cyberskill.world",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 14,
-          "fontWeight": "400"
-        },
-        {
-          "text": "(+84) 901 234 567",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 14,
-          "fontWeight": "400"
-        },
-        {
-          "text": "cyberskill.world",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 14,
-          "fontWeight": "400"
-        },
-        {
-          "text": "LinkedIn",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 14,
-          "fontWeight": "400"
-        },
-        {
-          "text": "Facebook",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 14,
-          "fontWeight": "400"
-        },
-        {
-          "text": "Turn Your Will Into Real",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 12,
-          "fontWeight": "400"
-        }
-      ],
-      "rules": [
-        {
-          "w": 3,
-          "h": 194,
-          "bgcolorAttr": "#F4BA17"
-        }
-      ],
-      "colspans": [
-        {
-          "value": 2,
-          "tableCols": 2
-        },
-        {
-          "value": 2,
-          "tableCols": 2
-        },
-        {
-          "value": 2,
-          "tableCols": 2
-        },
-        {
-          "value": 3,
-          "tableCols": 3
-        },
-        {
-          "value": 3,
-          "tableCols": 3
-        }
-      ],
-      "contactLefts": [
-        53,
-        53,
-        53,
-        53,
-        53
-      ],
-      "bodyText": "Mai Tran\nTr\u1ea7n Th\u1ecb Mai\nHead of Engineering - CyberSkill\n\u00a0\n\tmai.tran@cyberskill.world\n\u00a0\n\n\t(+84) 901 234 567\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn | Facebook\n\n\u00a0\n\n\t\u00a0\tTurn Your Will Into Real",
-      "forbidden": {
-        "styleTags": 0,
-        "classAttrs": 0,
-        "radius": 0
-      },
-      "person": "mai-tran",
-      "width": "narrow",
-      "viewport": 320,
-      "images": "loaded",
-      "screenshot": "mai-tran-narrow-loaded.png"
-    },
-    {
-      "tableW": 288,
-      "tableH": 248,
-      "docScrollW": 320,
-      "links": [
-        {
-          "href": "mailto:mai.tran@cyberskill.world",
-          "text": "mai.tran@cyberskill.world",
-          "decoration": "underline",
-          "h": 16,
-          "fontSize": 14
-        },
-        {
-          "href": "tel:+84901234567",
-          "text": "(+84) 901 234 567",
-          "decoration": "underline",
-          "h": 16,
-          "fontSize": 14
-        },
-        {
-          "href": "https://cyberskill.world",
-          "text": "cyberskill.world",
-          "decoration": "underline",
-          "h": 16,
-          "fontSize": 14
-        },
-        {
-          "href": "https://linkedin.com/company/cyberskill",
-          "text": "LinkedIn",
-          "decoration": "underline",
-          "h": 16,
-          "fontSize": 14
-        },
-        {
-          "href": "https://www.facebook.com/cyberskill.world",
-          "text": "Facebook",
-          "decoration": "underline",
-          "h": 16,
-          "fontSize": 14
-        }
-      ],
-      "imgs": [
-        {
-          "src": "/__blocked__/missing-0.png",
-          "alt": "",
-          "wAttr": "18",
-          "hAttr": "18",
-          "natural": [
-            0,
-            0
-          ],
-          "box": [
-            18,
-            18
-          ],
-          "cellW": 18,
-          "complete": false
-        },
-        {
-          "src": "/__blocked__/missing-1.png",
-          "alt": "",
-          "wAttr": "18",
-          "hAttr": "18",
-          "natural": [
-            0,
-            0
-          ],
-          "box": [
-            18,
-            18
-          ],
-          "cellW": 18,
-          "complete": false
-        },
-        {
-          "src": "/__blocked__/missing-2.png",
-          "alt": "",
-          "wAttr": "18",
-          "hAttr": "18",
-          "natural": [
-            0,
-            0
-          ],
-          "box": [
-            18,
-            18
-          ],
-          "cellW": 18,
-          "complete": false
-        },
-        {
-          "src": "/__blocked__/missing-3.png",
-          "alt": "",
-          "wAttr": "18",
-          "hAttr": "18",
-          "natural": [
-            0,
-            0
-          ],
-          "box": [
-            18,
-            18
-          ],
-          "cellW": 18,
-          "complete": false
-        },
-        {
-          "src": "/__blocked__/missing-4.png",
-          "alt": "",
-          "wAttr": "36",
-          "hAttr": "36",
-          "natural": [
-            0,
-            0
-          ],
-          "box": [
-            36,
-            36
-          ],
-          "cellW": 36,
-          "complete": false
-        }
-      ],
-      "texts": [
-        {
-          "text": "Mai Tran",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 22,
-          "fontWeight": "700"
-        },
-        {
-          "text": "Tr\u1ea7n Th\u1ecb Mai",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 15,
-          "fontWeight": "400"
-        },
-        {
-          "text": "Head of Engineering - CyberSkill",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 14,
-          "fontWeight": "400"
-        },
-        {
-          "text": "mai.tran@cyberskill.world",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 14,
-          "fontWeight": "400"
-        },
-        {
-          "text": "(+84) 901 234 567",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 14,
-          "fontWeight": "400"
-        },
-        {
-          "text": "cyberskill.world",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 14,
-          "fontWeight": "400"
-        },
-        {
-          "text": "LinkedIn",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 14,
-          "fontWeight": "400"
-        },
-        {
-          "text": "Facebook",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 14,
-          "fontWeight": "400"
-        },
-        {
-          "text": "Turn Your Will Into Real",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 12,
-          "fontWeight": "400"
-        }
-      ],
-      "rules": [
-        {
-          "w": 3,
-          "h": 194,
-          "bgcolorAttr": "#F4BA17"
-        }
-      ],
-      "colspans": [
-        {
-          "value": 2,
-          "tableCols": 2
-        },
-        {
-          "value": 2,
-          "tableCols": 2
-        },
-        {
-          "value": 2,
-          "tableCols": 2
-        },
-        {
-          "value": 3,
-          "tableCols": 3
-        },
-        {
-          "value": 3,
-          "tableCols": 3
-        }
-      ],
-      "contactLefts": [
-        53,
-        53,
-        53,
-        53,
-        53
-      ],
-      "bodyText": "Mai Tran\nTr\u1ea7n Th\u1ecb Mai\nHead of Engineering - CyberSkill\n\u00a0\n\tmai.tran@cyberskill.world\n\u00a0\n\n\t(+84) 901 234 567\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn | Facebook\n\n\u00a0\n\n\t\u00a0\tTurn Your Will Into Real",
-      "forbidden": {
-        "styleTags": 0,
-        "classAttrs": 0,
-        "radius": 0
-      },
-      "person": "mai-tran",
-      "width": "narrow",
-      "viewport": 320,
-      "images": "blocked",
-      "screenshot": "mai-tran-narrow-blocked.png"
-    },
-    {
-      "person": "mai-tran",
-      "state": "light",
-      "mode": "dark",
-      "screenshot": "mai-tran-dark-light.png"
-    },
-    {
-      "person": "mai-tran",
-      "state": "gmaildark",
-      "mode": "dark",
-      "screenshot": "mai-tran-dark-gmaildark.png"
-    },
-    {
-      "person": "mai-tran",
-      "state": "forceddark",
-      "mode": "dark",
-      "screenshot": "mai-tran-dark-forceddark.png"
     }
   ],
   "findings": [],

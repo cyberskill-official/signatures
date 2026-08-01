@@ -1,0 +1,55 @@
+name: Publish
+
+# Rebuilds docs/ after anything lands on main, so contributors never have to
+# run the build themselves. GitHub Pages then serves docs/ from this branch.
+#
+# No loop: this only triggers on src/ and build/ changes, and it only ever
+# writes to docs/.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "src/**"
+      - "build/**"
+      - "install.sh"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install build dependencies
+        run: pip install pyyaml pillow
+
+      # No Playwright here. make_assets falls back to the committed icon PNGs
+      # when it is absent, and --skip-icons makes that explicit rather than
+      # incidental. Changing the icon set is a deliberate local action.
+      - name: Rebuild site
+        run: ./install.sh --skip-icons
+
+      - name: Commit if anything changed
+        run: |
+          if git diff --quiet -- docs/; then
+            echo "docs/ already current - nothing to publish."
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/
+          git commit -m "Rebuild docs/ from ${GITHUB_SHA::7}"
+          git push
+          echo "Published. Pages will deploy shortly."

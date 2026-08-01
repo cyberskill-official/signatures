@@ -1,0 +1,100 @@
+name: Request a new signature
+description: You do not have a signature yet and would like one.
+title: "Signature request: "
+labels: ["signature", "new"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Fill this in and a maintainer will raise the pull request for you. You
+        will be tagged on it so you can check the details before it goes live.
+
+        Everything here ends up in a published email signature, so use the
+        details you are happy for people outside the company to have.
+
+  - type: input
+    id: name
+    attributes:
+      label: Full name
+      description: As you want it to appear, in the script you normally write it in.
+      placeholder: Mai Tran
+    validations:
+      required: true
+
+  - type: input
+    id: name_vi
+    attributes:
+      label: Vietnamese name
+      description: Optional second line under your name. Leave blank to skip it.
+      placeholder: Trần Thị Mai
+    validations:
+      required: false
+
+  - type: input
+    id: role
+    attributes:
+      label: Job title
+      placeholder: Software Engineer
+    validations:
+      required: true
+
+  - type: input
+    id: email
+    attributes:
+      label: Work email
+      placeholder: mai@cyberskill.world
+    validations:
+      required: true
+
+  - type: input
+    id: phone
+    attributes:
+      label: Phone number
+      description: >-
+        Optional. Write it how you want it displayed - the dial-able version is
+        worked out for you.
+      placeholder: (+84) 912 345 678
+    validations:
+      required: false
+
+  - type: textarea
+    id: photo
+    attributes:
+      label: Photo
+      description: >-
+        Drag a square-ish photo into this box to attach it. 512px or larger.
+        Leave it empty to publish without a portrait - your initials are used
+        on the directory page instead.
+    validations:
+      required: false
+
+  - type: input
+    id: preferred_id
+    attributes:
+      label: Preferred web address
+      description: >-
+        Optional. Lowercase letters, numbers and hyphens. Defaults to your name
+        in that form.
+      placeholder: mai-tran
+    validations:
+      required: false
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Anything else
+      description: >-
+        Different social links from the company defaults, an unusual photo crop,
+        a name that needs particular spelling or accents - say so here.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: ack
+    attributes:
+      label: Before you submit
+      options:
+        - label: >-
+            I understand my photo and these details are published to a public
+            web address, which is how hosted images in email signatures work.
+          required: true

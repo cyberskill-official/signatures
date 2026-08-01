@@ -86,6 +86,11 @@ def load_people(company):
     for fn in sorted(os.listdir(PEOPLE_SRC)):
         if not fn.endswith((".yml", ".yaml")):
             continue
+        # _template.yml and anything else underscore-prefixed is scaffolding
+        # for contributors, not a person. Skipping it here means the template
+        # can carry placeholder values without failing every build.
+        if fn.startswith("_"):
+            continue
         pid = os.path.splitext(fn)[0]
         if not ID_RE.match(pid):
             raise RecordError(

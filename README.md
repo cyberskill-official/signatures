@@ -6,11 +6,18 @@ published as a GitHub Pages site that staff use to install their own.
 **Site:** https://cyberskill-official.github.io/signatures/
 
 Staff never clone this repo. They open their page, press one button, and paste
-into Gmail. This README is for whoever adds people and maintains the design.
+into Gmail.
+
+**Adding or changing your own details? See [CONTRIBUTING.md](CONTRIBUTING.md).**
+Employees raise a pull request, or just open an issue and let a maintainer do
+it. Nobody needs Python, a browser install, or a build step - CI validates the
+pull request and rebuilds `docs/` after merge.
+
+The rest of this README is for whoever maintains the design.
 
 ---
 
-## Adding someone
+## Adding someone by hand
 
 ```bash
 # 1. photo -> src/avatars/<id>.png   (any square-ish source; 512px+ is plenty)
@@ -74,10 +81,17 @@ signatures/
 ├── src/                  <- authored input
 │   ├── company.yml
 │   ├── logo.png
+│   ├── people/_template.yml  copied by contributors; underscore = ignored
 │   ├── people/<id>.yml
 │   └── avatars/<id>.png
 ├── build/                model, asset baker, generator, site builder
-├── validation/           check.py + screenshots
+├── validation/
+│   ├── check.py              layout, contrast, blocked images
+│   └── crossclient.py        client sanitisers x 3 engines
+├── .github/
+│   ├── ISSUE_TEMPLATE/       intake forms for staff with no GitHub knowledge
+│   └── workflows/            validate on PR, rebuild docs/ on merge
+├── CONTRIBUTING.md
 └── install.sh            rebuild + verify
 ```
 
@@ -195,12 +209,22 @@ bump a version directory by hand.
 | local and `data:` images dropped | assets must be publicly hosted |
 | 10,000 character limit | ~5,400 chars per signature, 54% of budget |
 
-Outlook's Word engine gets an `<!--[if mso]>` fixed-width wrapper because it
-ignores `max-width`. The real table is `width="100%"` capped by
-`max-width:520px` - a hard `width="520"` pinned it at 520px on a 320px phone
-and forced horizontal scroll. Every spacer is a table row with
-`mso-line-height-rule:exactly`, not a `div`; Outlook renders a spacer div's
-`&nbsp;` as a full text line regardless of font-size.
+The real table is `width="100%"` capped by `max-width:520px` - a hard
+`width="520"` pinned it at 520px on a 320px phone and forced horizontal
+scroll.
+
+Outlook's Word engine gets an `<!--[if mso]>` wrapper, but that wrapper is
+**also `width="100%"`, not a fixed 520**. Word ignores `max-width`, so a fixed
+wrapper pinned the table at 520px inside Outlook's reading pane and overflowed
+it by 36px at 500px and 136px at 400px - a three-pane Outlook window on a
+laptop. The cap bought nothing to pay for that: every element is left-aligned
+and the widest line of ink is about 285px, so removing it changes only how
+much empty space trails the content. Measured identical at 400px and 1400px,
+248px tall at both.
+
+Every spacer is a table row with `mso-line-height-rule:exactly`, not a `div`;
+Outlook renders a spacer div's `&nbsp;` as a full text line regardless of
+font-size.
 
 ---
 
@@ -243,21 +267,92 @@ threshold.
 the blocked state was visibly wrong, because asserting `alt=""` says nothing
 about placeholder rendering. Open the screenshots and look at them.
 
+### Cross-client audit
+
+```bash
+python3 -m playwright install chromium firefox webkit
+python3 validation/crossclient.py
+```
+
+Rendering the raw signature in one browser proves almost nothing about email.
+Every client rewrites the markup before drawing it, and they do not share an
+engine. So each run applies that client's sanitiser as a **transform** and
+renders the result in the engine that client really uses.
+
+| Transform | What it does |
+|---|---|
+| `webmail` | strips `<style>`, `class`, `id`, `<script>` - a no-op on this markup, which is the point |
+| `word` | uncomments the mso branch, then deletes every property Word does not implement, drops `padding` off non-cells, and repaints links Outlook blue |
+| `none` | passthrough, for clients that sanitise nothing meaningful here |
+
+| Engine | Clients it genuinely covers |
+|---|---|
+| Blink | Chrome, Edge, Android WebViews, Gmail web, Outlook.com, Yahoo, Proton |
+| WebKit | Apple Mail on macOS and iOS, every iOS mail app, Gmail web in Safari |
+| Gecko | Thunderbird |
+
+14 clients x realistic widths x the colour schemes each one actually offers,
+plus two robustness probes. Checks per run: overflow, contrast (with the
+inversion filter applied first, since `getComputedStyle` reports pre-filter
+colours), missing glyphs by canvas measurement, link survival, image
+dimension attributes, and text loss against an untransformed baseline.
+
+**A missing engine is reported as UNCOVERED, never skipped silently.** CI runs
+with `--require-engines chromium,firefox,webkit` so a broken install fails the
+run instead of quietly shrinking the matrix.
+
 ---
 
 ## Caveats
 
-1. **Nothing renders in Gmail until `docs/` is pushed and Pages has
-   deployed.** Run `./install.sh --verify-remote` afterwards to confirm.
-2. **Not yet tested in real Gmail or real Outlook.** Headless checks cannot
-   prove Gmail's sanitiser leaves the markup intact, and Outlook's Word engine
-   is out of scope for Chromium. Paste it, send it, read it on both.
-3. **Outlook ignores `color:inherit`** and uses its own link colour. Blue on
-   white is still legible, so this degrades rather than breaks.
-4. **Screenshots use Liberation Sans**, the metric-compatible Linux stand-in
-   for Arial. Widths are accurate; glyph shapes differ slightly from macOS.
-5. **Blocked images show placeholder boxes.** Unavoidable; layout and text are
-   unaffected.
+### Unavoidable, by platform
+
+**Outlook for Windows repaints links in its own blue.** The Word engine does
+not implement `color:inherit`, so links come out around `#0563C1` rather than
+inheriting. That is 5.6:1 on white, comfortably readable - it degrades rather
+than breaks, and there is no markup that prevents it.
+
+**Outlook for Windows drops `padding` on anything that is not a table cell.**
+Two `padding-top:2px` divs lose 4px, so the block measures 244px tall in
+Outlook against 248px everywhere else. Cosmetic; nothing moves horizontally.
+
+**Blocked images draw placeholder boxes.** `alt=""` does not prevent that.
+It is what Gmail and Outlook do for any hosted image, and it is why the checks
+assert that width, height, alignment and text are byte-identical loaded versus
+blocked, rather than pretending the placeholders are not there.
+
+**A client that darkens the background without setting a text colour would
+render the text unreadably dark.** The probe run
+`probe-bgonly-*--dark-bgonly.png` shows exactly that. No client we know of
+behaves this way - Gmail recolours, Apple Mail and Outlook invert, Thunderbird
+recolours - and critically, **no colour choice fixes it**: the highest
+simultaneous contrast against both white and a dark surface is 4.06:1 at
+`#7E7E7E`, which fails AA on both. Inheriting is the best available answer,
+not a compromise.
+
+**Word's engine cannot be installed, only modelled.** Outlook for Windows
+renders through Microsoft Word. The `word` transform deletes what Word drops
+and renders the remainder, which reliably catches layout that *depends* on a
+dropped property. It will not catch a Word-specific rendering bug in a
+property Word does implement.
+
+### Still open
+
+**No real paste into Gmail or Outlook has been done.** Every check here is a
+model. Paste it, send it, and read it on a phone and a desktop in light and
+dark. That is the only test that proves Gmail's sanitiser left the markup
+intact.
+
+**WebKit is covered in CI, not locally.** Its renderer needs an EGL display
+the development sandbox has no GPU for (`Could not create WPE EGL display`).
+GitHub Actions runners have it, and `--require-engines` makes its absence a
+CI failure. Locally the run reports those five clients as UNCOVERED.
+
+**Nothing renders in Gmail until `docs/` is pushed and Pages has deployed.**
+Run `./install.sh --verify-remote` afterwards to confirm.
+
+**Screenshots use Liberation Sans**, the metric-compatible Linux stand-in for
+Arial. Widths are accurate; glyph shapes differ slightly from macOS.
 
 ## Licences
 

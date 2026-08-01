@@ -1,0 +1,166 @@
+name: Validate
+
+# Runs on every pull request. Contributors do not need Python, a browser, or
+# any local setup - this is where the build and the render checks happen.
+#
+# docs/ is generated. A pull request that does not touch it is fine: publish.yml
+# rebuilds and commits after merge. A pull request that DOES touch it must match
+# a clean build exactly, which is how a hand-edit gets caught.
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: validate-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install build dependencies
+        run: pip install pyyaml pillow playwright
+
+      # Three engines, because email is not one renderer. WebKit is Apple Mail
+      # on macOS and iOS and every iOS browser; Gecko is Thunderbird; Blink is
+      # Chrome, Edge, Android WebViews and the web clients.
+      - name: Cache browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-3-${{ runner.os }}-${{ hashFiles('.github/workflows/validate.yml') }}
+
+      - name: Install browsers
+        run: python -m playwright install --with-deps chromium firefox webkit
+
+      - name: Did this pull request touch docs/
+        id: touched
+        run: |
+          changed=$(git diff --name-only origin/${{ github.base_ref }}...HEAD -- docs/ | wc -l)
+          echo "docs_changed=$changed" >> "$GITHUB_OUTPUT"
+          if [ "$changed" -gt 0 ]; then
+            echo "This pull request modifies $changed file(s) under docs/."
+            echo "They must match a clean build exactly."
+          else
+            echo "docs/ untouched - it will be rebuilt automatically after merge."
+          fi
+
+      # --skip-icons because icon rasterisation goes through a headless browser
+      # and is not guaranteed byte-identical across browser versions. Rebuilding
+      # them here would produce a spurious diff on every unrelated change.
+      # Avatars still rebuild - they go through Pillow and are deterministic.
+      - name: Build and check
+        run: ./install.sh --skip-icons
+
+      - name: Generated output matches source
+        if: steps.touched.outputs.docs_changed != '0'
+        run: |
+          if ! git diff --quiet -- docs/; then
+            echo "::error::docs/ does not match a clean build."
+            echo ""
+            echo "Everything under docs/ is generated from src/ and build/."
+            echo "Either revert your docs/ changes and let CI rebuild after"
+            echo "merge, or run ./install.sh locally and commit the result."
+            echo ""
+            git diff --stat -- docs/
+            exit 1
+          fi
+          echo "docs/ matches the build."
+
+      - name: Render and accessibility checks
+        run: python3 validation/check.py
+
+      # --require-engines makes a missing engine a failure. Without it a broken
+      # WebKit install would silently drop Apple Mail from the matrix and the
+      # run would still go green.
+      - name: Cross-client compatibility
+        run: |
+          python3 validation/crossclient.py \
+            --engines chromium,firefox,webkit \
+            --require-engines chromium,firefox,webkit
+
+      - name: Collect results
+        if: always()
+        id: summary
+        run: |
+          python3 - <<'PY' >> "$GITHUB_OUTPUT"
+          import json, os, glob
+          lines = []
+          try:
+              m = json.load(open("build/manifest.json"))
+              for p in m["people"]:
+                  pct = p["chars"] / 100
+                  flag = " **OVER LIMIT**" if p["over_limit"] else ""
+                  lines.append(
+                      f"| `{p['id']}` | {p['name']} | {p['role']} | "
+                      f"{p['chars']} ({pct:.0f}% of Gmail limit){flag} |")
+          except Exception as e:
+              lines.append(f"| - | could not read manifest: {e} | | |")
+          body = "\n".join(lines)
+          print(f"table<<EOF\n{body}\nEOF")
+          PY
+
+      - name: Comment on the pull request
+        if: always() && github.event.pull_request.head.repo.full_name == github.repository
+        continue-on-error: true
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const ok = '${{ job.status }}' === 'success';
+            const body = [
+              '<!-- signature-check -->',
+              ok ? '### All checks passed' : '### Checks failed',
+              '',
+              '| id | name | role | signature size |',
+              '|---|---|---|---|',
+              `${{ steps.summary.outputs.table }}`,
+              '',
+              ok
+                ? 'Once this merges, the site rebuilds automatically. Your page will be at '
+                  + '`https://signatures.cyberskill.world/people/<id>/` within a minute or two - '
+                  + 'open it and press **Verify and copy**.'
+                : 'Open the failed step above to see what went wrong. Nothing reaches the live '
+                  + 'site until this passes and a maintainer merges.',
+            ].join('\n');
+
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner, repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+            const mine = comments.find(c => c.body.includes('<!-- signature-check -->'));
+            if (mine) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner, repo: context.repo.repo,
+                comment_id: mine.id, body,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner, repo: context.repo.repo,
+                issue_number: context.issue.number, body,
+              });
+            }
+
+      - name: Upload screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: render-evidence
+          path: |
+            validation/screenshots/
+            validation/report.json
+            validation/crossclient/
+          if-no-files-found: warn
+          retention-days: 14

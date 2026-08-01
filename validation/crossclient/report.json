@@ -1,0 +1,5631 @@
+{
+  "generated": "2026-08-01 14:37:59",
+  "engines": [
+    "chromium",
+    "firefox"
+  ],
+  "missingEngines": [
+    "webkit"
+  ],
+  "uncovered": [
+    "Apple Mail (iOS) not tested - webkit unavailable",
+    "Apple Mail (macOS) not tested - webkit unavailable",
+    "Gmail app (iOS) not tested - webkit unavailable",
+    "Gmail web (Safari) not tested - webkit unavailable",
+    "Outlook for Mac (new) not tested - webkit unavailable"
+  ],
+  "runs": [
+    {
+      "tableW": 520,
+      "tableH": 248,
+      "scrollW": 1024,
+      "hostScrollW": 1024,
+      "hostClientW": 1024,
+      "texts": [
+        {
+          "text": "Stephen Cheng",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 22,
+          "fontWeight": 700,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Tr\u1ecbnh Th\u00e1i Anh",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Founder - CyberSkill",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "info@cyberskill.world",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "(+84) 906 878 091",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "cyberskill.world",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "LinkedIn",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Facebook",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Turn Your Will Into Real",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 12,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        }
+      ],
+      "links": [
+        {
+          "href": "mailto:info@cyberskill.world",
+          "text": "info@cyberskill.world",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            132,
+            16
+          ]
+        },
+        {
+          "href": "tel:+84906878091",
+          "text": "(+84) 906 878 091",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            115,
+            16
+          ]
+        },
+        {
+          "href": "https://cyberskill.world",
+          "text": "cyberskill.world",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            95,
+            16
+          ]
+        },
+        {
+          "href": "https://linkedin.com/company/cyberskill",
+          "text": "LinkedIn",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            53,
+            16
+          ]
+        },
+        {
+          "href": "https://www.facebook.com/cyberskill.world",
+          "text": "Facebook",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            61,
+            16
+          ]
+        }
+      ],
+      "imgs": [
+        {
+          "src": "avatar-80-2x.png?v=10ab46c8",
+          "wAttr": "80",
+          "hAttr": "80",
+          "box": [
+            80,
+            80
+          ],
+          "natural": [
+            160,
+            160
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-mail-2x.png?v=e478dc4a",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-phone-2x.png?v=d3d73cc4",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-globe-2x.png?v=9a8d610f",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-users-2x.png?v=117751d0",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "logo-36-2x.png?v=7b060983",
+          "wAttr": "36",
+          "hAttr": "36",
+          "box": [
+            36,
+            36
+          ],
+          "natural": [
+            72,
+            72
+          ],
+          "loaded": true
+        }
+      ],
+      "missingGlyphs": [],
+      "textContent": "Stephen Cheng Tr\u1ecbnh Th\u00e1i Anh Founder - CyberSkill info@cyberskill.world (+84) 906 878 091 cyberskill.world LinkedIn | Facebook Turn Your Will Into Real",
+      "client": "gmail-web-chrome",
+      "label": "Gmail web (Chrome/Edge)",
+      "engine": "chromium",
+      "transform": "webmail",
+      "transformed": false,
+      "width": 1024,
+      "scheme": "light",
+      "screenshot": "stephen-cheng--gmail-web-chrome--1024--light.png"
+    },
+    {
+      "tableW": 520,
+      "tableH": 248,
+      "scrollW": 1024,
+      "hostScrollW": 1024,
+      "hostClientW": 1024,
+      "texts": [
+        {
+          "text": "Stephen Cheng",
+          "color": "rgb(230, 230, 230)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 22,
+          "fontWeight": 700,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Tr\u1ecbnh Th\u00e1i Anh",
+          "color": "rgb(230, 230, 230)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Founder - CyberSkill",
+          "color": "rgb(230, 230, 230)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "info@cyberskill.world",
+          "color": "rgb(230, 230, 230)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "(+84) 906 878 091",
+          "color": "rgb(230, 230, 230)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "cyberskill.world",
+          "color": "rgb(230, 230, 230)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "LinkedIn",
+          "color": "rgb(230, 230, 230)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Facebook",
+          "color": "rgb(230, 230, 230)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Turn Your Will Into Real",
+          "color": "rgb(230, 230, 230)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 12,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        }
+      ],
+      "links": [
+        {
+          "href": "mailto:info@cyberskill.world",
+          "text": "info@cyberskill.world",
+          "decoration": "underline",
+          "color": "rgb(230, 230, 230)",
+          "box": [
+            132,
+            16
+          ]
+        },
+        {
+          "href": "tel:+84906878091",
+          "text": "(+84) 906 878 091",
+          "decoration": "underline",
+          "color": "rgb(230, 230, 230)",
+          "box": [
+            115,
+            16
+          ]
+        },
+        {
+          "href": "https://cyberskill.world",
+          "text": "cyberskill.world",
+          "decoration": "underline",
+          "color": "rgb(230, 230, 230)",
+          "box": [
+            95,
+            16
+          ]
+        },
+        {
+          "href": "https://linkedin.com/company/cyberskill",
+          "text": "LinkedIn",
+          "decoration": "underline",
+          "color": "rgb(230, 230, 230)",
+          "box": [
+            53,
+            16
+          ]
+        },
+        {
+          "href": "https://www.facebook.com/cyberskill.world",
+          "text": "Facebook",
+          "decoration": "underline",
+          "color": "rgb(230, 230, 230)",
+          "box": [
+            61,
+            16
+          ]
+        }
+      ],
+      "imgs": [
+        {
+          "src": "avatar-80-2x.png?v=10ab46c8",
+          "wAttr": "80",
+          "hAttr": "80",
+          "box": [
+            80,
+            80
+          ],
+          "natural": [
+            160,
+            160
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-mail-2x.png?v=e478dc4a",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-phone-2x.png?v=d3d73cc4",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-globe-2x.png?v=9a8d610f",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-users-2x.png?v=117751d0",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "logo-36-2x.png?v=7b060983",
+          "wAttr": "36",
+          "hAttr": "36",
+          "box": [
+            36,
+            36
+          ],
+          "natural": [
+            72,
+            72
+          ],
+          "loaded": true
+        }
+      ],
+      "missingGlyphs": [],
+      "textContent": "Stephen Cheng Tr\u1ecbnh Th\u00e1i Anh Founder - CyberSkill info@cyberskill.world (+84) 906 878 091 cyberskill.world LinkedIn | Facebook Turn Your Will Into Real",
+      "client": "gmail-web-chrome",
+      "label": "Gmail web (Chrome/Edge)",
+      "engine": "chromium",
+      "transform": "webmail",
+      "transformed": false,
+      "width": 1024,
+      "scheme": "dark",
+      "screenshot": "stephen-cheng--gmail-web-chrome--1024--dark.png"
+    },
+    {
+      "tableW": 520,
+      "tableH": 248,
+      "scrollW": 700,
+      "hostScrollW": 700,
+      "hostClientW": 700,
+      "texts": [
+        {
+          "text": "Stephen Cheng",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 22,
+          "fontWeight": 700,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Tr\u1ecbnh Th\u00e1i Anh",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Founder - CyberSkill",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "info@cyberskill.world",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "(+84) 906 878 091",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "cyberskill.world",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "LinkedIn",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Facebook",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Turn Your Will Into Real",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 12,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        }
+      ],
+      "links": [
+        {
+          "href": "mailto:info@cyberskill.world",
+          "text": "info@cyberskill.world",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            132,
+            16
+          ]
+        },
+        {
+          "href": "tel:+84906878091",
+          "text": "(+84) 906 878 091",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            115,
+            16
+          ]
+        },
+        {
+          "href": "https://cyberskill.world",
+          "text": "cyberskill.world",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            95,
+            16
+          ]
+        },
+        {
+          "href": "https://linkedin.com/company/cyberskill",
+          "text": "LinkedIn",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            53,
+            16
+          ]
+        },
+        {
+          "href": "https://www.facebook.com/cyberskill.world",
+          "text": "Facebook",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            61,
+            16
+          ]
+        }
+      ],
+      "imgs": [
+        {
+          "src": "avatar-80-2x.png?v=10ab46c8",
+          "wAttr": "80",
+          "hAttr": "80",
+          "box": [
+            80,
+            80
+          ],
+          "natural": [
+            160,
+            160
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-mail-2x.png?v=e478dc4a",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-phone-2x.png?v=d3d73cc4",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-globe-2x.png?v=9a8d610f",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-users-2x.png?v=117751d0",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "logo-36-2x.png?v=7b060983",
+          "wAttr": "36",
+          "hAttr": "36",
+          "box": [
+            36,
+            36
+          ],
+          "natural": [
+            72,
+            72
+          ],
+          "loaded": true
+        }
+      ],
+      "missingGlyphs": [],
+      "textContent": "Stephen Cheng Tr\u1ecbnh Th\u00e1i Anh Founder - CyberSkill info@cyberskill.world (+84) 906 878 091 cyberskill.world LinkedIn | Facebook Turn Your Will Into Real",
+      "client": "gmail-web-chrome",
+      "label": "Gmail web (Chrome/Edge)",
+      "engine": "chromium",
+      "transform": "webmail",
+      "transformed": false,
+      "width": 700,
+      "scheme": "light",
+      "screenshot": "stephen-cheng--gmail-web-chrome--700--light.png"
+    },
+    {
+      "tableW": 520,
+      "tableH": 248,
+      "scrollW": 700,
+      "hostScrollW": 700,
+      "hostClientW": 700,
+      "texts": [
+        {
+          "text": "Stephen Cheng",
+          "color": "rgb(230, 230, 230)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 22,
+          "fontWeight": 700,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Tr\u1ecbnh Th\u00e1i Anh",
+          "color": "rgb(230, 230, 230)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Founder - CyberSkill",
+          "color": "rgb(230, 230, 230)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "info@cyberskill.world",
+          "color": "rgb(230, 230, 230)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "(+84) 906 878 091",
+          "color": "rgb(230, 230, 230)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "cyberskill.world",
+          "color": "rgb(230, 230, 230)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "LinkedIn",
+          "color": "rgb(230, 230, 230)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Facebook",
+          "color": "rgb(230, 230, 230)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Turn Your Will Into Real",
+          "color": "rgb(230, 230, 230)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 12,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        }
+      ],
+      "links": [
+        {
+          "href": "mailto:info@cyberskill.world",
+          "text": "info@cyberskill.world",
+          "decoration": "underline",
+          "color": "rgb(230, 230, 230)",
+          "box": [
+            132,
+            16
+          ]
+        },
+        {
+          "href": "tel:+84906878091",
+          "text": "(+84) 906 878 091",
+          "decoration": "underline",
+          "color": "rgb(230, 230, 230)",
+          "box": [
+            115,
+            16
+          ]
+        },
+        {
+          "href": "https://cyberskill.world",
+          "text": "cyberskill.world",
+          "decoration": "underline",
+          "color": "rgb(230, 230, 230)",
+          "box": [
+            95,
+            16
+          ]
+        },
+        {
+          "href": "https://linkedin.com/company/cyberskill",
+          "text": "LinkedIn",
+          "decoration": "underline",
+          "color": "rgb(230, 230, 230)",
+          "box": [
+            53,
+            16
+          ]
+        },
+        {
+          "href": "https://www.facebook.com/cyberskill.world",
+          "text": "Facebook",
+          "decoration": "underline",
+          "color": "rgb(230, 230, 230)",
+          "box": [
+            61,
+            16
+          ]
+        }
+      ],
+      "imgs": [
+        {
+          "src": "avatar-80-2x.png?v=10ab46c8",
+          "wAttr": "80",
+          "hAttr": "80",
+          "box": [
+            80,
+            80
+          ],
+          "natural": [
+            160,
+            160
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-mail-2x.png?v=e478dc4a",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-phone-2x.png?v=d3d73cc4",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-globe-2x.png?v=9a8d610f",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-users-2x.png?v=117751d0",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "logo-36-2x.png?v=7b060983",
+          "wAttr": "36",
+          "hAttr": "36",
+          "box": [
+            36,
+            36
+          ],
+          "natural": [
+            72,
+            72
+          ],
+          "loaded": true
+        }
+      ],
+      "missingGlyphs": [],
+      "textContent": "Stephen Cheng Tr\u1ecbnh Th\u00e1i Anh Founder - CyberSkill info@cyberskill.world (+84) 906 878 091 cyberskill.world LinkedIn | Facebook Turn Your Will Into Real",
+      "client": "gmail-web-chrome",
+      "label": "Gmail web (Chrome/Edge)",
+      "engine": "chromium",
+      "transform": "webmail",
+      "transformed": false,
+      "width": 700,
+      "scheme": "dark",
+      "screenshot": "stephen-cheng--gmail-web-chrome--700--dark.png"
+    },
+    {
+      "tableW": 380,
+      "tableH": 248,
+      "scrollW": 412,
+      "hostScrollW": 412,
+      "hostClientW": 412,
+      "texts": [
+        {
+          "text": "Stephen Cheng",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 22,
+          "fontWeight": 700,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Tr\u1ecbnh Th\u00e1i Anh",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Founder - CyberSkill",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "info@cyberskill.world",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "(+84) 906 878 091",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "cyberskill.world",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "LinkedIn",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Facebook",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Turn Your Will Into Real",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 12,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        }
+      ],
+      "links": [
+        {
+          "href": "mailto:info@cyberskill.world",
+          "text": "info@cyberskill.world",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            132,
+            16
+          ]
+        },
+        {
+          "href": "tel:+84906878091",
+          "text": "(+84) 906 878 091",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            115,
+            16
+          ]
+        },
+        {
+          "href": "https://cyberskill.world",
+          "text": "cyberskill.world",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            95,
+            16
+          ]
+        },
+        {
+          "href": "https://linkedin.com/company/cyberskill",
+          "text": "LinkedIn",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            53,
+            16
+          ]
+        },
+        {
+          "href": "https://www.facebook.com/cyberskill.world",
+          "text": "Facebook",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            61,
+            16
+          ]
+        }
+      ],
+      "imgs": [
+        {
+          "src": "avatar-80-2x.png?v=10ab46c8",
+          "wAttr": "80",
+          "hAttr": "80",
+          "box": [
+            80,
+            80
+          ],
+          "natural": [
+            160,
+            160
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-mail-2x.png?v=e478dc4a",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-phone-2x.png?v=d3d73cc4",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-globe-2x.png?v=9a8d610f",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-users-2x.png?v=117751d0",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "logo-36-2x.png?v=7b060983",
+          "wAttr": "36",
+          "hAttr": "36",
+          "box": [
+            36,
+            36
+          ],
+          "natural": [
+            72,
+            72
+          ],
+          "loaded": true
+        }
+      ],
+      "missingGlyphs": [],
+      "textContent": "Stephen Cheng Tr\u1ecbnh Th\u00e1i Anh Founder - CyberSkill info@cyberskill.world (+84) 906 878 091 cyberskill.world LinkedIn | Facebook Turn Your Will Into Real",
+      "client": "gmail-android",
+      "label": "Gmail app (Android)",
+      "engine": "chromium",
+      "transform": "webmail",
+      "transformed": false,
+      "width": 412,
+      "scheme": "light",
+      "screenshot": "stephen-cheng--gmail-android--412--light.png"
+    },
+    {
+      "tableW": 380,
+      "tableH": 248,
+      "scrollW": 412,
+      "hostScrollW": 412,
+      "hostClientW": 412,
+      "texts": [
+        {
+          "text": "Stephen Cheng",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 22,
+          "fontWeight": 700,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Tr\u1ecbnh Th\u00e1i Anh",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Founder - CyberSkill",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "info@cyberskill.world",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "(+84) 906 878 091",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "cyberskill.world",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "LinkedIn",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Facebook",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Turn Your Will Into Real",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 12,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        }
+      ],
+      "links": [
+        {
+          "href": "mailto:info@cyberskill.world",
+          "text": "info@cyberskill.world",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            132,
+            16
+          ]
+        },
+        {
+          "href": "tel:+84906878091",
+          "text": "(+84) 906 878 091",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            115,
+            16
+          ]
+        },
+        {
+          "href": "https://cyberskill.world",
+          "text": "cyberskill.world",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            95,
+            16
+          ]
+        },
+        {
+          "href": "https://linkedin.com/company/cyberskill",
+          "text": "LinkedIn",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            53,
+            16
+          ]
+        },
+        {
+          "href": "https://www.facebook.com/cyberskill.world",
+          "text": "Facebook",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            61,
+            16
+          ]
+        }
+      ],
+      "imgs": [
+        {
+          "src": "avatar-80-2x.png?v=10ab46c8",
+          "wAttr": "80",
+          "hAttr": "80",
+          "box": [
+            80,
+            80
+          ],
+          "natural": [
+            160,
+            160
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-mail-2x.png?v=e478dc4a",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-phone-2x.png?v=d3d73cc4",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-globe-2x.png?v=9a8d610f",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-users-2x.png?v=117751d0",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "logo-36-2x.png?v=7b060983",
+          "wAttr": "36",
+          "hAttr": "36",
+          "box": [
+            36,
+            36
+          ],
+          "natural": [
+            72,
+            72
+          ],
+          "loaded": true
+        }
+      ],
+      "missingGlyphs": [],
+      "textContent": "Stephen Cheng Tr\u1ecbnh Th\u00e1i Anh Founder - CyberSkill info@cyberskill.world (+84) 906 878 091 cyberskill.world LinkedIn | Facebook Turn Your Will Into Real",
+      "client": "gmail-android",
+      "label": "Gmail app (Android)",
+      "engine": "chromium",
+      "transform": "webmail",
+      "transformed": false,
+      "width": 412,
+      "scheme": "dark-invert",
+      "screenshot": "stephen-cheng--gmail-android--412--dark-invert.png"
+    },
+    {
+      "tableW": 1068,
+      "tableH": 244,
+      "scrollW": 1100,
+      "hostScrollW": 1100,
+      "hostClientW": 1100,
+      "texts": [
+        {
+          "text": "Stephen Cheng",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 22,
+          "fontWeight": 700,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Tr\u1ecbnh Th\u00e1i Anh",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Founder - CyberSkill",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "info@cyberskill.world",
+          "color": "rgb(5, 99, 193)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "(+84) 906 878 091",
+          "color": "rgb(5, 99, 193)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "cyberskill.world",
+          "color": "rgb(5, 99, 193)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "LinkedIn",
+          "color": "rgb(5, 99, 193)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Facebook",
+          "color": "rgb(5, 99, 193)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Turn Your Will Into Real",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 12,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        }
+      ],
+      "links": [
+        {
+          "href": "mailto:info@cyberskill.world",
+          "text": "info@cyberskill.world",
+          "decoration": "underline",
+          "color": "rgb(5, 99, 193)",
+          "box": [
+            132,
+            16
+          ]
+        },
+        {
+          "href": "tel:+84906878091",
+          "text": "(+84) 906 878 091",
+          "decoration": "underline",
+          "color": "rgb(5, 99, 193)",
+          "box": [
+            115,
+            16
+          ]
+        },
+        {
+          "href": "https://cyberskill.world",
+          "text": "cyberskill.world",
+          "decoration": "underline",
+          "color": "rgb(5, 99, 193)",
+          "box": [
+            95,
+            16
+          ]
+        },
+        {
+          "href": "https://linkedin.com/company/cyberskill",
+          "text": "LinkedIn",
+          "decoration": "underline",
+          "color": "rgb(5, 99, 193)",
+          "box": [
+            53,
+            16
+          ]
+        },
+        {
+          "href": "https://www.facebook.com/cyberskill.world",
+          "text": "Facebook",
+          "decoration": "underline",
+          "color": "rgb(5, 99, 193)",
+          "box": [
+            61,
+            16
+          ]
+        }
+      ],
+      "imgs": [
+        {
+          "src": "avatar-80-2x.png?v=10ab46c8",
+          "wAttr": "80",
+          "hAttr": "80",
+          "box": [
+            80,
+            80
+          ],
+          "natural": [
+            160,
+            160
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-mail-2x.png?v=e478dc4a",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-phone-2x.png?v=d3d73cc4",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-globe-2x.png?v=9a8d610f",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-users-2x.png?v=117751d0",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "logo-36-2x.png?v=7b060983",
+          "wAttr": "36",
+          "hAttr": "36",
+          "box": [
+            36,
+            36
+          ],
+          "natural": [
+            72,
+            72
+          ],
+          "loaded": true
+        }
+      ],
+      "missingGlyphs": [],
+      "textContent": "Stephen Cheng Tr\u1ecbnh Th\u00e1i Anh Founder - CyberSkill info@cyberskill.world (+84) 906 878 091 cyberskill.world LinkedIn | Facebook Turn Your Will Into Real",
+      "client": "outlook-win",
+      "label": "Outlook Windows (Word)",
+      "engine": "chromium",
+      "transform": "word",
+      "transformed": true,
+      "width": 1100,
+      "scheme": "light",
+      "screenshot": "stephen-cheng--outlook-win--1100--light.png"
+    },
+    {
+      "tableW": 868,
+      "tableH": 244,
+      "scrollW": 900,
+      "hostScrollW": 900,
+      "hostClientW": 900,
+      "texts": [
+        {
+          "text": "Stephen Cheng",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 22,
+          "fontWeight": 700,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Tr\u1ecbnh Th\u00e1i Anh",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Founder - CyberSkill",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "info@cyberskill.world",
+          "color": "rgb(5, 99, 193)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "(+84) 906 878 091",
+          "color": "rgb(5, 99, 193)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "cyberskill.world",
+          "color": "rgb(5, 99, 193)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "LinkedIn",
+          "color": "rgb(5, 99, 193)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Facebook",
+          "color": "rgb(5, 99, 193)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Turn Your Will Into Real",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 12,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        }
+      ],
+      "links": [
+        {
+          "href": "mailto:info@cyberskill.world",
+          "text": "info@cyberskill.world",
+          "decoration": "underline",
+          "color": "rgb(5, 99, 193)",
+          "box": [
+            132,
+            16
+          ]
+        },
+        {
+          "href": "tel:+84906878091",
+          "text": "(+84) 906 878 091",
+          "decoration": "underline",
+          "color": "rgb(5, 99, 193)",
+          "box": [
+            115,
+            16
+          ]
+        },
+        {
+          "href": "https://cyberskill.world",
+          "text": "cyberskill.world",
+          "decoration": "underline",
+          "color": "rgb(5, 99, 193)",
+          "box": [
+            95,
+            16
+          ]
+        },
+        {
+          "href": "https://linkedin.com/company/cyberskill",
+          "text": "LinkedIn",
+          "decoration": "underline",
+          "color": "rgb(5, 99, 193)",
+          "box": [
+            53,
+            16
+          ]
+        },
+        {
+          "href": "https://www.facebook.com/cyberskill.world",
+          "text": "Facebook",
+          "decoration": "underline",
+          "color": "rgb(5, 99, 193)",
+          "box": [
+            61,
+            16
+          ]
+        }
+      ],
+      "imgs": [
+        {
+          "src": "avatar-80-2x.png?v=10ab46c8",
+          "wAttr": "80",
+          "hAttr": "80",
+          "box": [
+            80,
+            80
+          ],
+          "natural": [
+            160,
+            160
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-mail-2x.png?v=e478dc4a",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-phone-2x.png?v=d3d73cc4",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-globe-2x.png?v=9a8d610f",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-users-2x.png?v=117751d0",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "logo-36-2x.png?v=7b060983",
+          "wAttr": "36",
+          "hAttr": "36",
+          "box": [
+            36,
+            36
+          ],
+          "natural": [
+            72,
+            72
+          ],
+          "loaded": true
+        }
+      ],
+      "missingGlyphs": [],
+      "textContent": "Stephen Cheng Tr\u1ecbnh Th\u00e1i Anh Founder - CyberSkill info@cyberskill.world (+84) 906 878 091 cyberskill.world LinkedIn | Facebook Turn Your Will Into Real",
+      "client": "outlook-win",
+      "label": "Outlook Windows (Word)",
+      "engine": "chromium",
+      "transform": "word",
+      "transformed": true,
+      "width": 900,
+      "scheme": "light",
+      "screenshot": "stephen-cheng--outlook-win--900--light.png"
+    },
+    {
+      "tableW": 468,
+      "tableH": 244,
+      "scrollW": 500,
+      "hostScrollW": 500,
+      "hostClientW": 500,
+      "texts": [
+        {
+          "text": "Stephen Cheng",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 22,
+          "fontWeight": 700,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Tr\u1ecbnh Th\u00e1i Anh",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Founder - CyberSkill",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "info@cyberskill.world",
+          "color": "rgb(5, 99, 193)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "(+84) 906 878 091",
+          "color": "rgb(5, 99, 193)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "cyberskill.world",
+          "color": "rgb(5, 99, 193)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "LinkedIn",
+          "color": "rgb(5, 99, 193)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Facebook",
+          "color": "rgb(5, 99, 193)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Turn Your Will Into Real",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 12,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        }
+      ],
+      "links": [
+        {
+          "href": "mailto:info@cyberskill.world",
+          "text": "info@cyberskill.world",
+          "decoration": "underline",
+          "color": "rgb(5, 99, 193)",
+          "box": [
+            132,
+            16
+          ]
+        },
+        {
+          "href": "tel:+84906878091",
+          "text": "(+84) 906 878 091",
+          "decoration": "underline",
+          "color": "rgb(5, 99, 193)",
+          "box": [
+            115,
+            16
+          ]
+        },
+        {
+          "href": "https://cyberskill.world",
+          "text": "cyberskill.world",
+          "decoration": "underline",
+          "color": "rgb(5, 99, 193)",
+          "box": [
+            95,
+            16
+          ]
+        },
+        {
+          "href": "https://linkedin.com/company/cyberskill",
+          "text": "LinkedIn",
+          "decoration": "underline",
+          "color": "rgb(5, 99, 193)",
+          "box": [
+            53,
+            16
+          ]
+        },
+        {
+          "href": "https://www.facebook.com/cyberskill.world",
+          "text": "Facebook",
+          "decoration": "underline",
+          "color": "rgb(5, 99, 193)",
+          "box": [
+            61,
+            16
+          ]
+        }
+      ],
+      "imgs": [
+        {
+          "src": "avatar-80-2x.png?v=10ab46c8",
+          "wAttr": "80",
+          "hAttr": "80",
+          "box": [
+            80,
+            80
+          ],
+          "natural": [
+            160,
+            160
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-mail-2x.png?v=e478dc4a",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-phone-2x.png?v=d3d73cc4",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-globe-2x.png?v=9a8d610f",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-users-2x.png?v=117751d0",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "logo-36-2x.png?v=7b060983",
+          "wAttr": "36",
+          "hAttr": "36",
+          "box": [
+            36,
+            36
+          ],
+          "natural": [
+            72,
+            72
+          ],
+          "loaded": true
+        }
+      ],
+      "missingGlyphs": [],
+      "textContent": "Stephen Cheng Tr\u1ecbnh Th\u00e1i Anh Founder - CyberSkill info@cyberskill.world (+84) 906 878 091 cyberskill.world LinkedIn | Facebook Turn Your Will Into Real",
+      "client": "outlook-win",
+      "label": "Outlook Windows (Word)",
+      "engine": "chromium",
+      "transform": "word",
+      "transformed": true,
+      "width": 500,
+      "scheme": "light",
+      "screenshot": "stephen-cheng--outlook-win--500--light.png"
+    },
+    {
+      "tableW": 368,
+      "tableH": 244,
+      "scrollW": 400,
+      "hostScrollW": 400,
+      "hostClientW": 400,
+      "texts": [
+        {
+          "text": "Stephen Cheng",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 22,
+          "fontWeight": 700,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Tr\u1ecbnh Th\u00e1i Anh",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Founder - CyberSkill",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "info@cyberskill.world",
+          "color": "rgb(5, 99, 193)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "(+84) 906 878 091",
+          "color": "rgb(5, 99, 193)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "cyberskill.world",
+          "color": "rgb(5, 99, 193)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "LinkedIn",
+          "color": "rgb(5, 99, 193)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Facebook",
+          "color": "rgb(5, 99, 193)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Turn Your Will Into Real",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 12,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        }
+      ],
+      "links": [
+        {
+          "href": "mailto:info@cyberskill.world",
+          "text": "info@cyberskill.world",
+          "decoration": "underline",
+          "color": "rgb(5, 99, 193)",
+          "box": [
+            132,
+            16
+          ]
+        },
+        {
+          "href": "tel:+84906878091",
+          "text": "(+84) 906 878 091",
+          "decoration": "underline",
+          "color": "rgb(5, 99, 193)",
+          "box": [
+            115,
+            16
+          ]
+        },
+        {
+          "href": "https://cyberskill.world",
+          "text": "cyberskill.world",
+          "decoration": "underline",
+          "color": "rgb(5, 99, 193)",
+          "box": [
+            95,
+            16
+          ]
+        },
+        {
+          "href": "https://linkedin.com/company/cyberskill",
+          "text": "LinkedIn",
+          "decoration": "underline",
+          "color": "rgb(5, 99, 193)",
+          "box": [
+            53,
+            16
+          ]
+        },
+        {
+          "href": "https://www.facebook.com/cyberskill.world",
+          "text": "Facebook",
+          "decoration": "underline",
+          "color": "rgb(5, 99, 193)",
+          "box": [
+            61,
+            16
+          ]
+        }
+      ],
+      "imgs": [
+        {
+          "src": "avatar-80-2x.png?v=10ab46c8",
+          "wAttr": "80",
+          "hAttr": "80",
+          "box": [
+            80,
+            80
+          ],
+          "natural": [
+            160,
+            160
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-mail-2x.png?v=e478dc4a",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-phone-2x.png?v=d3d73cc4",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-globe-2x.png?v=9a8d610f",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-users-2x.png?v=117751d0",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "logo-36-2x.png?v=7b060983",
+          "wAttr": "36",
+          "hAttr": "36",
+          "box": [
+            36,
+            36
+          ],
+          "natural": [
+            72,
+            72
+          ],
+          "loaded": true
+        }
+      ],
+      "missingGlyphs": [],
+      "textContent": "Stephen Cheng Tr\u1ecbnh Th\u00e1i Anh Founder - CyberSkill info@cyberskill.world (+84) 906 878 091 cyberskill.world LinkedIn | Facebook Turn Your Will Into Real",
+      "client": "outlook-win",
+      "label": "Outlook Windows (Word)",
+      "engine": "chromium",
+      "transform": "word",
+      "transformed": true,
+      "width": 400,
+      "scheme": "light",
+      "screenshot": "stephen-cheng--outlook-win--400--light.png"
+    },
+    {
+      "tableW": 520,
+      "tableH": 248,
+      "scrollW": 1024,
+      "hostScrollW": 1024,
+      "hostClientW": 1024,
+      "texts": [
+        {
+          "text": "Stephen Cheng",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 22,
+          "fontWeight": 700,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Tr\u1ecbnh Th\u00e1i Anh",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Founder - CyberSkill",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "info@cyberskill.world",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "(+84) 906 878 091",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "cyberskill.world",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "LinkedIn",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Facebook",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Turn Your Will Into Real",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 12,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        }
+      ],
+      "links": [
+        {
+          "href": "mailto:info@cyberskill.world",
+          "text": "info@cyberskill.world",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            132,
+            16
+          ]
+        },
+        {
+          "href": "tel:+84906878091",
+          "text": "(+84) 906 878 091",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            115,
+            16
+          ]
+        },
+        {
+          "href": "https://cyberskill.world",
+          "text": "cyberskill.world",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            95,
+            16
+          ]
+        },
+        {
+          "href": "https://linkedin.com/company/cyberskill",
+          "text": "LinkedIn",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            53,
+            16
+          ]
+        },
+        {
+          "href": "https://www.facebook.com/cyberskill.world",
+          "text": "Facebook",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            61,
+            16
+          ]
+        }
+      ],
+      "imgs": [
+        {
+          "src": "avatar-80-2x.png?v=10ab46c8",
+          "wAttr": "80",
+          "hAttr": "80",
+          "box": [
+            80,
+            80
+          ],
+          "natural": [
+            160,
+            160
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-mail-2x.png?v=e478dc4a",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-phone-2x.png?v=d3d73cc4",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-globe-2x.png?v=9a8d610f",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-users-2x.png?v=117751d0",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "logo-36-2x.png?v=7b060983",
+          "wAttr": "36",
+          "hAttr": "36",
+          "box": [
+            36,
+            36
+          ],
+          "natural": [
+            72,
+            72
+          ],
+          "loaded": true
+        }
+      ],
+      "missingGlyphs": [],
+      "textContent": "Stephen Cheng Tr\u1ecbnh Th\u00e1i Anh Founder - CyberSkill info@cyberskill.world (+84) 906 878 091 cyberskill.world LinkedIn | Facebook Turn Your Will Into Real",
+      "client": "outlook-web",
+      "label": "Outlook.com / OWA",
+      "engine": "chromium",
+      "transform": "webmail",
+      "transformed": false,
+      "width": 1024,
+      "scheme": "light",
+      "screenshot": "stephen-cheng--outlook-web--1024--light.png"
+    },
+    {
+      "tableW": 520,
+      "tableH": 248,
+      "scrollW": 1024,
+      "hostScrollW": 1024,
+      "hostClientW": 1024,
+      "texts": [
+        {
+          "text": "Stephen Cheng",
+          "color": "rgb(230, 230, 230)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 22,
+          "fontWeight": 700,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Tr\u1ecbnh Th\u00e1i Anh",
+          "color": "rgb(230, 230, 230)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Founder - CyberSkill",
+          "color": "rgb(230, 230, 230)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "info@cyberskill.world",
+          "color": "rgb(230, 230, 230)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "(+84) 906 878 091",
+          "color": "rgb(230, 230, 230)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "cyberskill.world",
+          "color": "rgb(230, 230, 230)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "LinkedIn",
+          "color": "rgb(230, 230, 230)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Facebook",
+          "color": "rgb(230, 230, 230)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Turn Your Will Into Real",
+          "color": "rgb(230, 230, 230)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 12,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        }
+      ],
+      "links": [
+        {
+          "href": "mailto:info@cyberskill.world",
+          "text": "info@cyberskill.world",
+          "decoration": "underline",
+          "color": "rgb(230, 230, 230)",
+          "box": [
+            132,
+            16
+          ]
+        },
+        {
+          "href": "tel:+84906878091",
+          "text": "(+84) 906 878 091",
+          "decoration": "underline",
+          "color": "rgb(230, 230, 230)",
+          "box": [
+            115,
+            16
+          ]
+        },
+        {
+          "href": "https://cyberskill.world",
+          "text": "cyberskill.world",
+          "decoration": "underline",
+          "color": "rgb(230, 230, 230)",
+          "box": [
+            95,
+            16
+          ]
+        },
+        {
+          "href": "https://linkedin.com/company/cyberskill",
+          "text": "LinkedIn",
+          "decoration": "underline",
+          "color": "rgb(230, 230, 230)",
+          "box": [
+            53,
+            16
+          ]
+        },
+        {
+          "href": "https://www.facebook.com/cyberskill.world",
+          "text": "Facebook",
+          "decoration": "underline",
+          "color": "rgb(230, 230, 230)",
+          "box": [
+            61,
+            16
+          ]
+        }
+      ],
+      "imgs": [
+        {
+          "src": "avatar-80-2x.png?v=10ab46c8",
+          "wAttr": "80",
+          "hAttr": "80",
+          "box": [
+            80,
+            80
+          ],
+          "natural": [
+            160,
+            160
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-mail-2x.png?v=e478dc4a",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-phone-2x.png?v=d3d73cc4",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-globe-2x.png?v=9a8d610f",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-users-2x.png?v=117751d0",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "logo-36-2x.png?v=7b060983",
+          "wAttr": "36",
+          "hAttr": "36",
+          "box": [
+            36,
+            36
+          ],
+          "natural": [
+            72,
+            72
+          ],
+          "loaded": true
+        }
+      ],
+      "missingGlyphs": [],
+      "textContent": "Stephen Cheng Tr\u1ecbnh Th\u00e1i Anh Founder - CyberSkill info@cyberskill.world (+84) 906 878 091 cyberskill.world LinkedIn | Facebook Turn Your Will Into Real",
+      "client": "outlook-web",
+      "label": "Outlook.com / OWA",
+      "engine": "chromium",
+      "transform": "webmail",
+      "transformed": false,
+      "width": 1024,
+      "scheme": "dark",
+      "screenshot": "stephen-cheng--outlook-web--1024--dark.png"
+    },
+    {
+      "tableW": 358,
+      "tableH": 248,
+      "scrollW": 390,
+      "hostScrollW": 390,
+      "hostClientW": 390,
+      "texts": [
+        {
+          "text": "Stephen Cheng",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 22,
+          "fontWeight": 700,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Tr\u1ecbnh Th\u00e1i Anh",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Founder - CyberSkill",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "info@cyberskill.world",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "(+84) 906 878 091",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "cyberskill.world",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "LinkedIn",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Facebook",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Turn Your Will Into Real",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 12,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        }
+      ],
+      "links": [
+        {
+          "href": "mailto:info@cyberskill.world",
+          "text": "info@cyberskill.world",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            132,
+            16
+          ]
+        },
+        {
+          "href": "tel:+84906878091",
+          "text": "(+84) 906 878 091",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            115,
+            16
+          ]
+        },
+        {
+          "href": "https://cyberskill.world",
+          "text": "cyberskill.world",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            95,
+            16
+          ]
+        },
+        {
+          "href": "https://linkedin.com/company/cyberskill",
+          "text": "LinkedIn",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            53,
+            16
+          ]
+        },
+        {
+          "href": "https://www.facebook.com/cyberskill.world",
+          "text": "Facebook",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            61,
+            16
+          ]
+        }
+      ],
+      "imgs": [
+        {
+          "src": "avatar-80-2x.png?v=10ab46c8",
+          "wAttr": "80",
+          "hAttr": "80",
+          "box": [
+            80,
+            80
+          ],
+          "natural": [
+            160,
+            160
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-mail-2x.png?v=e478dc4a",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-phone-2x.png?v=d3d73cc4",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-globe-2x.png?v=9a8d610f",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-users-2x.png?v=117751d0",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "logo-36-2x.png?v=7b060983",
+          "wAttr": "36",
+          "hAttr": "36",
+          "box": [
+            36,
+            36
+          ],
+          "natural": [
+            72,
+            72
+          ],
+          "loaded": true
+        }
+      ],
+      "missingGlyphs": [],
+      "textContent": "Stephen Cheng Tr\u1ecbnh Th\u00e1i Anh Founder - CyberSkill info@cyberskill.world (+84) 906 878 091 cyberskill.world LinkedIn | Facebook Turn Your Will Into Real",
+      "client": "outlook-mobile",
+      "label": "Outlook mobile",
+      "engine": "chromium",
+      "transform": "webmail",
+      "transformed": false,
+      "width": 390,
+      "scheme": "light",
+      "screenshot": "stephen-cheng--outlook-mobile--390--light.png"
+    },
+    {
+      "tableW": 358,
+      "tableH": 248,
+      "scrollW": 390,
+      "hostScrollW": 390,
+      "hostClientW": 390,
+      "texts": [
+        {
+          "text": "Stephen Cheng",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 22,
+          "fontWeight": 700,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Tr\u1ecbnh Th\u00e1i Anh",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Founder - CyberSkill",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "info@cyberskill.world",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "(+84) 906 878 091",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "cyberskill.world",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "LinkedIn",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Facebook",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Turn Your Will Into Real",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 12,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        }
+      ],
+      "links": [
+        {
+          "href": "mailto:info@cyberskill.world",
+          "text": "info@cyberskill.world",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            132,
+            16
+          ]
+        },
+        {
+          "href": "tel:+84906878091",
+          "text": "(+84) 906 878 091",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            115,
+            16
+          ]
+        },
+        {
+          "href": "https://cyberskill.world",
+          "text": "cyberskill.world",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            95,
+            16
+          ]
+        },
+        {
+          "href": "https://linkedin.com/company/cyberskill",
+          "text": "LinkedIn",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            53,
+            16
+          ]
+        },
+        {
+          "href": "https://www.facebook.com/cyberskill.world",
+          "text": "Facebook",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            61,
+            16
+          ]
+        }
+      ],
+      "imgs": [
+        {
+          "src": "avatar-80-2x.png?v=10ab46c8",
+          "wAttr": "80",
+          "hAttr": "80",
+          "box": [
+            80,
+            80
+          ],
+          "natural": [
+            160,
+            160
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-mail-2x.png?v=e478dc4a",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-phone-2x.png?v=d3d73cc4",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-globe-2x.png?v=9a8d610f",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-users-2x.png?v=117751d0",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "logo-36-2x.png?v=7b060983",
+          "wAttr": "36",
+          "hAttr": "36",
+          "box": [
+            36,
+            36
+          ],
+          "natural": [
+            72,
+            72
+          ],
+          "loaded": true
+        }
+      ],
+      "missingGlyphs": [],
+      "textContent": "Stephen Cheng Tr\u1ecbnh Th\u00e1i Anh Founder - CyberSkill info@cyberskill.world (+84) 906 878 091 cyberskill.world LinkedIn | Facebook Turn Your Will Into Real",
+      "client": "outlook-mobile",
+      "label": "Outlook mobile",
+      "engine": "chromium",
+      "transform": "webmail",
+      "transformed": false,
+      "width": 390,
+      "scheme": "dark-invert",
+      "screenshot": "stephen-cheng--outlook-mobile--390--dark-invert.png"
+    },
+    {
+      "tableW": 520,
+      "tableH": 248,
+      "scrollW": 900,
+      "hostScrollW": 900,
+      "hostClientW": 900,
+      "texts": [
+        {
+          "text": "Stephen Cheng",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 22,
+          "fontWeight": 700,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Tr\u1ecbnh Th\u00e1i Anh",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Founder - CyberSkill",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "info@cyberskill.world",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "(+84) 906 878 091",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "cyberskill.world",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "LinkedIn",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Facebook",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Turn Your Will Into Real",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 12,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        }
+      ],
+      "links": [
+        {
+          "href": "mailto:info@cyberskill.world",
+          "text": "info@cyberskill.world",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            132,
+            16
+          ]
+        },
+        {
+          "href": "tel:+84906878091",
+          "text": "(+84) 906 878 091",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            115,
+            16
+          ]
+        },
+        {
+          "href": "https://cyberskill.world",
+          "text": "cyberskill.world",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            95,
+            16
+          ]
+        },
+        {
+          "href": "https://linkedin.com/company/cyberskill",
+          "text": "LinkedIn",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            53,
+            16
+          ]
+        },
+        {
+          "href": "https://www.facebook.com/cyberskill.world",
+          "text": "Facebook",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            61,
+            16
+          ]
+        }
+      ],
+      "imgs": [
+        {
+          "src": "avatar-80-2x.png?v=10ab46c8",
+          "wAttr": "80",
+          "hAttr": "80",
+          "box": [
+            80,
+            80
+          ],
+          "natural": [
+            160,
+            160
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-mail-2x.png?v=e478dc4a",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-phone-2x.png?v=d3d73cc4",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-globe-2x.png?v=9a8d610f",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-users-2x.png?v=117751d0",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "logo-36-2x.png?v=7b060983",
+          "wAttr": "36",
+          "hAttr": "36",
+          "box": [
+            36,
+            36
+          ],
+          "natural": [
+            72,
+            72
+          ],
+          "loaded": true
+        }
+      ],
+      "missingGlyphs": [],
+      "textContent": "Stephen Cheng Tr\u1ecbnh Th\u00e1i Anh Founder - CyberSkill info@cyberskill.world (+84) 906 878 091 cyberskill.world LinkedIn | Facebook Turn Your Will Into Real",
+      "client": "thunderbird",
+      "label": "Thunderbird",
+      "engine": "firefox",
+      "transform": "none",
+      "transformed": false,
+      "width": 900,
+      "scheme": "light",
+      "screenshot": "stephen-cheng--thunderbird--900--light.png"
+    },
+    {
+      "tableW": 520,
+      "tableH": 248,
+      "scrollW": 900,
+      "hostScrollW": 900,
+      "hostClientW": 900,
+      "texts": [
+        {
+          "text": "Stephen Cheng",
+          "color": "rgb(230, 230, 230)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 22,
+          "fontWeight": 700,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Tr\u1ecbnh Th\u00e1i Anh",
+          "color": "rgb(230, 230, 230)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Founder - CyberSkill",
+          "color": "rgb(230, 230, 230)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "info@cyberskill.world",
+          "color": "rgb(230, 230, 230)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "(+84) 906 878 091",
+          "color": "rgb(230, 230, 230)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "cyberskill.world",
+          "color": "rgb(230, 230, 230)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "LinkedIn",
+          "color": "rgb(230, 230, 230)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Facebook",
+          "color": "rgb(230, 230, 230)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Turn Your Will Into Real",
+          "color": "rgb(230, 230, 230)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 12,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        }
+      ],
+      "links": [
+        {
+          "href": "mailto:info@cyberskill.world",
+          "text": "info@cyberskill.world",
+          "decoration": "underline",
+          "color": "rgb(230, 230, 230)",
+          "box": [
+            132,
+            16
+          ]
+        },
+        {
+          "href": "tel:+84906878091",
+          "text": "(+84) 906 878 091",
+          "decoration": "underline",
+          "color": "rgb(230, 230, 230)",
+          "box": [
+            115,
+            16
+          ]
+        },
+        {
+          "href": "https://cyberskill.world",
+          "text": "cyberskill.world",
+          "decoration": "underline",
+          "color": "rgb(230, 230, 230)",
+          "box": [
+            95,
+            16
+          ]
+        },
+        {
+          "href": "https://linkedin.com/company/cyberskill",
+          "text": "LinkedIn",
+          "decoration": "underline",
+          "color": "rgb(230, 230, 230)",
+          "box": [
+            53,
+            16
+          ]
+        },
+        {
+          "href": "https://www.facebook.com/cyberskill.world",
+          "text": "Facebook",
+          "decoration": "underline",
+          "color": "rgb(230, 230, 230)",
+          "box": [
+            61,
+            16
+          ]
+        }
+      ],
+      "imgs": [
+        {
+          "src": "avatar-80-2x.png?v=10ab46c8",
+          "wAttr": "80",
+          "hAttr": "80",
+          "box": [
+            80,
+            80
+          ],
+          "natural": [
+            160,
+            160
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-mail-2x.png?v=e478dc4a",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-phone-2x.png?v=d3d73cc4",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-globe-2x.png?v=9a8d610f",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-users-2x.png?v=117751d0",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "logo-36-2x.png?v=7b060983",
+          "wAttr": "36",
+          "hAttr": "36",
+          "box": [
+            36,
+            36
+          ],
+          "natural": [
+            72,
+            72
+          ],
+          "loaded": true
+        }
+      ],
+      "missingGlyphs": [],
+      "textContent": "Stephen Cheng Tr\u1ecbnh Th\u00e1i Anh Founder - CyberSkill info@cyberskill.world (+84) 906 878 091 cyberskill.world LinkedIn | Facebook Turn Your Will Into Real",
+      "client": "thunderbird",
+      "label": "Thunderbird",
+      "engine": "firefox",
+      "transform": "none",
+      "transformed": false,
+      "width": 900,
+      "scheme": "dark",
+      "screenshot": "stephen-cheng--thunderbird--900--dark.png"
+    },
+    {
+      "tableW": 520,
+      "tableH": 248,
+      "scrollW": 1024,
+      "hostScrollW": 1024,
+      "hostClientW": 1024,
+      "texts": [
+        {
+          "text": "Stephen Cheng",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 22,
+          "fontWeight": 700,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Tr\u1ecbnh Th\u00e1i Anh",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Founder - CyberSkill",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "info@cyberskill.world",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "(+84) 906 878 091",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "cyberskill.world",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "LinkedIn",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Facebook",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Turn Your Will Into Real",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 12,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        }
+      ],
+      "links": [
+        {
+          "href": "mailto:info@cyberskill.world",
+          "text": "info@cyberskill.world",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            132,
+            16
+          ]
+        },
+        {
+          "href": "tel:+84906878091",
+          "text": "(+84) 906 878 091",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            115,
+            16
+          ]
+        },
+        {
+          "href": "https://cyberskill.world",
+          "text": "cyberskill.world",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            95,
+            16
+          ]
+        },
+        {
+          "href": "https://linkedin.com/company/cyberskill",
+          "text": "LinkedIn",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            53,
+            16
+          ]
+        },
+        {
+          "href": "https://www.facebook.com/cyberskill.world",
+          "text": "Facebook",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            61,
+            16
+          ]
+        }
+      ],
+      "imgs": [
+        {
+          "src": "avatar-80-2x.png?v=10ab46c8",
+          "wAttr": "80",
+          "hAttr": "80",
+          "box": [
+            80,
+            80
+          ],
+          "natural": [
+            160,
+            160
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-mail-2x.png?v=e478dc4a",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-phone-2x.png?v=d3d73cc4",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-globe-2x.png?v=9a8d610f",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-users-2x.png?v=117751d0",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "logo-36-2x.png?v=7b060983",
+          "wAttr": "36",
+          "hAttr": "36",
+          "box": [
+            36,
+            36
+          ],
+          "natural": [
+            72,
+            72
+          ],
+          "loaded": true
+        }
+      ],
+      "missingGlyphs": [],
+      "textContent": "Stephen Cheng Tr\u1ecbnh Th\u00e1i Anh Founder - CyberSkill info@cyberskill.world (+84) 906 878 091 cyberskill.world LinkedIn | Facebook Turn Your Will Into Real",
+      "client": "yahoo-web",
+      "label": "Yahoo / AOL Mail",
+      "engine": "chromium",
+      "transform": "webmail",
+      "transformed": false,
+      "width": 1024,
+      "scheme": "light",
+      "screenshot": "stephen-cheng--yahoo-web--1024--light.png"
+    },
+    {
+      "tableW": 520,
+      "tableH": 248,
+      "scrollW": 1024,
+      "hostScrollW": 1024,
+      "hostClientW": 1024,
+      "texts": [
+        {
+          "text": "Stephen Cheng",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 22,
+          "fontWeight": 700,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Tr\u1ecbnh Th\u00e1i Anh",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Founder - CyberSkill",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "info@cyberskill.world",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "(+84) 906 878 091",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "cyberskill.world",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "LinkedIn",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Facebook",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Turn Your Will Into Real",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 12,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        }
+      ],
+      "links": [
+        {
+          "href": "mailto:info@cyberskill.world",
+          "text": "info@cyberskill.world",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            132,
+            16
+          ]
+        },
+        {
+          "href": "tel:+84906878091",
+          "text": "(+84) 906 878 091",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            115,
+            16
+          ]
+        },
+        {
+          "href": "https://cyberskill.world",
+          "text": "cyberskill.world",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            95,
+            16
+          ]
+        },
+        {
+          "href": "https://linkedin.com/company/cyberskill",
+          "text": "LinkedIn",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            53,
+            16
+          ]
+        },
+        {
+          "href": "https://www.facebook.com/cyberskill.world",
+          "text": "Facebook",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            61,
+            16
+          ]
+        }
+      ],
+      "imgs": [
+        {
+          "src": "avatar-80-2x.png?v=10ab46c8",
+          "wAttr": "80",
+          "hAttr": "80",
+          "box": [
+            80,
+            80
+          ],
+          "natural": [
+            160,
+            160
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-mail-2x.png?v=e478dc4a",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-phone-2x.png?v=d3d73cc4",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-globe-2x.png?v=9a8d610f",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-users-2x.png?v=117751d0",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "logo-36-2x.png?v=7b060983",
+          "wAttr": "36",
+          "hAttr": "36",
+          "box": [
+            36,
+            36
+          ],
+          "natural": [
+            72,
+            72
+          ],
+          "loaded": true
+        }
+      ],
+      "missingGlyphs": [],
+      "textContent": "Stephen Cheng Tr\u1ecbnh Th\u00e1i Anh Founder - CyberSkill info@cyberskill.world (+84) 906 878 091 cyberskill.world LinkedIn | Facebook Turn Your Will Into Real",
+      "client": "proton-web",
+      "label": "Proton Mail",
+      "engine": "chromium",
+      "transform": "webmail",
+      "transformed": false,
+      "width": 1024,
+      "scheme": "light",
+      "screenshot": "stephen-cheng--proton-web--1024--light.png"
+    },
+    {
+      "tableW": 520,
+      "tableH": 248,
+      "scrollW": 1024,
+      "hostScrollW": 1024,
+      "hostClientW": 1024,
+      "texts": [
+        {
+          "text": "Stephen Cheng",
+          "color": "rgb(230, 230, 230)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 22,
+          "fontWeight": 700,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Tr\u1ecbnh Th\u00e1i Anh",
+          "color": "rgb(230, 230, 230)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Founder - CyberSkill",
+          "color": "rgb(230, 230, 230)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "info@cyberskill.world",
+          "color": "rgb(230, 230, 230)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "(+84) 906 878 091",
+          "color": "rgb(230, 230, 230)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "cyberskill.world",
+          "color": "rgb(230, 230, 230)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "LinkedIn",
+          "color": "rgb(230, 230, 230)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Facebook",
+          "color": "rgb(230, 230, 230)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Turn Your Will Into Real",
+          "color": "rgb(230, 230, 230)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 12,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        }
+      ],
+      "links": [
+        {
+          "href": "mailto:info@cyberskill.world",
+          "text": "info@cyberskill.world",
+          "decoration": "underline",
+          "color": "rgb(230, 230, 230)",
+          "box": [
+            132,
+            16
+          ]
+        },
+        {
+          "href": "tel:+84906878091",
+          "text": "(+84) 906 878 091",
+          "decoration": "underline",
+          "color": "rgb(230, 230, 230)",
+          "box": [
+            115,
+            16
+          ]
+        },
+        {
+          "href": "https://cyberskill.world",
+          "text": "cyberskill.world",
+          "decoration": "underline",
+          "color": "rgb(230, 230, 230)",
+          "box": [
+            95,
+            16
+          ]
+        },
+        {
+          "href": "https://linkedin.com/company/cyberskill",
+          "text": "LinkedIn",
+          "decoration": "underline",
+          "color": "rgb(230, 230, 230)",
+          "box": [
+            53,
+            16
+          ]
+        },
+        {
+          "href": "https://www.facebook.com/cyberskill.world",
+          "text": "Facebook",
+          "decoration": "underline",
+          "color": "rgb(230, 230, 230)",
+          "box": [
+            61,
+            16
+          ]
+        }
+      ],
+      "imgs": [
+        {
+          "src": "avatar-80-2x.png?v=10ab46c8",
+          "wAttr": "80",
+          "hAttr": "80",
+          "box": [
+            80,
+            80
+          ],
+          "natural": [
+            160,
+            160
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-mail-2x.png?v=e478dc4a",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-phone-2x.png?v=d3d73cc4",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-globe-2x.png?v=9a8d610f",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-users-2x.png?v=117751d0",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "logo-36-2x.png?v=7b060983",
+          "wAttr": "36",
+          "hAttr": "36",
+          "box": [
+            36,
+            36
+          ],
+          "natural": [
+            72,
+            72
+          ],
+          "loaded": true
+        }
+      ],
+      "missingGlyphs": [],
+      "textContent": "Stephen Cheng Tr\u1ecbnh Th\u00e1i Anh Founder - CyberSkill info@cyberskill.world (+84) 906 878 091 cyberskill.world LinkedIn | Facebook Turn Your Will Into Real",
+      "client": "proton-web",
+      "label": "Proton Mail",
+      "engine": "chromium",
+      "transform": "webmail",
+      "transformed": false,
+      "width": 1024,
+      "scheme": "dark",
+      "screenshot": "stephen-cheng--proton-web--1024--dark.png"
+    },
+    {
+      "tableW": 380,
+      "tableH": 248,
+      "scrollW": 412,
+      "hostScrollW": 412,
+      "hostClientW": 412,
+      "texts": [
+        {
+          "text": "Stephen Cheng",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 22,
+          "fontWeight": 700,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Tr\u1ecbnh Th\u00e1i Anh",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Founder - CyberSkill",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "info@cyberskill.world",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "(+84) 906 878 091",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "cyberskill.world",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "LinkedIn",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Facebook",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Turn Your Will Into Real",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 12,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        }
+      ],
+      "links": [
+        {
+          "href": "mailto:info@cyberskill.world",
+          "text": "info@cyberskill.world",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            132,
+            16
+          ]
+        },
+        {
+          "href": "tel:+84906878091",
+          "text": "(+84) 906 878 091",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            115,
+            16
+          ]
+        },
+        {
+          "href": "https://cyberskill.world",
+          "text": "cyberskill.world",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            95,
+            16
+          ]
+        },
+        {
+          "href": "https://linkedin.com/company/cyberskill",
+          "text": "LinkedIn",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            53,
+            16
+          ]
+        },
+        {
+          "href": "https://www.facebook.com/cyberskill.world",
+          "text": "Facebook",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            61,
+            16
+          ]
+        }
+      ],
+      "imgs": [
+        {
+          "src": "avatar-80-2x.png?v=10ab46c8",
+          "wAttr": "80",
+          "hAttr": "80",
+          "box": [
+            80,
+            80
+          ],
+          "natural": [
+            160,
+            160
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-mail-2x.png?v=e478dc4a",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-phone-2x.png?v=d3d73cc4",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-globe-2x.png?v=9a8d610f",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-users-2x.png?v=117751d0",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "logo-36-2x.png?v=7b060983",
+          "wAttr": "36",
+          "hAttr": "36",
+          "box": [
+            36,
+            36
+          ],
+          "natural": [
+            72,
+            72
+          ],
+          "loaded": true
+        }
+      ],
+      "missingGlyphs": [],
+      "textContent": "Stephen Cheng Tr\u1ecbnh Th\u00e1i Anh Founder - CyberSkill info@cyberskill.world (+84) 906 878 091 cyberskill.world LinkedIn | Facebook Turn Your Will Into Real",
+      "client": "samsung-mail",
+      "label": "Samsung Mail (Android)",
+      "engine": "chromium",
+      "transform": "none",
+      "transformed": false,
+      "width": 412,
+      "scheme": "dark-invert",
+      "screenshot": "stephen-cheng--samsung-mail--412--dark-invert.png"
+    },
+    {
+      "tableW": 520,
+      "tableH": 248,
+      "scrollW": 900,
+      "hostScrollW": 900,
+      "hostClientW": 900,
+      "texts": [
+        {
+          "text": "Stephen Cheng",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 22,
+          "fontWeight": 700,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Tr\u1ecbnh Th\u00e1i Anh",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Founder - CyberSkill",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "info@cyberskill.world",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "(+84) 906 878 091",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "cyberskill.world",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "LinkedIn",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Facebook",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Turn Your Will Into Real",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 12,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        }
+      ],
+      "links": [
+        {
+          "href": "mailto:info@cyberskill.world",
+          "text": "info@cyberskill.world",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            132,
+            16
+          ]
+        },
+        {
+          "href": "tel:+84906878091",
+          "text": "(+84) 906 878 091",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            115,
+            16
+          ]
+        },
+        {
+          "href": "https://cyberskill.world",
+          "text": "cyberskill.world",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            95,
+            16
+          ]
+        },
+        {
+          "href": "https://linkedin.com/company/cyberskill",
+          "text": "LinkedIn",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            53,
+            16
+          ]
+        },
+        {
+          "href": "https://www.facebook.com/cyberskill.world",
+          "text": "Facebook",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            61,
+            16
+          ]
+        }
+      ],
+      "imgs": [
+        {
+          "src": "avatar-80-2x.png?v=10ab46c8",
+          "wAttr": "80",
+          "hAttr": "80",
+          "box": [
+            80,
+            80
+          ],
+          "natural": [
+            160,
+            160
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-mail-2x.png?v=e478dc4a",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-phone-2x.png?v=d3d73cc4",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-globe-2x.png?v=9a8d610f",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-users-2x.png?v=117751d0",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "logo-36-2x.png?v=7b060983",
+          "wAttr": "36",
+          "hAttr": "36",
+          "box": [
+            36,
+            36
+          ],
+          "natural": [
+            72,
+            72
+          ],
+          "loaded": true
+        }
+      ],
+      "missingGlyphs": [],
+      "textContent": "Stephen Cheng Tr\u1ecbnh Th\u00e1i Anh Founder - CyberSkill info@cyberskill.world (+84) 906 878 091 cyberskill.world LinkedIn | Facebook Turn Your Will Into Real",
+      "client": "probe-bgonly-chromium",
+      "label": "Probe: dark surface, no text colour (chromium)",
+      "engine": "chromium",
+      "transform": "none",
+      "transformed": false,
+      "width": 900,
+      "scheme": "dark-bgonly",
+      "screenshot": "stephen-cheng--probe-bgonly-chromium--900--dark-bgonly.png"
+    },
+    {
+      "tableW": 520,
+      "tableH": 248,
+      "scrollW": 900,
+      "hostScrollW": 900,
+      "hostClientW": 900,
+      "texts": [
+        {
+          "text": "Stephen Cheng",
+          "color": "rgb(204, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 22,
+          "fontWeight": 700,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Tr\u1ecbnh Th\u00e1i Anh",
+          "color": "rgb(204, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 15,
+          "fontWeight": 900,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Founder - CyberSkill",
+          "color": "rgb(204, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 900,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "info@cyberskill.world",
+          "color": "rgb(204, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 900,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "(+84) 906 878 091",
+          "color": "rgb(204, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 900,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "cyberskill.world",
+          "color": "rgb(204, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 900,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "LinkedIn",
+          "color": "rgb(204, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 900,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Facebook",
+          "color": "rgb(204, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 900,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Turn Your Will Into Real",
+          "color": "rgb(204, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 12,
+          "fontWeight": 900,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        }
+      ],
+      "links": [
+        {
+          "href": "mailto:info@cyberskill.world",
+          "text": "info@cyberskill.world",
+          "decoration": "underline",
+          "color": "rgb(204, 0, 0)",
+          "box": [
+            187,
+            16
+          ]
+        },
+        {
+          "href": "tel:+84906878091",
+          "text": "(+84) 906 878 091",
+          "decoration": "underline",
+          "color": "rgb(204, 0, 0)",
+          "box": [
+            149,
+            16
+          ]
+        },
+        {
+          "href": "https://cyberskill.world",
+          "text": "cyberskill.world",
+          "decoration": "underline",
+          "color": "rgb(204, 0, 0)",
+          "box": [
+            138,
+            16
+          ]
+        },
+        {
+          "href": "https://linkedin.com/company/cyberskill",
+          "text": "LinkedIn",
+          "decoration": "underline",
+          "color": "rgb(204, 0, 0)",
+          "box": [
+            74,
+            16
+          ]
+        },
+        {
+          "href": "https://www.facebook.com/cyberskill.world",
+          "text": "Facebook",
+          "decoration": "underline",
+          "color": "rgb(204, 0, 0)",
+          "box": [
+            81,
+            16
+          ]
+        }
+      ],
+      "imgs": [
+        {
+          "src": "avatar-80-2x.png?v=10ab46c8",
+          "wAttr": "80",
+          "hAttr": "80",
+          "box": [
+            80,
+            80
+          ],
+          "natural": [
+            160,
+            160
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-mail-2x.png?v=e478dc4a",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-phone-2x.png?v=d3d73cc4",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-globe-2x.png?v=9a8d610f",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-users-2x.png?v=117751d0",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "logo-36-2x.png?v=7b060983",
+          "wAttr": "36",
+          "hAttr": "36",
+          "box": [
+            36,
+            36
+          ],
+          "natural": [
+            72,
+            72
+          ],
+          "loaded": true
+        }
+      ],
+      "missingGlyphs": [],
+      "textContent": "Stephen Cheng Tr\u1ecbnh Th\u00e1i Anh Founder - CyberSkill info@cyberskill.world (+84) 906 878 091 cyberskill.world LinkedIn | Facebook Turn Your Will Into Real",
+      "client": "probe-hostile-chromium",
+      "label": "Probe: hostile host styles (chromium)",
+      "engine": "chromium",
+      "transform": "none",
+      "transformed": false,
+      "width": 900,
+      "scheme": "light",
+      "screenshot": "stephen-cheng--probe-hostile-chromium--900--light.png"
+    },
+    {
+      "tableW": 520,
+      "tableH": 248,
+      "scrollW": 900,
+      "hostScrollW": 900,
+      "hostClientW": 900,
+      "texts": [
+        {
+          "text": "Stephen Cheng",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 22,
+          "fontWeight": 700,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Tr\u1ecbnh Th\u00e1i Anh",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 15,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Founder - CyberSkill",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "info@cyberskill.world",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "(+84) 906 878 091",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "cyberskill.world",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "LinkedIn",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Facebook",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 14,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Turn Your Will Into Real",
+          "color": "rgb(0, 0, 0)",
+          "bg": "rgb(27, 27, 27)",
+          "fontSize": 12,
+          "fontWeight": 400,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        }
+      ],
+      "links": [
+        {
+          "href": "mailto:info@cyberskill.world",
+          "text": "info@cyberskill.world",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            132,
+            16
+          ]
+        },
+        {
+          "href": "tel:+84906878091",
+          "text": "(+84) 906 878 091",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            115,
+            16
+          ]
+        },
+        {
+          "href": "https://cyberskill.world",
+          "text": "cyberskill.world",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            95,
+            16
+          ]
+        },
+        {
+          "href": "https://linkedin.com/company/cyberskill",
+          "text": "LinkedIn",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            53,
+            16
+          ]
+        },
+        {
+          "href": "https://www.facebook.com/cyberskill.world",
+          "text": "Facebook",
+          "decoration": "underline",
+          "color": "rgb(0, 0, 0)",
+          "box": [
+            61,
+            16
+          ]
+        }
+      ],
+      "imgs": [
+        {
+          "src": "avatar-80-2x.png?v=10ab46c8",
+          "wAttr": "80",
+          "hAttr": "80",
+          "box": [
+            80,
+            80
+          ],
+          "natural": [
+            160,
+            160
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-mail-2x.png?v=e478dc4a",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-phone-2x.png?v=d3d73cc4",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-globe-2x.png?v=9a8d610f",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-users-2x.png?v=117751d0",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "logo-36-2x.png?v=7b060983",
+          "wAttr": "36",
+          "hAttr": "36",
+          "box": [
+            36,
+            36
+          ],
+          "natural": [
+            72,
+            72
+          ],
+          "loaded": true
+        }
+      ],
+      "missingGlyphs": [],
+      "textContent": "Stephen Cheng Tr\u1ecbnh Th\u00e1i Anh Founder - CyberSkill info@cyberskill.world (+84) 906 878 091 cyberskill.world LinkedIn | Facebook Turn Your Will Into Real",
+      "client": "probe-bgonly-firefox",
+      "label": "Probe: dark surface, no text colour (firefox)",
+      "engine": "firefox",
+      "transform": "none",
+      "transformed": false,
+      "width": 900,
+      "scheme": "dark-bgonly",
+      "screenshot": "stephen-cheng--probe-bgonly-firefox--900--dark-bgonly.png"
+    },
+    {
+      "tableW": 520,
+      "tableH": 248,
+      "scrollW": 900,
+      "hostScrollW": 900,
+      "hostClientW": 900,
+      "texts": [
+        {
+          "text": "Stephen Cheng",
+          "color": "rgb(204, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 22,
+          "fontWeight": 700,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Tr\u1ecbnh Th\u00e1i Anh",
+          "color": "rgb(204, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 15,
+          "fontWeight": 900,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Founder - CyberSkill",
+          "color": "rgb(204, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 900,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "info@cyberskill.world",
+          "color": "rgb(204, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 900,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "(+84) 906 878 091",
+          "color": "rgb(204, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 900,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "cyberskill.world",
+          "color": "rgb(204, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 900,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "LinkedIn",
+          "color": "rgb(204, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 900,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Facebook",
+          "color": "rgb(204, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": 900,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        },
+        {
+          "text": "Turn Your Will Into Real",
+          "color": "rgb(204, 0, 0)",
+          "bg": "rgb(255, 255, 255)",
+          "fontSize": 12,
+          "fontWeight": 900,
+          "fontFamily": "Arial, \"Helvetica Neue\", Helvetica, \"Segoe UI\", Roboto, sans-serif"
+        }
+      ],
+      "links": [
+        {
+          "href": "mailto:info@cyberskill.world",
+          "text": "info@cyberskill.world",
+          "decoration": "underline",
+          "color": "rgb(204, 0, 0)",
+          "box": [
+            187,
+            16
+          ]
+        },
+        {
+          "href": "tel:+84906878091",
+          "text": "(+84) 906 878 091",
+          "decoration": "underline",
+          "color": "rgb(204, 0, 0)",
+          "box": [
+            149,
+            16
+          ]
+        },
+        {
+          "href": "https://cyberskill.world",
+          "text": "cyberskill.world",
+          "decoration": "underline",
+          "color": "rgb(204, 0, 0)",
+          "box": [
+            138,
+            16
+          ]
+        },
+        {
+          "href": "https://linkedin.com/company/cyberskill",
+          "text": "LinkedIn",
+          "decoration": "underline",
+          "color": "rgb(204, 0, 0)",
+          "box": [
+            74,
+            16
+          ]
+        },
+        {
+          "href": "https://www.facebook.com/cyberskill.world",
+          "text": "Facebook",
+          "decoration": "underline",
+          "color": "rgb(204, 0, 0)",
+          "box": [
+            81,
+            16
+          ]
+        }
+      ],
+      "imgs": [
+        {
+          "src": "avatar-80-2x.png?v=10ab46c8",
+          "wAttr": "80",
+          "hAttr": "80",
+          "box": [
+            80,
+            80
+          ],
+          "natural": [
+            160,
+            160
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-mail-2x.png?v=e478dc4a",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-phone-2x.png?v=d3d73cc4",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-globe-2x.png?v=9a8d610f",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "icon-users-2x.png?v=117751d0",
+          "wAttr": "18",
+          "hAttr": "18",
+          "box": [
+            18,
+            18
+          ],
+          "natural": [
+            36,
+            36
+          ],
+          "loaded": true
+        },
+        {
+          "src": "logo-36-2x.png?v=7b060983",
+          "wAttr": "36",
+          "hAttr": "36",
+          "box": [
+            36,
+            36
+          ],
+          "natural": [
+            72,
+            72
+          ],
+          "loaded": true
+        }
+      ],
+      "missingGlyphs": [],
+      "textContent": "Stephen Cheng Tr\u1ecbnh Th\u00e1i Anh Founder - CyberSkill info@cyberskill.world (+84) 906 878 091 cyberskill.world LinkedIn | Facebook Turn Your Will Into Real",
+      "client": "probe-hostile-firefox",
+      "label": "Probe: hostile host styles (firefox)",
+      "engine": "firefox",
+      "transform": "none",
+      "transformed": false,
+      "width": 900,
+      "scheme": "light",
+      "screenshot": "stephen-cheng--probe-hostile-firefox--900--light.png"
+    },
+    {
+      "kind": "site",
+      "person": "stephen-cheng",
+      "engine": "chromium",
+      "width": 1280,
+      "copyOk": true,
+      "status": "All 6 images OK - copied. Paste into Gmail.",
+      "screenshot": "site--stephen-cheng--chromium--desktop.png"
+    },
+    {
+      "kind": "site",
+      "person": "stephen-cheng",
+      "engine": "chromium",
+      "width": 390,
+      "copyOk": true,
+      "status": "All 6 images OK - copied. Paste into Gmail.",
+      "screenshot": "site--stephen-cheng--chromium--phone.png"
+    },
+    {
+      "kind": "site",
+      "person": "stephen-cheng",
+      "engine": "firefox",
+      "width": 1280,
+      "copyOk": true,
+      "status": "All 6 images OK - copied. Paste into Gmail.",
+      "screenshot": "site--stephen-cheng--firefox--desktop.png"
+    },
+    {
+      "kind": "site",
+      "person": "stephen-cheng",
+      "engine": "firefox",
+      "width": 390,
+      "copyOk": true,
+      "status": "All 6 images OK - copied. Paste into Gmail.",
+      "screenshot": "site--stephen-cheng--firefox--phone.png"
+    }
+  ],
+  "findings": [
+    {
+      "severity": "UNCOVERED",
+      "scope": "stephen-cheng--gmail-web-safari",
+      "check": "X0",
+      "message": "Gmail web (Safari) not tested - webkit unavailable"
+    },
+    {
+      "severity": "UNCOVERED",
+      "scope": "stephen-cheng--gmail-web-safari",
+      "check": "X0",
+      "message": "Gmail web (Safari) not tested - webkit unavailable"
+    },
+    {
+      "severity": "UNCOVERED",
+      "scope": "stephen-cheng--gmail-ios",
+      "check": "X0",
+      "message": "Gmail app (iOS) not tested - webkit unavailable"
+    },
+    {
+      "severity": "UNCOVERED",
+      "scope": "stephen-cheng--gmail-ios",
+      "check": "X0",
+      "message": "Gmail app (iOS) not tested - webkit unavailable"
+    },
+    {
+      "severity": "UNCOVERED",
+      "scope": "stephen-cheng--apple-mail-macos",
+      "check": "X0",
+      "message": "Apple Mail (macOS) not tested - webkit unavailable"
+    },
+    {
+      "severity": "UNCOVERED",
+      "scope": "stephen-cheng--apple-mail-macos",
+      "check": "X0",
+      "message": "Apple Mail (macOS) not tested - webkit unavailable"
+    },
+    {
+      "severity": "UNCOVERED",
+      "scope": "stephen-cheng--apple-mail-ios",
+      "check": "X0",
+      "message": "Apple Mail (iOS) not tested - webkit unavailable"
+    },
+    {
+      "severity": "UNCOVERED",
+      "scope": "stephen-cheng--apple-mail-ios",
+      "check": "X0",
+      "message": "Apple Mail (iOS) not tested - webkit unavailable"
+    },
+    {
+      "severity": "UNCOVERED",
+      "scope": "stephen-cheng--apple-mail-ios",
+      "check": "X0",
+      "message": "Apple Mail (iOS) not tested - webkit unavailable"
+    },
+    {
+      "severity": "UNCOVERED",
+      "scope": "stephen-cheng--apple-mail-ios",
+      "check": "X0",
+      "message": "Apple Mail (iOS) not tested - webkit unavailable"
+    },
+    {
+      "severity": "UNCOVERED",
+      "scope": "stephen-cheng--outlook-mac-new",
+      "check": "X0",
+      "message": "Outlook for Mac (new) not tested - webkit unavailable"
+    },
+    {
+      "severity": "UNCOVERED",
+      "scope": "stephen-cheng--outlook-mac-new",
+      "check": "X0",
+      "message": "Outlook for Mac (new) not tested - webkit unavailable"
+    }
+  ],
+  "counts": {
+    "HIGH": 0,
+    "MED": 0,
+    "LOW": 0,
+    "UNCOVERED": 12
+  }
+}

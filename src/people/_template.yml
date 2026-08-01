@@ -1,0 +1,44 @@
+# Copy this file to src/people/<your-id>.yml and fill it in.
+#
+# The filename becomes your web address, so use lowercase letters, numbers and
+# hyphens only:  mai-tran.yml  ->  /people/mai-tran/
+#
+# Files starting with an underscore are ignored by the build, so this template
+# never publishes as a person.
+#
+# Delete any optional line you do not want. Each one degrades cleanly: no
+# phone simply drops the phone row, and nothing else moves.
+
+# --- required ---------------------------------------------------------------
+name: Your Name
+role: Your Job Title
+email: you@cyberskill.world
+
+# --- optional ---------------------------------------------------------------
+
+# A second line under your name, tagged as Vietnamese for screen readers.
+# name_vi: Tên Tiếng Việt
+
+# phone_href is the same number with spaces, brackets and the plus sign
+# removed - it is what a phone dials when someone taps the number.
+# phone: "(+84) 912 345 678"
+# phone_href: "+84912345678"
+
+# Your photo, uploaded to src/avatars/ under exactly this filename.
+# Square-ish, 512px or larger. Leave it out to publish without a portrait.
+# avatar: your-id.png
+
+# Crop box [x, y, size] in source pixels. Leave it out - the build centres a
+# square on the upper third, and a maintainer adjusts it if the framing is off.
+# crop: [108, 20, 250]
+
+# Sort position on the directory page. Lower sorts first; the default is 999,
+# after which people are ordered by name.
+# order: 10
+
+# These default to the values in src/company.yml. Set them only if yours
+# differ from everyone else's.
+# website: cyberskill.world
+# website_href: https://cyberskill.world
+# socials:
+#   - {label: LinkedIn, href: https://linkedin.com/in/your-profile}

@@ -1,0 +1,52 @@
+name: Update my signature
+description: Your details changed, or your photo needs replacing.
+title: "Signature update: "
+labels: ["signature", "update"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Tell us what changed. Only fill in the fields that are different - the
+        rest stay as they are.
+
+  - type: input
+    id: person_id
+    attributes:
+      label: Your page
+      description: >-
+        The last part of your signature URL, or just your name if you are not
+        sure.
+      placeholder: mai-tran
+    validations:
+      required: true
+
+  - type: textarea
+    id: changes
+    attributes:
+      label: What is changing
+      description: One per line. Leave out anything staying the same.
+      placeholder: |
+        role: Senior Software Engineer
+        phone: (+84) 987 654 321
+      render: text
+    validations:
+      required: true
+
+  - type: textarea
+    id: photo
+    attributes:
+      label: New photo
+      description: >-
+        Only if you are replacing it. Drag the file into this box.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: removal
+    attributes:
+      label: Removing something
+      options:
+        - label: >-
+            I want a row removed entirely (say which one above - for example
+            drop the phone number).
+          required: false

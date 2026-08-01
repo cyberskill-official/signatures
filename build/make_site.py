@@ -18,8 +18,9 @@ import os
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from model import (AVATAR, DOCS, DOCS_PEOPLE, LOGO, OCHRE, UMBER, asset_url,
-                   load_company, load_people, person_asset, shared_asset)
+from model import (AVATAR, DOCS, DOCS_PEOPLE, LOGO, OCHRE, TABLE_W, UMBER,
+                   asset_url, load_company, load_people, person_asset,
+                   shared_asset)
 
 CSS = """
   :root{--umber:#45210E;--ochre:#F4BA17;--accent:#9E5E3E;--ink:#22201E;
@@ -287,50 +288,94 @@ def build_person(company, rec, base, sig):
       i.src = url + (url.indexOf('?') > -1 ? '&' : '?') + 'cb=' + Date.now();
     }});
   }}
-  async function run() {{
-    var btn = document.getElementById('copy'), st = document.getElementById('status'),
-        raw = document.getElementById('raw').value;
-    btn.disabled = true; st.className = 'status'; st.textContent = 'Checking images...';
-    var doc = new DOMParser().parseFromString(raw, 'text/html');
-    var urls = [].map.call(doc.querySelectorAll('img'),
-                           function (n) {{ return n.getAttribute('src'); }});
-    var bad = (await Promise.all(urls.map(checkImage))).filter(function (r) {{ return !r.ok; }});
+  var RAW = document.getElementById('raw').value;
+  var URLS = [].map.call(
+    new DOMParser().parseFromString(RAW, 'text/html').querySelectorAll('img'),
+    function (n) {{ return n.getAttribute('src'); }});
+
+  // Verification runs on load, NOT on click.
+  //
+  // clipboard.write() is only permitted while the click's user activation is
+  // still live. Awaiting up to eight seconds of image checks first outlives
+  // that window, and WebKit enforces it strictly - the copy would fail in
+  // Safari and every iOS browser while appearing fine in Chrome. Checking
+  // early means the click almost always has its answer already and can write
+  // synchronously, which every engine accepts.
+  var state = 'pending', reason = null;
+  var checked = Promise.all(URLS.map(checkImage)).then(function (r) {{
+    var bad = r.filter(function (x) {{ return !x.ok; }});
     if (bad.length) {{
-      st.className = 'status err';
-      st.textContent = bad.length + ' of ' + urls.length +
-        ' images unreachable - not copied. Tell whoever manages the repo.';
       console.warn('Unreachable:', bad.map(function (b) {{ return b.url; }}));
-      btn.disabled = false; return;
+      throw new Error(bad.length + ' of ' + r.length +
+        ' images unreachable - not copied. Tell whoever manages the repo.');
     }}
+    return true;
+  }});
+  checked.then(function () {{ state = 'ok'; }},
+               function (e) {{ state = 'bad'; reason = e; }});
+
+  function blob(type) {{ return new Blob([RAW], {{type: type}}); }}
+
+  function selectionCopy() {{
+    var h = document.getElementById('s-desktop');
+    var s = window.getSelection(), r = document.createRange();
+    r.selectNodeContents(h); s.removeAllRanges(); s.addRange(r);
+    var ok = document.execCommand('copy'); s.removeAllRanges();
+    if (!ok) throw new Error('execCommand refused');
+  }}
+
+  function run() {{
+    var btn = document.getElementById('copy'), st = document.getElementById('status');
+    if (state === 'bad') {{
+      st.className = 'status err'; st.textContent = reason.message; return;
+    }}
+    btn.disabled = true; st.className = 'status'; st.textContent = 'Copying...';
+
+    var write;
     try {{
       if (navigator.clipboard && window.ClipboardItem) {{
-        await navigator.clipboard.write([new ClipboardItem({{
-          'text/html': new Blob([raw], {{type: 'text/html'}}),
-          'text/plain': new Blob([raw], {{type: 'text/plain'}})
-        }})]);
+        write = navigator.clipboard.write([new ClipboardItem(
+          state === 'ok'
+            // Settled: hand over real Blobs, synchronously inside the gesture.
+            ? {{'text/html': blob('text/html'), 'text/plain': blob('text/plain')}}
+            // Still checking: ClipboardItem accepts promises, so write() is
+            // still called inside the gesture and the data arrives later.
+            : {{'text/html':  checked.then(function () {{ return blob('text/html'); }}),
+               'text/plain': checked.then(function () {{ return blob('text/plain'); }})}}
+        )]);
       }} else {{
-        var h = document.getElementById('s-desktop');
-        var s = window.getSelection(), r = document.createRange();
-        r.selectNodeContents(h); s.removeAllRanges(); s.addRange(r);
-        document.execCommand('copy'); s.removeAllRanges();
+        write = checked.then(selectionCopy);
       }}
+    }} catch (e) {{ write = Promise.reject(e); }}
+
+    write.then(function () {{
       st.className = 'status ok';
-      st.textContent = 'All ' + urls.length + ' images OK - copied. Paste into Gmail.';
-    }} catch (e) {{
+      st.textContent = 'All ' + URLS.length + ' images OK - copied. Paste into Gmail.';
+    }}, function (e) {{
       st.className = 'status err';
-      st.textContent = 'Your browser blocked the clipboard - copy from the Raw HTML box below.';
+      st.textContent = (e && /unreachable/.test(e.message || ''))
+        ? e.message
+        : 'Your browser blocked the clipboard - copy from the Raw HTML box below.';
       console.error(e);
-    }}
-    btn.disabled = false;
+    }}).then(function () {{ btn.disabled = false; }});
   }}
   document.getElementById('copy').addEventListener('click', run);
 
   function measure() {{
-    [['s-desktop','d-desktop'], ['s-narrow','d-narrow']].forEach(function (p) {{
+    [['s-desktop','d-desktop', {TABLE_W}], ['s-narrow','d-narrow', 0]].forEach(function (p) {{
       var el = document.getElementById(p[0]), out = document.getElementById(p[1]);
       if (!el || !out) return;
       var t = el.querySelector('table'), r = t ? t.getBoundingClientRect() : null;
       var host = el.parentElement, over = host.scrollWidth - host.clientWidth;
+      // Reading this page on a phone squeezes the desktop preview, so the
+      // number stops describing desktop. Saying so beats printing a width
+      // that looks like a measurement of the signature.
+      var squeezed = p[2] && host.clientWidth < p[2];
+      if (squeezed) {{
+        out.textContent = 'narrowed by this screen - open on a computer to see it';
+        out.className = 'dim';
+        return;
+      }}
       out.textContent = (r ? Math.ceil(r.width) + ' x ' + Math.ceil(r.height) : '')
                         + (over > 1 ? '  overflow ' + over + 'px' : '');
       out.className = 'dim ' + (over > 1 ? 'bad' : 'good');

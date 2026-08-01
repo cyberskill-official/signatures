@@ -11,8 +11,14 @@ Rules that must not be quietly changed:
   - color:inherit on <a> is load-bearing: omitting a colour does NOT make a
     link inherit, the UA stylesheet still paints it link-blue (1.75:1 on dark).
   - The real table is width="100%" capped by max-width. A hard width pins it
-    at 520px on a 320px phone and forces horizontal scroll. The fixed width
-    belongs only inside the mso conditional.
+    at 520px on a 320px phone and forces horizontal scroll.
+  - The mso wrapper is width="100%", NOT a fixed 520. Word ignores max-width,
+    so a fixed wrapper pinned the table at 520px inside Outlook's reading pane
+    and overflowed it by 36px at 500px and 136px at 400px. The cap bought
+    nothing to pay for that: every element in the block is left-aligned and
+    the widest line of ink is about 285px, so removing the cap changes only
+    how much empty space trails the content. Measured identical at 400px and
+    1400px, height 244px at both.
   - Every image is decorative and carries alt="": all information is already
     present as real text, so alt would duplicate it for a screen reader.
 """
@@ -116,7 +122,7 @@ def build(rec, company, base):
         left = ""
         cols = 3
 
-    return f'''<!--[if mso]><table role="presentation" width="{TABLE_W}" cellpadding="0" cellspacing="0" border="0"><tr><td><![endif]-->
+    return f'''<!--[if mso]><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td><![endif]-->
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;max-width:{TABLE_W}px;font-family:{SANS};">
 <tr>
 {left}<td width="{RULE_W}" bgcolor="{OCHRE}" style="width:{RULE_W}px;background-color:{OCHRE};font-size:0;line-height:0;">&nbsp;</td>

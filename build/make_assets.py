@@ -24,6 +24,28 @@ from model import (ACCENT, AVATAR, ICON_NAMES, LOGO, PEOPLE_ASSETS, SHARED_ASSET
                    SRC, load_company, load_people)
 
 SS = 8  # supersample factor for smooth baked edges
+
+
+def save_stable(img, path):
+    """Write only when the pixels actually change.
+
+    PNG byte output varies with the Pillow and zlib versions doing the
+    encoding, so re-baking an unchanged photo on a different machine produces
+    a different file for identical pixels. Every asset URL carries a
+    ?v=<content-hash>, so that churn would rewrite URLs and show up as a diff
+    on every unrelated build. Comparing decoded pixels instead makes a rebuild
+    idempotent no matter who runs it.
+    """
+    if os.path.isfile(path):
+        try:
+            old = Image.open(path).convert("RGBA")
+            if old.size == img.size and \
+                    old.tobytes() == img.convert("RGBA").tobytes():
+                return False
+        except Exception:
+            pass          # unreadable or truncated - just overwrite it
+    img.save(path, "PNG", optimize=True)
+    return True
 LUCIDE = os.path.join(os.path.dirname(os.path.abspath(__file__)),
                       "vendor", "node_modules", "lucide-static", "icons")
 
@@ -42,7 +64,7 @@ def circle_bake(src_img, box, out_px, path):
     m = m.resize((out_px * 4, out_px * 4), Image.LANCZOS)
     out = Image.new("RGBA", (out_px * 4, out_px * 4), (0, 0, 0, 0))
     out.paste(c, (0, 0), m)
-    out.resize((out_px, out_px), Image.LANCZOS).save(path, "PNG", optimize=True)
+    save_stable(out.resize((out_px, out_px), Image.LANCZOS), path)
 
 
 def rounded_bake(src_img, out_px, radius_ratio, path):
@@ -54,7 +76,7 @@ def rounded_bake(src_img, out_px, radius_ratio, path):
     m = m.resize((out_px * 4, out_px * 4), Image.LANCZOS)
     out = Image.new("RGBA", (out_px * 4, out_px * 4), (0, 0, 0, 0))
     out.paste(c, (0, 0), m)
-    out.resize((out_px, out_px), Image.LANCZOS).save(path, "PNG", optimize=True)
+    save_stable(out.resize((out_px, out_px), Image.LANCZOS), path)
 
 
 def default_crop(im):
