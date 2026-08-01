@@ -38,11 +38,20 @@ ZWSP = "&#8203;"
 
 TABLE_W = 520
 AVATAR = 80
+# Baked at these display sizes, each at 2x. Styles must display an avatar at
+# one of them: a 160px source shown at 48px is 3.3x, which downloads four
+# times the pixels it draws for every recipient of every mail.
+AVATAR_SIZES = (80, 56)
 GUTTER = 16
 RULE_W = 3
 ICON = 18
 ICON_GAP = 10
 LOGO = 36
+# Same rule as AVATAR_SIZES. Every displayed size must be baked, or the
+# source is not exactly 2x and V7 says so - which is how ten styles asking
+# for logos at 26, 28, 32, 34 and 40 against one 72px file were found.
+LOGO_SIZES = (36, 28)
+ICON_SIZES = (18,)
 
 ICON_NAMES = ("mail", "phone", "globe", "users")
 
@@ -50,7 +59,7 @@ REQUIRED = ("name", "role", "email")
 ALLOWED = {
     "name", "name_vi", "role", "email", "phone", "phone_href",
     "website", "website_href", "socials", "avatar", "crop", "order",
-    "active",
+    "active", "style",
 }
 
 ID_RE = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
@@ -231,6 +240,16 @@ def load_people(company):
                     f"{sorted(set(s) - {'label', 'href'})}")
             check_text(fn, "label", s["label"])
             check_url(fn, f"socials[{i}].href", s["href"])
+
+        # Checked against the registry rather than just being a string, so a
+        # typo fails here instead of silently publishing the default and
+        # leaving someone wondering why their choice did not stick.
+        if rec.get("style"):
+            from styles import BY_ID
+            if rec["style"] not in BY_ID:
+                raise RecordError(
+                    f"{fn}: style '{rec['style']}' is not one of "
+                    f"{', '.join(sorted(BY_ID))}")
 
         if not isinstance(rec["active"], bool):
             raise RecordError(f"{fn}: active must be true or false")

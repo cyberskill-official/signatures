@@ -117,8 +117,9 @@ signatures/
 │   ├── robots.txt            follows index_site in company.yml
 │   ├── .nojekyll             stops Jekyll dropping files
 │   ├── people/<id>/
-│   │   ├── index.html        install page for that person
-│   │   └── signature.html    the raw payload
+│   │   ├── index.html        install page, with the style picker
+│   │   ├── signature.html    the chosen style, for old links
+│   │   └── sig-<style>.html  all ten, one file each
 │   └── assets/
 │       ├── shared/           logo, 4 icons, favicon, og-card
 │       └── people/<id>/      that person's baked avatar
@@ -129,8 +130,8 @@ signatures/
 │   ├── people/<id>.yml
 │   ├── avatars/<id>.png
 │   └── locales/en.yml, vi.yml   every word of site chrome
-├── build/                model, asset baker, generator, site builder
-├── tests/                pytest - records, input safety, workflows, locales
+├── build/                model, styles, asset baker, generator, site
+├── tests/                pytest - records, safety, workflows, locales, styles
 ├── validation/
 │   ├── check.py              layout, contrast, blocked images
 │   └── crossclient.py        client sanitisers x 3 engines

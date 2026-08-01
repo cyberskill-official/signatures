@@ -20,7 +20,7 @@ import sys
 from PIL import Image, ImageDraw
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from model import (ACCENT, AVATAR, ICON_NAMES, LOGO, OCHRE, PEOPLE_ASSETS,
+from model import (ACCENT, AVATAR, AVATAR_SIZES, ICON_NAMES, LOGO, LOGO_SIZES, OCHRE, PEOPLE_ASSETS,
                    SHARED_ASSETS, SRC, UMBER, load_company, load_people)
 
 SS = 8  # supersample factor for smooth baked edges
@@ -205,8 +205,9 @@ def main():
         build_icons()
     os.makedirs(SHARED_ASSETS, exist_ok=True)
     logo_src = os.path.join(SRC, "logo.png")
-    rounded_bake(Image.open(logo_src), LOGO * 2, 0.18,
-                 os.path.join(SHARED_ASSETS, f"logo-{LOGO}-2x.png"))
+    for px in LOGO_SIZES:
+        rounded_bake(Image.open(logo_src), px * 2, 0.18,
+                     os.path.join(SHARED_ASSETS, f"logo-{px}-2x.png"))
     build_site_images(logo_src, company)
 
     crops = []
@@ -220,7 +221,8 @@ def main():
         box = (x, y, x + s, y + s)
         d = os.path.join(PEOPLE_ASSETS, rec["id"])
         os.makedirs(d, exist_ok=True)
-        circle_bake(im, box, AVATAR * 2, os.path.join(d, f"avatar-{AVATAR}-2x.png"))
+        for px in AVATAR_SIZES:
+            circle_bake(im, box, px * 2, os.path.join(d, f"avatar-{px}-2x.png"))
         crops.append((rec, im, box))
         tag = "explicit" if rec.get("crop") else "DEFAULT - check the sheet"
         print(f"  {rec['id']:22} avatar {s}px crop at ({x},{y})  [{tag}]")

@@ -1,12 +1,78 @@
 {
   "base": "https://signatures.cyberskill.world/",
+  "styles": [
+    {
+      "id": "classic",
+      "label": "Classic",
+      "note": "Photo left, ochre rule. The house default."
+    },
+    {
+      "id": "plate",
+      "label": "Plate",
+      "note": "Name reversed out of an umber block."
+    },
+    {
+      "id": "cap",
+      "label": "Cap",
+      "note": "Company across the top, you underneath."
+    },
+    {
+      "id": "footer",
+      "label": "Footer",
+      "note": "Brand bar along the bottom."
+    },
+    {
+      "id": "sidebar",
+      "label": "Sidebar",
+      "note": "Photo and logo stacked in a colour column."
+    },
+    {
+      "id": "compact",
+      "label": "Compact",
+      "note": "The smallest block that still says everything."
+    },
+    {
+      "id": "stacked",
+      "label": "Stacked",
+      "note": "No photo. Logo leads."
+    },
+    {
+      "id": "split",
+      "label": "Split",
+      "note": "You on the left, how to reach you on the right."
+    },
+    {
+      "id": "banner",
+      "label": "Banner",
+      "note": "Ruled top and bottom, like a printed card."
+    },
+    {
+      "id": "badge",
+      "label": "Badge",
+      "note": "Logo in a colour square. No photo."
+    }
+  ],
   "people": [
     {
       "id": "stephen-cheng",
       "name": "Stephen Cheng",
       "role": "Founder",
-      "chars": 5320,
-      "over_limit": false
+      "style": "classic",
+      "chars": 4846,
+      "sizes": {
+        "classic": 4846,
+        "plate": 4997,
+        "cap": 4724,
+        "footer": 4762,
+        "sidebar": 4971,
+        "compact": 4683,
+        "stacked": 5047,
+        "split": 5141,
+        "banner": 5044,
+        "badge": 4663
+      },
+      "over_limit": false,
+      "over_styles": []
     }
   ]
 }

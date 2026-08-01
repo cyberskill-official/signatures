@@ -24,6 +24,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from model import (AVATAR, DOCS, DOCS_PEOPLE, LOGO, OCHRE, SRC, TABLE_W,
                    UMBER, asset_url, load_company, load_people, person_asset,
                    shared_asset)
+from styles import DEFAULT_STYLE, STYLES
 
 LOCALES = os.path.join(SRC, "locales")
 # English is the reference. Every other locale must define exactly the same
@@ -242,6 +243,17 @@ CSS = """
   @media (prefers-reduced-motion: reduce){
     *{transition:none !important;animation:none !important;}
   }
+  .styles{display:grid;gap:9px;margin:0 0 8px;
+          grid-template-columns:repeat(auto-fill,minmax(196px,1fr));}
+  .stylebtn{display:block;text-align:left;padding:11px 13px;cursor:pointer;
+            background:var(--card);color:inherit;font:inherit;
+            border:1px solid var(--line);border-radius:9px;}
+  .stylebtn:hover{border-color:var(--accent);}
+  .stylebtn[aria-pressed="true"]{border-color:var(--ochre);
+            box-shadow:inset 0 0 0 1.5px var(--ochre);}
+  .stylebtn .sname{display:block;font-weight:700;font-size:14px;}
+  .stylebtn .snote{display:block;font-size:12.5px;line-height:17px;
+                   color:var(--muted);padding-top:2px;}
   .sec{margin:34px 0 12px;font-size:12px;letter-spacing:.09em;
        text-transform:uppercase;color:var(--muted);}
   /* Theme control. Hidden until the inline script in <head> marks the page
@@ -617,10 +629,26 @@ def build_index(company, people, base, t, alt=None, people_root="people/"):
             + body + footer("./", t))
 
 
-def build_person(company, rec, base, sig, t):
+def build_person(company, rec, base, sigs, t):
+    """`sigs` is {style_id: markup} for every style, because the picker lets
+    people compare before they commit. Each one is parked in a hidden
+    textarea rather than a div: .value returns the exact bytes the generator
+    wrote, including the mso conditional comments, where innerHTML would hand
+    back whatever the DOM chose to serialise."""
     logo = asset_url(base, f"assets/shared/logo-{LOGO}-2x.png",
                      shared_asset(f"logo-{LOGO}-2x.png"))
+    chosen = rec.get("style") or DEFAULT_STYLE
+    sig = sigs[chosen]
     esc = H.escape(sig)
+    picker = "".join(
+        f'<button class="stylebtn" type="button" data-style="{sid}" '
+        f'aria-pressed="{"true" if sid == chosen else "false"}">'
+        f'<span class="sname">{H.escape(label)}</span>'
+        f'<span class="snote">{H.escape(note)}</span></button>'
+        for sid, label, note, _ in STYLES if sid in sigs)
+    sources = "".join(
+        f'<textarea id="src-{sid}" hidden readonly>{H.escape(m)}</textarea>'
+        for sid, m in sigs.items())
     return (head(f"{rec['name']} - email signature",
                  f"Install {rec['name']}'s {company['name']} email signature: "
                  f"verify the images, copy, paste into Gmail.",
@@ -633,6 +661,13 @@ def build_person(company, rec, base, sig, t):
      &nbsp;&middot;&nbsp; <a href="../../help/">Something here is wrong</a></p>
   <h2 class="person-name">{H.escape(rec['name'])}</h2>
   <p class="person-role">{H.escape(rec['role'])} - {H.escape(company['name'])}</p>
+
+  <div class="sec" style="margin-top:26px;">Pick a style</div>
+  <div class="styles" id="styles">{picker}</div>
+  <p class="sub" style="margin:0 0 20px;">Every style carries the same
+     details. Pick one, check it below, then copy. To make it stick, put
+     <code>style: <span id="stylehint">{chosen}</span></code> in your record - otherwise the page opens on
+     whichever you chose last time.</p>
 
   <div class="bar">
     <button class="btn" id="copy">Verify &amp; copy</button>
@@ -653,11 +688,11 @@ def build_person(company, rec, base, sig, t):
   <div class="sec">Dark mode</div>
   <div class="grid dark3">
     <div class="col"><div class="sub">Light</div>
-      <div class="surface">{sig}</div></div>
+      <div class="surface"><div id="s-l">{sig}</div></div></div>
     <div class="col"><div class="sub">Dark</div>
-      <div class="surface dark">{sig}</div></div>
+      <div class="surface dark"><div id="s-d">{sig}</div></div></div>
     <div class="col"><div class="sub">Forced inversion</div>
-      <div class="surface inv">{sig}</div></div>
+      <div class="surface inv"><div id="s-i">{sig}</div></div></div>
   </div>
 
   <div class="card steps" style="margin-top:34px;">
@@ -674,9 +709,11 @@ def build_person(company, rec, base, sig, t):
   </div>
 
   <details>
-    <summary>Raw HTML ({len(sig)} chars) - if the button is blocked by your browser</summary>
+    <summary>Raw HTML (<span id="rawn">{len(sig)}</span> chars) - if the
+       button is blocked by your browser</summary>
     <textarea readonly spellcheck="false" id="raw">{esc}</textarea>
   </details>
+  <div class="vh" aria-hidden="true">{sources}</div>
 
 <script>
 (function () {{
@@ -690,10 +727,12 @@ def build_person(company, rec, base, sig, t):
       i.src = url + (url.indexOf('?') > -1 ? '&' : '?') + 'cb=' + Date.now();
     }});
   }}
-  var RAW = document.getElementById('raw').value;
-  var URLS = [].map.call(
-    new DOMParser().parseFromString(RAW, 'text/html').querySelectorAll('img'),
-    function (n) {{ return n.getAttribute('src'); }});
+  var RAW = document.getElementById('raw').value, URLS = [];
+  function urlsIn(markup) {{
+    return [].map.call(
+      new DOMParser().parseFromString(markup, 'text/html').querySelectorAll('img'),
+      function (n) {{ return n.getAttribute('src'); }});
+  }}
 
   // Verification runs on load, NOT on click.
   //
@@ -703,18 +742,27 @@ def build_person(company, rec, base, sig, t):
   // Safari and every iOS browser while appearing fine in Chrome. Checking
   // early means the click almost always has its answer already and can write
   // synchronously, which every engine accepts.
-  var state = 'pending', reason = null;
-  var checked = Promise.all(URLS.map(checkImage)).then(function (r) {{
-    var bad = r.filter(function (x) {{ return !x.ok; }});
-    if (bad.length) {{
-      console.warn('Unreachable:', bad.map(function (b) {{ return b.url; }}));
-      throw new Error(bad.length + ' of ' + r.length +
-        ' images unreachable - not copied. Tell whoever manages the repo.');
-    }}
-    return true;
-  }});
-  checked.then(function () {{ state = 'ok'; }},
-               function (e) {{ state = 'bad'; reason = e; }});
+  var state = 'pending', reason = null, checked = null;
+
+  // Re-run per style, because the styles do not share an image set - two of
+  // them carry no photo at all, so a result verified against one is not an
+  // answer about another.
+  function verify() {{
+    URLS = urlsIn(RAW);
+    state = 'pending'; reason = null;
+    var mine = checked = Promise.all(URLS.map(checkImage)).then(function (r) {{
+      var bad = r.filter(function (x) {{ return !x.ok; }});
+      if (bad.length) {{
+        console.warn('Unreachable:', bad.map(function (b) {{ return b.url; }}));
+        throw new Error(bad.length + ' of ' + r.length +
+          ' images unreachable - not copied. Tell whoever manages the repo.');
+      }}
+      return true;
+    }});
+    mine.then(function () {{ if (mine === checked) state = 'ok'; }},
+              function (e) {{ if (mine === checked) {{ state = 'bad'; reason = e; }} }});
+  }}
+  verify();
 
   function blob(type) {{ return new Blob([RAW], {{type: type}}); }}
 
@@ -785,6 +833,49 @@ def build_person(company, rec, base, sig, t):
   }}
   window.addEventListener('load', measure);
   window.addEventListener('resize', measure);
+
+  // Switching style rewrites every preview surface, the raw box, and what
+  // the copy button will hand over - from one source of truth, so the thing
+  // you looked at is the thing you paste.
+  var SURFACES = ['s-desktop', 's-narrow', 's-l', 's-d', 's-i'];
+  var KEY = 'sig-style:{rec["id"]}';
+
+  function select(sid, remember) {{
+    var src = document.getElementById('src-' + sid);
+    if (!src) return;
+    RAW = src.value;
+    SURFACES.forEach(function (id) {{
+      var el = document.getElementById(id);
+      if (el) el.innerHTML = RAW;
+    }});
+    var raw = document.getElementById('raw');
+    raw.value = RAW;
+    document.getElementById('rawn').textContent = RAW.length;
+    var hint = document.getElementById('stylehint');
+    if (hint) hint.textContent = sid;
+    [].forEach.call(document.querySelectorAll('.stylebtn'), function (b) {{
+      b.setAttribute('aria-pressed',
+        b.getAttribute('data-style') === sid ? 'true' : 'false');
+    }});
+    var st = document.getElementById('status');
+    st.className = 'status'; st.textContent = 'Not verified';
+    verify();
+    measure();
+    if (remember) {{ try {{ localStorage.setItem(KEY, sid); }} catch (e) {{}} }}
+  }}
+
+  [].forEach.call(document.querySelectorAll('.stylebtn'), function (b) {{
+    b.addEventListener('click', function () {{
+      select(b.getAttribute('data-style'), true);
+    }});
+  }});
+
+  // Reopen on whatever they chose last time. The record's `style:` still
+  // decides what the page ships with, and what everyone else sees.
+  try {{
+    var saved = localStorage.getItem(KEY);
+    if (saved && document.getElementById('src-' + saved)) select(saved, false);
+  }} catch (e) {{}}
 }})();
 </script>""" + footer("../../", t))
 
@@ -905,10 +996,20 @@ def main():
     for rec in people:
         d = os.path.join(DOCS_PEOPLE, rec["id"])
         os.makedirs(d, exist_ok=True)
-        with open(os.path.join(d, "signature.html"), encoding="utf-8") as fh:
-            sig = fh.read()
+        # Every style the generator produced, so the page can offer all of
+        # them. Missing files are a build ordering bug, not something to
+        # paper over - generate.py runs first and writes all ten.
+        sigs = {}
+        for sid, _l, _n, _f in STYLES:
+            fp = os.path.join(d, f"sig-{sid}.html")
+            if not os.path.isfile(fp):
+                raise SystemExit(
+                    f"{fp} is missing - run build/generate.py before "
+                    f"build/make_site.py")
+            with open(fp, encoding="utf-8") as fh:
+                sigs[sid] = fh.read()
         with open(os.path.join(d, "index.html"), "w", encoding="utf-8") as fh:
-            fh.write(build_person(company, rec, base, sig, en))
+            fh.write(build_person(company, rec, base, sigs, en))
         print(f"  docs/people/{rec['id']}/index.html")
 
     print(f"site -> docs/index.html + {len(people)} person page(s)")

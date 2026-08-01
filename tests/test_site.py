@@ -157,8 +157,10 @@ def test_preview_surfaces_never_follow_the_page_theme(loc, data, code):
     company, people = data
     if not people:
         pytest.skip("no person page to render")
-    html = M.build_person(company, people[0], "https://x/", "<i>sig</i>",
-                          tr(loc, code))
+    # build_person now takes every style, because the page offers a picker.
+    import styles as SS
+    sigs = {sid: f"<i>{sid}</i>" for sid, _l, _n, _f in SS.STYLES}
+    html = M.build_person(company, people[0], "https://x/", sigs, tr(loc, code))
     for m in re.finditer(r"\.surface(?:\.\w+)?\{[^}]*\}", html, re.S):
         rule = m.group(0)
         assert "var(" not in rule, f"surface inherits a themed variable: {rule}"

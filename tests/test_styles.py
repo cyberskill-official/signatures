@@ -1,0 +1,255 @@
+"""Every style must satisfy the same four rules.
+
+These are written against the markup rather than against a promise, because
+the whole point of a registry is that someone will add an eleventh style
+later and will not have read styles.py first.
+"""
+import os
+import re
+import sys
+
+import pytest
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(ROOT, "build"))
+
+from model import OCHRE, UMBER, load_company, load_people  # noqa: E402
+import styles as S  # noqa: E402
+
+BASE = "https://example.test/"
+IDS = [s[0] for s in S.STYLES]
+
+
+@pytest.fixture(scope="module")
+def rec():
+    c = load_company()
+    people = load_people(c)
+    if not people:
+        pytest.skip("no records to render")
+    return people[0], c
+
+
+def markup(sid, rec):
+    return S.render(sid, rec[0], rec[1], BASE)
+
+
+def test_there_are_ten(rec):
+    assert len(S.STYLES) == 10, (
+        f"{len(S.STYLES)} styles registered. If that is deliberate, change "
+        f"this number - the picker and the docs both say ten.")
+
+
+def test_ids_are_unique_and_url_safe():
+    assert len(set(IDS)) == len(IDS)
+    for sid in IDS:
+        assert re.fullmatch(r"[a-z][a-z0-9-]*", sid), \
+            f"'{sid}' becomes a filename and a localStorage key"
+
+
+def test_default_is_registered():
+    assert S.DEFAULT_STYLE in S.BY_ID
+
+
+def test_unknown_style_is_fatal(rec):
+    with pytest.raises(SystemExit):
+        S.render("no-such-style", rec[0], rec[1], BASE)
+
+
+# --- rule 1: brand colour visible ------------------------------------------
+
+@pytest.mark.parametrize("sid", IDS)
+def test_brand_colour_is_present(sid, rec):
+    """Umber or ochre doing real work, not just baked inside the logo PNG."""
+    m = markup(sid, rec)
+    assert UMBER.lower() in m.lower() or OCHRE.lower() in m.lower(), (
+        f"style '{sid}' has no CyberSkill colour in its markup")
+
+
+@pytest.mark.parametrize("sid", IDS)
+def test_pinned_backgrounds_carry_both_attribute_and_style(sid, rec):
+    """Outlook's Word renderer honours the bgcolor attribute; everything else
+    reads the inline style. A cell with only one of them loses its background
+    in half the clients - and a reversed-out white name on a lost background
+    is white on white."""
+    m = markup(sid, rec)
+    for tag in re.findall(r"<(?:div|span|p|table|tr)[^>]*>", m):
+        if "background-color:" in tag:
+            pytest.fail(
+                f"style '{sid}' paints a background on a non-cell element. "
+                f"Word honours the bgcolor attribute and ignores this "
+                f"entirely, so the block is simply absent in Outlook: {tag}")
+    for cell in re.findall(r"<td[^>]*>", m):
+        has_attr = re.search(r'\sbgcolor="([^"]+)"', cell)
+        has_css = re.search(r"background-color:\s*([^;\"]+)", cell)
+        if has_attr or has_css:
+            assert has_attr and has_css, (
+                f"style '{sid}': cell pins a background with only one of "
+                f"bgcolor/background-color -> {cell}")
+            assert has_attr.group(1).lower() == has_css.group(1).strip().lower()
+
+
+@pytest.mark.parametrize("sid", IDS)
+def test_text_colour_only_appears_on_a_pinned_surface(sid, rec):
+    """The contrast rule. No value clears 4.5:1 on both white and dark, so a
+    colour is only safe where some ancestor pins the background and the same
+    markup therefore owns both sides of the contrast.
+
+    This walks the tree rather than matching cells with a regex: these
+    layouts nest tables, so a colour set inside a pinned block looks
+    unpinned to anything that only looks at one tag at a time.
+    """
+    from html.parser import HTMLParser
+
+    bad = []
+
+    class Walk(HTMLParser):
+        def __init__(self):
+            super().__init__(convert_charrefs=True)
+            self.stack = [False]          # is a background pinned above here
+
+        def handle_starttag(self, tag, attrs):
+            at = dict(attrs)
+            style = at.get("style", "")
+            pinned = bool(at.get("bgcolor")) or "background-color:" in style
+            here = self.stack[-1] or pinned
+            colours = re.findall(r"(?<!background-)color:\s*(#[0-9A-Fa-f]{3,6})",
+                                 style)
+            if colours and not here:
+                bad.append((tag, colours, style[:70]))
+            if tag not in ("img", "br", "hr", "meta"):
+                self.stack.append(here)
+
+        def handle_endtag(self, tag):
+            if len(self.stack) > 1:
+                self.stack.pop()
+
+    Walk().feed(markup(sid, rec))
+    assert not bad, (
+        f"style '{sid}' sets a text colour with no pinned background above "
+        f"it - unreadable in one theme or the other: {bad}")
+
+
+# --- rule 2: icons ---------------------------------------------------------
+
+@pytest.mark.parametrize("sid", IDS)
+def test_contact_rows_have_icons(sid, rec):
+    m = markup(sid, rec)
+    found = set(re.findall(r"icon-(\w+)-2x\.png", m))
+    assert "mail" in found, f"style '{sid}' has no icon on the email row"
+    assert len(found) >= 3, (
+        f"style '{sid}' shows only {sorted(found)} - the record has more "
+        f"contact rows than that")
+
+
+# --- rule 3: extendable socials --------------------------------------------
+
+@pytest.mark.parametrize("sid", IDS)
+def test_growing_the_social_list_only_grows_the_social_line(sid, rec):
+    """Six networks must cost six more links and nothing else. If a style
+    laid them out in fixed columns this is where it would show."""
+    r, company = rec
+    few = dict(r, socials=[{"label": "LinkedIn", "href": "https://a.test/"},
+                           {"label": "Facebook", "href": "https://b.test/"}])
+    many = dict(r, socials=few["socials"] + [
+        {"label": n, "href": f"https://{n.lower()}.test/"}
+        for n in ("GitHub", "YouTube", "Zalo", "TikTok")])
+    a = S.render(sid, few, company, BASE)
+    b = S.render(sid, many, company, BASE)
+    assert "TikTok" in b and "TikTok" not in a
+    # Same structure, only more links inside it.
+    assert a.count("<tr") == b.count("<tr"), (
+        f"style '{sid}' adds table rows when socials grow - it cannot take a "
+        f"seventh network without relayout")
+    assert b.count("<a ") - a.count("<a ") == 4
+
+
+@pytest.mark.parametrize("sid", IDS)
+def test_no_socials_drops_the_row_without_leaving_a_hole(sid, rec):
+    r, company = rec
+    m = S.render(sid, dict(r, socials=[]), company, BASE)
+    assert "icon-users" not in m
+    assert "<td" in m and m.count("<table") == m.count("</table>")
+
+
+# --- rule 4: the constraints that were paid for in blood -------------------
+
+@pytest.mark.parametrize("sid", IDS)
+def test_links_pin_inherit_or_an_explicit_colour(sid, rec):
+    """Omitting a colour does NOT inherit - the UA stylesheet paints link-blue,
+    which is 1.75:1 on a dark surface."""
+    m = markup(sid, rec)
+    for tag in re.findall(r"<a\s[^>]*>", m):
+        assert "color:" in tag, f"style '{sid}' has a link with no colour: {tag}"
+
+
+@pytest.mark.parametrize("sid", IDS)
+def test_mso_wrapper_is_full_width(sid, rec):
+    """Word ignores max-width. A fixed wrapper pinned the table at 520px
+    inside a 400px Outlook reading pane and overflowed it by 136px."""
+    m = markup(sid, rec)
+    assert "<!--[if mso]>" in m
+    assert re.search(r'\[if mso\]><table[^>]*width="100%"', m), \
+        f"style '{sid}' has an mso wrapper that is not width=100%"
+
+
+@pytest.mark.parametrize("sid", IDS)
+def test_no_markup_gmail_strips(sid, rec):
+    m = markup(sid, rec)
+    for banned, why in (("<style", "Gmail strips <style> blocks"),
+                        ("class=", "Gmail strips class attributes"),
+                        ("border-radius", "Gmail strips border-radius"),
+                        ("@media", "Gmail strips @media"),
+                        ("position:", "not supported in mail"),
+                        ("data:", "Gmail drops data: images")):
+        assert banned not in m, f"style '{sid}': {why}"
+
+
+@pytest.mark.parametrize("sid", IDS)
+def test_every_image_is_decorative(sid, rec):
+    """All information is real text already, so alt would duplicate it."""
+    m = markup(sid, rec)
+    for tag in re.findall(r"<img[^>]*>", m):
+        assert 'alt=""' in tag, f"style '{sid}': {tag}"
+
+
+@pytest.mark.parametrize("sid", IDS)
+def test_fits_gmails_limit_with_room_to_spare(sid, rec):
+    m = markup(sid, rec)
+    assert len(m) < 8000, (
+        f"style '{sid}' is {len(m)} chars; Gmail's limit is 10,000 and a "
+        f"longer name or a sixth social has to still fit")
+
+
+@pytest.mark.parametrize("sid", IDS)
+def test_renders_without_a_photo(sid, rec):
+    """Two styles never show one, and anyone may decline to publish one."""
+    r, company = rec
+    m = S.render(sid, dict(r, avatar_path=None, avatar=None), company, BASE)
+    assert "avatar-" not in m
+    assert m.count("<table") == m.count("</table>")
+    assert r["name"] in m
+
+
+@pytest.mark.parametrize("sid", IDS)
+def test_record_values_are_escaped(sid, rec):
+    r, company = rec
+    hostile = dict(r, role='Founder" onmouseover="alert(1)',
+                   name="A <b>bold</b> claim")
+    m = S.render(sid, hostile, company, BASE)
+    # The escaped text still reads "onmouseover=" - that is fine. What must
+    # be gone is the quote that would close the style attribute and let the
+    # rest become a real handler.
+    assert 'onmouseover="' not in m
+    assert "&quot; onmouseover=&quot;" in m or "&quot;onmouseover" in m
+    assert "<b>bold</b>" not in m
+    assert "&lt;b&gt;bold&lt;/b&gt;" in m
+
+    from html.parser import HTMLParser
+    handlers = []
+
+    class Sniff(HTMLParser):
+        def handle_starttag(self, tag, attrs):
+            handlers.extend(k for k, _ in attrs if k.startswith("on"))
+
+    Sniff().feed(m)
+    assert not handlers, f"style '{sid}' produced event handlers: {handlers}"

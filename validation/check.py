@@ -30,6 +30,8 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 sys.path.insert(0, os.path.join(ROOT, "build"))
 from model import DOCS, load_company, load_people   # noqa: E402
+from styles import STYLES                          # noqa: E402
+from model import OCHRE, UMBER                     # noqa: E402
 
 SHOTS = os.path.join(HERE, "screenshots")
 os.makedirs(SHOTS, exist_ok=True)
@@ -128,11 +130,18 @@ PROBE_JS = open(os.path.join(HERE, "_probe.js")).read() if os.path.isfile(
              complete: im.complete && im.naturalWidth > 0 };
   });
 
+  // Only cells that sit beside an icon. Some styles put the social links in
+  // a brand bar of their own, and comparing those against the icon rows
+  // reports a misalignment that is the layout, not a defect.
   const contactLefts = Array.from(host.querySelectorAll('a'))
     .filter(a => /^(mailto:|tel:|https:)/.test(a.getAttribute('href')||''))
-    .map(a => { const td = a.closest('td');
-                return td ? Math.round(td.getBoundingClientRect().left) : null; })
-    .filter(v => v !== null);
+    .map(a => a.closest('td'))
+    .filter(td => {
+      if (!td) return false;
+      const prev = td.previousElementSibling;
+      return prev && prev.querySelector('img[src*="icon-"]');
+    })
+    .map(td => Math.round(td.getBoundingClientRect().left));
 
   function effBg(el) {
     let n = el;
@@ -205,10 +214,22 @@ def run():
         browser = p.chromium.launch(
             args=["--no-sandbox", "--disable-dev-shm-usage", "--disable-gpu"])
 
+        # Every style, for every person. Reading only signature.html would
+        # leave nine of the ten shipping unlooked-at - the same shape of bug
+        # as a gate that skips silently.
+        jobs = []
         for rec in people:
-            pid = rec["id"]
-            with open(os.path.join(tmp, pid, "signature.html"),
-                      encoding="utf-8") as fh:
+            for sid, _l, _n, _f in STYLES:
+                fp = os.path.join(tmp, rec["id"], f"sig-{sid}.html")
+                if not os.path.isfile(fp):
+                    raise SystemExit(f"{fp} missing - generate.py runs first")
+                jobs.append((rec, sid, fp))
+        if len(jobs) != len(people) * len(STYLES):
+            raise SystemExit("style coverage is incomplete")
+
+        for rec, style_id, fp in jobs:
+            pid = f"{rec['id']}--{style_id}"
+            with open(fp, encoding="utf-8") as fh:
                 sig = fh.read()
 
             if len(sig) >= 10000:
@@ -299,12 +320,24 @@ def run():
                                 f"colspan={c['value']} exceeds "
                                 f"{c['tableCols']} columns")
 
-                    if not d["rules"]:
-                        add("MED", s, "V12", "no Ochre rule found")
+                    # Brand presence, not one particular shape of it. The
+                    # original check assumed the single design's vertical
+                    # ochre rule; ten styles use horizontal rules, umber
+                    # bands and colour columns, all of which are the brand
+                    # doing its job.
+                    brand_block = ('bgcolor="' + UMBER + '"') in sig or \
+                                  ('bgcolor="' + OCHRE + '"') in sig
+                    if not d["rules"] and not brand_block:
+                        add("MED", s, "V12",
+                            "no brand colour found - no rule and no pinned "
+                            "umber or ochre block")
                     for r in d["rules"]:
-                        if r["w"] < 3 or r["h"] < 100:
+                        long_side = max(r["w"], r["h"])
+                        short_side = min(r["w"], r["h"])
+                        if short_side < 2 or long_side < 40:
                             add("MED", s, "V12",
-                                f"Ochre rule {r['w']}x{r['h']}, expected >=3x100")
+                                f"brand rule {r['w']}x{r['h']} is too small to "
+                                f"read as a rule (want >=2 x >=40, either way up)")
                         if not r["bgcolorAttr"]:
                             add("LOW", s, "V12", "rule has no bgcolor attribute")
 

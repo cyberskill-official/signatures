@@ -215,6 +215,7 @@ phone_href: "+84912345678"     #   required if phone is set - digits only
 avatar: mai-tran.png           # optional, file in src/avatars/
 crop: [108, 20, 250]           # optional [x, y, size]; a maintainer sets this
 order: 10                      # optional sort key on the directory page
+style: plate                   # optional, one of the ten; default classic
 
 website: cyberskill.world      # optional override of company.yml
 website_href: https://cyberskill.world
@@ -246,6 +247,49 @@ can never start rejecting real names.
 
 If your record is rejected, the failure message names the field and says what
 is wrong with it.
+
+### Picking a style
+
+There are ten. Open your page, press the one you want, and check the previews
+before you copy - they all carry exactly the same details, so nothing is lost
+by choosing on looks alone.
+
+The page remembers your last choice in that browser. To make it permanent, so
+it is what your page ships with and what anyone else opening it sees, add one
+line to your record:
+
+```yaml
+style: plate
+```
+
+Valid values are the ids in [`build/styles.py`](build/styles.py): `classic`,
+`plate`, `cap`, `footer`, `sidebar`, `compact`, `stacked`, `split`, `banner`,
+`badge`. A typo fails the build rather than quietly falling back, so you are
+never left wondering why your choice did not stick.
+
+Two styles never show a photo - `stacked` and `badge`. If you would rather not
+publish one, pick either and leave `avatar` out.
+
+### Adding a style
+
+Write the function, add it to `STYLES`, run `python3 -m pytest tests/ -q`. The
+tests enforce four rules on every style, and they are not suggestions:
+
+| Rule | Why |
+|---|---|
+| Brand colour visible | Otherwise it is a generic signature with our details in it. |
+| Icons on the contact rows | They are the only thing making four similar lines scannable. |
+| Socials as one wrapping text line | A seventh network must cost one more link and zero extra rows. |
+| Colour only on a pinned background | No value clears 4.5:1 on both white and dark, so a colour is only safe where the same markup owns the background. |
+
+Images may only be displayed at a size that was baked - `AVATAR_SIZES`,
+`LOGO_SIZES`, `ICON_SIZES` in `build/model.py`. A 160px source shown at 48px
+is not sharper, it is four times the bytes for every recipient of every mail,
+and validation says so.
+
+Backgrounds go on table cells, never on a `div`. Outlook draws mail through
+Word, which honours the `bgcolor` attribute and ignores `background-color` on
+anything else - a div rule is simply absent there.
 
 ### Changing the wording on the site
 

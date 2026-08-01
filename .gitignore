@@ -8,6 +8,12 @@ validation/crossclient/*.png
 # subdirectory, where the pattern above did not reach it.
 validation/crossclient/**/*.png
 
+# Render evidence: was 7 PNGs, became 77 the day there were ten styles, and
+# every run rewrites all of them. CI uploads the set as a build artifact,
+# which is where you actually look at them. report.json stays - it is small,
+# reviewable, and diffs usefully.
+validation/screenshots/*.png
+
 build/vendor/node_modules/
 build/vendor/package-lock.json
 build/vendor/package.json
