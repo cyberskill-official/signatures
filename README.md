@@ -111,12 +111,15 @@ to appear here is not consent to appear anywhere else.
 signatures/
 ├── docs/                 <- GitHub Pages root. 100% generated, never hand-edited.
 │   ├── index.html            signature directory
+│   ├── help/index.html       how to get one or change yours
+│   ├── 404.html              absolute links, so it works at any depth
+│   ├── robots.txt            follows index_site in company.yml
 │   ├── .nojekyll             stops Jekyll dropping files
 │   ├── people/<id>/
 │   │   ├── index.html        install page for that person
 │   │   └── signature.html    the raw payload
 │   └── assets/
-│       ├── shared/           logo + 4 icons - one copy for everyone
+│       ├── shared/           logo, 4 icons, favicon, og-card
 │       └── people/<id>/      that person's baked avatar
 ├── src/                  <- authored input
 │   ├── company.yml
@@ -125,12 +128,16 @@ signatures/
 │   ├── people/<id>.yml
 │   └── avatars/<id>.png
 ├── build/                model, asset baker, generator, site builder
+├── tests/                pytest - records, input safety, workflow definitions
 ├── validation/
 │   ├── check.py              layout, contrast, blocked images
 │   └── crossclient.py        client sanitisers x 3 engines
 ├── .github/
 │   ├── ISSUE_TEMPLATE/       intake forms for staff with no GitHub knowledge
-│   └── workflows/            validate on PR, rebuild docs/ on merge
+│   ├── scripts/              issue_to_record.py - request to YAML + photo
+│   └── workflows/            validate, publish, request
+├── requirements.txt      pinned; Dependabot watches it
+├── LICENSE               photos, brand and code are NOT under the same terms
 ├── CONTRIBUTING.md
 └── install.sh            rebuild + verify
 ```
@@ -162,6 +169,46 @@ Workflow-level `permissions:` blocks grant what each job needs, so the repo's
 default token setting does not have to be loosened.
 
 ---
+
+## How a request becomes a signature
+
+```
+issue form  ->  request.yml  ->  pull request  ->  merge  ->  publish.yml  ->  site
+                (validates)      (human reviews)            (validates, deploys)
+```
+
+`request.yml` parses the issue form, writes the record, downloads and
+re-encodes the photo, runs the whole check suite, and only then opens a pull
+request. Validation happens *before* the pull request exists because a pull
+request opened with `GITHUB_TOKEN` does not trigger workflows - Validate would
+otherwise sit at "1 workflow awaiting approval" and the automation would be
+handing over something unchecked.
+
+Two gates guard it. The `gate` job always runs and logs what it decided, so a
+refusal is visible rather than a silent skip; and it only proceeds for people
+with write access, because the repository is public and this workflow can
+write to it.
+
+The photo is downloaded size-capped, decoded with Pillow to prove it is really
+an image, and re-encoded - which also strips EXIF, so nobody publishes their
+GPS coordinates by accident.
+
+### Records are untrusted input
+
+They arrive by pull request from people who never see the HTML they become,
+and that HTML is both published and pasted into mail clients. Three layers,
+because none is sufficient alone:
+
+| Layer | Catches | Cannot catch |
+|---|---|---|
+| `html.escape` at render | quotes, angle brackets | `javascript:` - escaping it leaves it working |
+| Scheme allowlist in `model.py` | `javascript:`, `data:`, `http:` | a plausible-looking https URL |
+| Shape limits in `model.py` | markup characters, invisible characters, absurd lengths | meaning |
+
+This was a live hole, not a hypothetical. A `javascript:` href and a quote in
+a social label once produced six executable links and five event handlers on
+the published page, and `install.sh` reported `ok`. Every payload from that
+episode is now a test.
 
 ## The design
 
@@ -292,8 +339,30 @@ font-size.
 
 ## Validation
 
+Three layers, cheapest first.
+
+### Unit tests
+
 ```bash
-pip install playwright --break-system-packages
+pip install -r requirements.txt --break-system-packages
+python3 -m pytest tests/ -q        # 81 tests, well under a second
+```
+
+Records, input safety, and workflow definitions. Every injection payload that
+once reached the published page is in here as a regression test, alongside
+real names - `Trịnh Thái Anh`, `O'Brien`, `李小龍` - because a safety check
+that rejects real input gets removed rather than fixed.
+
+`tests/test_workflows.py` exists because of a live failure: a folded YAML
+scalar (`>-`) folds newlines into spaces only for lines at the *same*
+indentation, so a continuation line indented for readability put a literal
+newline inside an `if:` expression. GitHub evaluated it false and skipped the
+job with no error anywhere. It also checks SHA pinning, explicit permissions,
+and that the issue body never reaches a shell.
+
+### Render suite
+
+```bash
 python3 -m playwright install chromium
 python3 validation/check.py        # exits non-zero on any finding
 ```

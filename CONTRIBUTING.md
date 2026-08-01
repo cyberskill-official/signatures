@@ -29,8 +29,10 @@ build. Automation does that when your change is merged.
 3. Fill in the form and submit. Attach your photo by dragging it into the
    photo field.
 
-A maintainer turns your request into a pull request. You will be tagged on it
-so you can confirm the details are right before it merges.
+Automation turns your request into a pull request within a couple of minutes,
+runs the full check suite against it, and comments on your issue with a link.
+A maintainer reviews the things a test cannot judge - spelling, accents,
+whether the photo is really you - and merges.
 
 That is the whole process. Stop here unless you want to raise the change
 yourself.
@@ -121,7 +123,7 @@ For maintainers and anyone adding several people at once.
 ```bash
 git clone https://github.com/cyberskill-official/signatures.git
 cd signatures
-pip install pyyaml pillow --break-system-packages
+pip install -r requirements.txt --break-system-packages
 
 git checkout -b add-mai-tran
 cp src/people/_template.yml src/people/mai-tran.yml
@@ -131,12 +133,19 @@ python3 build/make_assets.py --sheet   # check the crop in docs/assets/_avatar-s
 ./install.sh --skip-icons              # rebuild and run the local checks
 ```
 
-To run the full validation suite as well:
+The record and workflow tests run in a fraction of a second and need no
+browser:
 
 ```bash
-pip install playwright --break-system-packages
+python3 -m pytest tests/ -q
+```
+
+The full render suite needs one:
+
+```bash
 python3 -m playwright install chromium
 python3 validation/check.py
+python3 validation/crossclient.py --engines chromium
 ```
 
 Committing `docs/` is optional. If you do commit it, it has to match a clean
@@ -151,10 +160,12 @@ Every pull request runs the same checks:
 
 | Check | What it catches |
 |---|---|
+| Unit tests | a bad record, an unsafe link, a workflow definition that would skip silently |
 | Record validation | missing fields, a bad filename, a phone without a `phone_href`, a photo that is not there |
 | Build | anything that stops your signature generating |
 | Gmail compatibility | markup Gmail would strip, or a signature over the 10,000 character limit |
 | Rendering | overflow at phone width, contrast failures, links that lost their underline |
+| Cross-client | 14 mail clients across three browser engines, light and dark |
 | Generated output | a hand-edit to `docs/` |
 
 The run posts a comment on your pull request with your signature's size and a
@@ -213,6 +224,38 @@ socials:                       # optional override of company.yml
 
 Anything not listed above is rejected, so a typo in a field name fails the
 pull request instead of silently doing nothing.
+
+### What the build will reject, and why
+
+Records go straight into published HTML and into markup people paste into
+their mail client, so they are treated as untrusted input even though a
+colleague wrote them.
+
+| Rule | Reason |
+|---|---|
+| Links must start with `https://`, `mailto:` or `tel:` | `javascript:` and `data:` URLs are executable. Plain `http://` is not accepted either. |
+| No `<` or `>` in any text field | A job title has no reason to contain markup. |
+| No invisible characters | Zero-width spaces and right-to-left overrides let a name hide what it actually says. |
+| Length caps - 60 for names, 80 for a role | Long enough for real names, short enough that the layout holds. |
+| `phone_href` must be digits, optionally with a leading `+` | It goes straight into a `tel:` link. |
+| `active` must be `true` or `false` | A typo here would quietly unpublish someone. |
+
+Accents, apostrophes and non-Latin scripts are all fine. `Trịnh Thái Anh`,
+`O'Brien` and `李小龍` are in the test suite specifically so that these rules
+can never start rejecting real names.
+
+If your record is rejected, the failure message names the field and says what
+is wrong with it.
+
+### When someone leaves
+
+Set `active: false` on their record. Their page comes off the site, the record
+and its history stay in git. Their photo is not deleted by that, because old
+mail still points at it - see "When someone leaves" in
+[README.md](README.md#when-someone-leaves) for when to remove it as well.
+
+Anyone pictured on this site can ask to be removed at any time. That is
+recorded in [LICENSE](LICENSE), not left to custom.
 
 ---
 
