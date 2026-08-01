@@ -108,8 +108,40 @@ jobs:
       - name: Rebuild the site
         run: ./install.sh --skip-icons
 
-      - name: Check it
+      # Full validation runs HERE, before the pull request exists.
+      #
+      # A pull request opened with GITHUB_TOKEN does not trigger workflows, so
+      # Validate sits at "1 workflow awaiting approval" until a maintainer
+      # clicks it - which means the automation would hand over an unchecked
+      # pull request and ask for a click before the checks even start. Running
+      # the checks here inverts that: the pull request arrives already
+      # verified, and approving Validate afterwards is a second opinion rather
+      # than the only one.
+      - name: Unit tests
         run: python3 -m pytest tests/ -q
+
+      - name: Install browser
+        run: python -m playwright install --with-deps chromium
+
+      - name: Render and accessibility checks
+        run: python3 validation/check.py
+
+      - name: Cross-client checks
+        run: |
+          python3 validation/crossclient.py \
+            --engines chromium --require-engines chromium
+
+      - name: Keep the evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02  # v4
+        with:
+          name: request-${{ github.event.issue.number }}-evidence
+          path: |
+            validation/screenshots/
+            validation/report.json
+            validation/crossclient/report.json
+          if-no-files-found: warn
+          retention-days: 14
 
       - name: Open the pull request
         id: pr
@@ -137,16 +169,28 @@ jobs:
             echo "Updated existing PR #$existing"
             echo "pr=$existing" >> "$GITHUB_OUTPUT"
           else
+            # Built line by line into a file. A multi-line --body string
+            # inside a YAML block scalar has to stay indented, and an
+            # unindented line silently ends the block - which is how this
+            # workflow broke once already.
+            printf '%s\n' \
+              "Generated from #${NUM}. Closes #${NUM}." \
+              "" \
+              "Unit tests, render checks and cross-client checks all passed" \
+              "before this was opened - see the \`Request to pull request\`" \
+              "run. Screenshots are attached to it as an artifact." \
+              "" \
+              "A human still needs to check what a test cannot:" \
+              "" \
+              "- the name is spelled and accented the way they wrote it" \
+              "- the photo is cropped sensibly, and is actually them" \
+              "- the phone number dials correctly" \
+              "" \
+              "Everything under \`docs/\` is generated. Do not hand-edit it." \
+              > /tmp/pr-body.md
             url=$(gh pr create --head "$branch" --base main \
               --title "${MODE^} signature for ${NAME}" \
-              --body "Generated from #${NUM}. Closes #${NUM}.
-
-          Check before merging:
-          - the name is spelled and accented the way they wrote it
-          - the photo is cropped sensibly - see \`docs/assets/_avatar-sheet.png\`
-          - the phone number dials correctly
-
-          Everything under \`docs/\` here is generated. Do not hand-edit it.")
+              --body-file /tmp/pr-body.md)
             echo "Opened $url"
             echo "pr=$url" >> "$GITHUB_OUTPUT"
           fi
