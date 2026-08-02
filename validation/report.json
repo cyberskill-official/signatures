@@ -1,12 +1,12 @@
 {
-  "generated": "2026-08-02 00:21:26",
+  "generated": "2026-08-02 00:34:55",
   "people": [
     "stephen-cheng"
   ],
   "runs": [
     {
       "tableW": 520,
-      "tableH": 190,
+      "tableH": 206,
       "docScrollW": 900,
       "links": [
         {
@@ -47,7 +47,7 @@
       ],
       "imgs": [
         {
-          "src": "http://127.0.0.1:58505/assets/people/stephen-cheng/avatar-80-2x.png?v=10ab46c8",
+          "src": "http://127.0.0.1:64718/assets/people/stephen-cheng/avatar-80-2x.png?v=10ab46c8",
           "alt": "",
           "wAttr": "80",
           "hAttr": "80",
@@ -63,7 +63,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-mail-2x.png?v=e478dc4a",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-mail-2x.png?v=e478dc4a",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -79,7 +79,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-phone-2x.png?v=d3d73cc4",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-phone-2x.png?v=d3d73cc4",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -95,7 +95,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-globe-2x.png?v=9a8d610f",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-globe-2x.png?v=9a8d610f",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -111,7 +111,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-users-2x.png?v=117751d0",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-users-2x.png?v=117751d0",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -188,7 +188,12 @@
       "rules": [
         {
           "w": 3,
-          "h": 190,
+          "h": 206,
+          "bgcolorAttr": "#F4BA17"
+        },
+        {
+          "w": 407,
+          "h": 18,
           "bgcolorAttr": "#F4BA17"
         }
       ],
@@ -227,7 +232,7 @@
     },
     {
       "tableW": 520,
-      "tableH": 190,
+      "tableH": 206,
       "docScrollW": 900,
       "links": [
         {
@@ -409,7 +414,12 @@
       "rules": [
         {
           "w": 3,
-          "h": 190,
+          "h": 206,
+          "bgcolorAttr": "#F4BA17"
+        },
+        {
+          "w": 407,
+          "h": 18,
           "bgcolorAttr": "#F4BA17"
         }
       ],
@@ -427,13 +437,7 @@
           "tableCols": 2
         }
       ],
-      "contactLefts": [
-        147,
-        147,
-        147,
-        147,
-        147
-      ],
+      "contactLefts": [],
       "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn \u00b7 Facebook\n\u00a0\n\u00a0\nTurn Your Will Into Real",
       "forbidden": {
         "styleTags": 0,
@@ -448,7 +452,7 @@
     },
     {
       "tableW": 288,
-      "tableH": 208,
+      "tableH": 224,
       "docScrollW": 320,
       "links": [
         {
@@ -489,7 +493,7 @@
       ],
       "imgs": [
         {
-          "src": "http://127.0.0.1:58505/assets/people/stephen-cheng/avatar-80-2x.png?v=10ab46c8",
+          "src": "http://127.0.0.1:64718/assets/people/stephen-cheng/avatar-80-2x.png?v=10ab46c8",
           "alt": "",
           "wAttr": "80",
           "hAttr": "80",
@@ -505,7 +509,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-mail-2x.png?v=e478dc4a",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-mail-2x.png?v=e478dc4a",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -521,7 +525,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-phone-2x.png?v=d3d73cc4",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-phone-2x.png?v=d3d73cc4",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -537,7 +541,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-globe-2x.png?v=9a8d610f",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-globe-2x.png?v=9a8d610f",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -553,7 +557,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-users-2x.png?v=117751d0",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-users-2x.png?v=117751d0",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -630,7 +634,12 @@
       "rules": [
         {
           "w": 3,
-          "h": 208,
+          "h": 224,
+          "bgcolorAttr": "#F4BA17"
+        },
+        {
+          "w": 175,
+          "h": 18,
           "bgcolorAttr": "#F4BA17"
         }
       ],
@@ -669,7 +678,7 @@
     },
     {
       "tableW": 288,
-      "tableH": 208,
+      "tableH": 224,
       "docScrollW": 320,
       "links": [
         {
@@ -851,7 +860,12 @@
       "rules": [
         {
           "w": 3,
-          "h": 208,
+          "h": 224,
+          "bgcolorAttr": "#F4BA17"
+        },
+        {
+          "w": 175,
+          "h": 18,
           "bgcolorAttr": "#F4BA17"
         }
       ],
@@ -869,13 +883,7 @@
           "tableCols": 2
         }
       ],
-      "contactLefts": [
-        147,
-        147,
-        147,
-        147,
-        147
-      ],
+      "contactLefts": [],
       "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn \u00b7 Facebook\n\u00a0\n\u00a0\nTurn Your Will Into Real",
       "forbidden": {
         "styleTags": 0,
@@ -949,7 +957,7 @@
       ],
       "imgs": [
         {
-          "src": "http://127.0.0.1:58505/assets/people/stephen-cheng/avatar-56-2x.png?v=867a2bda",
+          "src": "http://127.0.0.1:64718/assets/people/stephen-cheng/avatar-56-2x.png?v=867a2bda",
           "alt": "",
           "wAttr": "56",
           "hAttr": "56",
@@ -965,23 +973,23 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/logo-36-2x.png?v=7b060983",
+          "src": "http://127.0.0.1:64718/assets/shared/logo-36-2x.png?v=7b060983",
           "alt": "",
-          "wAttr": "34",
-          "hAttr": "34",
+          "wAttr": "36",
+          "hAttr": "36",
           "natural": [
             72,
             72
           ],
           "box": [
-            34,
-            34
+            36,
+            36
           ],
-          "cellW": 57,
+          "cellW": 60,
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-mail-2x.png?v=e478dc4a",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-mail-2x.png?v=e478dc4a",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -997,7 +1005,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-phone-2x.png?v=d3d73cc4",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-phone-2x.png?v=d3d73cc4",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -1013,7 +1021,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-globe-2x.png?v=9a8d610f",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-globe-2x.png?v=9a8d610f",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -1029,7 +1037,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-users-2x.png?v=117751d0",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-users-2x.png?v=117751d0",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -1204,17 +1212,17 @@
         {
           "src": "/__blocked__/missing-1.png",
           "alt": "",
-          "wAttr": "34",
-          "hAttr": "34",
+          "wAttr": "36",
+          "hAttr": "36",
           "natural": [
             0,
             0
           ],
           "box": [
-            34,
-            34
+            36,
+            36
           ],
-          "cellW": 57,
+          "cellW": 60,
           "complete": false
         },
         {
@@ -1361,13 +1369,7 @@
           "tableCols": 2
         }
       ],
-      "contactLefts": [
-        52,
-        52,
-        52,
-        52,
-        52
-      ],
+      "contactLefts": [],
       "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\t\n\n\u00a0\n\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn \u00b7 Facebook\n\nTurn Your Will Into Real",
       "forbidden": {
         "styleTags": 0,
@@ -1423,7 +1425,7 @@
       ],
       "imgs": [
         {
-          "src": "http://127.0.0.1:58505/assets/people/stephen-cheng/avatar-56-2x.png?v=867a2bda",
+          "src": "http://127.0.0.1:64718/assets/people/stephen-cheng/avatar-56-2x.png?v=867a2bda",
           "alt": "",
           "wAttr": "56",
           "hAttr": "56",
@@ -1439,23 +1441,23 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/logo-36-2x.png?v=7b060983",
+          "src": "http://127.0.0.1:64718/assets/shared/logo-36-2x.png?v=7b060983",
           "alt": "",
-          "wAttr": "34",
-          "hAttr": "34",
+          "wAttr": "36",
+          "hAttr": "36",
           "natural": [
             72,
             72
           ],
           "box": [
-            34,
-            34
+            36,
+            36
           ],
-          "cellW": 34,
+          "cellW": 36,
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-mail-2x.png?v=e478dc4a",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-mail-2x.png?v=e478dc4a",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -1471,7 +1473,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-phone-2x.png?v=d3d73cc4",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-phone-2x.png?v=d3d73cc4",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -1487,7 +1489,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-globe-2x.png?v=9a8d610f",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-globe-2x.png?v=9a8d610f",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -1503,7 +1505,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-users-2x.png?v=117751d0",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-users-2x.png?v=117751d0",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -1678,17 +1680,17 @@
         {
           "src": "/__blocked__/missing-1.png",
           "alt": "",
-          "wAttr": "34",
-          "hAttr": "34",
+          "wAttr": "36",
+          "hAttr": "36",
           "natural": [
             0,
             0
           ],
           "box": [
-            34,
-            34
+            36,
+            36
           ],
-          "cellW": 34,
+          "cellW": 36,
           "complete": false
         },
         {
@@ -1835,13 +1837,7 @@
           "tableCols": 2
         }
       ],
-      "contactLefts": [
-        52,
-        52,
-        52,
-        52,
-        52
-      ],
+      "contactLefts": [],
       "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\t\n\n\u00a0\n\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn \u00b7 Facebook\n\nTurn Your Will Into Real",
       "forbidden": {
         "styleTags": 0,
@@ -1915,7 +1911,7 @@
       ],
       "imgs": [
         {
-          "src": "http://127.0.0.1:58505/assets/people/stephen-cheng/avatar-56-2x.png?v=867a2bda",
+          "src": "http://127.0.0.1:64718/assets/people/stephen-cheng/avatar-56-2x.png?v=867a2bda",
           "alt": "",
           "wAttr": "56",
           "hAttr": "56",
@@ -1931,7 +1927,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-mail-2x.png?v=e478dc4a",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-mail-2x.png?v=e478dc4a",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -1947,7 +1943,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-phone-2x.png?v=d3d73cc4",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-phone-2x.png?v=d3d73cc4",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -1963,7 +1959,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-globe-2x.png?v=9a8d610f",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-globe-2x.png?v=9a8d610f",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -1979,7 +1975,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-users-2x.png?v=117751d0",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-users-2x.png?v=117751d0",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -2283,13 +2279,7 @@
           "tableCols": 2
         }
       ],
-      "contactLefts": [
-        105,
-        105,
-        105,
-        105,
-        105
-      ],
+      "contactLefts": [],
       "bodyText": "CYBERSKILL \u00b7 Turn Your Will Into Real\n\n\t\u00a0\t\nStephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn \u00b7 Facebook",
       "forbidden": {
         "styleTags": 0,
@@ -2345,7 +2335,7 @@
       ],
       "imgs": [
         {
-          "src": "http://127.0.0.1:58505/assets/people/stephen-cheng/avatar-56-2x.png?v=867a2bda",
+          "src": "http://127.0.0.1:64718/assets/people/stephen-cheng/avatar-56-2x.png?v=867a2bda",
           "alt": "",
           "wAttr": "56",
           "hAttr": "56",
@@ -2361,7 +2351,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-mail-2x.png?v=e478dc4a",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-mail-2x.png?v=e478dc4a",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -2377,7 +2367,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-phone-2x.png?v=d3d73cc4",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-phone-2x.png?v=d3d73cc4",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -2393,7 +2383,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-globe-2x.png?v=9a8d610f",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-globe-2x.png?v=9a8d610f",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -2409,7 +2399,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-users-2x.png?v=117751d0",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-users-2x.png?v=117751d0",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -2713,13 +2703,7 @@
           "tableCols": 2
         }
       ],
-      "contactLefts": [
-        105,
-        105,
-        105,
-        105,
-        105
-      ],
+      "contactLefts": [],
       "bodyText": "CYBERSKILL \u00b7 Turn Your Will Into Real\n\n\t\u00a0\t\nStephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn \u00b7 Facebook",
       "forbidden": {
         "styleTags": 0,
@@ -2793,7 +2777,7 @@
       ],
       "imgs": [
         {
-          "src": "http://127.0.0.1:58505/assets/people/stephen-cheng/avatar-56-2x.png?v=867a2bda",
+          "src": "http://127.0.0.1:64718/assets/people/stephen-cheng/avatar-56-2x.png?v=867a2bda",
           "alt": "",
           "wAttr": "56",
           "hAttr": "56",
@@ -2809,7 +2793,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-mail-2x.png?v=e478dc4a",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-mail-2x.png?v=e478dc4a",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -2825,7 +2809,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-phone-2x.png?v=d3d73cc4",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-phone-2x.png?v=d3d73cc4",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -2841,7 +2825,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-globe-2x.png?v=9a8d610f",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-globe-2x.png?v=9a8d610f",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -2857,13 +2841,13 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/logo-36-2x.png?v=7b060983",
+          "src": "http://127.0.0.1:64718/assets/shared/logo-28-2x.png?v=276a4634",
           "alt": "",
           "wAttr": "28",
           "hAttr": "28",
           "natural": [
-            72,
-            72
+            56,
+            56
           ],
           "box": [
             28,
@@ -2951,9 +2935,7 @@
       "contactLefts": [
         123,
         123,
-        123,
-        69,
-        69
+        123
       ],
       "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\n\n\t\u00a0\tTurn Your Will Into Real\nLinkedIn \u00b7 Facebook",
       "forbidden": {
@@ -3165,13 +3147,7 @@
           "tableCols": 2
         }
       ],
-      "contactLefts": [
-        123,
-        123,
-        123,
-        69,
-        69
-      ],
+      "contactLefts": [],
       "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\n\n\t\u00a0\tTurn Your Will Into Real\nLinkedIn \u00b7 Facebook",
       "forbidden": {
         "styleTags": 0,
@@ -3227,7 +3203,7 @@
       ],
       "imgs": [
         {
-          "src": "http://127.0.0.1:58505/assets/people/stephen-cheng/avatar-56-2x.png?v=867a2bda",
+          "src": "http://127.0.0.1:64718/assets/people/stephen-cheng/avatar-56-2x.png?v=867a2bda",
           "alt": "",
           "wAttr": "56",
           "hAttr": "56",
@@ -3243,7 +3219,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-mail-2x.png?v=e478dc4a",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-mail-2x.png?v=e478dc4a",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -3259,7 +3235,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-phone-2x.png?v=d3d73cc4",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-phone-2x.png?v=d3d73cc4",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -3275,7 +3251,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-globe-2x.png?v=9a8d610f",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-globe-2x.png?v=9a8d610f",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -3291,13 +3267,13 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/logo-36-2x.png?v=7b060983",
+          "src": "http://127.0.0.1:64718/assets/shared/logo-28-2x.png?v=276a4634",
           "alt": "",
           "wAttr": "28",
           "hAttr": "28",
           "natural": [
-            72,
-            72
+            56,
+            56
           ],
           "box": [
             28,
@@ -3385,9 +3361,7 @@
       "contactLefts": [
         123,
         123,
-        123,
-        69,
-        69
+        123
       ],
       "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\n\n\t\u00a0\tTurn Your Will Into Real\nLinkedIn \u00b7 Facebook",
       "forbidden": {
@@ -3599,13 +3573,7 @@
           "tableCols": 2
         }
       ],
-      "contactLefts": [
-        123,
-        123,
-        123,
-        69,
-        69
-      ],
+      "contactLefts": [],
       "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\n\n\t\u00a0\tTurn Your Will Into Real\nLinkedIn \u00b7 Facebook",
       "forbidden": {
         "styleTags": 0,
@@ -3679,7 +3647,7 @@
       ],
       "imgs": [
         {
-          "src": "http://127.0.0.1:58505/assets/people/stephen-cheng/avatar-56-2x.png?v=867a2bda",
+          "src": "http://127.0.0.1:64718/assets/people/stephen-cheng/avatar-56-2x.png?v=867a2bda",
           "alt": "",
           "wAttr": "56",
           "hAttr": "56",
@@ -3695,13 +3663,13 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/logo-36-2x.png?v=7b060983",
+          "src": "http://127.0.0.1:64718/assets/shared/logo-28-2x.png?v=276a4634",
           "alt": "",
           "wAttr": "28",
           "hAttr": "28",
           "natural": [
-            72,
-            72
+            56,
+            56
           ],
           "box": [
             28,
@@ -3711,7 +3679,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-mail-2x.png?v=e478dc4a",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-mail-2x.png?v=e478dc4a",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -3727,7 +3695,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-phone-2x.png?v=d3d73cc4",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-phone-2x.png?v=d3d73cc4",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -3743,7 +3711,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-globe-2x.png?v=9a8d610f",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-globe-2x.png?v=9a8d610f",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -3759,7 +3727,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-users-2x.png?v=117751d0",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-users-2x.png?v=117751d0",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -4079,13 +4047,7 @@
           "tableCols": 2
         }
       ],
-      "contactLefts": [
-        138,
-        138,
-        138,
-        138,
-        138
-      ],
+      "contactLefts": [],
       "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn \u00b7 Facebook\nTurn Your Will Into Real",
       "forbidden": {
         "styleTags": 0,
@@ -4141,7 +4103,7 @@
       ],
       "imgs": [
         {
-          "src": "http://127.0.0.1:58505/assets/people/stephen-cheng/avatar-56-2x.png?v=867a2bda",
+          "src": "http://127.0.0.1:64718/assets/people/stephen-cheng/avatar-56-2x.png?v=867a2bda",
           "alt": "",
           "wAttr": "56",
           "hAttr": "56",
@@ -4157,13 +4119,13 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/logo-36-2x.png?v=7b060983",
+          "src": "http://127.0.0.1:64718/assets/shared/logo-28-2x.png?v=276a4634",
           "alt": "",
           "wAttr": "28",
           "hAttr": "28",
           "natural": [
-            72,
-            72
+            56,
+            56
           ],
           "box": [
             28,
@@ -4173,7 +4135,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-mail-2x.png?v=e478dc4a",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-mail-2x.png?v=e478dc4a",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -4189,7 +4151,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-phone-2x.png?v=d3d73cc4",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-phone-2x.png?v=d3d73cc4",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -4205,7 +4167,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-globe-2x.png?v=9a8d610f",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-globe-2x.png?v=9a8d610f",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -4221,7 +4183,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-users-2x.png?v=117751d0",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-users-2x.png?v=117751d0",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -4541,13 +4503,7 @@
           "tableCols": 2
         }
       ],
-      "contactLefts": [
-        138,
-        138,
-        138,
-        138,
-        138
-      ],
+      "contactLefts": [],
       "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn \u00b7 Facebook\nTurn Your Will Into Real",
       "forbidden": {
         "styleTags": 0,
@@ -4580,7 +4536,7 @@
     },
     {
       "tableW": 520,
-      "tableH": 134,
+      "tableH": 142,
       "docScrollW": 900,
       "links": [
         {
@@ -4621,7 +4577,7 @@
       ],
       "imgs": [
         {
-          "src": "http://127.0.0.1:58505/assets/people/stephen-cheng/avatar-56-2x.png?v=867a2bda",
+          "src": "http://127.0.0.1:64718/assets/people/stephen-cheng/avatar-56-2x.png?v=867a2bda",
           "alt": "",
           "wAttr": "56",
           "hAttr": "56",
@@ -4637,77 +4593,77 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-mail-2x.png?v=e478dc4a",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-mail-2x.png?v=e478dc4a",
           "alt": "",
-          "wAttr": "15",
-          "hAttr": "15",
+          "wAttr": "18",
+          "hAttr": "18",
           "natural": [
             36,
             36
           ],
           "box": [
-            15,
-            15
+            18,
+            18
           ],
-          "cellW": 15,
+          "cellW": 18,
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-phone-2x.png?v=d3d73cc4",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-phone-2x.png?v=d3d73cc4",
           "alt": "",
-          "wAttr": "15",
-          "hAttr": "15",
+          "wAttr": "18",
+          "hAttr": "18",
           "natural": [
             36,
             36
           ],
           "box": [
-            15,
-            15
+            18,
+            18
           ],
-          "cellW": 15,
+          "cellW": 18,
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-globe-2x.png?v=9a8d610f",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-globe-2x.png?v=9a8d610f",
           "alt": "",
-          "wAttr": "15",
-          "hAttr": "15",
+          "wAttr": "18",
+          "hAttr": "18",
           "natural": [
             36,
             36
           ],
           "box": [
-            15,
-            15
+            18,
+            18
           ],
-          "cellW": 15,
+          "cellW": 18,
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-users-2x.png?v=117751d0",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-users-2x.png?v=117751d0",
           "alt": "",
-          "wAttr": "15",
-          "hAttr": "15",
+          "wAttr": "18",
+          "hAttr": "18",
           "natural": [
             36,
             36
           ],
           "box": [
-            15,
-            15
+            18,
+            18
           ],
-          "cellW": 15,
+          "cellW": 18,
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/logo-36-2x.png?v=7b060983",
+          "src": "http://127.0.0.1:64718/assets/shared/logo-28-2x.png?v=276a4634",
           "alt": "",
           "wAttr": "28",
           "hAttr": "28",
           "natural": [
-            72,
-            72
+            56,
+            56
           ],
           "box": [
             28,
@@ -4771,7 +4727,7 @@
       "rules": [
         {
           "w": 3,
-          "h": 134,
+          "h": 142,
           "bgcolorAttr": "#F4BA17"
         }
       ],
@@ -4790,11 +4746,11 @@
         }
       ],
       "contactLefts": [
-        114,
-        114,
-        114,
-        114,
-        114
+        117,
+        117,
+        117,
+        117,
+        117
       ],
       "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn \u00b7 Facebook",
       "forbidden": {
@@ -4810,7 +4766,7 @@
     },
     {
       "tableW": 520,
-      "tableH": 134,
+      "tableH": 142,
       "docScrollW": 900,
       "links": [
         {
@@ -4869,65 +4825,65 @@
         {
           "src": "/__blocked__/missing-1.png",
           "alt": "",
-          "wAttr": "15",
-          "hAttr": "15",
+          "wAttr": "18",
+          "hAttr": "18",
           "natural": [
             0,
             0
           ],
           "box": [
-            15,
-            15
+            18,
+            18
           ],
-          "cellW": 15,
+          "cellW": 18,
           "complete": false
         },
         {
           "src": "/__blocked__/missing-2.png",
           "alt": "",
-          "wAttr": "15",
-          "hAttr": "15",
+          "wAttr": "18",
+          "hAttr": "18",
           "natural": [
             0,
             0
           ],
           "box": [
-            15,
-            15
+            18,
+            18
           ],
-          "cellW": 15,
+          "cellW": 18,
           "complete": false
         },
         {
           "src": "/__blocked__/missing-3.png",
           "alt": "",
-          "wAttr": "15",
-          "hAttr": "15",
+          "wAttr": "18",
+          "hAttr": "18",
           "natural": [
             0,
             0
           ],
           "box": [
-            15,
-            15
+            18,
+            18
           ],
-          "cellW": 15,
+          "cellW": 18,
           "complete": false
         },
         {
           "src": "/__blocked__/missing-4.png",
           "alt": "",
-          "wAttr": "15",
-          "hAttr": "15",
+          "wAttr": "18",
+          "hAttr": "18",
           "natural": [
             0,
             0
           ],
           "box": [
-            15,
-            15
+            18,
+            18
           ],
-          "cellW": 15,
+          "cellW": 18,
           "complete": false
         },
         {
@@ -5001,7 +4957,7 @@
       "rules": [
         {
           "w": 3,
-          "h": 134,
+          "h": 142,
           "bgcolorAttr": "#F4BA17"
         }
       ],
@@ -5019,13 +4975,7 @@
           "tableCols": 2
         }
       ],
-      "contactLefts": [
-        114,
-        114,
-        114,
-        114,
-        114
-      ],
+      "contactLefts": [],
       "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn \u00b7 Facebook",
       "forbidden": {
         "styleTags": 0,
@@ -5040,7 +4990,7 @@
     },
     {
       "tableW": 288,
-      "tableH": 152,
+      "tableH": 160,
       "docScrollW": 320,
       "links": [
         {
@@ -5081,7 +5031,7 @@
       ],
       "imgs": [
         {
-          "src": "http://127.0.0.1:58505/assets/people/stephen-cheng/avatar-56-2x.png?v=867a2bda",
+          "src": "http://127.0.0.1:64718/assets/people/stephen-cheng/avatar-56-2x.png?v=867a2bda",
           "alt": "",
           "wAttr": "56",
           "hAttr": "56",
@@ -5097,77 +5047,77 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-mail-2x.png?v=e478dc4a",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-mail-2x.png?v=e478dc4a",
           "alt": "",
-          "wAttr": "15",
-          "hAttr": "15",
+          "wAttr": "18",
+          "hAttr": "18",
           "natural": [
             36,
             36
           ],
           "box": [
-            15,
-            15
+            18,
+            18
           ],
-          "cellW": 15,
+          "cellW": 18,
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-phone-2x.png?v=d3d73cc4",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-phone-2x.png?v=d3d73cc4",
           "alt": "",
-          "wAttr": "15",
-          "hAttr": "15",
+          "wAttr": "18",
+          "hAttr": "18",
           "natural": [
             36,
             36
           ],
           "box": [
-            15,
-            15
+            18,
+            18
           ],
-          "cellW": 15,
+          "cellW": 18,
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-globe-2x.png?v=9a8d610f",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-globe-2x.png?v=9a8d610f",
           "alt": "",
-          "wAttr": "15",
-          "hAttr": "15",
+          "wAttr": "18",
+          "hAttr": "18",
           "natural": [
             36,
             36
           ],
           "box": [
-            15,
-            15
+            18,
+            18
           ],
-          "cellW": 15,
+          "cellW": 18,
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-users-2x.png?v=117751d0",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-users-2x.png?v=117751d0",
           "alt": "",
-          "wAttr": "15",
-          "hAttr": "15",
+          "wAttr": "18",
+          "hAttr": "18",
           "natural": [
             36,
             36
           ],
           "box": [
-            15,
-            15
+            18,
+            18
           ],
-          "cellW": 15,
+          "cellW": 18,
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/logo-36-2x.png?v=7b060983",
+          "src": "http://127.0.0.1:64718/assets/shared/logo-28-2x.png?v=276a4634",
           "alt": "",
           "wAttr": "28",
           "hAttr": "28",
           "natural": [
-            72,
-            72
+            56,
+            56
           ],
           "box": [
             28,
@@ -5231,7 +5181,7 @@
       "rules": [
         {
           "w": 3,
-          "h": 152,
+          "h": 160,
           "bgcolorAttr": "#F4BA17"
         }
       ],
@@ -5250,11 +5200,11 @@
         }
       ],
       "contactLefts": [
-        114,
-        114,
-        114,
-        114,
-        114
+        117,
+        117,
+        117,
+        117,
+        117
       ],
       "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn \u00b7 Facebook",
       "forbidden": {
@@ -5270,7 +5220,7 @@
     },
     {
       "tableW": 288,
-      "tableH": 152,
+      "tableH": 160,
       "docScrollW": 320,
       "links": [
         {
@@ -5329,65 +5279,65 @@
         {
           "src": "/__blocked__/missing-1.png",
           "alt": "",
-          "wAttr": "15",
-          "hAttr": "15",
+          "wAttr": "18",
+          "hAttr": "18",
           "natural": [
             0,
             0
           ],
           "box": [
-            15,
-            15
+            18,
+            18
           ],
-          "cellW": 15,
+          "cellW": 18,
           "complete": false
         },
         {
           "src": "/__blocked__/missing-2.png",
           "alt": "",
-          "wAttr": "15",
-          "hAttr": "15",
+          "wAttr": "18",
+          "hAttr": "18",
           "natural": [
             0,
             0
           ],
           "box": [
-            15,
-            15
+            18,
+            18
           ],
-          "cellW": 15,
+          "cellW": 18,
           "complete": false
         },
         {
           "src": "/__blocked__/missing-3.png",
           "alt": "",
-          "wAttr": "15",
-          "hAttr": "15",
+          "wAttr": "18",
+          "hAttr": "18",
           "natural": [
             0,
             0
           ],
           "box": [
-            15,
-            15
+            18,
+            18
           ],
-          "cellW": 15,
+          "cellW": 18,
           "complete": false
         },
         {
           "src": "/__blocked__/missing-4.png",
           "alt": "",
-          "wAttr": "15",
-          "hAttr": "15",
+          "wAttr": "18",
+          "hAttr": "18",
           "natural": [
             0,
             0
           ],
           "box": [
-            15,
-            15
+            18,
+            18
           ],
-          "cellW": 15,
+          "cellW": 18,
           "complete": false
         },
         {
@@ -5461,7 +5411,7 @@
       "rules": [
         {
           "w": 3,
-          "h": 152,
+          "h": 160,
           "bgcolorAttr": "#F4BA17"
         }
       ],
@@ -5479,13 +5429,7 @@
           "tableCols": 2
         }
       ],
-      "contactLefts": [
-        114,
-        114,
-        114,
-        114,
-        114
-      ],
+      "contactLefts": [],
       "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn \u00b7 Facebook",
       "forbidden": {
         "styleTags": 0,
@@ -5518,7 +5462,7 @@
     },
     {
       "tableW": 520,
-      "tableH": 240,
+      "tableH": 258,
       "docScrollW": 900,
       "links": [
         {
@@ -5559,23 +5503,23 @@
       ],
       "imgs": [
         {
-          "src": "http://127.0.0.1:58505/assets/shared/logo-36-2x.png?v=7b060983",
+          "src": "http://127.0.0.1:64718/assets/shared/logo-36-2x.png?v=7b060983",
           "alt": "",
-          "wAttr": "34",
-          "hAttr": "34",
+          "wAttr": "36",
+          "hAttr": "36",
           "natural": [
             72,
             72
           ],
           "box": [
-            34,
-            34
+            36,
+            36
           ],
-          "cellW": 34,
+          "cellW": 36,
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-mail-2x.png?v=e478dc4a",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-mail-2x.png?v=e478dc4a",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -5591,7 +5535,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-phone-2x.png?v=d3d73cc4",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-phone-2x.png?v=d3d73cc4",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -5607,7 +5551,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-globe-2x.png?v=9a8d610f",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-globe-2x.png?v=9a8d610f",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -5623,7 +5567,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-users-2x.png?v=117751d0",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-users-2x.png?v=117751d0",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -5697,7 +5641,13 @@
           "fontWeight": "400"
         }
       ],
-      "rules": [],
+      "rules": [
+        {
+          "w": 52,
+          "h": 18,
+          "bgcolorAttr": "#F4BA17"
+        }
+      ],
       "colspans": [
         {
           "value": 2,
@@ -5733,7 +5683,7 @@
     },
     {
       "tableW": 520,
-      "tableH": 240,
+      "tableH": 258,
       "docScrollW": 900,
       "links": [
         {
@@ -5776,17 +5726,17 @@
         {
           "src": "/__blocked__/missing-0.png",
           "alt": "",
-          "wAttr": "34",
-          "hAttr": "34",
+          "wAttr": "36",
+          "hAttr": "36",
           "natural": [
             0,
             0
           ],
           "box": [
-            34,
-            34
+            36,
+            36
           ],
-          "cellW": 34,
+          "cellW": 36,
           "complete": false
         },
         {
@@ -5912,7 +5862,13 @@
           "fontWeight": "400"
         }
       ],
-      "rules": [],
+      "rules": [
+        {
+          "w": 52,
+          "h": 18,
+          "bgcolorAttr": "#F4BA17"
+        }
+      ],
       "colspans": [
         {
           "value": 2,
@@ -5927,13 +5883,7 @@
           "tableCols": 2
         }
       ],
-      "contactLefts": [
-        34,
-        34,
-        34,
-        34,
-        34
-      ],
+      "contactLefts": [],
       "bodyText": "CYBERSKILL\n\n\u00a0\n\n\u00a0\n\n\u00a0\n\nStephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn \u00b7 Facebook\nTurn Your Will Into Real",
       "forbidden": {
         "styleTags": 0,
@@ -5948,7 +5898,7 @@
     },
     {
       "tableW": 288,
-      "tableH": 240,
+      "tableH": 258,
       "docScrollW": 320,
       "links": [
         {
@@ -5989,23 +5939,23 @@
       ],
       "imgs": [
         {
-          "src": "http://127.0.0.1:58505/assets/shared/logo-36-2x.png?v=7b060983",
+          "src": "http://127.0.0.1:64718/assets/shared/logo-36-2x.png?v=7b060983",
           "alt": "",
-          "wAttr": "34",
-          "hAttr": "34",
+          "wAttr": "36",
+          "hAttr": "36",
           "natural": [
             72,
             72
           ],
           "box": [
-            34,
-            34
+            36,
+            36
           ],
-          "cellW": 34,
+          "cellW": 36,
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-mail-2x.png?v=e478dc4a",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-mail-2x.png?v=e478dc4a",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -6021,7 +5971,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-phone-2x.png?v=d3d73cc4",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-phone-2x.png?v=d3d73cc4",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -6037,7 +5987,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-globe-2x.png?v=9a8d610f",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-globe-2x.png?v=9a8d610f",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -6053,7 +6003,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-users-2x.png?v=117751d0",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-users-2x.png?v=117751d0",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -6127,7 +6077,13 @@
           "fontWeight": "400"
         }
       ],
-      "rules": [],
+      "rules": [
+        {
+          "w": 52,
+          "h": 18,
+          "bgcolorAttr": "#F4BA17"
+        }
+      ],
       "colspans": [
         {
           "value": 2,
@@ -6163,7 +6119,7 @@
     },
     {
       "tableW": 288,
-      "tableH": 240,
+      "tableH": 258,
       "docScrollW": 320,
       "links": [
         {
@@ -6206,17 +6162,17 @@
         {
           "src": "/__blocked__/missing-0.png",
           "alt": "",
-          "wAttr": "34",
-          "hAttr": "34",
+          "wAttr": "36",
+          "hAttr": "36",
           "natural": [
             0,
             0
           ],
           "box": [
-            34,
-            34
+            36,
+            36
           ],
-          "cellW": 34,
+          "cellW": 36,
           "complete": false
         },
         {
@@ -6342,7 +6298,13 @@
           "fontWeight": "400"
         }
       ],
-      "rules": [],
+      "rules": [
+        {
+          "w": 52,
+          "h": 18,
+          "bgcolorAttr": "#F4BA17"
+        }
+      ],
       "colspans": [
         {
           "value": 2,
@@ -6357,13 +6319,7 @@
           "tableCols": 2
         }
       ],
-      "contactLefts": [
-        34,
-        34,
-        34,
-        34,
-        34
-      ],
+      "contactLefts": [],
       "bodyText": "CYBERSKILL\n\n\u00a0\n\n\u00a0\n\n\u00a0\n\nStephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn \u00b7 Facebook\nTurn Your Will Into Real",
       "forbidden": {
         "styleTags": 0,
@@ -6437,7 +6393,7 @@
       ],
       "imgs": [
         {
-          "src": "http://127.0.0.1:58505/assets/people/stephen-cheng/avatar-56-2x.png?v=867a2bda",
+          "src": "http://127.0.0.1:64718/assets/people/stephen-cheng/avatar-56-2x.png?v=867a2bda",
           "alt": "",
           "wAttr": "56",
           "hAttr": "56",
@@ -6453,39 +6409,23 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/logo-36-2x.png?v=7b060983",
+          "src": "http://127.0.0.1:64718/assets/shared/logo-28-2x.png?v=276a4634",
           "alt": "",
-          "wAttr": "26",
-          "hAttr": "26",
+          "wAttr": "28",
+          "hAttr": "28",
           "natural": [
-            72,
-            72
+            56,
+            56
           ],
           "box": [
-            26,
-            26
+            28,
+            28
           ],
-          "cellW": 26,
+          "cellW": 28,
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-mail-2x.png?v=e478dc4a",
-          "alt": "",
-          "wAttr": "18",
-          "hAttr": "18",
-          "natural": [
-            36,
-            36
-          ],
-          "box": [
-            18,
-            18
-          ],
-          "cellW": 18,
-          "complete": true
-        },
-        {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-phone-2x.png?v=d3d73cc4",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-mail-2x.png?v=e478dc4a",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -6501,7 +6441,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-globe-2x.png?v=9a8d610f",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-phone-2x.png?v=d3d73cc4",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -6517,7 +6457,23 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-users-2x.png?v=117751d0",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-globe-2x.png?v=9a8d610f",
+          "alt": "",
+          "wAttr": "18",
+          "hAttr": "18",
+          "natural": [
+            36,
+            36
+          ],
+          "box": [
+            18,
+            18
+          ],
+          "cellW": 18,
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:64718/assets/shared/icon-users-2x.png?v=117751d0",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -6686,17 +6642,17 @@
         {
           "src": "/__blocked__/missing-1.png",
           "alt": "",
-          "wAttr": "26",
-          "hAttr": "26",
+          "wAttr": "28",
+          "hAttr": "28",
           "natural": [
             0,
             0
           ],
           "box": [
-            26,
-            26
+            28,
+            28
           ],
-          "cellW": 26,
+          "cellW": 28,
           "complete": false
         },
         {
@@ -6837,13 +6793,7 @@
           "tableCols": 2
         }
       ],
-      "contactLefts": [
-        319,
-        319,
-        319,
-        319,
-        319
-      ],
+      "contactLefts": [],
       "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\t\u00a0\tTurn Your Will Into Real\n\t\u00a0\t\u00a0\t\u00a0\t\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn \u00b7 Facebook",
       "forbidden": {
         "styleTags": 0,
@@ -6858,7 +6808,7 @@
     },
     {
       "tableW": 288,
-      "tableH": 175,
+      "tableH": 190,
       "docScrollW": 320,
       "links": [
         {
@@ -6899,7 +6849,7 @@
       ],
       "imgs": [
         {
-          "src": "http://127.0.0.1:58505/assets/people/stephen-cheng/avatar-56-2x.png?v=867a2bda",
+          "src": "http://127.0.0.1:64718/assets/people/stephen-cheng/avatar-56-2x.png?v=867a2bda",
           "alt": "",
           "wAttr": "56",
           "hAttr": "56",
@@ -6915,39 +6865,23 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/logo-36-2x.png?v=7b060983",
+          "src": "http://127.0.0.1:64718/assets/shared/logo-28-2x.png?v=276a4634",
           "alt": "",
-          "wAttr": "26",
-          "hAttr": "26",
+          "wAttr": "28",
+          "hAttr": "28",
           "natural": [
-            72,
-            72
+            56,
+            56
           ],
           "box": [
-            26,
-            26
+            28,
+            28
           ],
-          "cellW": 26,
+          "cellW": 28,
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-mail-2x.png?v=e478dc4a",
-          "alt": "",
-          "wAttr": "18",
-          "hAttr": "18",
-          "natural": [
-            36,
-            36
-          ],
-          "box": [
-            18,
-            18
-          ],
-          "cellW": 18,
-          "complete": true
-        },
-        {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-phone-2x.png?v=d3d73cc4",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-mail-2x.png?v=e478dc4a",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -6963,7 +6897,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-globe-2x.png?v=9a8d610f",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-phone-2x.png?v=d3d73cc4",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -6979,7 +6913,23 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-users-2x.png?v=117751d0",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-globe-2x.png?v=9a8d610f",
+          "alt": "",
+          "wAttr": "18",
+          "hAttr": "18",
+          "natural": [
+            36,
+            36
+          ],
+          "box": [
+            18,
+            18
+          ],
+          "cellW": 18,
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:64718/assets/shared/icon-users-2x.png?v=117751d0",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -7089,7 +7039,7 @@
     },
     {
       "tableW": 288,
-      "tableH": 175,
+      "tableH": 190,
       "docScrollW": 320,
       "links": [
         {
@@ -7148,17 +7098,17 @@
         {
           "src": "/__blocked__/missing-1.png",
           "alt": "",
-          "wAttr": "26",
-          "hAttr": "26",
+          "wAttr": "28",
+          "hAttr": "28",
           "natural": [
             0,
             0
           ],
           "box": [
-            26,
-            26
+            28,
+            28
           ],
-          "cellW": 26,
+          "cellW": 28,
           "complete": false
         },
         {
@@ -7299,13 +7249,7 @@
           "tableCols": 2
         }
       ],
-      "contactLefts": [
-        173,
-        173,
-        173,
-        173,
-        173
-      ],
+      "contactLefts": [],
       "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\t\u00a0\tTurn Your Will Into Real\n\t\u00a0\t\u00a0\t\u00a0\t\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn \u00b7 Facebook",
       "forbidden": {
         "styleTags": 0,
@@ -7379,7 +7323,7 @@
       ],
       "imgs": [
         {
-          "src": "http://127.0.0.1:58505/assets/people/stephen-cheng/avatar-56-2x.png?v=867a2bda",
+          "src": "http://127.0.0.1:64718/assets/people/stephen-cheng/avatar-56-2x.png?v=867a2bda",
           "alt": "",
           "wAttr": "56",
           "hAttr": "56",
@@ -7395,7 +7339,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-mail-2x.png?v=e478dc4a",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-mail-2x.png?v=e478dc4a",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -7411,7 +7355,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-phone-2x.png?v=d3d73cc4",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-phone-2x.png?v=d3d73cc4",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -7427,7 +7371,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-globe-2x.png?v=9a8d610f",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-globe-2x.png?v=9a8d610f",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -7443,7 +7387,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-users-2x.png?v=117751d0",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-users-2x.png?v=117751d0",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -7459,19 +7403,19 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/logo-36-2x.png?v=7b060983",
+          "src": "http://127.0.0.1:64718/assets/shared/logo-36-2x.png?v=7b060983",
           "alt": "",
-          "wAttr": "32",
-          "hAttr": "32",
+          "wAttr": "36",
+          "hAttr": "36",
           "natural": [
             72,
             72
           ],
           "box": [
-            32,
-            32
+            36,
+            36
           ],
-          "cellW": 58,
+          "cellW": 65,
           "complete": true
         }
       ],
@@ -7698,17 +7642,17 @@
         {
           "src": "/__blocked__/missing-5.png",
           "alt": "",
-          "wAttr": "32",
-          "hAttr": "32",
+          "wAttr": "36",
+          "hAttr": "36",
           "natural": [
             0,
             0
           ],
           "box": [
-            32,
-            32
+            36,
+            36
           ],
-          "cellW": 58,
+          "cellW": 65,
           "complete": false
         }
       ],
@@ -7791,13 +7735,7 @@
           "tableCols": 2
         }
       ],
-      "contactLefts": [
-        105,
-        105,
-        105,
-        105,
-        105
-      ],
+      "contactLefts": [],
       "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn \u00b7 Facebook\n\t\n\n\u00a0\nTurn Your Will Into Real",
       "forbidden": {
         "styleTags": 0,
@@ -7853,7 +7791,7 @@
       ],
       "imgs": [
         {
-          "src": "http://127.0.0.1:58505/assets/people/stephen-cheng/avatar-56-2x.png?v=867a2bda",
+          "src": "http://127.0.0.1:64718/assets/people/stephen-cheng/avatar-56-2x.png?v=867a2bda",
           "alt": "",
           "wAttr": "56",
           "hAttr": "56",
@@ -7869,7 +7807,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-mail-2x.png?v=e478dc4a",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-mail-2x.png?v=e478dc4a",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -7885,7 +7823,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-phone-2x.png?v=d3d73cc4",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-phone-2x.png?v=d3d73cc4",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -7901,7 +7839,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-globe-2x.png?v=9a8d610f",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-globe-2x.png?v=9a8d610f",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -7917,7 +7855,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-users-2x.png?v=117751d0",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-users-2x.png?v=117751d0",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -7933,19 +7871,19 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/logo-36-2x.png?v=7b060983",
+          "src": "http://127.0.0.1:64718/assets/shared/logo-36-2x.png?v=7b060983",
           "alt": "",
-          "wAttr": "32",
-          "hAttr": "32",
+          "wAttr": "36",
+          "hAttr": "36",
           "natural": [
             72,
             72
           ],
           "box": [
-            32,
-            32
+            36,
+            36
           ],
-          "cellW": 32,
+          "cellW": 36,
           "complete": true
         }
       ],
@@ -8172,17 +8110,17 @@
         {
           "src": "/__blocked__/missing-5.png",
           "alt": "",
-          "wAttr": "32",
-          "hAttr": "32",
+          "wAttr": "36",
+          "hAttr": "36",
           "natural": [
             0,
             0
           ],
           "box": [
-            32,
-            32
+            36,
+            36
           ],
-          "cellW": 32,
+          "cellW": 36,
           "complete": false
         }
       ],
@@ -8265,13 +8203,7 @@
           "tableCols": 2
         }
       ],
-      "contactLefts": [
-        105,
-        105,
-        105,
-        105,
-        105
-      ],
+      "contactLefts": [],
       "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn \u00b7 Facebook\n\t\n\n\u00a0\nTurn Your Will Into Real",
       "forbidden": {
         "styleTags": 0,
@@ -8304,7 +8236,7 @@
     },
     {
       "tableW": 520,
-      "tableH": 192,
+      "tableH": 196,
       "docScrollW": 900,
       "links": [
         {
@@ -8345,23 +8277,23 @@
       ],
       "imgs": [
         {
-          "src": "http://127.0.0.1:58505/assets/shared/logo-36-2x.png?v=7b060983",
+          "src": "http://127.0.0.1:64718/assets/shared/logo-36-2x.png?v=7b060983",
           "alt": "",
-          "wAttr": "32",
-          "hAttr": "32",
+          "wAttr": "36",
+          "hAttr": "36",
           "natural": [
             72,
             72
           ],
           "box": [
-            32,
-            32
+            36,
+            36
           ],
-          "cellW": 32,
+          "cellW": 36,
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-mail-2x.png?v=e478dc4a",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-mail-2x.png?v=e478dc4a",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -8377,7 +8309,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-phone-2x.png?v=d3d73cc4",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-phone-2x.png?v=d3d73cc4",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -8393,7 +8325,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-globe-2x.png?v=9a8d610f",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-globe-2x.png?v=9a8d610f",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -8409,7 +8341,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-users-2x.png?v=117751d0",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-users-2x.png?v=117751d0",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -8527,7 +8459,7 @@
     },
     {
       "tableW": 520,
-      "tableH": 192,
+      "tableH": 196,
       "docScrollW": 900,
       "links": [
         {
@@ -8570,17 +8502,17 @@
         {
           "src": "/__blocked__/missing-0.png",
           "alt": "",
-          "wAttr": "32",
-          "hAttr": "32",
+          "wAttr": "36",
+          "hAttr": "36",
           "natural": [
             0,
             0
           ],
           "box": [
-            32,
-            32
+            36,
+            36
           ],
-          "cellW": 32,
+          "cellW": 36,
           "complete": false
         },
         {
@@ -8729,13 +8661,7 @@
           "tableCols": 2
         }
       ],
-      "contactLefts": [
-        34,
-        34,
-        34,
-        34,
-        34
-      ],
+      "contactLefts": [],
       "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\n\u00a0\n\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn \u00b7 Facebook\nTurn Your Will Into Real",
       "forbidden": {
         "styleTags": 0,
@@ -8750,7 +8676,7 @@
     },
     {
       "tableW": 288,
-      "tableH": 192,
+      "tableH": 196,
       "docScrollW": 320,
       "links": [
         {
@@ -8791,23 +8717,23 @@
       ],
       "imgs": [
         {
-          "src": "http://127.0.0.1:58505/assets/shared/logo-36-2x.png?v=7b060983",
+          "src": "http://127.0.0.1:64718/assets/shared/logo-36-2x.png?v=7b060983",
           "alt": "",
-          "wAttr": "32",
-          "hAttr": "32",
+          "wAttr": "36",
+          "hAttr": "36",
           "natural": [
             72,
             72
           ],
           "box": [
-            32,
-            32
+            36,
+            36
           ],
-          "cellW": 32,
+          "cellW": 36,
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-mail-2x.png?v=e478dc4a",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-mail-2x.png?v=e478dc4a",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -8823,7 +8749,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-phone-2x.png?v=d3d73cc4",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-phone-2x.png?v=d3d73cc4",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -8839,7 +8765,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-globe-2x.png?v=9a8d610f",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-globe-2x.png?v=9a8d610f",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -8855,7 +8781,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:58505/assets/shared/icon-users-2x.png?v=117751d0",
+          "src": "http://127.0.0.1:64718/assets/shared/icon-users-2x.png?v=117751d0",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -8973,7 +8899,7 @@
     },
     {
       "tableW": 288,
-      "tableH": 192,
+      "tableH": 196,
       "docScrollW": 320,
       "links": [
         {
@@ -9016,17 +8942,17 @@
         {
           "src": "/__blocked__/missing-0.png",
           "alt": "",
-          "wAttr": "32",
-          "hAttr": "32",
+          "wAttr": "36",
+          "hAttr": "36",
           "natural": [
             0,
             0
           ],
           "box": [
-            32,
-            32
+            36,
+            36
           ],
-          "cellW": 32,
+          "cellW": 36,
           "complete": false
         },
         {
@@ -9175,13 +9101,7 @@
           "tableCols": 2
         }
       ],
-      "contactLefts": [
-        34,
-        34,
-        34,
-        34,
-        34
-      ],
+      "contactLefts": [],
       "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\n\u00a0\n\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn \u00b7 Facebook\nTurn Your Will Into Real",
       "forbidden": {
         "styleTags": 0,
@@ -9213,395 +9133,10 @@
       "screenshot": "stephen-cheng--badge-dark-forceddark.png"
     }
   ],
-  "findings": [
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--plate-desktop-loaded",
-      "check": "V7",
-      "message": "logo-36-2x.png?v=7b060983 natural 72 is not 2x 34"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--plate-desktop-loaded",
-      "check": "V12",
-      "message": "Ochre rule 520x3, expected >=3x100"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--plate-desktop-blocked",
-      "check": "V12",
-      "message": "Ochre rule 520x3, expected >=3x100"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--plate-narrow-loaded",
-      "check": "V7",
-      "message": "logo-36-2x.png?v=7b060983 natural 72 is not 2x 34"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--plate-narrow-loaded",
-      "check": "V12",
-      "message": "Ochre rule 288x3, expected >=3x100"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--plate-narrow-blocked",
-      "check": "V12",
-      "message": "Ochre rule 288x3, expected >=3x100"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--cap-desktop-loaded",
-      "check": "V12",
-      "message": "no Ochre rule found"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--cap-desktop-blocked",
-      "check": "V12",
-      "message": "no Ochre rule found"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--cap-narrow-loaded",
-      "check": "V12",
-      "message": "no Ochre rule found"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--cap-narrow-blocked",
-      "check": "V12",
-      "message": "no Ochre rule found"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--footer-desktop-loaded",
-      "check": "V7",
-      "message": "logo-36-2x.png?v=7b060983 natural 72 is not 2x 28"
-    },
-    {
-      "severity": "HIGH",
-      "scope": "stephen-cheng--footer-desktop-loaded",
-      "check": "V4",
-      "message": "contact cells not aligned: [123, 123, 123, 69, 69]"
-    },
-    {
-      "severity": "HIGH",
-      "scope": "stephen-cheng--footer-desktop-blocked",
-      "check": "V4",
-      "message": "contact cells not aligned: [123, 123, 123, 69, 69]"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--footer-narrow-loaded",
-      "check": "V7",
-      "message": "logo-36-2x.png?v=7b060983 natural 72 is not 2x 28"
-    },
-    {
-      "severity": "HIGH",
-      "scope": "stephen-cheng--footer-narrow-loaded",
-      "check": "V4",
-      "message": "contact cells not aligned: [123, 123, 123, 69, 69]"
-    },
-    {
-      "severity": "HIGH",
-      "scope": "stephen-cheng--footer-narrow-blocked",
-      "check": "V4",
-      "message": "contact cells not aligned: [123, 123, 123, 69, 69]"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--sidebar-desktop-loaded",
-      "check": "V7",
-      "message": "logo-36-2x.png?v=7b060983 natural 72 is not 2x 28"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--sidebar-desktop-loaded",
-      "check": "V12",
-      "message": "no Ochre rule found"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--sidebar-desktop-blocked",
-      "check": "V12",
-      "message": "no Ochre rule found"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--sidebar-narrow-loaded",
-      "check": "V7",
-      "message": "logo-36-2x.png?v=7b060983 natural 72 is not 2x 28"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--sidebar-narrow-loaded",
-      "check": "V12",
-      "message": "no Ochre rule found"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--sidebar-narrow-blocked",
-      "check": "V12",
-      "message": "no Ochre rule found"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--compact-desktop-loaded",
-      "check": "V7",
-      "message": "icon-mail-2x.png?v=e478dc4a natural 36 is not 2x 15"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--compact-desktop-loaded",
-      "check": "V6",
-      "message": "icon cell collapsed to 15px"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--compact-desktop-loaded",
-      "check": "V7",
-      "message": "icon-phone-2x.png?v=d3d73cc4 natural 36 is not 2x 15"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--compact-desktop-loaded",
-      "check": "V6",
-      "message": "icon cell collapsed to 15px"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--compact-desktop-loaded",
-      "check": "V7",
-      "message": "icon-globe-2x.png?v=9a8d610f natural 36 is not 2x 15"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--compact-desktop-loaded",
-      "check": "V6",
-      "message": "icon cell collapsed to 15px"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--compact-desktop-loaded",
-      "check": "V7",
-      "message": "icon-users-2x.png?v=117751d0 natural 36 is not 2x 15"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--compact-desktop-loaded",
-      "check": "V6",
-      "message": "icon cell collapsed to 15px"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--compact-desktop-loaded",
-      "check": "V7",
-      "message": "logo-36-2x.png?v=7b060983 natural 72 is not 2x 28"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--compact-narrow-loaded",
-      "check": "V7",
-      "message": "icon-mail-2x.png?v=e478dc4a natural 36 is not 2x 15"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--compact-narrow-loaded",
-      "check": "V6",
-      "message": "icon cell collapsed to 15px"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--compact-narrow-loaded",
-      "check": "V7",
-      "message": "icon-phone-2x.png?v=d3d73cc4 natural 36 is not 2x 15"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--compact-narrow-loaded",
-      "check": "V6",
-      "message": "icon cell collapsed to 15px"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--compact-narrow-loaded",
-      "check": "V7",
-      "message": "icon-globe-2x.png?v=9a8d610f natural 36 is not 2x 15"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--compact-narrow-loaded",
-      "check": "V6",
-      "message": "icon cell collapsed to 15px"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--compact-narrow-loaded",
-      "check": "V7",
-      "message": "icon-users-2x.png?v=117751d0 natural 36 is not 2x 15"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--compact-narrow-loaded",
-      "check": "V6",
-      "message": "icon cell collapsed to 15px"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--compact-narrow-loaded",
-      "check": "V7",
-      "message": "logo-36-2x.png?v=7b060983 natural 72 is not 2x 28"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--stacked-desktop-loaded",
-      "check": "V7",
-      "message": "logo-36-2x.png?v=7b060983 natural 72 is not 2x 34"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--stacked-desktop-loaded",
-      "check": "V12",
-      "message": "no Ochre rule found"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--stacked-desktop-blocked",
-      "check": "V12",
-      "message": "no Ochre rule found"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--stacked-narrow-loaded",
-      "check": "V7",
-      "message": "logo-36-2x.png?v=7b060983 natural 72 is not 2x 34"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--stacked-narrow-loaded",
-      "check": "V12",
-      "message": "no Ochre rule found"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--stacked-narrow-blocked",
-      "check": "V12",
-      "message": "no Ochre rule found"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--split-desktop-loaded",
-      "check": "V7",
-      "message": "logo-36-2x.png?v=7b060983 natural 72 is not 2x 26"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--split-desktop-loaded",
-      "check": "V12",
-      "message": "no Ochre rule found"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--split-desktop-blocked",
-      "check": "V12",
-      "message": "no Ochre rule found"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--split-narrow-loaded",
-      "check": "V7",
-      "message": "logo-36-2x.png?v=7b060983 natural 72 is not 2x 26"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--split-narrow-loaded",
-      "check": "V12",
-      "message": "no Ochre rule found"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--split-narrow-blocked",
-      "check": "V12",
-      "message": "no Ochre rule found"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--banner-desktop-loaded",
-      "check": "V7",
-      "message": "logo-36-2x.png?v=7b060983 natural 72 is not 2x 32"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--banner-desktop-loaded",
-      "check": "V12",
-      "message": "Ochre rule 520x3, expected >=3x100"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--banner-desktop-blocked",
-      "check": "V12",
-      "message": "Ochre rule 520x3, expected >=3x100"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--banner-narrow-loaded",
-      "check": "V7",
-      "message": "logo-36-2x.png?v=7b060983 natural 72 is not 2x 32"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--banner-narrow-loaded",
-      "check": "V12",
-      "message": "Ochre rule 288x3, expected >=3x100"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--banner-narrow-blocked",
-      "check": "V12",
-      "message": "Ochre rule 288x3, expected >=3x100"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--badge-desktop-loaded",
-      "check": "V7",
-      "message": "logo-36-2x.png?v=7b060983 natural 72 is not 2x 32"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--badge-desktop-loaded",
-      "check": "V12",
-      "message": "no Ochre rule found"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--badge-desktop-blocked",
-      "check": "V12",
-      "message": "no Ochre rule found"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--badge-narrow-loaded",
-      "check": "V7",
-      "message": "logo-36-2x.png?v=7b060983 natural 72 is not 2x 32"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--badge-narrow-loaded",
-      "check": "V12",
-      "message": "no Ochre rule found"
-    },
-    {
-      "severity": "MED",
-      "scope": "stephen-cheng--badge-narrow-blocked",
-      "check": "V12",
-      "message": "no Ochre rule found"
-    }
-  ],
+  "findings": [],
   "counts": {
-    "HIGH": 4,
-    "MED": 60,
+    "HIGH": 0,
+    "MED": 0,
     "LOW": 0
   }
 }

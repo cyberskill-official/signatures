@@ -44,6 +44,7 @@ from playwright.sync_api import sync_playwright
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 sys.path.insert(0, os.path.join(ROOT, "build"))
+from styles import STYLES
 from model import DOCS, load_company, load_people          # noqa: E402
 
 OUT = os.path.join(HERE, "crossclient")
@@ -670,14 +671,24 @@ def main():
     subprocess.run([sys.executable, os.path.join(ROOT, "build", "generate.py"),
                     "--base", base, "--out-root", tmp],
                    check=True, capture_output=True)
+    # Every style, not just the one signature.html holds. check.py already
+    # does this; leaving it here would have tested one tenth of what ships
+    # against 14 clients and called it coverage.
     sig_by_id = {}
     for rec in people:
-        with open(os.path.join(tmp, rec["id"], "signature.html"),
-                  encoding="utf-8") as fh:
-            sig_by_id[rec["id"]] = fh.read()
+        for sid, _l, _n, _f in STYLES:
+            fp = os.path.join(tmp, rec["id"], f"sig-{sid}.html")
+            if not os.path.isfile(fp):
+                raise SystemExit(f"{fp} missing - generate.py runs first")
+            with open(fp, encoding="utf-8") as fh:
+                sig_by_id[f'{rec["id"]}--{sid}'] = fh.read()
+    if len(sig_by_id) != len(people) * len(STYLES):
+        raise SystemExit("style coverage is incomplete")
 
     findings, runs = [], []
-    audit_signature(engines, sig_by_id, people, findings, runs)
+    variants = [dict(r, id=f'{r["id"]}--{sid}')
+                for r in people for sid, _l, _n, _f in STYLES]
+    audit_signature(engines, sig_by_id, variants, findings, runs)
     if not args.skip_site:
         audit_site(engines, people, findings, runs)
 

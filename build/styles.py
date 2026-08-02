@@ -186,9 +186,20 @@ def wrap(inner, width=True):
     wrapper is width="100%". A fixed wrapper pinned the table at 520px inside
     a 400px reading pane and overflowed it by 136px."""
     cap = f"max-width:{TABLE_W}px;" if width else ""
+    # Reset what a host container can push in. A signature sits inside the
+    # client's own compose or read div, and whatever that div sets inherits
+    # unless something in here stops it. A host with line-height:3 grew the
+    # block by 42px in WebKit until this line existed - X7 caught it.
+    #
+    # color is deliberately absent: it MUST keep inheriting, because the
+    # client's own foreground is the only value guaranteed to be readable
+    # against the client's own background.
+    reset = ("font-size:14px;line-height:20px;letter-spacing:normal;"
+             "text-align:left;font-weight:normal;font-style:normal;"
+             "text-transform:none;text-indent:0;word-spacing:normal;")
     return (f'<!--[if mso]><table role="presentation" width="100%" '
             f'cellpadding="0" cellspacing="0" border="0"><tr><td><![endif]-->\n'
-            f'{T}{cap}font-family:{SANS};" width="100%">{inner}</table>\n'
+            f'{T}{cap}font-family:{SANS};{reset}" width="100%">{inner}</table>\n'
             f'<!--[if mso]></td></tr></table><![endif]-->')
 
 
