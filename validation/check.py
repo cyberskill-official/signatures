@@ -454,11 +454,6 @@ def run():
 
         browser.close()
 
-    counts = {s: sum(1 for f in findings if f["severity"] == s)
-              for s in ("HIGH", "MED", "LOW")}
-    report = {"generated": time.strftime("%Y-%m-%d %H:%M:%S"),
-              "people": [p["id"] for p in people],
-              "runs": runs, "findings": findings, "counts": counts}
     # V14 - the record nobody has yet.
     #
     # Every check above runs against real people, so the suite only ever sees
@@ -553,6 +548,17 @@ def run():
                         f"to re-record.")
             for k in sorted(set(old) - set(fingerprint)):
                 add("LOW", k, "V15", "in the baseline but no longer measured")
+
+    # Counted here, after every check has run. This sat above V14 and V15,
+    # so their findings were printed but never counted - and the exit code
+    # reads counts, which means a run with a HIGH finding exited 0 and CI
+    # went green. The findings list is shared by reference, so the report
+    # looked right while the gate did not.
+    counts = {s: sum(1 for f in findings if f["severity"] == s)
+              for s in ("HIGH", "MED", "LOW")}
+    report = {"generated": time.strftime("%Y-%m-%d %H:%M:%S"),
+              "people": [p["id"] for p in people],
+              "runs": runs, "findings": findings, "counts": counts}
 
     with open(os.path.join(HERE, "report.json"), "w") as fh:
         json.dump(report, fh, indent=2)

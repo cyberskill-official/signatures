@@ -123,7 +123,7 @@ help:
     Không có gì bạn gửi có thể làm hỏng chữ ký của người khác, và không có gì
     lên trang thật trước khi có người xem qua.
 
-  styles_h: Mười kiểu, cùng một bộ thông tin
+  styles_h: Chín kiểu, cùng một bộ thông tin
   styles_who: Chọn ngay trên trang của bạn. Mất khoảng một phút.
   styles_body: >-
     Mọi kiểu đều mang đúng cùng tên, chức danh và các dòng liên hệ - khác nhau
@@ -136,7 +136,7 @@ help:
     vậy, hãy ghi rõ kiểu bạn muốn trong yêu cầu.
   faq_style_q: Tôi đổi được kiểu chữ ký của mình không?
   faq_style_a: >-
-    Được. Trang của bạn có mười kiểu - nhấn một kiểu là mọi phần xem trước đổi
+    Được. Trang của bạn có chín kiểu - nhấn một kiểu là mọi phần xem trước đổi
     theo, rồi sao chép. Lựa chọn đó được nhớ trên trình duyệt của bạn. Nếu muốn
     cố định cho mọi người, hãy nói rõ kiểu nào trong yêu cầu và nó sẽ được ghi
     vào hồ sơ của bạn.
@@ -272,9 +272,6 @@ style:
   stacked:
     label: "Stacked"
     note: "Không có ảnh. Logo dẫn đầu."
-  split:
-    label: "Split"
-    note: "Hai cột. Gọn nhất, nhưng chật nhất trên điện thoại."
   banner:
     label: "Banner"
     note: "Kẻ trên kẻ dưới, như một tấm danh thiếp in."

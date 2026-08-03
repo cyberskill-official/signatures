@@ -124,6 +124,32 @@ def main():
             json.dump(manifest, fh, indent=2)
     else:
         print("  (temp out-root: build/manifest.json left alone)")
+    # Prune styles that no longer exist. Without this, unregistering a style
+    # leaves its sig-<id>.html in docs/ forever - referenced by nothing,
+    # published anyway, and indistinguishable from a live one to anybody
+    # reading the directory. Found when `split` was removed and its file
+    # stayed behind.
+    live = {f"sig-{sid}.html" for sid, _fn in STYLES} | {"signature.html",
+                                                         "index.html"}
+    for rec in people:
+        d = os.path.join(args.out_root, rec["id"])
+        if not os.path.isdir(d):
+            continue
+        for fn in sorted(os.listdir(d)):
+            if fn.startswith("sig-") and fn not in live:
+                try:
+                    os.remove(os.path.join(d, fn))
+                    print(f"  pruned {rec['id']}/{fn} - style no longer "
+                          f"registered")
+                except OSError as e:
+                    # Loud, not silent, and not fatal: a read-only checkout
+                    # should not fail a build, but a stale style file that
+                    # stays behind is published and indistinguishable from a
+                    # live one, so nobody may find this out by accident.
+                    print(f"  WARNING could not prune {rec['id']}/{fn} "
+                          f"({e.strerror}) - it is a style that no longer "
+                          f"exists and will keep being published")
+
     print(f"{len(people)} person(s) x {len(wanted)} style(s) -> "
           f"{args.out_root}/<id>/sig-<style>.html")
 

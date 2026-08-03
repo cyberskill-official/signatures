@@ -166,7 +166,7 @@ Then <http://localhost:8000/>. Worth opening, in this order:
 | Page | What it should do |
 |---|---|
 | `/` and `/vi/` | every name links to a page that exists |
-| `/people/<id>/` | ten styles, previews change when you press one |
+| `/people/<id>/` | nine styles, previews change when you press one |
 | `/vi/people/<id>/` | the same page in Vietnamese |
 | Language link, top right | lands on the same person, not the front page |
 | Theme buttons | light / dark / system, and the choice survives a reload |
@@ -291,7 +291,7 @@ phone_href: "+84912345678"     #   required if phone is set - digits only
 avatar: mai-tran.png           # optional, file in src/avatars/
 crop: [108, 20, 250]           # optional [x, y, size]; a maintainer sets this
 order: 10                      # optional sort key on the directory page
-style: plate                   # optional, one of the ten; default classic
+style: plate                   # optional, one of the nine; default classic
 
 website: cyberskill.world      # optional override of company.yml
 website_href: https://cyberskill.world
@@ -359,7 +359,7 @@ Enforced by `tests/test_styles.py`, so a new style cannot drift out of them:
 | CDS rule | How it is held |
 |---|---|
 | Umber `#45210E`, Ochre `#F4BA17` (anchor immutables) | asserted against `model.py`; the only place either is written down |
-| Wordmark in sentence case - never `CYBERSKILL` | asserted on rendered markup for all ten styles |
+| Wordmark in sentence case - never `CYBERSKILL` | asserted on rendered markup for all nine styles |
 | Line-height 1.5 body, 1.35 headings | computed by `styles.lh()`, never written by hand, asserted per style |
 | Stacked-diacritic canary `ỚẾỰỎÃỸ` | survives the markup path (unit test); measured for layout growth by `check.py` V13 |
 | Slogan, Vietnamese-first | `company.yml` tagline; `src/locales/` with a documented deferral list |

@@ -1,26 +1,41 @@
-Fix V14 crash, and stop this class of mistake reaching a browser again
+Count findings after every check, drop split, prune dead styles
 
-V14 read d["hostScrollW"], which is crossclient.py's key name. check.py's
-probe returns docScrollW. I wrote V14 on a machine with no browser and never
-ran it, so the mistake surfaced as a KeyError on the first real run.
+V14 worked on its first run and found two things - one of them in the code
+that reports V14.
 
-A KeyError is the lucky outcome. Written as d.get("hostScrollW", 0) the same
-mistake would have made V14 silently never fire - a check passing because it
-looked at nothing, which is the failure this repository keeps finding in
-itself.
+The gate was blind to its own findings.
 
-So tests/test_validation.py now reads the validation scripts without running
-them, and costs nothing:
+check.py computed `counts` at line 457 and I appended V14 and V15 below it.
+The findings list is shared by reference, so report.json and the printed
+output were both correct - and `sys.exit(1 if any(counts.values()))` read the
+stale dict. The run that just found two HIGH findings printed "HIGH=0" and
+would have exited 0. CI would have gone green on a real defect.
 
-- every probe key a script reads must be one its own probe returns
-- no probe key may be read with a fallback default, because a missing
-  measurement would then read as a pass
-- check ids must be unique and unbroken
+Counting now happens after the last check. tests/test_validation.py asserts
+no finding is added below the count, so this cannot come back.
 
-Writing those found two bugs in the tests themselves - a regex that consumed
-its own separator and so matched only every other shorthand key - and one
-real gap: there is no V3 anywhere in the source or the docs. It is now
-declared retired rather than left silent, and the number stays unused. An old
-report and a new one would otherwise disagree about what V3 meant.
+split is unregistered.
 
-341 tests pass, up from 336. V14 and V15 still have not run here.
+It was the only style of nine that failed V14 - the worst-case record
+overflowed it by 31px at phone width and scrolled the viewport. Two columns
+in email cannot reflow, because Gmail strips @media, so there is no fix, only
+tolerance. Keeping it meant either a permanently red V14, which trains
+everyone to ignore the check that had just proved itself, or an exemption
+from it, which is how a check stops meaning anything.
+
+s_split() stays in styles.py, unregistered, so the layout is recoverable if
+the constraint ever changes. Nine everywhere: registry, both locale files,
+both issue forms, the tests, the docs.
+
+Removing it exposed a third thing: nothing pruned the old file.
+
+generate.py wrote sig-<style>.html per registered style and never removed the
+others, so sig-split.html would have stayed in docs/ indefinitely - published,
+referenced by nothing, and indistinguishable from a live style to anyone
+reading the directory. It now prunes them, and warns loudly rather than
+failing when it cannot (a read-only checkout should not break a build, but
+nobody should discover a stale style by accident either).
+
+326 tests pass. The V14 fix and the prune are both unverified here - this
+machine has no browser and its filesystem refuses unlink, which is how the
+prune bug surfaced at all.

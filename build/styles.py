@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Ten signature styles. Same content, same rules, different arrangement.
+"""Nine signature styles. Same content, same rules, different arrangement.
 
 Everyone gets the same record; nobody gets a different set of facts. What
 varies is where the colour sits, whether the photo leads, and how tall the
@@ -407,6 +407,14 @@ def s_badge(rec, company, base):
 
 # Order is the order they appear on the page. First is the default.
 #
+# `split` was removed on 2026-08-03. It was the only style that failed V14 -
+# the worst-case record overflowed it by 31px at phone width - and two
+# columns in email cannot reflow, because Gmail strips @media. Keeping it
+# meant either a permanently red check or an exemption from it, and an
+# exemption is how a check stops meaning anything. s_split() is left in the
+# file, unregistered, so the layout is recoverable if the constraint ever
+# changes.
+#
 # Names and one-line descriptions are NOT here - they live in src/locales/,
 # because the picker is shown in whatever language the reader chose and a
 # label baked into Python can only ever be English. This list answers "which
@@ -419,7 +427,6 @@ STYLES = [
     ("sidebar", s_sidebar),
     ("compact", s_compact),
     ("stacked", s_stacked),
-    ("split", s_split),
     ("banner", s_banner),
     ("badge", s_badge),
 ]

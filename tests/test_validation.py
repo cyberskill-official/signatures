@@ -104,3 +104,25 @@ def test_every_check_id_is_unique_and_sequential(script):
         f'so in the source with "{prefix}<n> is retired" and do not reuse the '
         f"number - an old report and a new one would then disagree about "
         f"what it meant. A silent gap usually means a check was lost.")
+
+
+@pytest.mark.parametrize("script", ["check.py", "crossclient.py"])
+def test_findings_are_counted_after_the_last_one_is_added(script):
+    """The gate reads the counts, so anything added after they are computed
+    is reported but not enforced.
+
+    This shipped: V14 and V15 were appended below the counts, so a run with
+    two HIGH findings printed them, wrote them to report.json, and exited 0.
+    CI would have gone green on a real defect. The findings list is shared by
+    reference, which is exactly why it looked correct everywhere except the
+    one place that mattered.
+    """
+    src = _src(script)
+    if "counts = {" not in src:
+        pytest.skip(f"{script} does not compute counts")
+    tail = src[src.index("counts = {"):]
+    stragglers = re.findall(r"\n\s+add\(\s*[\"'](HIGH|MED|LOW)", tail)
+    assert not stragglers, (
+        f"{script} adds {len(stragglers)} finding(s) after counting them "
+        f"({sorted(set(stragglers))}). They will be printed and never "
+        f"enforced - move the count below every check.")

@@ -120,7 +120,7 @@ signature/
 │   ├── people/<id>/
 │   │   ├── index.html        install page, with the style picker
 │   │   ├── signature.html    the chosen style, for old links
-│   │   └── sig-<style>.html  all ten, one file each — the markup itself,
+│   │   └── sig-<style>.html  all nine, one file each — the markup itself,
 │   │                         shared by every language
 │   └── assets/
 │       ├── shared/           logo, 4 icons, favicon, og-card

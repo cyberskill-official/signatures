@@ -37,11 +37,6 @@
       "note": "No photo. Logo leads."
     },
     {
-      "id": "split",
-      "label": "Split",
-      "note": "Two columns. The most compact, and the tightest on a phone."
-    },
-    {
       "id": "banner",
       "label": "Banner",
       "note": "Ruled top and bottom, like a printed card."
@@ -67,7 +62,6 @@
         "sidebar": 5345,
         "compact": 5030,
         "stacked": 5450,
-        "split": 5529,
         "banner": 5418,
         "badge": 5038
       },

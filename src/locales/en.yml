@@ -118,7 +118,7 @@ help:
     Nothing you send can break anyone else's signature, and nothing reaches the
     live site until a person has looked at it.
 
-  styles_h: Ten looks, one set of details
+  styles_h: Nine looks, one set of details
   styles_who: Pick on your own page. Takes a minute.
   styles_body: >-
     Every style carries exactly the same name, job title and contact rows -
@@ -132,7 +132,7 @@ help:
     it sees, name the style in your request.
   faq_style_q: Can I change how mine looks?
   faq_style_a: >-
-    Yes. Your page has ten styles - press one and every preview updates, then
+    Yes. Your page has nine styles - press one and every preview updates, then
     copy. That choice is remembered in your browser. If you want it to stick
     for everyone, say which one in your request and it goes into your record.
   faq_invert_q: The colours look wrong in dark mode.
@@ -268,9 +268,6 @@ style:
   stacked:
     label: "Stacked"
     note: "No photo. Logo leads."
-  split:
-    label: "Split"
-    note: "Two columns. The most compact, and the tightest on a phone."
   banner:
     label: "Banner"
     note: "Ruled top and bottom, like a printed card."

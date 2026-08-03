@@ -34,9 +34,9 @@ def markup(sid, rec):
 
 
 def test_there_are_ten(rec):
-    assert len(S.STYLES) == 10, (
+    assert len(S.STYLES) == 9, (
         f"{len(S.STYLES)} styles registered. If that is deliberate, change "
-        f"this number - the picker and the docs both say ten.")
+        f"this number - the picker and the docs both say nine.")
 
 
 def test_ids_are_unique_and_url_safe():
