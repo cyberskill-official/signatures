@@ -1,0 +1,153 @@
+{
+ "env": 196.42,
+ "geometry": {
+  "_worstcase-narrow--": [
+   288,
+   354
+  ],
+  "stephen-cheng--badge-desktop-blocked": [
+   520,
+   197
+  ],
+  "stephen-cheng--badge-desktop-loaded": [
+   520,
+   197
+  ],
+  "stephen-cheng--badge-narrow-blocked": [
+   288,
+   197
+  ],
+  "stephen-cheng--badge-narrow-loaded": [
+   288,
+   197
+  ],
+  "stephen-cheng--banner-desktop-blocked": [
+   520,
+   215
+  ],
+  "stephen-cheng--banner-desktop-loaded": [
+   520,
+   215
+  ],
+  "stephen-cheng--banner-narrow-blocked": [
+   288,
+   254
+  ],
+  "stephen-cheng--banner-narrow-loaded": [
+   288,
+   254
+  ],
+  "stephen-cheng--cap-desktop-blocked": [
+   520,
+   205
+  ],
+  "stephen-cheng--cap-desktop-loaded": [
+   520,
+   205
+  ],
+  "stephen-cheng--cap-narrow-blocked": [
+   288,
+   205
+  ],
+  "stephen-cheng--cap-narrow-loaded": [
+   288,
+   205
+  ],
+  "stephen-cheng--classic-desktop-blocked": [
+   520,
+   195
+  ],
+  "stephen-cheng--classic-desktop-loaded": [
+   520,
+   195
+  ],
+  "stephen-cheng--classic-narrow-blocked": [
+   288,
+   234
+  ],
+  "stephen-cheng--classic-narrow-loaded": [
+   288,
+   234
+  ],
+  "stephen-cheng--compact-desktop-blocked": [
+   520,
+   145
+  ],
+  "stephen-cheng--compact-desktop-loaded": [
+   520,
+   145
+  ],
+  "stephen-cheng--compact-narrow-blocked": [
+   288,
+   180
+  ],
+  "stephen-cheng--compact-narrow-loaded": [
+   288,
+   180
+  ],
+  "stephen-cheng--footer-desktop-blocked": [
+   520,
+   202
+  ],
+  "stephen-cheng--footer-desktop-loaded": [
+   520,
+   202
+  ],
+  "stephen-cheng--footer-narrow-blocked": [
+   288,
+   241
+  ],
+  "stephen-cheng--footer-narrow-loaded": [
+   288,
+   241
+  ],
+  "stephen-cheng--plate-desktop-blocked": [
+   520,
+   228
+  ],
+  "stephen-cheng--plate-desktop-loaded": [
+   520,
+   228
+  ],
+  "stephen-cheng--plate-narrow-blocked": [
+   288,
+   239
+  ],
+  "stephen-cheng--plate-narrow-loaded": [
+   288,
+   239
+  ],
+  "stephen-cheng--sidebar-desktop-blocked": [
+   520,
+   187
+  ],
+  "stephen-cheng--sidebar-desktop-loaded": [
+   520,
+   187
+  ],
+  "stephen-cheng--sidebar-narrow-blocked": [
+   288,
+   226
+  ],
+  "stephen-cheng--sidebar-narrow-loaded": [
+   288,
+   226
+  ],
+  "stephen-cheng--stacked-desktop-blocked": [
+   520,
+   247
+  ],
+  "stephen-cheng--stacked-desktop-loaded": [
+   520,
+   247
+  ],
+  "stephen-cheng--stacked-narrow-blocked": [
+   288,
+   247
+  ],
+  "stephen-cheng--stacked-narrow-loaded": [
+   288,
+   247
+  ]
+ }
+}
