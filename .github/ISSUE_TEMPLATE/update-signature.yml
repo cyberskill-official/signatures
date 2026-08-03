@@ -58,7 +58,7 @@ body:
         - "sidebar - Sidebar: Photo and logo stacked in a colour column."
         - "compact - Compact: The smallest block that still says everything."
         - "stacked - Stacked: No photo. Logo leads."
-        - "split - Split: You on the left, how to reach you on the right."
+        - "split - Split: Two columns. The most compact, and the tightest on a phone."
         - "banner - Banner: Ruled top and bottom, like a printed card."
         - "badge - Badge: Logo in a colour square. No photo."
       default: 0

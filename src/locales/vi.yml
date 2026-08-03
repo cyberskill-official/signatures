@@ -274,7 +274,7 @@ style:
     note: "Không có ảnh. Logo dẫn đầu."
   split:
     label: "Split"
-    note: "Bạn bên trái, cách liên hệ bên phải."
+    note: "Hai cột. Gọn nhất, nhưng chật nhất trên điện thoại."
   banner:
     label: "Banner"
     note: "Kẻ trên kẻ dưới, như một tấm danh thiếp in."

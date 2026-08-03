@@ -1,7 +1,8 @@
 Let the email wrap, stop the brand rule collapsing, fix rule() markup
 
-CI failed on four findings at 320px. All measured in Chrome against the real
-markup rather than reasoned about, which is how the third item below turned up.
+CI failed on four findings at 320px. All measured in a real browser against
+the real markup rather than reasoned about, which is how the third item below
+turned up.
 
 V1 - split 331px and banner 296px against a 288px content box.
 
@@ -15,15 +16,20 @@ alternatives, split, against a 288px box:
   word-wrap:break-word      306   still fails
   word-break:break-all      288   fits
 
-break-word is the obvious fix and does not work: it permits a break at
-render time but does not participate in the table's intrinsic width, so the
-table still sized to the largest unbreakable chunk. break-all does, and lands
-on 288. The email now wraps to two lines at phone width, which is the trade.
+break-word is the obvious fix and does not work: it permits a break at render
+time but does not participate in the table's intrinsic width, so the table
+still sized to the largest unbreakable chunk. break-all does.
+
+That distinction matters more than this one bug. break-all converts width
+pressure into extra lines rather than extra width, so the overflow is closed
+for any address, not just this one. Measured at 31, 33 and 36 characters -
+the longer two are real names this company expects to hire - split and
+classic both hold at exactly 288px, the email going from two rendered lines
+to three. A shorter address would have fixed today and left "your email must
+be under about 21 characters" as a rule every future hire inherits.
 
 nowrap stays everywhere else. It is right for a label and a phone number,
 which are short and bounded, and wrong for an address, which is neither.
-Requiring every future employee's address to be under about 21 characters was
-the alternative, and that is not a constraint worth inheriting.
 
 V12 - the ochre rule crushed to 0px in classic and 1px in compact.
 
@@ -32,8 +38,8 @@ font-size:0, so its min-content is 0 and the browser is free to take the whole
 3px back under pressure. It did so even when the table fit. min-width gives it
 a floor it cannot ignore.
 
-And one nobody was looking for. rule() built its style attribute in two
-halves with width/height attributes in between, emitting
+And one nobody was looking for. rule() built its style attribute in two halves
+with width/height attributes in between, emitting
 
   <td style="height="2" bgcolor="#F4BA17" style="height:2px;font-size:0;...">
 
@@ -44,8 +50,15 @@ test did not notice either: it searched the tag for bgcolor and
 background-color and found both. One style attribute now, built once, plus a
 test asserting no tag declares an attribute twice.
 
-Worth knowing: split now measures 288 against a 288 box - it fits with zero
-slack, so one more social row or a longer name tips it over. And break-all is
-the one property here Word's support for is uncertain; if Outlook ignores it
-the address will not wrap there, which only matters in a reading pane under
-about 400px.
+split keeps its place in the ten. It is not broken - it is the most compact of
+them at phone width, 122px tall against classic's 195px - but two columns in
+email cannot reflow, because there are no media queries to reflow with, so it
+is also the tightest. Its picker description said "You on the left, how to
+reach you on the right", which describes the desktop render only. It now says
+what the phone render costs, in both languages, so the choice is made with the
+tradeoff visible rather than discovered afterwards.
+
+check.py: HIGH=0 MED=0 LOW=0, 70 runs, 87 screenshots. That run included V13,
+the stacked-diacritic canary, executing for the first time - ten canary
+screenshots on disk confirm it ran rather than passed by not running.
+326 tests pass.

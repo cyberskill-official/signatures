@@ -270,7 +270,7 @@ style:
     note: "No photo. Logo leads."
   split:
     label: "Split"
-    note: "You on the left, how to reach you on the right."
+    note: "Two columns. The most compact, and the tightest on a phone."
   banner:
     label: "Banner"
     note: "Ruled top and bottom, like a printed card."
