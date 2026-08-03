@@ -1,27 +1,51 @@
-Rename the project from signatures to signature
+Let the email wrap, stop the brand rule collapsing, fix rule() markup
 
-Repo, custom domain and base URL all move. Everything under docs/ is
-regenerated against the new host, so every asset URL in every style points at
-signature.cyberskill.world.
+CI failed on four findings at 320px. All measured in Chrome against the real
+markup rather than reasoned about, which is how the third item below turned up.
 
-The bare word "signatures" is left alone. It appears 41 times outside docs/
-and only 18 of those were the project identifier - the rest are an English
-plural, in "verifying generated signatures", "All signatures" and "Email
-signatures", where the site genuinely holds more than one. A find-and-replace
-would have turned those into broken sentences, so the two identifiers were
-renamed by hand:
+V1 - split 331px and banner 296px against a 288px content box.
 
-  signatures.cyberskill.world    -> signature.cyberskill.world
-  cyberskill-official/signatures -> cyberskill-official/signature
+The cause is the email address: thai-anh.trinh@cyberskill.world is 55px wider
+than info@cyberskill.world at 13px, and white-space:nowrap made it
+unbreakable, so instead of wrapping it forced the whole table open. Measured
+alternatives, split, against a 288px box:
 
-Plus two the URL replace could not see - `cd signatures` after a clone that
-now produces a `signature` directory, and the tree in README's repository
-layout - and one identifier hiding among the plurals, the signatures-bot
-User-Agent in issue_to_record.py.
+  current (nowrap)          331   fails
+  short email               288   fits, but only exactly
+  word-wrap:break-word      306   still fails
+  word-break:break-all      288   fits
 
-Anything already installed against the old host keeps working only as long as
-signatures.cyberskill.world resolves. At the time of this change that was one
-test paste, so nothing real breaks; if that stops being true, the old
-hostname has to keep resolving rather than be retired.
+break-word is the obvious fix and does not work: it permits a break at
+render time but does not participate in the table's intrinsic width, so the
+table still sized to the largest unbreakable chunk. break-all does, and lands
+on 288. The email now wraps to two lines at phone width, which is the trade.
 
-316 tests pass. docs/ rebuilt clean.
+nowrap stays everywhere else. It is right for a label and a phone number,
+which are short and bounded, and wrong for an address, which is neither.
+Requiring every future employee's address to be under about 21 characters was
+the alternative, and that is not a constraint worth inheriting.
+
+V12 - the ochre rule crushed to 0px in classic and 1px in compact.
+
+Separate bug, not the email. The cell is width:3 holding &nbsp; at
+font-size:0, so its min-content is 0 and the browser is free to take the whole
+3px back under pressure. It did so even when the table fit. min-width gives it
+a floor it cannot ignore.
+
+And one nobody was looking for. rule() built its style attribute in two
+halves with width/height attributes in between, emitting
+
+  <td style="height="2" bgcolor="#F4BA17" style="height:2px;font-size:0;...">
+
+The parser reads the first style's value as "height=", drops the second as a
+duplicate, and discards height, font-size and line-height. bgcolor still
+painted, so the rule looked right and nobody noticed. The pinned-background
+test did not notice either: it searched the tag for bgcolor and
+background-color and found both. One style attribute now, built once, plus a
+test asserting no tag declares an attribute twice.
+
+Worth knowing: split now measures 288 against a 288 box - it fits with zero
+slack, so one more social row or a longer name tips it over. And break-all is
+the one property here Word's support for is uncertain; if Outlook ignores it
+the address will not wrap there, which only matters in a reading pane under
+about 400px.

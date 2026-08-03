@@ -46,14 +46,25 @@ def esc(v):
     return html.escape("" if v is None else str(v), quote=True)
 
 
-def link(text, href, size=14, colour=None):
+def link(text, href, size=14, colour=None, breakable=False):
     """color:inherit is load-bearing. Omitting a colour does NOT inherit - the
     UA stylesheet still paints link-blue, which is 1.75:1 on a dark surface.
     An explicit colour is passed only on a pinned background."""
     c = f"color:{colour};" if colour else "color:inherit;"
+    # nowrap is right for a label or a phone number, which are short and
+    # bounded. It is wrong for an email address, which is neither: an
+    # unbreakable string forces the whole table open rather than wrapping,
+    # and at 320px that overflowed two styles by up to 43px.
+    #
+    # break-all rather than break-word, because break-word does not affect
+    # the table's intrinsic width - measured in Chrome, it took the table
+    # from 331px to 306px against a 288px box and still failed. break-all
+    # participates in intrinsic sizing and landed on 288 exactly.
+    w = ("word-break:break-all;" if breakable
+         else "white-space:nowrap;")
     return (f'<a href="{esc(href)}" style="{c}text-decoration:underline;'
             f'font-family:{SANS};font-size:{size}px;">'
-            f'<span style="white-space:nowrap;">{esc(text)}</span></a>')
+            f'<span style="{w}">{esc(text)}</span></a>')
 
 
 def img(src, w, h, extra=""):
@@ -97,12 +108,21 @@ def rule(colour=OCHRE, h=2, w=None):
     ignores background-color on a div - so a div rule simply is not there in
     Outlook. Both are set, always, and they must agree.
     """
-    cell = f' width="{w}" style="width:{w}px;' if w else ' style="'
+    # One style attribute, built once. It used to be opened here and closed
+    # further down with width/height attributes in between, which emitted
+    #   <td style="height="2" bgcolor="#F4BA17" style="height:2px;...">
+    # The parser read the first style as the value "height=", treated the
+    # second as a duplicate and dropped it, so height, font-size and
+    # line-height were all silently discarded. bgcolor still painted, which
+    # is why nobody saw it - and why the test suite did not either: it looked
+    # for bgcolor and background-color in the tag and found both.
+    attrs = f' width="{w}"' if w else ""
+    css = f"width:{w}px;min-width:{w}px;" if w else ""
     table = T + '"' + ('' if w else ' width="100%"')
     return (f'{table}><tr>'
-            f'<td{cell}height="{h}" bgcolor="{colour}" '
-            f'style="height:{h}px;background-color:{colour};font-size:0;'
-            f'line-height:0;">&nbsp;</td></tr></table>')
+            f'<td{attrs} height="{h}" bgcolor="{colour}" '
+            f'style="{css}height:{h}px;background-color:{colour};'
+            f'font-size:0;line-height:0;">&nbsp;</td></tr></table>')
 
 
 def vgap(px):
@@ -153,7 +173,8 @@ def socials(rec, size=13, colour=None):
 def fields(rec, size=13):
     """(icon, markup) for each contact row a record actually has. A missing
     field drops its row; nothing shifts to fill the space."""
-    out = [("mail", link(rec["email"], f'mailto:{rec["email"]}', size))]
+    out = [("mail", link(rec["email"], f'mailto:{rec["email"]}', size,
+                         breakable=True))]
     if rec.get("phone"):
         out.append(("phone", link(rec["phone"], f'tel:{rec["phone_href"]}', size)))
     if rec.get("website"):
@@ -230,7 +251,7 @@ def s_classic(rec, company, base):
     left = (f'<td width="80" valign="top" style="width:80px;line-height:0;'
             f'font-size:0;">{av}</td>{sp(15)}' if av else "")
     return wrap(f'''<tr>
-{left}<td width="3" bgcolor="{OCHRE}" style="width:3px;background-color:{OCHRE};font-size:0;line-height:0;">&nbsp;</td>{sp(15)}
+{left}<td width="3" bgcolor="{OCHRE}" style="width:3px;min-width:3px;background-color:{OCHRE};font-size:0;line-height:0;">&nbsp;</td>{sp(15)}
 <td valign="top">{ident(rec)}{vgap(10)}{icon_rows(rec, base)}{vgap(11)}
 {rule(OCHRE, 2)}
 {div(esc(company["tagline"]), 12, pad=7)}</td></tr>''')
@@ -289,7 +310,7 @@ def s_footer(rec, company, base):
                          f'font-size:0;line-height:0;{MSO}">&nbsp;</td></tr>')
     return wrap(f'''
 <tr><td style="padding:0 0 14px 0;">{T}" width="100%"><tr>{cell}
-<td width="3" bgcolor="{OCHRE}" style="width:3px;background-color:{OCHRE};font-size:0;line-height:0;">&nbsp;</td>{sp(15)}
+<td width="3" bgcolor="{OCHRE}" style="width:3px;min-width:3px;background-color:{OCHRE};font-size:0;line-height:0;">&nbsp;</td>{sp(15)}
 <td valign="top">{ident(rec)}{vgap(9)}{T}">{"".join(inner)}</table></td></tr></table></td></tr>
 <tr><td bgcolor="{UMBER}" style="background-color:{UMBER};padding:11px 15px;">
 {T}" width="100%"><tr>
@@ -322,7 +343,7 @@ def s_compact(rec, company, base):
     cell = (f'<td width="56" valign="top" style="width:56px;line-height:0;'
             f'font-size:0;">{av}</td>{sp(12)}' if av else "")
     return wrap(f'''<tr>{cell}
-<td width="3" bgcolor="{OCHRE}" style="width:3px;background-color:{OCHRE};font-size:0;line-height:0;">&nbsp;</td>{sp(12)}
+<td width="3" bgcolor="{OCHRE}" style="width:3px;min-width:3px;background-color:{OCHRE};font-size:0;line-height:0;">&nbsp;</td>{sp(12)}
 <td valign="top">{ident(rec, 16)}{vgap(8)}{icon_rows(rec, base, 12, 3)}</td>
 <td align="right" valign="top" style="text-align:right;">{logo(base, 28)}</td></tr>''')
 
@@ -353,7 +374,7 @@ def s_split(rec, company, base):
 <td width="28" valign="middle" style="width:28px;line-height:0;font-size:0;">{logo(base, 28)}</td>{sp(9)}
 <td valign="middle" style="font-family:{SANS};font-size:12px;line-height:{lh(12)}px;{MSO}">{esc(company["tagline"])}</td>
 </tr></table></td>{sp(16)}
-<td width="3" bgcolor="{UMBER}" style="width:3px;background-color:{UMBER};font-size:0;line-height:0;">&nbsp;</td>{sp(16)}
+<td width="3" bgcolor="{UMBER}" style="width:3px;min-width:3px;background-color:{UMBER};font-size:0;line-height:0;">&nbsp;</td>{sp(16)}
 <td valign="top">{icon_rows(rec, base)}</td></tr>''')
 
 

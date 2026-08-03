@@ -401,3 +401,23 @@ def test_the_stacked_diacritic_canary_renders(sid, rec):
     assert canary in m, (
         f"style '{sid}' lost the canary - it is in the record but not the "
         f"rendered markup")
+
+
+@pytest.mark.parametrize("sid", IDS)
+def test_no_tag_declares_an_attribute_twice(sid, rec):
+    """`rule()` emitted <td style="height="2" bgcolor=... style="height:2px;...">
+    for months. The parser read the first style's value as "height=", dropped
+    the second as a duplicate, and threw away height, font-size and
+    line-height. bgcolor still painted, so it looked fine - and the pinned-
+    background test passed, because it searched the tag for bgcolor and
+    background-color and found both.
+
+    An attribute appearing twice in one tag is always a construction bug.
+    """
+    bad = []
+    for tag in re.findall(r"<\w+[^>]*>", markup(sid, rec)):
+        names = re.findall(r'(?:^|\s)([a-zA-Z-]+)=', tag)
+        dupes = {n for n in names if names.count(n) > 1}
+        if dupes:
+            bad.append((sorted(dupes), tag[:110]))
+    assert not bad, f"style '{sid}' has repeated attributes: {bad}"
