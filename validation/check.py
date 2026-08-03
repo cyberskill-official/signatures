@@ -30,7 +30,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 sys.path.insert(0, os.path.join(ROOT, "build"))
 from model import DOCS, load_company, load_people   # noqa: E402
-from styles import STYLES                          # noqa: E402
+from styles import STYLES, render                  # noqa: E402
 from model import OCHRE, UMBER                     # noqa: E402
 
 SHOTS = os.path.join(HERE, "screenshots")
@@ -360,6 +360,48 @@ def run():
                 if lo["bodyText"] != bl["bodyText"]:
                     add("HIGH", f"{pid}-{wname}", "V4",
                         "rendered text differs loaded vs blocked")
+
+            # V13 - Vietnamese stacked diacritics must fit the line box.
+            #
+            # CDS names ỚẾỰỎÃỸ as the canary and fails any component that
+            # clips it. Clipping is not the only failure: with overflow
+            # visible the glyph is not cut, it collides with the line above,
+            # or it pushes the block taller than it was designed to be.
+            #
+            # So the measurement is a comparison, not an absolute. Render the
+            # same style twice, once with the canary in name_vi and once with
+            # plain Latin capitals of the same length, and see whether the
+            # table grows. If it does, the leading is too tight for Vietnamese
+            # and the layout moves the day someone with a name like that is
+            # added - which, at a Vietnamese company, is every day.
+            heights = {}
+            for label, probe in (("latin", "AEUODY"), ("canary", "ỚẾỰỎÃỸ")):
+                page = browser.new_page(viewport={"width": 640, "height": 700},
+                                        device_scale_factor=2)
+                page.set_content(HARNESS.format(
+                    base=base, page_bg="#FFFFFF", page_fg="#000000",
+                    pad=HOST_PAD, host_w=600, extra="", img_extra="",
+                    sig=render(style_id, dict(rec, name_vi=probe),
+                               company, base)))
+                page.wait_for_load_state("networkidle")
+                heights[label] = page.evaluate(
+                    "() => {const t = document.querySelector('#host table');"
+                    " return t ? Math.round(t.getBoundingClientRect().height)"
+                    " : 0;}")
+                if label == "canary":
+                    page.locator("#host").screenshot(
+                        path=os.path.join(SHOTS, f"{pid}-canary.png"))
+                page.close()
+            grew = heights["canary"] - heights["latin"]
+            if grew > 1:
+                add("HIGH", f"{pid}-canary", "V13",
+                    f"Vietnamese diacritics add {grew}px - the line box does "
+                    f"not contain them (latin {heights['latin']}px, canary "
+                    f"{heights['canary']}px). Raise the leading on the "
+                    f"identity line.")
+            elif not heights["canary"]:
+                add("MED", f"{pid}-canary", "V13",
+                    "canary render produced no table - check did not run")
 
             for state, (bg, fg, extra) in DARK_STATES.items():
                 img_extra = ("filter:invert(1) hue-rotate(180deg);"

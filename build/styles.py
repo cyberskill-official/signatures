@@ -26,6 +26,7 @@ Adding a style: write the function, add it to STYLES, run the suite. The
 tests check the four rules above; validation checks it renders.
 """
 import html
+import math
 import os
 import sys
 
@@ -51,7 +52,7 @@ def link(text, href, size=14, colour=None):
     An explicit colour is passed only on a pinned background."""
     c = f"color:{colour};" if colour else "color:inherit;"
     return (f'<a href="{esc(href)}" style="{c}text-decoration:underline;'
-            f'font-size:{size}px;">'
+            f'font-family:{SANS};font-size:{size}px;">'
             f'<span style="white-space:nowrap;">{esc(text)}</span></a>')
 
 
@@ -63,10 +64,24 @@ def img(src, w, h, extra=""):
             f'outline:none;-ms-interpolation-mode:bicubic;{extra}"/>')
 
 
-def div(s, size=14, lh=20, bold=False, colour=None, pad=0):
+def lh(size, heading=False):
+    """CDS line-height floors: 1.5 body, 1.35 headings.
+
+    The doctrine calls these "part of the token system, not optional
+    overrides", and the reason is in the same Part: the canary ỚẾỰỎÃỸ must
+    not clip. Vietnamese stacked diacritics need the leading, and every
+    record here can carry a name_vi. Computed rather than written by hand so
+    a new style cannot quietly sit below the floor.
+    """
+    return math.ceil(size * (1.35 if heading else 1.5))
+
+
+def div(s, size=14, lh_=None, bold=False, colour=None, pad=0, heading=False):
     c = f"color:{colour};" if colour else ""
     w = "font-weight:bold;" if bold else ""
-    return (f'<div style="font-size:{size}px;line-height:{lh}px;{w}{c}'
+    n = lh_ if lh_ is not None else lh(size, heading)
+    return (f'<div style="font-family:{SANS};font-size:{size}px;'
+            f'line-height:{n}px;{w}{c}'
             f'padding-top:{pad}px;{MSO}">{s}</div>')
 
 
@@ -163,8 +178,9 @@ def icon_rows(rec, base, size=13, gap=5, px=ICON):
         rows.append(
             f'<tr><td width="{px}" valign="top" style="width:{px}px;'
             f'padding:3px 0 0 0;line-height:0;font-size:0;">{img(url, px, px)}</td>'
-            f'<td valign="top" style="padding:0 0 0 9px;font-size:{size}px;'
-            f'line-height:19px;{MSO}">{body}</td></tr>')
+            f'<td valign="top" style="padding:0 0 0 9px;font-family:{SANS};'
+            f'font-size:{size}px;'
+            f'line-height:{lh(size)}px;{MSO}">{body}</td></tr>')
         if i < len(items) - 1:
             rows.append(f'<tr><td colspan="2" height="{gap}" style="height:{gap}px;'
                         f'font-size:0;line-height:0;{MSO}">&nbsp;</td></tr>')
@@ -176,8 +192,9 @@ def ident(rec, size=19, colour=None, sub=None):
     separate lines was the single biggest contributor to the old height."""
     bits = [x for x in (rec.get("name_vi"), rec["role"], rec.get("company"))
             if x]
-    return (div(esc(rec["name"]), size, size + 5, True, colour)
-            + div(" &middot; ".join(esc(b) for b in bits), 13, 18,
+    return (div(esc(rec["name"]), size, bold=True, colour=colour,
+                heading=True)
+            + div(" &middot; ".join(esc(b) for b in bits), 13,
                   colour=sub, pad=2))
 
 
@@ -194,7 +211,7 @@ def wrap(inner, width=True):
     # color is deliberately absent: it MUST keep inheriting, because the
     # client's own foreground is the only value guaranteed to be readable
     # against the client's own background.
-    reset = ("font-size:14px;line-height:20px;letter-spacing:normal;"
+    reset = (f"font-size:14px;line-height:{lh(14)}px;letter-spacing:normal;"
              "text-align:left;font-weight:normal;font-style:normal;"
              "text-transform:none;text-indent:0;word-spacing:normal;")
     return (f'<!--[if mso]><table role="presentation" width="100%" '
@@ -216,7 +233,7 @@ def s_classic(rec, company, base):
 {left}<td width="3" bgcolor="{OCHRE}" style="width:3px;background-color:{OCHRE};font-size:0;line-height:0;">&nbsp;</td>{sp(15)}
 <td valign="top">{ident(rec)}{vgap(10)}{icon_rows(rec, base)}{vgap(11)}
 {rule(OCHRE, 2)}
-{div(esc(company["tagline"]), 12, 17, pad=7)}</td></tr>''')
+{div(esc(company["tagline"]), 12, pad=7)}</td></tr>''')
 
 
 def s_plate(rec, company, base):
@@ -233,7 +250,7 @@ def s_plate(rec, company, base):
 </tr></table></td></tr>
 <tr><td height="3" bgcolor="{OCHRE}" style="height:3px;background-color:{OCHRE};font-size:0;line-height:0;">&nbsp;</td></tr>
 <tr><td style="padding:13px 18px 0 18px;">{icon_rows(rec, base)}</td></tr>
-<tr><td style="padding:9px 18px 0 18px;font-size:12px;line-height:17px;{MSO}">{esc(company["tagline"])}</td></tr>''')
+<tr><td style="padding:9px 18px 0 18px;font-family:{SANS};font-size:12px;line-height:{lh(12)}px;{MSO}">{esc(company["tagline"])}</td></tr>''')
 
 
 def s_cap(rec, company, base):
@@ -243,8 +260,8 @@ def s_cap(rec, company, base):
     cell = (f'<td width="56" valign="top" style="width:56px;line-height:0;'
             f'font-size:0;">{av}</td>{sp(15)}' if av else "")
     return wrap(f'''
-<tr><td bgcolor="{UMBER}" style="background-color:{UMBER};padding:8px 16px;font-size:12px;line-height:17px;color:#FFFFFF;letter-spacing:.10em;{MSO}">
-<strong>{esc(company["name"]).upper()}</strong><span style="color:{OCHRE};"> &middot; </span><span style="color:{CREAM};letter-spacing:0;">{esc(company["tagline"])}</span></td></tr>
+<tr><td bgcolor="{UMBER}" style="background-color:{UMBER};padding:8px 16px;font-family:{SANS};font-size:12px;line-height:{lh(12)}px;color:#FFFFFF;{MSO}">
+<strong>{esc(company["name"])}</strong><span style="color:{OCHRE};"> &middot; </span><span style="color:{CREAM};">{esc(company["tagline"])}</span></td></tr>
 <tr><td style="padding:14px 0 0 0;">{T}" width="100%"><tr>{cell}
 <td valign="top">{ident(rec)}{vgap(10)}{icon_rows(rec, base)}</td></tr></table></td></tr>''')
 
@@ -264,8 +281,9 @@ def s_footer(rec, company, base):
         inner.append(f'<tr><td width="{ICON}" valign="top" style="width:{ICON}px;'
                      f'padding:3px 0 0 0;line-height:0;font-size:0;">'
                      f'{img(url, ICON, ICON)}</td>'
-                     f'<td valign="top" style="padding:0 0 0 9px;font-size:13px;'
-                     f'line-height:19px;{MSO}">{body}</td></tr>')
+                     f'<td valign="top" style="padding:0 0 0 9px;font-family:{SANS};'
+                     f'font-size:13px;'
+                     f'line-height:{lh(13)}px;{MSO}">{body}</td></tr>')
         if i < len(rows) - 1:
             inner.append('<tr><td colspan="2" height="5" style="height:5px;'
                          f'font-size:0;line-height:0;{MSO}">&nbsp;</td></tr>')
@@ -276,7 +294,7 @@ def s_footer(rec, company, base):
 <tr><td bgcolor="{UMBER}" style="background-color:{UMBER};padding:11px 15px;">
 {T}" width="100%"><tr>
 <td width="28" valign="middle" style="width:28px;line-height:0;font-size:0;">{logo(base, 28)}</td>{sp(10)}
-<td valign="middle" style="font-size:12px;line-height:17px;color:{CREAM};{MSO}">{esc(company["tagline"])}{f"<br/>{soc}" if soc else ""}</td>
+<td valign="middle" style="font-family:{SANS};font-size:12px;line-height:{lh(12)}px;color:{CREAM};{MSO}">{esc(company["tagline"])}{f"<br/>{soc}" if soc else ""}</td>
 </tr></table></td></tr>''')
 
 
@@ -294,7 +312,7 @@ def s_sidebar(rec, company, base):
 <td width="88" bgcolor="{UMBER}" valign="top" align="center" style="width:88px;background-color:{UMBER};padding:14px 0;text-align:center;">
 <div style="font-size:0;line-height:0;">{stack}</div></td>{sp(16)}
 <td valign="top" style="padding-top:2px;">{ident(rec)}{vgap(10)}{icon_rows(rec, base)}
-{div(esc(company["tagline"]), 12, 17, pad=10)}</td></tr>''')
+{div(esc(company["tagline"]), 12, pad=10)}</td></tr>''')
 
 
 def s_compact(rec, company, base):
@@ -314,13 +332,13 @@ def s_stacked(rec, company, base):
     return wrap(f'''
 <tr><td>{T}"><tr>
 <td width="36" valign="middle" style="width:36px;line-height:0;font-size:0;">{logo(base, 36)}</td>{sp(11)}
-<td valign="middle" style="font-size:12px;line-height:16px;letter-spacing:.10em;{MSO}">
-<strong>{esc(company["name"]).upper()}</strong></td></tr></table></td></tr>
+<td valign="middle" style="font-family:{SANS};font-size:12px;line-height:{lh(12)}px;{MSO}">
+<strong>{esc(company["name"])}</strong></td></tr></table></td></tr>
 <tr><td height="12" style="height:12px;font-size:0;line-height:0;">&nbsp;</td></tr>
 <tr><td>{rule(OCHRE, 2, 52)}</td></tr>
 <tr><td height="12" style="height:12px;font-size:0;line-height:0;">&nbsp;</td></tr>
 <tr><td>{ident(rec)}{vgap(10)}{icon_rows(rec, base)}
-{div(esc(company["tagline"]), 12, 17, pad=10)}</td></tr>''')
+{div(esc(company["tagline"]), 12, pad=10)}</td></tr>''')
 
 
 def s_split(rec, company, base):
@@ -333,7 +351,7 @@ def s_split(rec, company, base):
 <td valign="top" width="180" style="width:180px;">{ident(rec, 18)}
 {vgap(10)}{T}"><tr>
 <td width="28" valign="middle" style="width:28px;line-height:0;font-size:0;">{logo(base, 28)}</td>{sp(9)}
-<td valign="middle" style="font-size:11px;line-height:15px;{MSO}">{esc(company["tagline"])}</td>
+<td valign="middle" style="font-family:{SANS};font-size:12px;line-height:{lh(12)}px;{MSO}">{esc(company["tagline"])}</td>
 </tr></table></td>{sp(16)}
 <td width="3" bgcolor="{UMBER}" style="width:3px;background-color:{UMBER};font-size:0;line-height:0;">&nbsp;</td>{sp(16)}
 <td valign="top">{icon_rows(rec, base)}</td></tr>''')
@@ -351,7 +369,7 @@ def s_banner(rec, company, base):
 <td align="right" valign="top" style="text-align:right;">{logo(base, 36)}</td>
 </tr></table></td></tr>
 <tr><td height="1" bgcolor="{UMBER}" style="height:1px;background-color:{UMBER};font-size:0;line-height:0;">&nbsp;</td></tr>
-<tr><td style="padding:8px 0 0 0;font-size:12px;line-height:17px;{MSO}">{esc(company["tagline"])}</td></tr>''')
+<tr><td style="padding:8px 0 0 0;font-family:{SANS};font-size:12px;line-height:{lh(12)}px;{MSO}">{esc(company["tagline"])}</td></tr>''')
 
 
 def s_badge(rec, company, base):
@@ -363,7 +381,7 @@ def s_badge(rec, company, base):
 <td valign="middle">{ident(rec, 18)}</td></tr>
 <tr><td colspan="3" height="13" style="height:13px;font-size:0;line-height:0;">&nbsp;</td></tr>
 <tr><td colspan="3">{icon_rows(rec, base)}
-{div(esc(company["tagline"]), 12, 17, pad=9)}</td></tr>''')
+{div(esc(company["tagline"]), 12, pad=9)}</td></tr>''')
 
 
 # Order is the order they appear on the page. First is the default.

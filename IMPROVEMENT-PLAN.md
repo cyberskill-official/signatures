@@ -399,7 +399,17 @@ happens in the same pass - only if that pass really happens.
 
 ## The one thing still not verified
 
-Nobody has pasted this into real Gmail and read the result on a phone. Every
-check in this repository is a model of what Gmail does. Do that before item 6
-sends more people through the pipeline - if the sanitiser does something
-unexpected, you want to find it once, not twenty times.
+~~Nobody has pasted this into real Gmail and read the result on a phone.~~
+Done, 2026-08-03. Every check in this repository is a model of what Gmail
+does, and the model held.
+
+What remains unverified is narrower and now names itself:
+
+- **Outlook on Windows.** `crossclient.py` emulates client sanitisers inside
+  browser engines, and none of them is the Word engine. Everything this repo
+  says about Word - the `bgcolor` attribute, `mso-line-height-rule`, the
+  full-width mso wrapper, `font-family` repeated on every text element - is
+  reasoned from how Word behaves, not measured. Paste into a real Outlook
+  once and the whole class is settled.
+- **APCA.** CDS mandates `Lc >= 75`; validation measures WCAG 2.x. See the
+  deferral table in CONTRIBUTING.md.

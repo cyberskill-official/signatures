@@ -332,6 +332,31 @@ never left wondering why your choice did not stick.
 Two styles never show a photo - `stacked` and `badge`. If you would rather not
 publish one, pick either and leave `avatar` out.
 
+### Design system conformance
+
+This repo implements the [CyberSkill Global Design System](https://github.com/cyberskill-official/design-system)
+v1.3.0 as far as email allows, and records the rest as deferrals rather than
+leaving them silently unmet.
+
+Enforced by `tests/test_styles.py`, so a new style cannot drift out of them:
+
+| CDS rule | How it is held |
+|---|---|
+| Umber `#45210E`, Ochre `#F4BA17` (anchor immutables) | asserted against `model.py`; the only place either is written down |
+| Wordmark in sentence case - never `CYBERSKILL` | asserted on rendered markup for all ten styles |
+| Line-height 1.5 body, 1.35 headings | computed by `styles.lh()`, never written by hand, asserted per style |
+| Stacked-diacritic canary `ỚẾỰỎÃỸ` | survives the markup path (unit test); measured for layout growth by `check.py` V13 |
+| Slogan, Vietnamese-first | `company.yml` tagline; `src/locales/` with a documented deferral list |
+
+Deferred, with the reason:
+
+| CDS rule | Why it cannot apply here |
+|---|---|
+| Be Vietnam Pro as the UI face | A webfont needs `@font-face`, which needs a `<style>` block, which Gmail strips - the test suite asserts that. Outlook ignores webfonts regardless. It survives only in the baked logo PNG, where the wordmark is pixels. Body text falls back to Arial. |
+| `cs-color-brand-*` tokens instead of hex | Mail has no custom properties and no `:root` to declare them in. The output must carry literal hex; the token discipline lives in `model.py` instead. |
+| Liquid Glass surfaces (Part 21) | CDS itself collapses these to solid under `@supports not (backdrop-filter)`. Email is that fallback path by definition, so nothing is owed. |
+| APCA `Lc >= 75` | `check.py` uses WCAG 2.x ratios. APCA is polarity-aware, and the colour architecture below rests on a WCAG-derived result, so switching means re-deriving it rather than swapping a constant. Open. |
+
 ### Adding a style
 
 Write the function, add it to `STYLES` in `build/styles.py`, then name it in

@@ -1,32 +1,53 @@
-Translate person pages, and fix two checks that had stopped checking
+Adopt the CyberSkill Design System where email can carry it
 
-Person pages were the last English page on the site. A Vietnamese employee
-followed a Vietnamese index to an English page carrying the one button they
-actually have to press. Each language now gets its own /people/<id>/.
+Implements github.com/cyberskill-official/design-system v1.3.0 as far as the
+medium allows, and writes down the rest as deferrals rather than leaving them
+silently unmet. Enforced in tests/test_styles.py so a new style cannot drift.
 
-Style names moved out of Python and into src/locales/. The registry in
-styles.py says which styles exist; the locale files say what to call them,
-so the picker reads in the language the reader chose. That also removes a
-third copy of the names - the GitHub issue form is now pinned to en.yml by
-a test rather than kept in step by hand.
+Two anchor immutables were already exact - Umber #45210E and Ochre #F4BA17
+match model.py character for character. Three things did not.
 
-Two checks were passing without testing anything:
+The wordmark. CDS: "always set in sentence case as a single word: CyberSkill.
+It is not Cyber Skill, CYBERSKILL, cyberskill, or CYBER SKILL." Two styles
+called .upper() on it - s_cap and s_stacked. Both now render CyberSkill, and
+the tracking that went with the caps is gone, since CDS ties the 0.04em
+increase to all-caps runs and there is no longer one.
 
-- crossclient's X7 compared each style's hostile render against the first
-  apple-mail run ever recorded, which is classic. Nine of ten styles were
-  measured against a layout they have no reason to resemble; it reported
-  eight leaks that were just ten styles being ten different heights, while
-  testing none of them. Now scoped per signature, and a missing baseline is
-  reported instead of skipped.
+Line-height. CDS sets floors of 1.5 body and 1.35 headings and calls them
+"part of the token system, not optional overrides". Every line in every style
+was under: the name at 1.26, the identity line at 1.38, contact rows at 1.36
+to 1.46, the tagline at 1.42. They are now computed by styles.lh() rather
+than written by hand, so the floor cannot be missed by a style that has not
+read this message. Cost is about nine pixels on a two-hundred-pixel block.
 
-- crossclient's install-page audit was hardcoded to people/<id>/, so the
-  copy button - the one control anybody has to press - was tested in
-  English only. Install pages are now discovered from disk, and the run
-  fails if it finds fewer than one per person.
+The reason those floors exist is the third item. CDS names ỚẾỰỎÃỸ as the
+stacked-diacritic canary and fails any component that clips it. Nothing here
+tested that. test_model.py checked that Vietnamese names are accepted, which
+is a different question from whether they are drawn. Two checks now: a unit
+test that the canary survives the markup path, and check.py V13, which
+renders each style twice - once with the canary in name_vi, once with Latin
+capitals of the same length - and fails if the table grows. If it grows, the
+leading does not contain Vietnamese and the layout moves the day someone with
+such a name is added, which at a Vietnamese company is every day.
 
-Also: the locale flattener str()'d a nested map instead of rejecting it, so
-a two-level section would have shipped a Python dict repr into the page with
-nothing failing anywhere. It now recurses, and a non-scalar leaf is fatal.
+Also, font-family was declared once per signature, on the outer wrapper, and
+inherited. Word loses an inherited font-family through nested tables and
+falls back to Times New Roman, and these layouts nest heavily. It is now
+repeated on every text element. That paid for itself: the stack dropped to
+Arial, Helvetica, sans-serif, because Arial is installed on every Windows and
+macOS machine, so 'Helvetica Neue', 'Segoe UI' and Roboto sat behind a font
+that always wins and were never reached. Twelve declarations now cost less
+than six unreachable names did. Largest style is 5,519 chars, 55% of Gmail's
+limit.
 
-validation/crossclient/report.json predates the X7 fix - its eight HIGH
-findings are the bug described above. Re-run to get a real answer.
+Deferrals, recorded in CONTRIBUTING.md with reasons: Be Vietnam Pro (needs
+@font-face, needs a <style> block, Gmail strips it - survives only in the
+baked logo PNG); cs-color-brand-* tokens (mail has no custom properties, so
+the discipline lives in model.py and the output carries hex); Liquid Glass
+(CDS already collapses it to solid without backdrop-filter, so email is that
+path by definition); APCA Lc >= 75 (validation measures WCAG 2.x, and the
+colour architecture rests on a WCAG-derived result, so this is a re-derivation
+rather than a constant swap - left open).
+
+316 tests pass, up from 284. V13 has never run - it needs a browser this
+machine does not have.

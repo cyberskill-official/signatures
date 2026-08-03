@@ -313,3 +313,91 @@ def test_the_issue_form_offers_exactly_the_registered_styles():
             f"{os.path.basename(path)} preselects "
             f"'{IDS[default] if default is not None else None}', "
             f"build default is '{S.DEFAULT_STYLE}'")
+
+
+# --- CyberSkill Design System conformance ----------------------------------
+#
+# github.com/cyberskill-official/design-system, v1.3.0. Only the parts that
+# survive the medium are enforced here - see the deferral table in
+# CONTRIBUTING.md for what email cannot carry and why.
+
+def test_the_wordmark_is_never_upper_cased(rec):
+    """CDS: "always set in sentence case as a single word: CyberSkill. It is
+    not Cyber Skill, CYBERSKILL, cyberskill, or CYBER SKILL." Two styles
+    upper-cased it for the look of the brand bar."""
+    company = rec[1]
+    shouting = company["name"].upper()
+    if company["name"] == shouting:         # a name like "IBM" is its own upper
+        pytest.skip("company name is case-degenerate")
+    for sid in IDS:
+        m = markup(sid, rec)
+        assert shouting not in m, \
+            f"style '{sid}' renders the wordmark as {shouting!r}"
+        assert company["name"] in m
+
+    # The lower-case form is deliberately not asserted against. CDS forbids
+    # "cyberskill" as a wordmark, but cyberskill.world and
+    # thai-anh.trinh@cyberskill.world are domains, which are lower-case by
+    # nature and are not the wordmark. A test that cannot tell the two apart
+    # would fail on correct markup, so it would be deleted rather than
+    # obeyed - and the case it does catch, .upper(), is the one that
+    # happened.
+
+
+@pytest.mark.parametrize("sid", IDS)
+def test_line_heights_meet_the_cds_floor(sid, rec):
+    """1.5 body, 1.35 headings. CDS calls these "part of the token system,
+    not optional overrides" - they are what stops the stacked-diacritic
+    canary clipping, and every record here may carry a name_vi.
+
+    Spacers are exempt: font-size:0 with line-height:0 is structure, not
+    type, and giving them leading would put gaps in the layout.
+    """
+    bad = []
+    for style in re.findall(r'style="([^"]*)"', markup(sid, rec)):
+        fs = re.search(r"font-size:\s*(\d+)px", style)
+        lh = re.search(r"line-height:\s*(\d+)px", style)
+        if not fs or not lh:
+            continue
+        size, line = int(fs.group(1)), int(lh.group(1))
+        if size == 0:
+            continue
+        # 1.35 is the loosest floor CDS allows, so anything under it fails
+        # whatever the element is. Headings are the only things permitted
+        # between 1.35 and 1.5, and bold is how this markup marks one.
+        floor = 1.35 if "font-weight:bold" in style else 1.5
+        if line < size * floor:
+            bad.append(f"{size}px/{line}px = {line / size:.2f} < {floor}")
+    assert not bad, f"style '{sid}' is under the CDS line-height floor: {bad}"
+
+
+@pytest.mark.parametrize("sid", IDS)
+def test_no_text_below_twelve_pixels(sid, rec):
+    """iOS Mail scales small text up, which breaks a fixed-width layout, and
+    12px is the floor anyone should be asked to read in a signature."""
+    small = [int(n) for n in re.findall(r"font-size:\s*(\d+)px", markup(sid, rec))
+             if 0 < int(n) < 12]
+    assert not small, f"style '{sid}' sets text at {sorted(set(small))}px"
+
+
+def test_the_anchor_colours_are_the_cds_values():
+    """Umber and Ochre are anchor immutables. If these ever drift, the
+    signature stops being CyberSkill before anyone notices visually."""
+    assert UMBER.upper() == "#45210E"
+    assert OCHRE.upper() == "#F4BA17"
+
+
+@pytest.mark.parametrize("sid", IDS)
+def test_the_stacked_diacritic_canary_renders(sid, rec):
+    """CDS names ỚẾỰỎÃỸ as the canary and fails any component that clips it.
+    Clipping is a pixel question that needs a browser - validation/check.py
+    owns that. What is checked here is that the canary survives the markup
+    path intact: not stripped, not mangled by escaping, not normalised into
+    a different sequence.
+    """
+    r, company = rec
+    canary = "ỚẾỰỎÃỸ"
+    m = S.render(sid, dict(r, name_vi=canary), company, BASE)
+    assert canary in m, (
+        f"style '{sid}' lost the canary - it is in the record but not the "
+        f"rendered markup")

@@ -27,12 +27,40 @@ DOCS_PEOPLE = os.path.join(DOCS, "people")
 
 # --------------------------------------------------------------------------
 # Design tokens - see README "The colour architecture"
+#
+# Sourced from the CyberSkill Global Design System, v1.3.0:
+#   github.com/cyberskill-official/design-system
+#
+# CDS lists "hardcode #45210E everywhere" as an anti-pattern and requires the
+# cs-color-brand-umber token instead. That rule cannot reach the output here:
+# mail has no custom properties, Gmail strips the <style> block a :root would
+# live in, and Outlook draws through Word, which has neither. The rendered
+# signature must carry literal hex.
+#
+# So the token discipline lives at this layer instead. These three constants
+# are the only place a brand colour is written down, every style imports
+# them, and a test asserts the two anchors still match CDS. Re-syncing after
+# a CDS release means editing this block and nothing else.
+#
+# cs.color.brand.umber   oklch(0.265 0.073 44.3)   ANCHOR IMMUTABLE
+# cs.color.brand.ochre   oklch(0.811 0.162 83.7)   ANCHOR IMMUTABLE
 # --------------------------------------------------------------------------
 OCHRE = "#F4BA17"    # rule only, never text
 UMBER = "#45210E"    # logo plate, baked into the PNG
 ACCENT = "#9E5E3E"   # icon glyphs only, baked into the icon PNGs
 
-SANS = "Arial, 'Helvetica Neue', Helvetica, 'Segoe UI', Roboto, sans-serif"
+# CDS specifies Be Vietnam Pro (SIL OFL 1.1) as the UI face. It cannot be
+# delivered here and this is a deliberate, documented deferral rather than an
+# oversight: a webfont needs @font-face, @font-face needs a <style> block,
+# and Gmail strips those - which the test suite asserts. Outlook ignores
+# webfonts regardless of how they arrive.
+#
+# Be Vietnam Pro therefore survives in one place only, the baked logo PNG,
+# where the wordmark is pixels rather than text. Everything else falls back
+# to Arial, which is on every Windows and macOS install and which the Word
+# engine resolves - a stack that leads with a font Word cannot resolve is the
+# usual route to a signature that renders in Times New Roman.
+SANS = "Arial, Helvetica, sans-serif"
 MSO = "mso-line-height-rule:exactly;"
 ZWSP = "&#8203;"
 
