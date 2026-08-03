@@ -37,6 +37,10 @@ from model import OCHRE, UMBER                     # noqa: E402
 SHOTS = os.path.join(HERE, "screenshots")
 os.makedirs(SHOTS, exist_ok=True)
 
+# V3 is retired. It predates the current suite and no trace of what it
+# checked survives in the source or the docs - so the number stays unused
+# rather than being recycled, because a report from before the change and one
+# from after would otherwise disagree about what V3 meant.
 WIDTHS = {"desktop": 900, "narrow": 320}
 HOST_PAD = 16
 DARK_STATES = {
@@ -489,10 +493,10 @@ def run():
                     f"worst-case record overflows by {d['tableW'] - box}px "
                     f"({d['tableW']} vs {box}) - a longer name or address "
                     f"than anyone currently has would break this style")
-            if d["hostScrollW"] - d["hostClientW"] > 1:
+            if d["docScrollW"] > WIDTHS["narrow"] + 1:
                 add("HIGH", tag, "V14",
-                    f"worst-case record scrolls horizontally by "
-                    f"{d['hostScrollW'] - d['hostClientW']}px")
+                    f"worst-case record scrolls horizontally: "
+                    f"scrollWidth {d['docScrollW']} > {WIDTHS['narrow']}")
             runs.append(dict(d, person="_worstcase", style=sid,
                              width="narrow", screenshot=f"{tag}.png"))
         browser.close()

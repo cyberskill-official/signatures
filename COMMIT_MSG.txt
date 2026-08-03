@@ -1,77 +1,26 @@
-Test the content, test the tests, and pin what drifts
+Fix V14 crash, and stop this class of mistake reaching a browser again
 
-Five changes, each aimed at something that actually went wrong rather than
-something that might.
+V14 read d["hostScrollW"], which is crossclient.py's key name. check.py's
+probe returns docScrollW. I wrote V14 on a machine with no browser and never
+ran it, so the mistake surfaced as a KeyError on the first real run.
 
-1. A worst-case record now goes through the render suite (V14).
+A KeyError is the lucky outcome. Written as d.get("hostScrollW", 0) the same
+mistake would have made V14 silently never fire - a check passing because it
+looked at nothing, which is the failure this repository keeps finding in
+itself.
 
-Every pixel-level check ran against load_people(), so the suite only ever saw
-name lengths currently employed. CI failed on 2026-08-03 because an email grew
-by ten characters and pushed two styles past the 288px box. Nothing caught it:
-the content moved and the code did not.
+So tests/test_validation.py now reads the validation scripts without running
+them, and costs nothing:
 
-build/fixtures.py builds the record nobody has yet - every text field at the
-schema's limit, six socials, a name_vi of stacked diacritics - and check.py
-renders every style with it at phone width, where this class shows first. All
-ten render; the largest is 6,917 chars, 69% of Gmail's limit. It is not a file
-under src/people/ on purpose: the loader skips underscore-prefixed records,
-which would have made it invisible to the suites that need it.
+- every probe key a script reads must be one its own probe returns
+- no probe key may be read with a fallback default, because a missing
+  measurement would then read as a pass
+- check ids must be unique and unbroken
 
-2. The rule tests are now tested (10 mutation tests).
+Writing those found two bugs in the tests themselves - a regex that consumed
+its own separator and so matched only every other shorthand key - and one
+real gap: there is no V3 anywhere in the source or the docs. It is now
+declared retired rather than left silent, and the number stays unused. An old
+report and a new one would otherwise disagree about what V3 meant.
 
-Six checks in this repo have passed while testing nothing: a site audit
-hardcoded to two pages, check.py and crossclient.py each reading one style of
-ten, X7 comparing every style against classic, the install-page audit
-hardcoded to English, and the pinned-background test passing on a tag with two
-style attributes. Six is a pattern.
-
-Each rule is now handed markup that breaks it and must reject it - a 1.15
-line-height, an upper-cased wordmark, a duplicate attribute, a background on
-a div, a colourless link, 9px text, an unpinned colour, a fixed-width mso
-wrapper, an image without alt, markup Gmail strips. If one stops raising,
-that rule has quietly stopped being enforced.
-
-Writing them found two real gaps in the harness itself: pytest.fail raises
-Failed rather than AssertionError, so a rule using it looked like it had
-accepted the mutant; and one rule takes (rec) rather than (sid, rec).
-
-3. Geometry is compared against a baseline (V15).
-
-87 screenshots a run, compared to nothing. The rule() bug discarded height:2px
-for months because every check asked "is this within tolerance" and none asked
-"is this the same as last time". Geometry rather than pixels, because a pixel
-hash fires on any machine whose browser resolves a different font, and a
-baseline that cries wolf gets deleted. The environment key is the rendered
-width of a fixed string, so a font difference is reported as a different
-environment instead of a phantom regression.
-
-4. The link-preview card is reproducible, and now brand-correct.
-
-make_assets.py scanned five system font paths and used whatever it found
-first, so the same inputs produced 31,087 bytes on macOS and 32,241 on Ubuntu.
-requirements.txt pins Pillow precisely to stop that class of drift and this
-reopened it - and it matters, because CI fails a pull request whose docs/ does
-not match a clean rebuild, so a local commit could fail for a reason unrelated
-to the change.
-
-Be Vietnam Pro SemiBold is now committed to src/fonts/ and is the only path
-tried; a missing font is fatal rather than silently shipping a card with no
-text. That also settles a CDS point: the design system requires the wordmark
-in this face, the signature markup cannot honour it because a webfont needs a
-<style> block and Gmail strips those, but the card is an image, so here it
-can. OFL 1.1, attributed in LICENSE.
-
-5. Outlook has a written test, because it cannot have an automated one.
-
-Everything this repo asserts about Word - the bgcolor attribute,
-mso-line-height-rule, the full-width wrapper, font-family per element, and now
-word-break:break-all - is inference. crossclient.py emulates fourteen client
-sanitisers in three browser engines and not one of them is Word.
-
-validation/OUTLOOK.md is the ten-minute manual pass that closes it: eight
-checks, each naming the assertion it tests and what failure looks like, with
-the email wrap flagged as the one most likely to fail and the decision that
-follows if it does.
-
-336 tests pass, up from 316. V14 and V15 have never run - they need a browser
-this machine does not have.
+341 tests pass, up from 336. V14 and V15 still have not run here.
