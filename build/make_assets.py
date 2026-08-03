@@ -79,24 +79,38 @@ def rounded_bake(src_img, out_px, radius_ratio, path):
     save_stable(out.resize((out_px, out_px), Image.LANCZOS), path)
 
 
-def find_font(size):
-    """Best available bold sans, or None.
+BRAND_FONT = os.path.join(SRC, "fonts", "BeVietnamPro-SemiBold.ttf")
 
-    Only used for the link-preview card, which degrades to a logo-only image
-    if no font is found. Never let a missing font fail the build.
+
+def find_font(size):
+    """The brand face, from the repo. One path, no fallbacks, fatal if absent.
+
+    This used to scan five system paths and return whatever it found first,
+    which made the link-preview card non-reproducible: the same inputs
+    produced 31,087 bytes on macOS and 32,241 on Ubuntu, because one machine
+    resolved Liberation Sans and the other DejaVu. requirements.txt pins
+    Pillow precisely to stop that class of drift, and this reopened it - and
+    it matters, because CI fails a pull request whose docs/ does not match a
+    clean rebuild. A local commit could fail for a reason unrelated to the
+    change.
+
+    Bundling the font also settles a design-system point. CDS requires the
+    wordmark in Be Vietnam Pro SemiBold and the signature markup cannot honour
+    that - a webfont needs a <style> block and Gmail strips those. The card is
+    an image, so here it can, and does.
+
+    Failing rather than degrading is deliberate. The old version returned None
+    and silently shipped a card with no text on it.
     """
-    for p in ("/usr/share/fonts/truetype/liberation2/LiberationSans-Bold.ttf",
-              "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf",
-              "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
-              "/System/Library/Fonts/Supplemental/Arial Bold.ttf",
-              "C:/Windows/Fonts/arialbd.ttf"):
-        if os.path.isfile(p):
-            try:
-                from PIL import ImageFont
-                return ImageFont.truetype(p, size)
-            except Exception:
-                pass
-    return None
+    from PIL import ImageFont
+    if not os.path.isfile(BRAND_FONT):
+        raise SystemExit(
+            f"{BRAND_FONT} is missing.\n"
+            f"It is committed to the repo so every machine renders the "
+            f"link-preview card identically. Restore it from git rather than "
+            f"substituting a system font - a different face means different "
+            f"bytes, and CI compares docs/ against a clean build.")
+    return ImageFont.truetype(BRAND_FONT, size)
 
 
 def build_site_images(logo_src, company):
@@ -123,11 +137,9 @@ def build_site_images(logo_src, company):
     card.paste(mark, (90, 150), mark)
 
     font_lg, font_sm = find_font(70), find_font(32)
-    if font_lg and font_sm:
-        d.text((90, 340), company["name"], font=font_lg, fill="#FFFFFF")
-        d.text((90, 430), "Email signatures", font=font_lg, fill=OCHRE)
-        d.text((90, 520), company.get("tagline", ""), font=font_sm,
-               fill="#E8D9CD")
+    d.text((90, 340), company["name"], font=font_lg, fill="#FFFFFF")
+    d.text((90, 430), "Email signatures", font=font_lg, fill=OCHRE)
+    d.text((90, 520), company.get("tagline", ""), font=font_sm, fill="#E8D9CD")
     save_stable(card, os.path.join(SHARED_ASSETS, "og-card.png"))
     print("  site images: favicon-32, apple-touch-icon, og-card")
 

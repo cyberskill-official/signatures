@@ -19,3 +19,6 @@ build/vendor/package-lock.json
 build/vendor/package.json
 __pycache__/
 .DS_Store
+
+# Scratch harness written by hand when debugging layout in a real browser.
+_narrow.html

@@ -58,5 +58,12 @@ THIRD-PARTY MATERIAL
    turn derived from Feather, ISC licensed, Copyright (c) 2013-2022 Cole
    Bemis.
 
+   src/fonts/BeVietnamPro-SemiBold.ttf is Be Vietnam Pro, Copyright (c) 2019
+   The Be Vietnam Pro Project Authors (Lam Bao, Tony Le, VietAnh Nguyen),
+   licensed under the SIL Open Font License 1.1. It is committed here so the
+   link-preview card renders identically on every machine, and because the
+   CyberSkill Design System requires the wordmark in this face. It is used to
+   rasterise an image, never served as a webfont.
+
    No third-party brand marks are used anywhere. LinkedIn and Facebook are
    named in link text only, never depicted - see "Icons" in README.md.

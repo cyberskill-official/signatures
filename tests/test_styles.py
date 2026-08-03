@@ -421,3 +421,81 @@ def test_no_tag_declares_an_attribute_twice(sid, rec):
         if dupes:
             bad.append((sorted(dupes), tag[:110]))
     assert not bad, f"style '{sid}' has repeated attributes: {bad}"
+
+
+# --- the tests, tested ------------------------------------------------------
+#
+# Six checks in this repo have passed while testing nothing: a site audit
+# hardcoded to two pages, check.py and crossclient.py each reading one style
+# of ten, X7 comparing every style against classic, the install-page audit
+# hardcoded to English, and the pinned-background test above passing on a tag
+# with two style attributes. Six is a pattern, not six accidents.
+#
+# A rule test that cannot fail is worse than no test, because it is counted.
+# So each rule below is handed markup that breaks it, and must reject it. If
+# one of these stops raising, that rule has quietly stopped being enforced.
+
+_WRAP = ('<!--[if mso]><table role="presentation" width="100%" cellpadding="0"'
+         ' cellspacing="0" border="0"><tr><td><![endif]-->'
+         '<table role="presentation" style="border-collapse:collapse;"'
+         ' width="100%"><tr><td>{}</td></tr></table>'
+         '<!--[if mso]></td></tr></table><![endif]-->')
+
+MUTANTS = [
+    ("line-height floor",
+     "test_line_heights_meet_the_cds_floor",
+     _WRAP.format('<div style="font-size:13px;line-height:15px;">x</div>')),
+    ("wordmark upper-cased",
+     "test_the_wordmark_is_never_upper_cased",
+     _WRAP.format("<strong>{SHOUT}</strong>")),
+    ("attribute declared twice",
+     "test_no_tag_declares_an_attribute_twice",
+     _WRAP.format('<td style="a" bgcolor="#45210E" style="b">x</td>')),
+    ("background painted on a div",
+     "test_pinned_backgrounds_carry_both_attribute_and_style",
+     _WRAP.format('<div style="background-color:#45210E;">x</div>')),
+    ("link with no colour",
+     "test_links_pin_inherit_or_an_explicit_colour",
+     _WRAP.format('<a href="https://x.test/">x</a>')),
+    ("text under 12px",
+     "test_no_text_below_twelve_pixels",
+     _WRAP.format('<div style="font-size:9px;line-height:20px;">x</div>')),
+    ("colour with nothing pinning the background",
+     "test_text_colour_only_appears_on_a_pinned_surface",
+     _WRAP.format('<div style="color:#9A9A9A;">x</div>')),
+    ("mso wrapper not full width",
+     "test_mso_wrapper_is_full_width",
+     '<!--[if mso]><table width="520"><tr><td><![endif]-->'
+     '<table style="border-collapse:collapse;"><tr><td>x</td></tr></table>'),
+    ("image with no alt",
+     "test_every_image_is_decorative",
+     _WRAP.format('<img src="https://x.test/a.png" width="18" height="18"/>')),
+    ("markup Gmail strips",
+     "test_no_markup_gmail_strips",
+     _WRAP.format('<div class="x" style="border-radius:4px;">x</div>')),
+]
+
+
+@pytest.mark.parametrize("label,func_name,broken",
+                         [(m[0], m[1], m[2]) for m in MUTANTS],
+                         ids=[m[0] for m in MUTANTS])
+def test_each_rule_rejects_markup_that_breaks_it(label, func_name, broken,
+                                                 rec, monkeypatch):
+    r, company = rec
+    broken = broken.replace("{SHOUT}", company["name"].upper())
+    monkeypatch.setattr(S, "render", lambda *a, **k: broken)
+    # Some rules are parametrised per style and take (sid, rec); the
+    # wordmark one loops over every style itself and takes (rec).
+    import inspect
+    func = globals()[func_name]
+    args = ("classic", rec) if "sid" in inspect.signature(func).parameters \
+        else (rec,)
+    try:
+        func(*args)
+    except pytest.skip.Exception:
+        pytest.skip(f"{func_name} skipped rather than judged")
+    except (AssertionError, pytest.fail.Exception):
+        return                      # rejected it, which is the point
+    pytest.fail(
+        f"{func_name} accepted markup with: {label}. That rule is not being "
+        f"enforced - it passes whatever it is given.")

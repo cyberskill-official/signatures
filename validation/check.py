@@ -31,6 +31,7 @@ ROOT = os.path.dirname(HERE)
 sys.path.insert(0, os.path.join(ROOT, "build"))
 from model import DOCS, load_company, load_people   # noqa: E402
 from styles import STYLES, render                  # noqa: E402
+from fixtures import worst_case                    # noqa: E402
 from model import OCHRE, UMBER                     # noqa: E402
 
 SHOTS = os.path.join(HERE, "screenshots")
@@ -109,6 +110,18 @@ PROBE_JS = open(os.path.join(HERE, "_probe.js")).read() if os.path.isfile(
     os.path.join(HERE, "_probe.js")) else """
 () => {
   const host = document.getElementById('host'); const cs = getComputedStyle;
+
+  // Environment key for the geometry baseline: the rendered width of a fixed
+  // string in the signature's own font stack. Two machines that resolve the
+  // same face agree here; one that falls back to a different face does not,
+  // and the baseline says so rather than reporting a phantom regression.
+  const fp = document.createElement('span');
+  fp.style.cssText = 'position:absolute;visibility:hidden;white-space:pre;'
+    + "font:13px Arial, Helvetica, sans-serif";
+  fp.textContent = 'CyberSkill 0123456789 ỚẾỰỎÃỸ';
+  document.body.appendChild(fp);
+  const fontProbe = Math.round(fp.getBoundingClientRect().width * 100) / 100;
+  fp.remove();
   const table = host.querySelector('table');
   const rect = table ? table.getBoundingClientRect() : null;
 
@@ -176,7 +189,7 @@ PROBE_JS = open(os.path.join(HERE, "_probe.js")).read() if os.path.isfile(
       .map(r => Array.from(r.cells).reduce((n,c)=>n+(c.colSpan||1),0)))
   }));
 
-  return { tableW: rect ? Math.round(rect.width) : 0,
+  return { fontProbe, tableW: rect ? Math.round(rect.width) : 0,
            tableH: rect ? Math.round(rect.height) : 0,
            docScrollW: document.documentElement.scrollWidth,
            links, imgs, texts, rules, colspans, contactLefts,
@@ -442,6 +455,101 @@ def run():
     report = {"generated": time.strftime("%Y-%m-%d %H:%M:%S"),
               "people": [p["id"] for p in people],
               "runs": runs, "findings": findings, "counts": counts}
+    # V14 - the record nobody has yet.
+    #
+    # Every check above runs against real people, so the suite only ever sees
+    # the name lengths currently employed. CI failed on 2026-08-03 because an
+    # email grew by ten characters and pushed two styles past the box; nothing
+    # caught it, because the content moved and the code did not.
+    #
+    # This renders every style with each field at the schema's limit, six
+    # socials, and a name_vi of stacked diacritics, at phone width - where
+    # the box is tightest and this class of defect shows first.
+    wc = worst_case(company, people[0] if people else None)
+    with sync_playwright() as pw:
+        browser = pw.chromium.launch(
+            args=["--no-sandbox", "--disable-dev-shm-usage", "--disable-gpu"])
+        for sid, _fn in STYLES:
+            page = browser.new_page(viewport={"width": WIDTHS["narrow"],
+                                              "height": 900},
+                                    device_scale_factor=2)
+            page.set_content(HARNESS.format(
+                base=base, page_bg="#FFFFFF", page_fg="#000000", pad=HOST_PAD,
+                host_w=WIDTHS["narrow"], extra="", img_extra="",
+                sig=render(sid, wc, company, base)))
+            page.wait_for_load_state("networkidle")
+            d = page.evaluate(PROBE_JS)
+            tag = f"_worstcase--{sid}-narrow"
+            page.locator("#host").screenshot(
+                path=os.path.join(SHOTS, f"{tag}.png"))
+            page.close()
+            box = WIDTHS["narrow"] - HOST_PAD * 2
+            if d["tableW"] - box > 1:
+                add("HIGH", tag, "V14",
+                    f"worst-case record overflows by {d['tableW'] - box}px "
+                    f"({d['tableW']} vs {box}) - a longer name or address "
+                    f"than anyone currently has would break this style")
+            if d["hostScrollW"] - d["hostClientW"] > 1:
+                add("HIGH", tag, "V14",
+                    f"worst-case record scrolls horizontally by "
+                    f"{d['hostScrollW'] - d['hostClientW']}px")
+            runs.append(dict(d, person="_worstcase", style=sid,
+                             width="narrow", screenshot=f"{tag}.png"))
+        browser.close()
+
+    # --- geometry baseline ---------------------------------------------
+    #
+    # 87 screenshots a run, compared to nothing. The rule() bug discarded
+    # height:2px and font-size:0 for months without a single check noticing,
+    # because every check asked "is this within tolerance" and none asked
+    # "is this the same as last time".
+    #
+    # Geometry rather than pixels: a pixel hash would also catch it, but it
+    # would fire on every machine whose browser resolves a different font,
+    # and a baseline that cries wolf gets deleted. The env key below is the
+    # rendered width of a fixed string, so a font difference is reported as
+    # a different environment instead of a regression.
+    fingerprint = {}
+    for d in runs:
+        key = f"{d.get('person')}-{d.get('width')}-{d.get('images', '-')}"
+        if d.get("tableW"):
+            fingerprint[key] = [d["tableW"], d["tableH"]]
+
+    env_key = None
+    for d in runs:
+        if d.get("fontProbe"):
+            env_key = d["fontProbe"]
+            break
+
+    bpath = os.path.join(HERE, "baseline.json")
+    if not os.path.isfile(bpath):
+        with open(bpath, "w") as fh:
+            json.dump({"env": env_key, "geometry": fingerprint}, fh,
+                      indent=1, sort_keys=True)
+        print(f"  baseline written ({len(fingerprint)} measurements) - "
+              f"commit it, and future runs compare against it")
+    else:
+        with open(bpath) as fh:
+            base_doc = json.load(fh)
+        if base_doc.get("env") != env_key:
+            add("LOW", "baseline", "V15",
+                f"baseline was recorded in a different environment "
+                f"(font probe {base_doc.get('env')} vs {env_key}) - geometry "
+                f"not compared. Re-record it on the machine CI uses.")
+        else:
+            old = base_doc.get("geometry", {})
+            for k, v in sorted(fingerprint.items()):
+                if k not in old:
+                    add("LOW", k, "V15", "new measurement, not in the baseline")
+                elif abs(old[k][0] - v[0]) > 1 or abs(old[k][1] - v[1]) > 1:
+                    add("HIGH", k, "V15",
+                        f"geometry changed since the baseline: "
+                        f"{old[k][0]}x{old[k][1]} -> {v[0]}x{v[1]}. If this is "
+                        f"intended, delete validation/baseline.json and re-run "
+                        f"to re-record.")
+            for k in sorted(set(old) - set(fingerprint)):
+                add("LOW", k, "V15", "in the baseline but no longer measured")
+
     with open(os.path.join(HERE, "report.json"), "w") as fh:
         json.dump(report, fh, indent=2)
 

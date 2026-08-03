@@ -194,7 +194,23 @@ python3 validation/crossclient.py              # 14 clients x 3 engines
 ```
 
 `check.py` renders every style at desktop and phone width and checks overflow,
-contrast and image reachability. `crossclient.py` puts each one through the
+contrast and image reachability. It also runs three checks that exist because
+of specific failures:
+
+- **V13** renders the CDS stacked-diacritic canary `ỚẾỰỎÃỸ` and fails if the
+  line box does not contain it.
+- **V14** renders a synthetic worst-case record — every field at the schema's
+  limit, six socials, a Vietnamese name — because a real CI failure was caused
+  by an email address growing ten characters, and nothing tested for content
+  longer than the people currently employed. See `build/fixtures.py`.
+- **V15** compares table geometry against `validation/baseline.json` and fails
+  on drift. Delete that file and re-run to re-record after an intended change.
+  If it reports a different environment, the baseline was recorded on a
+  machine whose browser resolves a different font; re-record it where CI runs.
+
+Outlook on Windows is not covered by any of this and cannot be — see
+[validation/OUTLOOK.md](validation/OUTLOOK.md) for the ten-minute manual test
+that closes the gap. `crossclient.py` puts each one through the
 sanitiser of 14 real mail clients in three engines, light and dark, plus a
 hostile host that tries to push its own styles in.
 
