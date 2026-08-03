@@ -110,7 +110,7 @@ def fetch_photo(url, dest):
     if host not in ALLOWED_IMAGE_HOSTS:
         raise RecordError(f"photo host {host!r} is not a GitHub attachment host")
 
-    req = urllib.request.Request(url, headers={"User-Agent": "signatures-bot"})
+    req = urllib.request.Request(url, headers={"User-Agent": "signature-bot"})
     with urllib.request.urlopen(req, timeout=30) as r:
         raw = r.read(MAX_BYTES + 1)
     if len(raw) > MAX_BYTES:

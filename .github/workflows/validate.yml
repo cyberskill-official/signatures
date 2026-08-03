@@ -215,7 +215,7 @@ jobs:
               '',
               ok
                 ? 'Once this merges, the site rebuilds and deploys automatically. Your page '
-                  + 'will be at https://signatures.cyberskill.world/people/<id>/ within a '
+                  + 'will be at https://signature.cyberskill.world/people/<id>/ within a '
                   + 'minute or two - open it and press **Verify and copy**.'
                 : 'Open the failed step above to see what went wrong. Nothing reaches the live '
                   + 'site until this passes and a maintainer merges.',

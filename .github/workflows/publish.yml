@@ -14,7 +14,7 @@ name: Publish
 #
 # REQUIRES: Settings -> Pages -> Source = "GitHub Actions".
 # The custom domain is stored in repository settings, not in docs/CNAME, so
-# switching the source keeps signatures.cyberskill.world and its certificate.
+# switching the source keeps signature.cyberskill.world and its certificate.
 # docs/CNAME is still generated and committed; Pages ignores it under this
 # source, and it keeps the branch-deploy fallback intact.
 

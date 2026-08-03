@@ -1,10 +1,10 @@
 blank_issues_enabled: false
 contact_links:
   - name: Install a signature that already exists
-    url: https://signatures.cyberskill.world/
+    url: https://signature.cyberskill.world/
     about: >-
       Find your name, open your page, press Verify and copy, then paste into
       Gmail. No issue needed.
   - name: How contributing works
-    url: https://github.com/cyberskill-official/signatures/blob/main/CONTRIBUTING.md
+    url: https://github.com/cyberskill-official/signature/blob/main/CONTRIBUTING.md
     about: Three routes, from no GitHub knowledge to a local clone.

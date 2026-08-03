@@ -4,7 +4,7 @@ Every CyberSkill employee owns their own signature record. This page explains
 how to get one, and how to change it later.
 
 **If you just want a signature, you do not need this page.** Go to
-[signatures.cyberskill.world/help](https://signatures.cyberskill.world/help/),
+[signature.cyberskill.world/help](https://signature.cyberskill.world/help/),
 fill in the form, and someone will do it for you. This page is for raising the
 change yourself.
 
@@ -24,7 +24,7 @@ build. Automation does that when your change is merged.
 
 ## Route 1: open a request (no GitHub knowledge)
 
-1. Go to [Issues -> New issue](https://github.com/cyberskill-official/signatures/issues/new/choose).
+1. Go to [Issues -> New issue](https://github.com/cyberskill-official/signature/issues/new/choose).
 2. Choose **Request a new signature** or **Update my signature**.
 3. Fill in the form and submit. Attach your photo by dragging it into the
    photo field.
@@ -61,7 +61,7 @@ mai-tran.yml
 ```
 
 That filename becomes your web address, so `mai-tran.yml` publishes to
-`https://signatures.cyberskill.world/people/mai-tran/`. Use only lowercase
+`https://signature.cyberskill.world/people/mai-tran/`. Use only lowercase
 letters, numbers and hyphens - the build rejects anything else rather than
 publishing a broken URL.
 
@@ -121,8 +121,8 @@ To change your photo, upload a new one over the old filename.
 For maintainers and anyone adding several people at once.
 
 ```bash
-git clone https://github.com/cyberskill-official/signatures.git
-cd signatures
+git clone https://github.com/cyberskill-official/signature.git
+cd signature
 pip install -r requirements.txt --break-system-packages
 
 git checkout -b add-mai-tran
@@ -235,7 +235,7 @@ After a maintainer merges, automation rebuilds the site and GitHub Pages
 publishes it. Your page appears at:
 
 ```
-https://signatures.cyberskill.world/people/<your-id>/
+https://signature.cyberskill.world/people/<your-id>/
 ```
 
 Give it a minute or two, then open it and press **Verify and copy**.

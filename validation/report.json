@@ -1,17 +1,17 @@
 {
-  "generated": "2026-08-02 00:34:55",
+  "generated": "2026-08-03 13:13:50",
   "people": [
     "stephen-cheng"
   ],
   "runs": [
     {
       "tableW": 520,
-      "tableH": 206,
+      "tableH": 214,
       "docScrollW": 900,
       "links": [
         {
-          "href": "mailto:info@cyberskill.world",
-          "text": "info@cyberskill.world",
+          "href": "mailto:thai-anh.trinh@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
@@ -36,18 +36,11 @@
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
-        },
-        {
-          "href": "https://www.facebook.com/cyberskill.world",
-          "text": "Facebook",
-          "decoration": "underline",
-          "h": 15,
-          "fontSize": 13
         }
       ],
       "imgs": [
         {
-          "src": "http://127.0.0.1:64718/assets/people/stephen-cheng/avatar-80-2x.png?v=10ab46c8",
+          "src": "http://127.0.0.1:60918/assets/people/stephen-cheng/avatar-80-2x.png?v=10ab46c8",
           "alt": "",
           "wAttr": "80",
           "hAttr": "80",
@@ -63,7 +56,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-mail-2x.png?v=e478dc4a",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-mail-2x.png?v=e478dc4a",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -79,7 +72,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-phone-2x.png?v=d3d73cc4",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-phone-2x.png?v=d3d73cc4",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -95,7 +88,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-globe-2x.png?v=9a8d610f",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-globe-2x.png?v=9a8d610f",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -111,7 +104,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-users-2x.png?v=117751d0",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-users-2x.png?v=117751d0",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -143,7 +136,7 @@
           "fontWeight": "400"
         },
         {
-          "text": "info@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
           "fontSize": 13,
@@ -171,13 +164,6 @@
           "fontWeight": "400"
         },
         {
-          "text": "Facebook",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 13,
-          "fontWeight": "400"
-        },
-        {
           "text": "Turn Your Will Into Real",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
@@ -188,12 +174,12 @@
       "rules": [
         {
           "w": 3,
-          "h": 206,
+          "h": 214,
           "bgcolorAttr": "#F4BA17"
         },
         {
           "w": 407,
-          "h": 18,
+          "h": 21,
           "bgcolorAttr": "#F4BA17"
         }
       ],
@@ -215,10 +201,9 @@
         147,
         147,
         147,
-        147,
         147
       ],
-      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn \u00b7 Facebook\n\u00a0\n\u00a0\nTurn Your Will Into Real",
+      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tthai-anh.trinh@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn\n\u00a0\n\u00a0\nTurn Your Will Into Real",
       "forbidden": {
         "styleTags": 0,
         "classAttrs": 0,
@@ -232,12 +217,12 @@
     },
     {
       "tableW": 520,
-      "tableH": 206,
+      "tableH": 214,
       "docScrollW": 900,
       "links": [
         {
-          "href": "mailto:info@cyberskill.world",
-          "text": "info@cyberskill.world",
+          "href": "mailto:thai-anh.trinh@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
@@ -259,13 +244,6 @@
         {
           "href": "https://linkedin.com/company/cyberskill",
           "text": "LinkedIn",
-          "decoration": "underline",
-          "h": 15,
-          "fontSize": 13
-        },
-        {
-          "href": "https://www.facebook.com/cyberskill.world",
-          "text": "Facebook",
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
@@ -369,7 +347,7 @@
           "fontWeight": "400"
         },
         {
-          "text": "info@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
           "fontSize": 13,
@@ -397,13 +375,6 @@
           "fontWeight": "400"
         },
         {
-          "text": "Facebook",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 13,
-          "fontWeight": "400"
-        },
-        {
           "text": "Turn Your Will Into Real",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
@@ -414,12 +385,12 @@
       "rules": [
         {
           "w": 3,
-          "h": 206,
+          "h": 214,
           "bgcolorAttr": "#F4BA17"
         },
         {
           "w": 407,
-          "h": 18,
+          "h": 21,
           "bgcolorAttr": "#F4BA17"
         }
       ],
@@ -438,7 +409,7 @@
         }
       ],
       "contactLefts": [],
-      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn \u00b7 Facebook\n\u00a0\n\u00a0\nTurn Your Will Into Real",
+      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tthai-anh.trinh@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn\n\u00a0\n\u00a0\nTurn Your Will Into Real",
       "forbidden": {
         "styleTags": 0,
         "classAttrs": 0,
@@ -452,12 +423,12 @@
     },
     {
       "tableW": 288,
-      "tableH": 224,
+      "tableH": 234,
       "docScrollW": 320,
       "links": [
         {
-          "href": "mailto:info@cyberskill.world",
-          "text": "info@cyberskill.world",
+          "href": "mailto:thai-anh.trinh@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
@@ -482,18 +453,11 @@
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
-        },
-        {
-          "href": "https://www.facebook.com/cyberskill.world",
-          "text": "Facebook",
-          "decoration": "underline",
-          "h": 15,
-          "fontSize": 13
         }
       ],
       "imgs": [
         {
-          "src": "http://127.0.0.1:64718/assets/people/stephen-cheng/avatar-80-2x.png?v=10ab46c8",
+          "src": "http://127.0.0.1:60918/assets/people/stephen-cheng/avatar-80-2x.png?v=10ab46c8",
           "alt": "",
           "wAttr": "80",
           "hAttr": "80",
@@ -509,7 +473,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-mail-2x.png?v=e478dc4a",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-mail-2x.png?v=e478dc4a",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -525,7 +489,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-phone-2x.png?v=d3d73cc4",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-phone-2x.png?v=d3d73cc4",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -541,7 +505,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-globe-2x.png?v=9a8d610f",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-globe-2x.png?v=9a8d610f",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -557,7 +521,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-users-2x.png?v=117751d0",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-users-2x.png?v=117751d0",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -589,7 +553,7 @@
           "fontWeight": "400"
         },
         {
-          "text": "info@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
           "fontSize": 13,
@@ -617,13 +581,6 @@
           "fontWeight": "400"
         },
         {
-          "text": "Facebook",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 13,
-          "fontWeight": "400"
-        },
-        {
           "text": "Turn Your Will Into Real",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
@@ -633,13 +590,13 @@
       ],
       "rules": [
         {
-          "w": 3,
-          "h": 224,
+          "w": 0,
+          "h": 234,
           "bgcolorAttr": "#F4BA17"
         },
         {
-          "w": 175,
-          "h": 18,
+          "w": 204,
+          "h": 21,
           "bgcolorAttr": "#F4BA17"
         }
       ],
@@ -658,13 +615,12 @@
         }
       ],
       "contactLefts": [
-        147,
-        147,
-        147,
-        147,
-        147
+        118,
+        118,
+        118,
+        118
       ],
-      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn \u00b7 Facebook\n\u00a0\n\u00a0\nTurn Your Will Into Real",
+      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tthai-anh.trinh@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn\n\u00a0\n\u00a0\nTurn Your Will Into Real",
       "forbidden": {
         "styleTags": 0,
         "classAttrs": 0,
@@ -678,12 +634,12 @@
     },
     {
       "tableW": 288,
-      "tableH": 224,
+      "tableH": 234,
       "docScrollW": 320,
       "links": [
         {
-          "href": "mailto:info@cyberskill.world",
-          "text": "info@cyberskill.world",
+          "href": "mailto:thai-anh.trinh@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
@@ -705,13 +661,6 @@
         {
           "href": "https://linkedin.com/company/cyberskill",
           "text": "LinkedIn",
-          "decoration": "underline",
-          "h": 15,
-          "fontSize": 13
-        },
-        {
-          "href": "https://www.facebook.com/cyberskill.world",
-          "text": "Facebook",
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
@@ -815,7 +764,7 @@
           "fontWeight": "400"
         },
         {
-          "text": "info@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
           "fontSize": 13,
@@ -843,13 +792,6 @@
           "fontWeight": "400"
         },
         {
-          "text": "Facebook",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 13,
-          "fontWeight": "400"
-        },
-        {
           "text": "Turn Your Will Into Real",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
@@ -859,13 +801,13 @@
       ],
       "rules": [
         {
-          "w": 3,
-          "h": 224,
+          "w": 0,
+          "h": 234,
           "bgcolorAttr": "#F4BA17"
         },
         {
-          "w": 175,
-          "h": 18,
+          "w": 204,
+          "h": 21,
           "bgcolorAttr": "#F4BA17"
         }
       ],
@@ -884,7 +826,7 @@
         }
       ],
       "contactLefts": [],
-      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn \u00b7 Facebook\n\u00a0\n\u00a0\nTurn Your Will Into Real",
+      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tthai-anh.trinh@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn\n\u00a0\n\u00a0\nTurn Your Will Into Real",
       "forbidden": {
         "styleTags": 0,
         "classAttrs": 0,
@@ -916,12 +858,12 @@
     },
     {
       "tableW": 520,
-      "tableH": 227,
+      "tableH": 228,
       "docScrollW": 900,
       "links": [
         {
-          "href": "mailto:info@cyberskill.world",
-          "text": "info@cyberskill.world",
+          "href": "mailto:thai-anh.trinh@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
@@ -946,18 +888,11 @@
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
-        },
-        {
-          "href": "https://www.facebook.com/cyberskill.world",
-          "text": "Facebook",
-          "decoration": "underline",
-          "h": 15,
-          "fontSize": 13
         }
       ],
       "imgs": [
         {
-          "src": "http://127.0.0.1:64718/assets/people/stephen-cheng/avatar-56-2x.png?v=867a2bda",
+          "src": "http://127.0.0.1:60918/assets/people/stephen-cheng/avatar-56-2x.png?v=867a2bda",
           "alt": "",
           "wAttr": "56",
           "hAttr": "56",
@@ -973,7 +908,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/logo-36-2x.png?v=7b060983",
+          "src": "http://127.0.0.1:60918/assets/shared/logo-36-2x.png?v=7b060983",
           "alt": "",
           "wAttr": "36",
           "hAttr": "36",
@@ -989,7 +924,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-mail-2x.png?v=e478dc4a",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-mail-2x.png?v=e478dc4a",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -1005,7 +940,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-phone-2x.png?v=d3d73cc4",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-phone-2x.png?v=d3d73cc4",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -1021,7 +956,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-globe-2x.png?v=9a8d610f",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-globe-2x.png?v=9a8d610f",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -1037,7 +972,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-users-2x.png?v=117751d0",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-users-2x.png?v=117751d0",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -1069,7 +1004,7 @@
           "fontWeight": "400"
         },
         {
-          "text": "info@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
           "fontSize": 13,
@@ -1091,13 +1026,6 @@
         },
         {
           "text": "LinkedIn",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 13,
-          "fontWeight": "400"
-        },
-        {
-          "text": "Facebook",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
           "fontSize": 13,
@@ -1136,10 +1064,9 @@
         52,
         52,
         52,
-        52,
         52
       ],
-      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\t\n\n\u00a0\n\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn \u00b7 Facebook\n\nTurn Your Will Into Real",
+      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\t\n\n\u00a0\n\n\tthai-anh.trinh@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn\n\nTurn Your Will Into Real",
       "forbidden": {
         "styleTags": 0,
         "classAttrs": 0,
@@ -1153,12 +1080,12 @@
     },
     {
       "tableW": 520,
-      "tableH": 227,
+      "tableH": 228,
       "docScrollW": 900,
       "links": [
         {
-          "href": "mailto:info@cyberskill.world",
-          "text": "info@cyberskill.world",
+          "href": "mailto:thai-anh.trinh@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
@@ -1180,13 +1107,6 @@
         {
           "href": "https://linkedin.com/company/cyberskill",
           "text": "LinkedIn",
-          "decoration": "underline",
-          "h": 15,
-          "fontSize": 13
-        },
-        {
-          "href": "https://www.facebook.com/cyberskill.world",
-          "text": "Facebook",
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
@@ -1306,7 +1226,7 @@
           "fontWeight": "400"
         },
         {
-          "text": "info@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
           "fontSize": 13,
@@ -1328,13 +1248,6 @@
         },
         {
           "text": "LinkedIn",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 13,
-          "fontWeight": "400"
-        },
-        {
-          "text": "Facebook",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
           "fontSize": 13,
@@ -1370,7 +1283,7 @@
         }
       ],
       "contactLefts": [],
-      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\t\n\n\u00a0\n\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn \u00b7 Facebook\n\nTurn Your Will Into Real",
+      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\t\n\n\u00a0\n\n\tthai-anh.trinh@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn\n\nTurn Your Will Into Real",
       "forbidden": {
         "styleTags": 0,
         "classAttrs": 0,
@@ -1384,12 +1297,12 @@
     },
     {
       "tableW": 288,
-      "tableH": 232,
+      "tableH": 239,
       "docScrollW": 320,
       "links": [
         {
-          "href": "mailto:info@cyberskill.world",
-          "text": "info@cyberskill.world",
+          "href": "mailto:thai-anh.trinh@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
@@ -1414,18 +1327,11 @@
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
-        },
-        {
-          "href": "https://www.facebook.com/cyberskill.world",
-          "text": "Facebook",
-          "decoration": "underline",
-          "h": 15,
-          "fontSize": 13
         }
       ],
       "imgs": [
         {
-          "src": "http://127.0.0.1:64718/assets/people/stephen-cheng/avatar-56-2x.png?v=867a2bda",
+          "src": "http://127.0.0.1:60918/assets/people/stephen-cheng/avatar-56-2x.png?v=867a2bda",
           "alt": "",
           "wAttr": "56",
           "hAttr": "56",
@@ -1441,7 +1347,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/logo-36-2x.png?v=7b060983",
+          "src": "http://127.0.0.1:60918/assets/shared/logo-36-2x.png?v=7b060983",
           "alt": "",
           "wAttr": "36",
           "hAttr": "36",
@@ -1457,7 +1363,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-mail-2x.png?v=e478dc4a",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-mail-2x.png?v=e478dc4a",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -1473,7 +1379,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-phone-2x.png?v=d3d73cc4",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-phone-2x.png?v=d3d73cc4",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -1489,7 +1395,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-globe-2x.png?v=9a8d610f",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-globe-2x.png?v=9a8d610f",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -1505,7 +1411,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-users-2x.png?v=117751d0",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-users-2x.png?v=117751d0",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -1537,7 +1443,7 @@
           "fontWeight": "400"
         },
         {
-          "text": "info@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
           "fontSize": 13,
@@ -1559,13 +1465,6 @@
         },
         {
           "text": "LinkedIn",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 13,
-          "fontWeight": "400"
-        },
-        {
-          "text": "Facebook",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
           "fontSize": 13,
@@ -1604,10 +1503,9 @@
         52,
         52,
         52,
-        52,
         52
       ],
-      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\t\n\n\u00a0\n\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn \u00b7 Facebook\n\nTurn Your Will Into Real",
+      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\t\n\n\u00a0\n\n\tthai-anh.trinh@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn\n\nTurn Your Will Into Real",
       "forbidden": {
         "styleTags": 0,
         "classAttrs": 0,
@@ -1621,12 +1519,12 @@
     },
     {
       "tableW": 288,
-      "tableH": 232,
+      "tableH": 239,
       "docScrollW": 320,
       "links": [
         {
-          "href": "mailto:info@cyberskill.world",
-          "text": "info@cyberskill.world",
+          "href": "mailto:thai-anh.trinh@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
@@ -1648,13 +1546,6 @@
         {
           "href": "https://linkedin.com/company/cyberskill",
           "text": "LinkedIn",
-          "decoration": "underline",
-          "h": 15,
-          "fontSize": 13
-        },
-        {
-          "href": "https://www.facebook.com/cyberskill.world",
-          "text": "Facebook",
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
@@ -1774,7 +1665,7 @@
           "fontWeight": "400"
         },
         {
-          "text": "info@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
           "fontSize": 13,
@@ -1796,13 +1687,6 @@
         },
         {
           "text": "LinkedIn",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 13,
-          "fontWeight": "400"
-        },
-        {
-          "text": "Facebook",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
           "fontSize": 13,
@@ -1838,7 +1722,7 @@
         }
       ],
       "contactLefts": [],
-      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\t\n\n\u00a0\n\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn \u00b7 Facebook\n\nTurn Your Will Into Real",
+      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\t\n\n\u00a0\n\n\tthai-anh.trinh@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn\n\nTurn Your Will Into Real",
       "forbidden": {
         "styleTags": 0,
         "classAttrs": 0,
@@ -1870,12 +1754,12 @@
     },
     {
       "tableW": 520,
-      "tableH": 200,
+      "tableH": 205,
       "docScrollW": 900,
       "links": [
         {
-          "href": "mailto:info@cyberskill.world",
-          "text": "info@cyberskill.world",
+          "href": "mailto:thai-anh.trinh@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
@@ -1900,18 +1784,11 @@
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
-        },
-        {
-          "href": "https://www.facebook.com/cyberskill.world",
-          "text": "Facebook",
-          "decoration": "underline",
-          "h": 15,
-          "fontSize": 13
         }
       ],
       "imgs": [
         {
-          "src": "http://127.0.0.1:64718/assets/people/stephen-cheng/avatar-56-2x.png?v=867a2bda",
+          "src": "http://127.0.0.1:60918/assets/people/stephen-cheng/avatar-56-2x.png?v=867a2bda",
           "alt": "",
           "wAttr": "56",
           "hAttr": "56",
@@ -1927,7 +1804,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-mail-2x.png?v=e478dc4a",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-mail-2x.png?v=e478dc4a",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -1943,7 +1820,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-phone-2x.png?v=d3d73cc4",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-phone-2x.png?v=d3d73cc4",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -1959,7 +1836,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-globe-2x.png?v=9a8d610f",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-globe-2x.png?v=9a8d610f",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -1975,7 +1852,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-users-2x.png?v=117751d0",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-users-2x.png?v=117751d0",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -2014,7 +1891,7 @@
           "fontWeight": "400"
         },
         {
-          "text": "info@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
           "fontSize": 13,
@@ -2040,13 +1917,6 @@
           "bg": "rgb(255, 255, 255)",
           "fontSize": 13,
           "fontWeight": "400"
-        },
-        {
-          "text": "Facebook",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 13,
-          "fontWeight": "400"
         }
       ],
       "rules": [],
@@ -2068,10 +1938,9 @@
         105,
         105,
         105,
-        105,
         105
       ],
-      "bodyText": "CYBERSKILL \u00b7 Turn Your Will Into Real\n\n\t\u00a0\t\nStephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn \u00b7 Facebook",
+      "bodyText": "CyberSkill \u00b7 Turn Your Will Into Real\n\n\t\u00a0\t\nStephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tthai-anh.trinh@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn",
       "forbidden": {
         "styleTags": 0,
         "classAttrs": 0,
@@ -2085,12 +1954,12 @@
     },
     {
       "tableW": 520,
-      "tableH": 200,
+      "tableH": 205,
       "docScrollW": 900,
       "links": [
         {
-          "href": "mailto:info@cyberskill.world",
-          "text": "info@cyberskill.world",
+          "href": "mailto:thai-anh.trinh@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
@@ -2112,13 +1981,6 @@
         {
           "href": "https://linkedin.com/company/cyberskill",
           "text": "LinkedIn",
-          "decoration": "underline",
-          "h": 15,
-          "fontSize": 13
-        },
-        {
-          "href": "https://www.facebook.com/cyberskill.world",
-          "text": "Facebook",
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
@@ -2229,7 +2091,7 @@
           "fontWeight": "400"
         },
         {
-          "text": "info@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
           "fontSize": 13,
@@ -2255,13 +2117,6 @@
           "bg": "rgb(255, 255, 255)",
           "fontSize": 13,
           "fontWeight": "400"
-        },
-        {
-          "text": "Facebook",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 13,
-          "fontWeight": "400"
         }
       ],
       "rules": [],
@@ -2280,7 +2135,7 @@
         }
       ],
       "contactLefts": [],
-      "bodyText": "CYBERSKILL \u00b7 Turn Your Will Into Real\n\n\t\u00a0\t\nStephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn \u00b7 Facebook",
+      "bodyText": "CyberSkill \u00b7 Turn Your Will Into Real\n\n\t\u00a0\t\nStephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tthai-anh.trinh@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn",
       "forbidden": {
         "styleTags": 0,
         "classAttrs": 0,
@@ -2294,12 +2149,12 @@
     },
     {
       "tableW": 288,
-      "tableH": 200,
+      "tableH": 205,
       "docScrollW": 320,
       "links": [
         {
-          "href": "mailto:info@cyberskill.world",
-          "text": "info@cyberskill.world",
+          "href": "mailto:thai-anh.trinh@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
@@ -2324,18 +2179,11 @@
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
-        },
-        {
-          "href": "https://www.facebook.com/cyberskill.world",
-          "text": "Facebook",
-          "decoration": "underline",
-          "h": 15,
-          "fontSize": 13
         }
       ],
       "imgs": [
         {
-          "src": "http://127.0.0.1:64718/assets/people/stephen-cheng/avatar-56-2x.png?v=867a2bda",
+          "src": "http://127.0.0.1:60918/assets/people/stephen-cheng/avatar-56-2x.png?v=867a2bda",
           "alt": "",
           "wAttr": "56",
           "hAttr": "56",
@@ -2351,7 +2199,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-mail-2x.png?v=e478dc4a",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-mail-2x.png?v=e478dc4a",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -2367,7 +2215,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-phone-2x.png?v=d3d73cc4",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-phone-2x.png?v=d3d73cc4",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -2383,7 +2231,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-globe-2x.png?v=9a8d610f",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-globe-2x.png?v=9a8d610f",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -2399,7 +2247,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-users-2x.png?v=117751d0",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-users-2x.png?v=117751d0",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -2438,7 +2286,7 @@
           "fontWeight": "400"
         },
         {
-          "text": "info@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
           "fontSize": 13,
@@ -2460,13 +2308,6 @@
         },
         {
           "text": "LinkedIn",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 13,
-          "fontWeight": "400"
-        },
-        {
-          "text": "Facebook",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
           "fontSize": 13,
@@ -2492,10 +2333,9 @@
         105,
         105,
         105,
-        105,
         105
       ],
-      "bodyText": "CYBERSKILL \u00b7 Turn Your Will Into Real\n\n\t\u00a0\t\nStephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn \u00b7 Facebook",
+      "bodyText": "CyberSkill \u00b7 Turn Your Will Into Real\n\n\t\u00a0\t\nStephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tthai-anh.trinh@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn",
       "forbidden": {
         "styleTags": 0,
         "classAttrs": 0,
@@ -2509,12 +2349,12 @@
     },
     {
       "tableW": 288,
-      "tableH": 200,
+      "tableH": 205,
       "docScrollW": 320,
       "links": [
         {
-          "href": "mailto:info@cyberskill.world",
-          "text": "info@cyberskill.world",
+          "href": "mailto:thai-anh.trinh@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
@@ -2536,13 +2376,6 @@
         {
           "href": "https://linkedin.com/company/cyberskill",
           "text": "LinkedIn",
-          "decoration": "underline",
-          "h": 15,
-          "fontSize": 13
-        },
-        {
-          "href": "https://www.facebook.com/cyberskill.world",
-          "text": "Facebook",
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
@@ -2653,7 +2486,7 @@
           "fontWeight": "400"
         },
         {
-          "text": "info@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
           "fontSize": 13,
@@ -2679,13 +2512,6 @@
           "bg": "rgb(255, 255, 255)",
           "fontSize": 13,
           "fontWeight": "400"
-        },
-        {
-          "text": "Facebook",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 13,
-          "fontWeight": "400"
         }
       ],
       "rules": [],
@@ -2704,7 +2530,7 @@
         }
       ],
       "contactLefts": [],
-      "bodyText": "CYBERSKILL \u00b7 Turn Your Will Into Real\n\n\t\u00a0\t\nStephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn \u00b7 Facebook",
+      "bodyText": "CyberSkill \u00b7 Turn Your Will Into Real\n\n\t\u00a0\t\nStephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tthai-anh.trinh@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn",
       "forbidden": {
         "styleTags": 0,
         "classAttrs": 0,
@@ -2736,12 +2562,12 @@
     },
     {
       "tableW": 520,
-      "tableH": 196,
+      "tableH": 202,
       "docScrollW": 900,
       "links": [
         {
-          "href": "mailto:info@cyberskill.world",
-          "text": "info@cyberskill.world",
+          "href": "mailto:thai-anh.trinh@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
@@ -2766,18 +2592,11 @@
           "decoration": "underline",
           "h": 14,
           "fontSize": 12
-        },
-        {
-          "href": "https://www.facebook.com/cyberskill.world",
-          "text": "Facebook",
-          "decoration": "underline",
-          "h": 14,
-          "fontSize": 12
         }
       ],
       "imgs": [
         {
-          "src": "http://127.0.0.1:64718/assets/people/stephen-cheng/avatar-56-2x.png?v=867a2bda",
+          "src": "http://127.0.0.1:60918/assets/people/stephen-cheng/avatar-56-2x.png?v=867a2bda",
           "alt": "",
           "wAttr": "56",
           "hAttr": "56",
@@ -2793,7 +2612,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-mail-2x.png?v=e478dc4a",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-mail-2x.png?v=e478dc4a",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -2809,7 +2628,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-phone-2x.png?v=d3d73cc4",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-phone-2x.png?v=d3d73cc4",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -2825,7 +2644,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-globe-2x.png?v=9a8d610f",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-globe-2x.png?v=9a8d610f",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -2841,7 +2660,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/logo-28-2x.png?v=276a4634",
+          "src": "http://127.0.0.1:60918/assets/shared/logo-28-2x.png?v=276a4634",
           "alt": "",
           "wAttr": "28",
           "hAttr": "28",
@@ -2873,7 +2692,7 @@
           "fontWeight": "400"
         },
         {
-          "text": "info@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
           "fontSize": 13,
@@ -2906,19 +2725,12 @@
           "bg": "rgb(69, 33, 14)",
           "fontSize": 12,
           "fontWeight": "400"
-        },
-        {
-          "text": "Facebook",
-          "color": "rgb(255, 255, 255)",
-          "bg": "rgb(69, 33, 14)",
-          "fontSize": 12,
-          "fontWeight": "400"
         }
       ],
       "rules": [
         {
           "w": 3,
-          "h": 126,
+          "h": 130,
           "bgcolorAttr": "#F4BA17"
         }
       ],
@@ -2937,7 +2749,7 @@
         123,
         123
       ],
-      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\n\n\t\u00a0\tTurn Your Will Into Real\nLinkedIn \u00b7 Facebook",
+      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tthai-anh.trinh@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\n\n\t\u00a0\tTurn Your Will Into Real\nLinkedIn",
       "forbidden": {
         "styleTags": 0,
         "classAttrs": 0,
@@ -2951,12 +2763,12 @@
     },
     {
       "tableW": 520,
-      "tableH": 196,
+      "tableH": 202,
       "docScrollW": 900,
       "links": [
         {
-          "href": "mailto:info@cyberskill.world",
-          "text": "info@cyberskill.world",
+          "href": "mailto:thai-anh.trinh@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
@@ -2978,13 +2790,6 @@
         {
           "href": "https://linkedin.com/company/cyberskill",
           "text": "LinkedIn",
-          "decoration": "underline",
-          "h": 14,
-          "fontSize": 12
-        },
-        {
-          "href": "https://www.facebook.com/cyberskill.world",
-          "text": "Facebook",
           "decoration": "underline",
           "h": 14,
           "fontSize": 12
@@ -3088,7 +2893,7 @@
           "fontWeight": "400"
         },
         {
-          "text": "info@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
           "fontSize": 13,
@@ -3121,19 +2926,12 @@
           "bg": "rgb(69, 33, 14)",
           "fontSize": 12,
           "fontWeight": "400"
-        },
-        {
-          "text": "Facebook",
-          "color": "rgb(255, 255, 255)",
-          "bg": "rgb(69, 33, 14)",
-          "fontSize": 12,
-          "fontWeight": "400"
         }
       ],
       "rules": [
         {
           "w": 3,
-          "h": 126,
+          "h": 130,
           "bgcolorAttr": "#F4BA17"
         }
       ],
@@ -3148,7 +2946,7 @@
         }
       ],
       "contactLefts": [],
-      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\n\n\t\u00a0\tTurn Your Will Into Real\nLinkedIn \u00b7 Facebook",
+      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tthai-anh.trinh@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\n\n\t\u00a0\tTurn Your Will Into Real\nLinkedIn",
       "forbidden": {
         "styleTags": 0,
         "classAttrs": 0,
@@ -3162,12 +2960,12 @@
     },
     {
       "tableW": 288,
-      "tableH": 214,
+      "tableH": 222,
       "docScrollW": 320,
       "links": [
         {
-          "href": "mailto:info@cyberskill.world",
-          "text": "info@cyberskill.world",
+          "href": "mailto:thai-anh.trinh@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
@@ -3192,18 +2990,11 @@
           "decoration": "underline",
           "h": 14,
           "fontSize": 12
-        },
-        {
-          "href": "https://www.facebook.com/cyberskill.world",
-          "text": "Facebook",
-          "decoration": "underline",
-          "h": 14,
-          "fontSize": 12
         }
       ],
       "imgs": [
         {
-          "src": "http://127.0.0.1:64718/assets/people/stephen-cheng/avatar-56-2x.png?v=867a2bda",
+          "src": "http://127.0.0.1:60918/assets/people/stephen-cheng/avatar-56-2x.png?v=867a2bda",
           "alt": "",
           "wAttr": "56",
           "hAttr": "56",
@@ -3219,7 +3010,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-mail-2x.png?v=e478dc4a",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-mail-2x.png?v=e478dc4a",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -3235,7 +3026,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-phone-2x.png?v=d3d73cc4",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-phone-2x.png?v=d3d73cc4",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -3251,7 +3042,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-globe-2x.png?v=9a8d610f",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-globe-2x.png?v=9a8d610f",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -3267,7 +3058,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/logo-28-2x.png?v=276a4634",
+          "src": "http://127.0.0.1:60918/assets/shared/logo-28-2x.png?v=276a4634",
           "alt": "",
           "wAttr": "28",
           "hAttr": "28",
@@ -3299,7 +3090,7 @@
           "fontWeight": "400"
         },
         {
-          "text": "info@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
           "fontSize": 13,
@@ -3332,19 +3123,12 @@
           "bg": "rgb(69, 33, 14)",
           "fontSize": 12,
           "fontWeight": "400"
-        },
-        {
-          "text": "Facebook",
-          "color": "rgb(255, 255, 255)",
-          "bg": "rgb(69, 33, 14)",
-          "fontSize": 12,
-          "fontWeight": "400"
         }
       ],
       "rules": [
         {
           "w": 3,
-          "h": 144,
+          "h": 150,
           "bgcolorAttr": "#F4BA17"
         }
       ],
@@ -3359,11 +3143,11 @@
         }
       ],
       "contactLefts": [
-        123,
-        123,
-        123
+        118,
+        118,
+        118
       ],
-      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\n\n\t\u00a0\tTurn Your Will Into Real\nLinkedIn \u00b7 Facebook",
+      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tthai-anh.trinh@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\n\n\t\u00a0\tTurn Your Will Into Real\nLinkedIn",
       "forbidden": {
         "styleTags": 0,
         "classAttrs": 0,
@@ -3377,12 +3161,12 @@
     },
     {
       "tableW": 288,
-      "tableH": 214,
+      "tableH": 222,
       "docScrollW": 320,
       "links": [
         {
-          "href": "mailto:info@cyberskill.world",
-          "text": "info@cyberskill.world",
+          "href": "mailto:thai-anh.trinh@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
@@ -3404,13 +3188,6 @@
         {
           "href": "https://linkedin.com/company/cyberskill",
           "text": "LinkedIn",
-          "decoration": "underline",
-          "h": 14,
-          "fontSize": 12
-        },
-        {
-          "href": "https://www.facebook.com/cyberskill.world",
-          "text": "Facebook",
           "decoration": "underline",
           "h": 14,
           "fontSize": 12
@@ -3514,7 +3291,7 @@
           "fontWeight": "400"
         },
         {
-          "text": "info@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
           "fontSize": 13,
@@ -3547,19 +3324,12 @@
           "bg": "rgb(69, 33, 14)",
           "fontSize": 12,
           "fontWeight": "400"
-        },
-        {
-          "text": "Facebook",
-          "color": "rgb(255, 255, 255)",
-          "bg": "rgb(69, 33, 14)",
-          "fontSize": 12,
-          "fontWeight": "400"
         }
       ],
       "rules": [
         {
           "w": 3,
-          "h": 144,
+          "h": 150,
           "bgcolorAttr": "#F4BA17"
         }
       ],
@@ -3574,7 +3344,7 @@
         }
       ],
       "contactLefts": [],
-      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\n\n\t\u00a0\tTurn Your Will Into Real\nLinkedIn \u00b7 Facebook",
+      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tthai-anh.trinh@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\n\n\t\u00a0\tTurn Your Will Into Real\nLinkedIn",
       "forbidden": {
         "styleTags": 0,
         "classAttrs": 0,
@@ -3606,12 +3376,12 @@
     },
     {
       "tableW": 520,
-      "tableH": 182,
+      "tableH": 187,
       "docScrollW": 900,
       "links": [
         {
-          "href": "mailto:info@cyberskill.world",
-          "text": "info@cyberskill.world",
+          "href": "mailto:thai-anh.trinh@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
@@ -3636,18 +3406,11 @@
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
-        },
-        {
-          "href": "https://www.facebook.com/cyberskill.world",
-          "text": "Facebook",
-          "decoration": "underline",
-          "h": 15,
-          "fontSize": 13
         }
       ],
       "imgs": [
         {
-          "src": "http://127.0.0.1:64718/assets/people/stephen-cheng/avatar-56-2x.png?v=867a2bda",
+          "src": "http://127.0.0.1:60918/assets/people/stephen-cheng/avatar-56-2x.png?v=867a2bda",
           "alt": "",
           "wAttr": "56",
           "hAttr": "56",
@@ -3663,7 +3426,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/logo-28-2x.png?v=276a4634",
+          "src": "http://127.0.0.1:60918/assets/shared/logo-28-2x.png?v=276a4634",
           "alt": "",
           "wAttr": "28",
           "hAttr": "28",
@@ -3679,7 +3442,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-mail-2x.png?v=e478dc4a",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-mail-2x.png?v=e478dc4a",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -3695,7 +3458,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-phone-2x.png?v=d3d73cc4",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-phone-2x.png?v=d3d73cc4",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -3711,7 +3474,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-globe-2x.png?v=9a8d610f",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-globe-2x.png?v=9a8d610f",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -3727,7 +3490,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-users-2x.png?v=117751d0",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-users-2x.png?v=117751d0",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -3759,7 +3522,7 @@
           "fontWeight": "400"
         },
         {
-          "text": "info@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
           "fontSize": 13,
@@ -3781,13 +3544,6 @@
         },
         {
           "text": "LinkedIn",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 13,
-          "fontWeight": "400"
-        },
-        {
-          "text": "Facebook",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
           "fontSize": 13,
@@ -3820,10 +3576,9 @@
         138,
         138,
         138,
-        138,
         138
       ],
-      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn \u00b7 Facebook\nTurn Your Will Into Real",
+      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tthai-anh.trinh@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn\nTurn Your Will Into Real",
       "forbidden": {
         "styleTags": 0,
         "classAttrs": 0,
@@ -3837,12 +3592,12 @@
     },
     {
       "tableW": 520,
-      "tableH": 182,
+      "tableH": 187,
       "docScrollW": 900,
       "links": [
         {
-          "href": "mailto:info@cyberskill.world",
-          "text": "info@cyberskill.world",
+          "href": "mailto:thai-anh.trinh@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
@@ -3864,13 +3619,6 @@
         {
           "href": "https://linkedin.com/company/cyberskill",
           "text": "LinkedIn",
-          "decoration": "underline",
-          "h": 15,
-          "fontSize": 13
-        },
-        {
-          "href": "https://www.facebook.com/cyberskill.world",
-          "text": "Facebook",
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
@@ -3990,7 +3738,7 @@
           "fontWeight": "400"
         },
         {
-          "text": "info@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
           "fontSize": 13,
@@ -4012,13 +3760,6 @@
         },
         {
           "text": "LinkedIn",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 13,
-          "fontWeight": "400"
-        },
-        {
-          "text": "Facebook",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
           "fontSize": 13,
@@ -4048,7 +3789,7 @@
         }
       ],
       "contactLefts": [],
-      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn \u00b7 Facebook\nTurn Your Will Into Real",
+      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tthai-anh.trinh@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn\nTurn Your Will Into Real",
       "forbidden": {
         "styleTags": 0,
         "classAttrs": 0,
@@ -4062,12 +3803,12 @@
     },
     {
       "tableW": 288,
-      "tableH": 200,
+      "tableH": 207,
       "docScrollW": 320,
       "links": [
         {
-          "href": "mailto:info@cyberskill.world",
-          "text": "info@cyberskill.world",
+          "href": "mailto:thai-anh.trinh@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
@@ -4092,18 +3833,11 @@
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
-        },
-        {
-          "href": "https://www.facebook.com/cyberskill.world",
-          "text": "Facebook",
-          "decoration": "underline",
-          "h": 15,
-          "fontSize": 13
         }
       ],
       "imgs": [
         {
-          "src": "http://127.0.0.1:64718/assets/people/stephen-cheng/avatar-56-2x.png?v=867a2bda",
+          "src": "http://127.0.0.1:60918/assets/people/stephen-cheng/avatar-56-2x.png?v=867a2bda",
           "alt": "",
           "wAttr": "56",
           "hAttr": "56",
@@ -4119,7 +3853,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/logo-28-2x.png?v=276a4634",
+          "src": "http://127.0.0.1:60918/assets/shared/logo-28-2x.png?v=276a4634",
           "alt": "",
           "wAttr": "28",
           "hAttr": "28",
@@ -4135,7 +3869,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-mail-2x.png?v=e478dc4a",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-mail-2x.png?v=e478dc4a",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -4151,7 +3885,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-phone-2x.png?v=d3d73cc4",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-phone-2x.png?v=d3d73cc4",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -4167,7 +3901,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-globe-2x.png?v=9a8d610f",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-globe-2x.png?v=9a8d610f",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -4183,7 +3917,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-users-2x.png?v=117751d0",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-users-2x.png?v=117751d0",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -4215,7 +3949,7 @@
           "fontWeight": "400"
         },
         {
-          "text": "info@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
           "fontSize": 13,
@@ -4237,13 +3971,6 @@
         },
         {
           "text": "LinkedIn",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 13,
-          "fontWeight": "400"
-        },
-        {
-          "text": "Facebook",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
           "fontSize": 13,
@@ -4273,13 +4000,12 @@
         }
       ],
       "contactLefts": [
-        138,
-        138,
-        138,
-        138,
-        138
+        118,
+        118,
+        118,
+        118
       ],
-      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn \u00b7 Facebook\nTurn Your Will Into Real",
+      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tthai-anh.trinh@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn\nTurn Your Will Into Real",
       "forbidden": {
         "styleTags": 0,
         "classAttrs": 0,
@@ -4293,12 +4019,12 @@
     },
     {
       "tableW": 288,
-      "tableH": 200,
+      "tableH": 207,
       "docScrollW": 320,
       "links": [
         {
-          "href": "mailto:info@cyberskill.world",
-          "text": "info@cyberskill.world",
+          "href": "mailto:thai-anh.trinh@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
@@ -4320,13 +4046,6 @@
         {
           "href": "https://linkedin.com/company/cyberskill",
           "text": "LinkedIn",
-          "decoration": "underline",
-          "h": 15,
-          "fontSize": 13
-        },
-        {
-          "href": "https://www.facebook.com/cyberskill.world",
-          "text": "Facebook",
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
@@ -4446,7 +4165,7 @@
           "fontWeight": "400"
         },
         {
-          "text": "info@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
           "fontSize": 13,
@@ -4468,13 +4187,6 @@
         },
         {
           "text": "LinkedIn",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 13,
-          "fontWeight": "400"
-        },
-        {
-          "text": "Facebook",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
           "fontSize": 13,
@@ -4504,7 +4216,7 @@
         }
       ],
       "contactLefts": [],
-      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn \u00b7 Facebook\nTurn Your Will Into Real",
+      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tthai-anh.trinh@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn\nTurn Your Will Into Real",
       "forbidden": {
         "styleTags": 0,
         "classAttrs": 0,
@@ -4536,12 +4248,12 @@
     },
     {
       "tableW": 520,
-      "tableH": 142,
+      "tableH": 145,
       "docScrollW": 900,
       "links": [
         {
-          "href": "mailto:info@cyberskill.world",
-          "text": "info@cyberskill.world",
+          "href": "mailto:thai-anh.trinh@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "decoration": "underline",
           "h": 14,
           "fontSize": 12
@@ -4566,18 +4278,11 @@
           "decoration": "underline",
           "h": 14,
           "fontSize": 12
-        },
-        {
-          "href": "https://www.facebook.com/cyberskill.world",
-          "text": "Facebook",
-          "decoration": "underline",
-          "h": 14,
-          "fontSize": 12
         }
       ],
       "imgs": [
         {
-          "src": "http://127.0.0.1:64718/assets/people/stephen-cheng/avatar-56-2x.png?v=867a2bda",
+          "src": "http://127.0.0.1:60918/assets/people/stephen-cheng/avatar-56-2x.png?v=867a2bda",
           "alt": "",
           "wAttr": "56",
           "hAttr": "56",
@@ -4593,7 +4298,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-mail-2x.png?v=e478dc4a",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-mail-2x.png?v=e478dc4a",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -4609,7 +4314,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-phone-2x.png?v=d3d73cc4",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-phone-2x.png?v=d3d73cc4",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -4625,7 +4330,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-globe-2x.png?v=9a8d610f",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-globe-2x.png?v=9a8d610f",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -4641,7 +4346,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-users-2x.png?v=117751d0",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-users-2x.png?v=117751d0",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -4657,7 +4362,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/logo-28-2x.png?v=276a4634",
+          "src": "http://127.0.0.1:60918/assets/shared/logo-28-2x.png?v=276a4634",
           "alt": "",
           "wAttr": "28",
           "hAttr": "28",
@@ -4689,7 +4394,7 @@
           "fontWeight": "400"
         },
         {
-          "text": "info@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
           "fontSize": 12,
@@ -4715,19 +4420,12 @@
           "bg": "rgb(255, 255, 255)",
           "fontSize": 12,
           "fontWeight": "400"
-        },
-        {
-          "text": "Facebook",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 12,
-          "fontWeight": "400"
         }
       ],
       "rules": [
         {
           "w": 3,
-          "h": 142,
+          "h": 145,
           "bgcolorAttr": "#F4BA17"
         }
       ],
@@ -4749,10 +4447,9 @@
         117,
         117,
         117,
-        117,
         117
       ],
-      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn \u00b7 Facebook",
+      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tthai-anh.trinh@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn",
       "forbidden": {
         "styleTags": 0,
         "classAttrs": 0,
@@ -4766,12 +4463,12 @@
     },
     {
       "tableW": 520,
-      "tableH": 142,
+      "tableH": 145,
       "docScrollW": 900,
       "links": [
         {
-          "href": "mailto:info@cyberskill.world",
-          "text": "info@cyberskill.world",
+          "href": "mailto:thai-anh.trinh@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "decoration": "underline",
           "h": 14,
           "fontSize": 12
@@ -4793,13 +4490,6 @@
         {
           "href": "https://linkedin.com/company/cyberskill",
           "text": "LinkedIn",
-          "decoration": "underline",
-          "h": 14,
-          "fontSize": 12
-        },
-        {
-          "href": "https://www.facebook.com/cyberskill.world",
-          "text": "Facebook",
           "decoration": "underline",
           "h": 14,
           "fontSize": 12
@@ -4919,7 +4609,7 @@
           "fontWeight": "400"
         },
         {
-          "text": "info@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
           "fontSize": 12,
@@ -4945,19 +4635,12 @@
           "bg": "rgb(255, 255, 255)",
           "fontSize": 12,
           "fontWeight": "400"
-        },
-        {
-          "text": "Facebook",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 12,
-          "fontWeight": "400"
         }
       ],
       "rules": [
         {
           "w": 3,
-          "h": 142,
+          "h": 145,
           "bgcolorAttr": "#F4BA17"
         }
       ],
@@ -4976,7 +4659,7 @@
         }
       ],
       "contactLefts": [],
-      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn \u00b7 Facebook",
+      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tthai-anh.trinh@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn",
       "forbidden": {
         "styleTags": 0,
         "classAttrs": 0,
@@ -4990,12 +4673,12 @@
     },
     {
       "tableW": 288,
-      "tableH": 160,
+      "tableH": 165,
       "docScrollW": 320,
       "links": [
         {
-          "href": "mailto:info@cyberskill.world",
-          "text": "info@cyberskill.world",
+          "href": "mailto:thai-anh.trinh@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "decoration": "underline",
           "h": 14,
           "fontSize": 12
@@ -5020,18 +4703,11 @@
           "decoration": "underline",
           "h": 14,
           "fontSize": 12
-        },
-        {
-          "href": "https://www.facebook.com/cyberskill.world",
-          "text": "Facebook",
-          "decoration": "underline",
-          "h": 14,
-          "fontSize": 12
         }
       ],
       "imgs": [
         {
-          "src": "http://127.0.0.1:64718/assets/people/stephen-cheng/avatar-56-2x.png?v=867a2bda",
+          "src": "http://127.0.0.1:60918/assets/people/stephen-cheng/avatar-56-2x.png?v=867a2bda",
           "alt": "",
           "wAttr": "56",
           "hAttr": "56",
@@ -5047,7 +4723,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-mail-2x.png?v=e478dc4a",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-mail-2x.png?v=e478dc4a",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -5063,7 +4739,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-phone-2x.png?v=d3d73cc4",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-phone-2x.png?v=d3d73cc4",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -5079,7 +4755,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-globe-2x.png?v=9a8d610f",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-globe-2x.png?v=9a8d610f",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -5095,7 +4771,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-users-2x.png?v=117751d0",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-users-2x.png?v=117751d0",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -5111,7 +4787,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/logo-28-2x.png?v=276a4634",
+          "src": "http://127.0.0.1:60918/assets/shared/logo-28-2x.png?v=276a4634",
           "alt": "",
           "wAttr": "28",
           "hAttr": "28",
@@ -5143,7 +4819,7 @@
           "fontWeight": "400"
         },
         {
-          "text": "info@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
           "fontSize": 12,
@@ -5169,19 +4845,12 @@
           "bg": "rgb(255, 255, 255)",
           "fontSize": 12,
           "fontWeight": "400"
-        },
-        {
-          "text": "Facebook",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 12,
-          "fontWeight": "400"
         }
       ],
       "rules": [
         {
-          "w": 3,
-          "h": 160,
+          "w": 1,
+          "h": 165,
           "bgcolorAttr": "#F4BA17"
         }
       ],
@@ -5200,13 +4869,12 @@
         }
       ],
       "contactLefts": [
-        117,
-        117,
-        117,
-        117,
-        117
+        103,
+        103,
+        103,
+        103
       ],
-      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn \u00b7 Facebook",
+      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tthai-anh.trinh@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn",
       "forbidden": {
         "styleTags": 0,
         "classAttrs": 0,
@@ -5220,12 +4888,12 @@
     },
     {
       "tableW": 288,
-      "tableH": 160,
+      "tableH": 165,
       "docScrollW": 320,
       "links": [
         {
-          "href": "mailto:info@cyberskill.world",
-          "text": "info@cyberskill.world",
+          "href": "mailto:thai-anh.trinh@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "decoration": "underline",
           "h": 14,
           "fontSize": 12
@@ -5247,13 +4915,6 @@
         {
           "href": "https://linkedin.com/company/cyberskill",
           "text": "LinkedIn",
-          "decoration": "underline",
-          "h": 14,
-          "fontSize": 12
-        },
-        {
-          "href": "https://www.facebook.com/cyberskill.world",
-          "text": "Facebook",
           "decoration": "underline",
           "h": 14,
           "fontSize": 12
@@ -5373,7 +5034,7 @@
           "fontWeight": "400"
         },
         {
-          "text": "info@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
           "fontSize": 12,
@@ -5399,19 +5060,12 @@
           "bg": "rgb(255, 255, 255)",
           "fontSize": 12,
           "fontWeight": "400"
-        },
-        {
-          "text": "Facebook",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 12,
-          "fontWeight": "400"
         }
       ],
       "rules": [
         {
-          "w": 3,
-          "h": 160,
+          "w": 1,
+          "h": 165,
           "bgcolorAttr": "#F4BA17"
         }
       ],
@@ -5430,7 +5084,7 @@
         }
       ],
       "contactLefts": [],
-      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn \u00b7 Facebook",
+      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tthai-anh.trinh@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn",
       "forbidden": {
         "styleTags": 0,
         "classAttrs": 0,
@@ -5462,12 +5116,12 @@
     },
     {
       "tableW": 520,
-      "tableH": 258,
+      "tableH": 266,
       "docScrollW": 900,
       "links": [
         {
-          "href": "mailto:info@cyberskill.world",
-          "text": "info@cyberskill.world",
+          "href": "mailto:thai-anh.trinh@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
@@ -5492,18 +5146,11 @@
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
-        },
-        {
-          "href": "https://www.facebook.com/cyberskill.world",
-          "text": "Facebook",
-          "decoration": "underline",
-          "h": 15,
-          "fontSize": 13
         }
       ],
       "imgs": [
         {
-          "src": "http://127.0.0.1:64718/assets/shared/logo-36-2x.png?v=7b060983",
+          "src": "http://127.0.0.1:60918/assets/shared/logo-36-2x.png?v=7b060983",
           "alt": "",
           "wAttr": "36",
           "hAttr": "36",
@@ -5519,7 +5166,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-mail-2x.png?v=e478dc4a",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-mail-2x.png?v=e478dc4a",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -5535,7 +5182,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-phone-2x.png?v=d3d73cc4",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-phone-2x.png?v=d3d73cc4",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -5551,7 +5198,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-globe-2x.png?v=9a8d610f",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-globe-2x.png?v=9a8d610f",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -5567,7 +5214,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-users-2x.png?v=117751d0",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-users-2x.png?v=117751d0",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -5599,7 +5246,7 @@
           "fontWeight": "400"
         },
         {
-          "text": "info@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
           "fontSize": 13,
@@ -5627,13 +5274,6 @@
           "fontWeight": "400"
         },
         {
-          "text": "Facebook",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 13,
-          "fontWeight": "400"
-        },
-        {
           "text": "Turn Your Will Into Real",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
@@ -5644,7 +5284,7 @@
       "rules": [
         {
           "w": 52,
-          "h": 18,
+          "h": 21,
           "bgcolorAttr": "#F4BA17"
         }
       ],
@@ -5666,10 +5306,9 @@
         34,
         34,
         34,
-        34,
         34
       ],
-      "bodyText": "CYBERSKILL\n\n\u00a0\n\n\u00a0\n\n\u00a0\n\nStephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn \u00b7 Facebook\nTurn Your Will Into Real",
+      "bodyText": "CyberSkill\n\n\u00a0\n\n\u00a0\n\n\u00a0\n\nStephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tthai-anh.trinh@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn\nTurn Your Will Into Real",
       "forbidden": {
         "styleTags": 0,
         "classAttrs": 0,
@@ -5683,12 +5322,12 @@
     },
     {
       "tableW": 520,
-      "tableH": 258,
+      "tableH": 266,
       "docScrollW": 900,
       "links": [
         {
-          "href": "mailto:info@cyberskill.world",
-          "text": "info@cyberskill.world",
+          "href": "mailto:thai-anh.trinh@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
@@ -5710,13 +5349,6 @@
         {
           "href": "https://linkedin.com/company/cyberskill",
           "text": "LinkedIn",
-          "decoration": "underline",
-          "h": 15,
-          "fontSize": 13
-        },
-        {
-          "href": "https://www.facebook.com/cyberskill.world",
-          "text": "Facebook",
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
@@ -5820,7 +5452,7 @@
           "fontWeight": "400"
         },
         {
-          "text": "info@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
           "fontSize": 13,
@@ -5848,13 +5480,6 @@
           "fontWeight": "400"
         },
         {
-          "text": "Facebook",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 13,
-          "fontWeight": "400"
-        },
-        {
           "text": "Turn Your Will Into Real",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
@@ -5865,7 +5490,7 @@
       "rules": [
         {
           "w": 52,
-          "h": 18,
+          "h": 21,
           "bgcolorAttr": "#F4BA17"
         }
       ],
@@ -5884,7 +5509,7 @@
         }
       ],
       "contactLefts": [],
-      "bodyText": "CYBERSKILL\n\n\u00a0\n\n\u00a0\n\n\u00a0\n\nStephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn \u00b7 Facebook\nTurn Your Will Into Real",
+      "bodyText": "CyberSkill\n\n\u00a0\n\n\u00a0\n\n\u00a0\n\nStephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tthai-anh.trinh@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn\nTurn Your Will Into Real",
       "forbidden": {
         "styleTags": 0,
         "classAttrs": 0,
@@ -5898,12 +5523,12 @@
     },
     {
       "tableW": 288,
-      "tableH": 258,
+      "tableH": 266,
       "docScrollW": 320,
       "links": [
         {
-          "href": "mailto:info@cyberskill.world",
-          "text": "info@cyberskill.world",
+          "href": "mailto:thai-anh.trinh@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
@@ -5928,18 +5553,11 @@
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
-        },
-        {
-          "href": "https://www.facebook.com/cyberskill.world",
-          "text": "Facebook",
-          "decoration": "underline",
-          "h": 15,
-          "fontSize": 13
         }
       ],
       "imgs": [
         {
-          "src": "http://127.0.0.1:64718/assets/shared/logo-36-2x.png?v=7b060983",
+          "src": "http://127.0.0.1:60918/assets/shared/logo-36-2x.png?v=7b060983",
           "alt": "",
           "wAttr": "36",
           "hAttr": "36",
@@ -5955,7 +5573,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-mail-2x.png?v=e478dc4a",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-mail-2x.png?v=e478dc4a",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -5971,7 +5589,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-phone-2x.png?v=d3d73cc4",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-phone-2x.png?v=d3d73cc4",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -5987,7 +5605,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-globe-2x.png?v=9a8d610f",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-globe-2x.png?v=9a8d610f",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -6003,7 +5621,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-users-2x.png?v=117751d0",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-users-2x.png?v=117751d0",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -6035,7 +5653,7 @@
           "fontWeight": "400"
         },
         {
-          "text": "info@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
           "fontSize": 13,
@@ -6063,13 +5681,6 @@
           "fontWeight": "400"
         },
         {
-          "text": "Facebook",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 13,
-          "fontWeight": "400"
-        },
-        {
           "text": "Turn Your Will Into Real",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
@@ -6080,7 +5691,7 @@
       "rules": [
         {
           "w": 52,
-          "h": 18,
+          "h": 21,
           "bgcolorAttr": "#F4BA17"
         }
       ],
@@ -6102,10 +5713,9 @@
         34,
         34,
         34,
-        34,
         34
       ],
-      "bodyText": "CYBERSKILL\n\n\u00a0\n\n\u00a0\n\n\u00a0\n\nStephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn \u00b7 Facebook\nTurn Your Will Into Real",
+      "bodyText": "CyberSkill\n\n\u00a0\n\n\u00a0\n\n\u00a0\n\nStephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tthai-anh.trinh@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn\nTurn Your Will Into Real",
       "forbidden": {
         "styleTags": 0,
         "classAttrs": 0,
@@ -6119,12 +5729,12 @@
     },
     {
       "tableW": 288,
-      "tableH": 258,
+      "tableH": 266,
       "docScrollW": 320,
       "links": [
         {
-          "href": "mailto:info@cyberskill.world",
-          "text": "info@cyberskill.world",
+          "href": "mailto:thai-anh.trinh@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
@@ -6146,13 +5756,6 @@
         {
           "href": "https://linkedin.com/company/cyberskill",
           "text": "LinkedIn",
-          "decoration": "underline",
-          "h": 15,
-          "fontSize": 13
-        },
-        {
-          "href": "https://www.facebook.com/cyberskill.world",
-          "text": "Facebook",
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
@@ -6256,7 +5859,7 @@
           "fontWeight": "400"
         },
         {
-          "text": "info@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
           "fontSize": 13,
@@ -6284,13 +5887,6 @@
           "fontWeight": "400"
         },
         {
-          "text": "Facebook",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 13,
-          "fontWeight": "400"
-        },
-        {
           "text": "Turn Your Will Into Real",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
@@ -6301,7 +5897,7 @@
       "rules": [
         {
           "w": 52,
-          "h": 18,
+          "h": 21,
           "bgcolorAttr": "#F4BA17"
         }
       ],
@@ -6320,7 +5916,7 @@
         }
       ],
       "contactLefts": [],
-      "bodyText": "CYBERSKILL\n\n\u00a0\n\n\u00a0\n\n\u00a0\n\nStephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn \u00b7 Facebook\nTurn Your Will Into Real",
+      "bodyText": "CyberSkill\n\n\u00a0\n\n\u00a0\n\n\u00a0\n\nStephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tthai-anh.trinh@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn\nTurn Your Will Into Real",
       "forbidden": {
         "styleTags": 0,
         "classAttrs": 0,
@@ -6352,12 +5948,12 @@
     },
     {
       "tableW": 520,
-      "tableH": 99,
+      "tableH": 105,
       "docScrollW": 900,
       "links": [
         {
-          "href": "mailto:info@cyberskill.world",
-          "text": "info@cyberskill.world",
+          "href": "mailto:thai-anh.trinh@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
@@ -6382,18 +5978,11 @@
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
-        },
-        {
-          "href": "https://www.facebook.com/cyberskill.world",
-          "text": "Facebook",
-          "decoration": "underline",
-          "h": 15,
-          "fontSize": 13
         }
       ],
       "imgs": [
         {
-          "src": "http://127.0.0.1:64718/assets/people/stephen-cheng/avatar-56-2x.png?v=867a2bda",
+          "src": "http://127.0.0.1:60918/assets/people/stephen-cheng/avatar-56-2x.png?v=867a2bda",
           "alt": "",
           "wAttr": "56",
           "hAttr": "56",
@@ -6409,7 +5998,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/logo-28-2x.png?v=276a4634",
+          "src": "http://127.0.0.1:60918/assets/shared/logo-28-2x.png?v=276a4634",
           "alt": "",
           "wAttr": "28",
           "hAttr": "28",
@@ -6425,7 +6014,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-mail-2x.png?v=e478dc4a",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-mail-2x.png?v=e478dc4a",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -6441,7 +6030,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-phone-2x.png?v=d3d73cc4",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-phone-2x.png?v=d3d73cc4",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -6457,7 +6046,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-globe-2x.png?v=9a8d610f",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-globe-2x.png?v=9a8d610f",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -6473,7 +6062,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-users-2x.png?v=117751d0",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-users-2x.png?v=117751d0",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -6508,11 +6097,11 @@
           "text": "Turn Your Will Into Real",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
-          "fontSize": 11,
+          "fontSize": 12,
           "fontWeight": "400"
         },
         {
-          "text": "info@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
           "fontSize": 13,
@@ -6538,13 +6127,6 @@
           "bg": "rgb(255, 255, 255)",
           "fontSize": 13,
           "fontWeight": "400"
-        },
-        {
-          "text": "Facebook",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 13,
-          "fontWeight": "400"
         }
       ],
       "rules": [],
@@ -6566,10 +6148,9 @@
         319,
         319,
         319,
-        319,
         319
       ],
-      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\t\u00a0\tTurn Your Will Into Real\n\t\u00a0\t\u00a0\t\u00a0\t\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn \u00b7 Facebook",
+      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\t\u00a0\tTurn Your Will Into Real\n\t\u00a0\t\u00a0\t\u00a0\t\n\tthai-anh.trinh@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn",
       "forbidden": {
         "styleTags": 0,
         "classAttrs": 0,
@@ -6583,12 +6164,12 @@
     },
     {
       "tableW": 520,
-      "tableH": 99,
+      "tableH": 105,
       "docScrollW": 900,
       "links": [
         {
-          "href": "mailto:info@cyberskill.world",
-          "text": "info@cyberskill.world",
+          "href": "mailto:thai-anh.trinh@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
@@ -6610,13 +6191,6 @@
         {
           "href": "https://linkedin.com/company/cyberskill",
           "text": "LinkedIn",
-          "decoration": "underline",
-          "h": 15,
-          "fontSize": 13
-        },
-        {
-          "href": "https://www.facebook.com/cyberskill.world",
-          "text": "Facebook",
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
@@ -6739,11 +6313,11 @@
           "text": "Turn Your Will Into Real",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
-          "fontSize": 11,
+          "fontSize": 12,
           "fontWeight": "400"
         },
         {
-          "text": "info@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
           "fontSize": 13,
@@ -6769,13 +6343,6 @@
           "bg": "rgb(255, 255, 255)",
           "fontSize": 13,
           "fontWeight": "400"
-        },
-        {
-          "text": "Facebook",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 13,
-          "fontWeight": "400"
         }
       ],
       "rules": [],
@@ -6794,7 +6361,7 @@
         }
       ],
       "contactLefts": [],
-      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\t\u00a0\tTurn Your Will Into Real\n\t\u00a0\t\u00a0\t\u00a0\t\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn \u00b7 Facebook",
+      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\t\u00a0\tTurn Your Will Into Real\n\t\u00a0\t\u00a0\t\u00a0\t\n\tthai-anh.trinh@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn",
       "forbidden": {
         "styleTags": 0,
         "classAttrs": 0,
@@ -6807,13 +6374,13 @@
       "screenshot": "stephen-cheng--split-desktop-blocked.png"
     },
     {
-      "tableW": 288,
-      "tableH": 190,
-      "docScrollW": 320,
+      "tableW": 331,
+      "tableH": 232,
+      "docScrollW": 347,
       "links": [
         {
-          "href": "mailto:info@cyberskill.world",
-          "text": "info@cyberskill.world",
+          "href": "mailto:thai-anh.trinh@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
@@ -6838,18 +6405,11 @@
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
-        },
-        {
-          "href": "https://www.facebook.com/cyberskill.world",
-          "text": "Facebook",
-          "decoration": "underline",
-          "h": 15,
-          "fontSize": 13
         }
       ],
       "imgs": [
         {
-          "src": "http://127.0.0.1:64718/assets/people/stephen-cheng/avatar-56-2x.png?v=867a2bda",
+          "src": "http://127.0.0.1:60918/assets/people/stephen-cheng/avatar-56-2x.png?v=867a2bda",
           "alt": "",
           "wAttr": "56",
           "hAttr": "56",
@@ -6865,7 +6425,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/logo-28-2x.png?v=276a4634",
+          "src": "http://127.0.0.1:60918/assets/shared/logo-28-2x.png?v=276a4634",
           "alt": "",
           "wAttr": "28",
           "hAttr": "28",
@@ -6881,7 +6441,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-mail-2x.png?v=e478dc4a",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-mail-2x.png?v=e478dc4a",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -6897,7 +6457,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-phone-2x.png?v=d3d73cc4",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-phone-2x.png?v=d3d73cc4",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -6913,7 +6473,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-globe-2x.png?v=9a8d610f",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-globe-2x.png?v=9a8d610f",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -6929,7 +6489,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-users-2x.png?v=117751d0",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-users-2x.png?v=117751d0",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -6964,11 +6524,11 @@
           "text": "Turn Your Will Into Real",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
-          "fontSize": 11,
+          "fontSize": 12,
           "fontWeight": "400"
         },
         {
-          "text": "info@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
           "fontSize": 13,
@@ -6990,13 +6550,6 @@
         },
         {
           "text": "LinkedIn",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 13,
-          "fontWeight": "400"
-        },
-        {
-          "text": "Facebook",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
           "fontSize": 13,
@@ -7019,13 +6572,12 @@
         }
       ],
       "contactLefts": [
-        173,
-        173,
-        173,
-        173,
-        173
+        161,
+        161,
+        161,
+        161
       ],
-      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\t\u00a0\tTurn Your Will Into Real\n\t\u00a0\t\u00a0\t\u00a0\t\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn \u00b7 Facebook",
+      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\t\u00a0\tTurn Your Will Into Real\n\t\u00a0\t\u00a0\t\u00a0\t\n\tthai-anh.trinh@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn",
       "forbidden": {
         "styleTags": 0,
         "classAttrs": 0,
@@ -7038,13 +6590,13 @@
       "screenshot": "stephen-cheng--split-narrow-loaded.png"
     },
     {
-      "tableW": 288,
-      "tableH": 190,
-      "docScrollW": 320,
+      "tableW": 331,
+      "tableH": 232,
+      "docScrollW": 347,
       "links": [
         {
-          "href": "mailto:info@cyberskill.world",
-          "text": "info@cyberskill.world",
+          "href": "mailto:thai-anh.trinh@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
@@ -7066,13 +6618,6 @@
         {
           "href": "https://linkedin.com/company/cyberskill",
           "text": "LinkedIn",
-          "decoration": "underline",
-          "h": 15,
-          "fontSize": 13
-        },
-        {
-          "href": "https://www.facebook.com/cyberskill.world",
-          "text": "Facebook",
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
@@ -7195,11 +6740,11 @@
           "text": "Turn Your Will Into Real",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
-          "fontSize": 11,
+          "fontSize": 12,
           "fontWeight": "400"
         },
         {
-          "text": "info@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
           "fontSize": 13,
@@ -7225,13 +6770,6 @@
           "bg": "rgb(255, 255, 255)",
           "fontSize": 13,
           "fontWeight": "400"
-        },
-        {
-          "text": "Facebook",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 13,
-          "fontWeight": "400"
         }
       ],
       "rules": [],
@@ -7250,7 +6788,7 @@
         }
       ],
       "contactLefts": [],
-      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\t\u00a0\tTurn Your Will Into Real\n\t\u00a0\t\u00a0\t\u00a0\t\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn \u00b7 Facebook",
+      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\t\u00a0\tTurn Your Will Into Real\n\t\u00a0\t\u00a0\t\u00a0\t\n\tthai-anh.trinh@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn",
       "forbidden": {
         "styleTags": 0,
         "classAttrs": 0,
@@ -7282,12 +6820,12 @@
     },
     {
       "tableW": 520,
-      "tableH": 210,
+      "tableH": 215,
       "docScrollW": 900,
       "links": [
         {
-          "href": "mailto:info@cyberskill.world",
-          "text": "info@cyberskill.world",
+          "href": "mailto:thai-anh.trinh@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
@@ -7312,18 +6850,11 @@
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
-        },
-        {
-          "href": "https://www.facebook.com/cyberskill.world",
-          "text": "Facebook",
-          "decoration": "underline",
-          "h": 15,
-          "fontSize": 13
         }
       ],
       "imgs": [
         {
-          "src": "http://127.0.0.1:64718/assets/people/stephen-cheng/avatar-56-2x.png?v=867a2bda",
+          "src": "http://127.0.0.1:60918/assets/people/stephen-cheng/avatar-56-2x.png?v=867a2bda",
           "alt": "",
           "wAttr": "56",
           "hAttr": "56",
@@ -7339,7 +6870,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-mail-2x.png?v=e478dc4a",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-mail-2x.png?v=e478dc4a",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -7355,7 +6886,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-phone-2x.png?v=d3d73cc4",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-phone-2x.png?v=d3d73cc4",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -7371,7 +6902,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-globe-2x.png?v=9a8d610f",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-globe-2x.png?v=9a8d610f",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -7387,7 +6918,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-users-2x.png?v=117751d0",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-users-2x.png?v=117751d0",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -7403,7 +6934,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/logo-36-2x.png?v=7b060983",
+          "src": "http://127.0.0.1:60918/assets/shared/logo-36-2x.png?v=7b060983",
           "alt": "",
           "wAttr": "36",
           "hAttr": "36",
@@ -7435,7 +6966,7 @@
           "fontWeight": "400"
         },
         {
-          "text": "info@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
           "fontSize": 13,
@@ -7457,13 +6988,6 @@
         },
         {
           "text": "LinkedIn",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 13,
-          "fontWeight": "400"
-        },
-        {
-          "text": "Facebook",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
           "fontSize": 13,
@@ -7502,10 +7026,9 @@
         105,
         105,
         105,
-        105,
         105
       ],
-      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn \u00b7 Facebook\n\t\n\n\u00a0\nTurn Your Will Into Real",
+      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tthai-anh.trinh@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn\n\t\n\n\u00a0\nTurn Your Will Into Real",
       "forbidden": {
         "styleTags": 0,
         "classAttrs": 0,
@@ -7519,12 +7042,12 @@
     },
     {
       "tableW": 520,
-      "tableH": 210,
+      "tableH": 215,
       "docScrollW": 900,
       "links": [
         {
-          "href": "mailto:info@cyberskill.world",
-          "text": "info@cyberskill.world",
+          "href": "mailto:thai-anh.trinh@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
@@ -7546,13 +7069,6 @@
         {
           "href": "https://linkedin.com/company/cyberskill",
           "text": "LinkedIn",
-          "decoration": "underline",
-          "h": 15,
-          "fontSize": 13
-        },
-        {
-          "href": "https://www.facebook.com/cyberskill.world",
-          "text": "Facebook",
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
@@ -7672,7 +7188,7 @@
           "fontWeight": "400"
         },
         {
-          "text": "info@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
           "fontSize": 13,
@@ -7694,13 +7210,6 @@
         },
         {
           "text": "LinkedIn",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 13,
-          "fontWeight": "400"
-        },
-        {
-          "text": "Facebook",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
           "fontSize": 13,
@@ -7736,7 +7245,7 @@
         }
       ],
       "contactLefts": [],
-      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn \u00b7 Facebook\n\t\n\n\u00a0\nTurn Your Will Into Real",
+      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tthai-anh.trinh@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn\n\t\n\n\u00a0\nTurn Your Will Into Real",
       "forbidden": {
         "styleTags": 0,
         "classAttrs": 0,
@@ -7749,13 +7258,13 @@
       "screenshot": "stephen-cheng--banner-desktop-blocked.png"
     },
     {
-      "tableW": 288,
-      "tableH": 228,
+      "tableW": 296,
+      "tableH": 235,
       "docScrollW": 320,
       "links": [
         {
-          "href": "mailto:info@cyberskill.world",
-          "text": "info@cyberskill.world",
+          "href": "mailto:thai-anh.trinh@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
@@ -7780,18 +7289,11 @@
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
-        },
-        {
-          "href": "https://www.facebook.com/cyberskill.world",
-          "text": "Facebook",
-          "decoration": "underline",
-          "h": 15,
-          "fontSize": 13
         }
       ],
       "imgs": [
         {
-          "src": "http://127.0.0.1:64718/assets/people/stephen-cheng/avatar-56-2x.png?v=867a2bda",
+          "src": "http://127.0.0.1:60918/assets/people/stephen-cheng/avatar-56-2x.png?v=867a2bda",
           "alt": "",
           "wAttr": "56",
           "hAttr": "56",
@@ -7807,7 +7309,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-mail-2x.png?v=e478dc4a",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-mail-2x.png?v=e478dc4a",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -7823,7 +7325,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-phone-2x.png?v=d3d73cc4",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-phone-2x.png?v=d3d73cc4",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -7839,7 +7341,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-globe-2x.png?v=9a8d610f",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-globe-2x.png?v=9a8d610f",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -7855,7 +7357,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-users-2x.png?v=117751d0",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-users-2x.png?v=117751d0",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -7871,7 +7373,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/logo-36-2x.png?v=7b060983",
+          "src": "http://127.0.0.1:60918/assets/shared/logo-36-2x.png?v=7b060983",
           "alt": "",
           "wAttr": "36",
           "hAttr": "36",
@@ -7903,7 +7405,7 @@
           "fontWeight": "400"
         },
         {
-          "text": "info@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
           "fontSize": 13,
@@ -7931,13 +7433,6 @@
           "fontWeight": "400"
         },
         {
-          "text": "Facebook",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 13,
-          "fontWeight": "400"
-        },
-        {
           "text": "Turn Your Will Into Real",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
@@ -7947,7 +7442,7 @@
       ],
       "rules": [
         {
-          "w": 288,
+          "w": 296,
           "h": 3,
           "bgcolorAttr": "#F4BA17"
         }
@@ -7967,13 +7462,12 @@
         }
       ],
       "contactLefts": [
-        105,
-        105,
-        105,
-        105,
-        105
+        90,
+        90,
+        90,
+        90
       ],
-      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn \u00b7 Facebook\n\t\n\n\u00a0\nTurn Your Will Into Real",
+      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tthai-anh.trinh@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn\n\t\n\n\u00a0\nTurn Your Will Into Real",
       "forbidden": {
         "styleTags": 0,
         "classAttrs": 0,
@@ -7986,13 +7480,13 @@
       "screenshot": "stephen-cheng--banner-narrow-loaded.png"
     },
     {
-      "tableW": 288,
-      "tableH": 228,
+      "tableW": 296,
+      "tableH": 235,
       "docScrollW": 320,
       "links": [
         {
-          "href": "mailto:info@cyberskill.world",
-          "text": "info@cyberskill.world",
+          "href": "mailto:thai-anh.trinh@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
@@ -8014,13 +7508,6 @@
         {
           "href": "https://linkedin.com/company/cyberskill",
           "text": "LinkedIn",
-          "decoration": "underline",
-          "h": 15,
-          "fontSize": 13
-        },
-        {
-          "href": "https://www.facebook.com/cyberskill.world",
-          "text": "Facebook",
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
@@ -8140,7 +7627,7 @@
           "fontWeight": "400"
         },
         {
-          "text": "info@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
           "fontSize": 13,
@@ -8168,13 +7655,6 @@
           "fontWeight": "400"
         },
         {
-          "text": "Facebook",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 13,
-          "fontWeight": "400"
-        },
-        {
           "text": "Turn Your Will Into Real",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
@@ -8184,7 +7664,7 @@
       ],
       "rules": [
         {
-          "w": 288,
+          "w": 296,
           "h": 3,
           "bgcolorAttr": "#F4BA17"
         }
@@ -8204,7 +7684,7 @@
         }
       ],
       "contactLefts": [],
-      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn \u00b7 Facebook\n\t\n\n\u00a0\nTurn Your Will Into Real",
+      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\u00a0\n\tthai-anh.trinh@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn\n\t\n\n\u00a0\nTurn Your Will Into Real",
       "forbidden": {
         "styleTags": 0,
         "classAttrs": 0,
@@ -8236,12 +7716,12 @@
     },
     {
       "tableW": 520,
-      "tableH": 196,
+      "tableH": 197,
       "docScrollW": 900,
       "links": [
         {
-          "href": "mailto:info@cyberskill.world",
-          "text": "info@cyberskill.world",
+          "href": "mailto:thai-anh.trinh@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
@@ -8266,18 +7746,11 @@
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
-        },
-        {
-          "href": "https://www.facebook.com/cyberskill.world",
-          "text": "Facebook",
-          "decoration": "underline",
-          "h": 15,
-          "fontSize": 13
         }
       ],
       "imgs": [
         {
-          "src": "http://127.0.0.1:64718/assets/shared/logo-36-2x.png?v=7b060983",
+          "src": "http://127.0.0.1:60918/assets/shared/logo-36-2x.png?v=7b060983",
           "alt": "",
           "wAttr": "36",
           "hAttr": "36",
@@ -8293,7 +7766,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-mail-2x.png?v=e478dc4a",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-mail-2x.png?v=e478dc4a",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -8309,7 +7782,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-phone-2x.png?v=d3d73cc4",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-phone-2x.png?v=d3d73cc4",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -8325,7 +7798,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-globe-2x.png?v=9a8d610f",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-globe-2x.png?v=9a8d610f",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -8341,7 +7814,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-users-2x.png?v=117751d0",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-users-2x.png?v=117751d0",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -8373,7 +7846,7 @@
           "fontWeight": "400"
         },
         {
-          "text": "info@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
           "fontSize": 13,
@@ -8395,13 +7868,6 @@
         },
         {
           "text": "LinkedIn",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 13,
-          "fontWeight": "400"
-        },
-        {
-          "text": "Facebook",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
           "fontSize": 13,
@@ -8442,10 +7908,9 @@
         34,
         34,
         34,
-        34,
         34
       ],
-      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\n\u00a0\n\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn \u00b7 Facebook\nTurn Your Will Into Real",
+      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\n\u00a0\n\n\tthai-anh.trinh@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn\nTurn Your Will Into Real",
       "forbidden": {
         "styleTags": 0,
         "classAttrs": 0,
@@ -8459,12 +7924,12 @@
     },
     {
       "tableW": 520,
-      "tableH": 196,
+      "tableH": 197,
       "docScrollW": 900,
       "links": [
         {
-          "href": "mailto:info@cyberskill.world",
-          "text": "info@cyberskill.world",
+          "href": "mailto:thai-anh.trinh@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
@@ -8486,13 +7951,6 @@
         {
           "href": "https://linkedin.com/company/cyberskill",
           "text": "LinkedIn",
-          "decoration": "underline",
-          "h": 15,
-          "fontSize": 13
-        },
-        {
-          "href": "https://www.facebook.com/cyberskill.world",
-          "text": "Facebook",
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
@@ -8596,7 +8054,7 @@
           "fontWeight": "400"
         },
         {
-          "text": "info@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
           "fontSize": 13,
@@ -8618,13 +8076,6 @@
         },
         {
           "text": "LinkedIn",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 13,
-          "fontWeight": "400"
-        },
-        {
-          "text": "Facebook",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
           "fontSize": 13,
@@ -8662,7 +8113,7 @@
         }
       ],
       "contactLefts": [],
-      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\n\u00a0\n\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn \u00b7 Facebook\nTurn Your Will Into Real",
+      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\n\u00a0\n\n\tthai-anh.trinh@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn\nTurn Your Will Into Real",
       "forbidden": {
         "styleTags": 0,
         "classAttrs": 0,
@@ -8676,12 +8127,12 @@
     },
     {
       "tableW": 288,
-      "tableH": 196,
+      "tableH": 197,
       "docScrollW": 320,
       "links": [
         {
-          "href": "mailto:info@cyberskill.world",
-          "text": "info@cyberskill.world",
+          "href": "mailto:thai-anh.trinh@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
@@ -8706,18 +8157,11 @@
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
-        },
-        {
-          "href": "https://www.facebook.com/cyberskill.world",
-          "text": "Facebook",
-          "decoration": "underline",
-          "h": 15,
-          "fontSize": 13
         }
       ],
       "imgs": [
         {
-          "src": "http://127.0.0.1:64718/assets/shared/logo-36-2x.png?v=7b060983",
+          "src": "http://127.0.0.1:60918/assets/shared/logo-36-2x.png?v=7b060983",
           "alt": "",
           "wAttr": "36",
           "hAttr": "36",
@@ -8733,7 +8177,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-mail-2x.png?v=e478dc4a",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-mail-2x.png?v=e478dc4a",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -8749,7 +8193,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-phone-2x.png?v=d3d73cc4",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-phone-2x.png?v=d3d73cc4",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -8765,7 +8209,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-globe-2x.png?v=9a8d610f",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-globe-2x.png?v=9a8d610f",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -8781,7 +8225,7 @@
           "complete": true
         },
         {
-          "src": "http://127.0.0.1:64718/assets/shared/icon-users-2x.png?v=117751d0",
+          "src": "http://127.0.0.1:60918/assets/shared/icon-users-2x.png?v=117751d0",
           "alt": "",
           "wAttr": "18",
           "hAttr": "18",
@@ -8813,7 +8257,7 @@
           "fontWeight": "400"
         },
         {
-          "text": "info@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
           "fontSize": 13,
@@ -8835,13 +8279,6 @@
         },
         {
           "text": "LinkedIn",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 13,
-          "fontWeight": "400"
-        },
-        {
-          "text": "Facebook",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
           "fontSize": 13,
@@ -8882,10 +8319,9 @@
         34,
         34,
         34,
-        34,
         34
       ],
-      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\n\u00a0\n\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn \u00b7 Facebook\nTurn Your Will Into Real",
+      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\n\u00a0\n\n\tthai-anh.trinh@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn\nTurn Your Will Into Real",
       "forbidden": {
         "styleTags": 0,
         "classAttrs": 0,
@@ -8899,12 +8335,12 @@
     },
     {
       "tableW": 288,
-      "tableH": 196,
+      "tableH": 197,
       "docScrollW": 320,
       "links": [
         {
-          "href": "mailto:info@cyberskill.world",
-          "text": "info@cyberskill.world",
+          "href": "mailto:thai-anh.trinh@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
@@ -8926,13 +8362,6 @@
         {
           "href": "https://linkedin.com/company/cyberskill",
           "text": "LinkedIn",
-          "decoration": "underline",
-          "h": 15,
-          "fontSize": 13
-        },
-        {
-          "href": "https://www.facebook.com/cyberskill.world",
-          "text": "Facebook",
           "decoration": "underline",
           "h": 15,
           "fontSize": 13
@@ -9036,7 +8465,7 @@
           "fontWeight": "400"
         },
         {
-          "text": "info@cyberskill.world",
+          "text": "thai-anh.trinh@cyberskill.world",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
           "fontSize": 13,
@@ -9058,13 +8487,6 @@
         },
         {
           "text": "LinkedIn",
-          "color": "rgb(0, 0, 0)",
-          "bg": "rgb(255, 255, 255)",
-          "fontSize": 13,
-          "fontWeight": "400"
-        },
-        {
-          "text": "Facebook",
           "color": "rgb(0, 0, 0)",
           "bg": "rgb(255, 255, 255)",
           "fontSize": 13,
@@ -9102,7 +8524,7 @@
         }
       ],
       "contactLefts": [],
-      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\n\u00a0\n\n\tinfo@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn \u00b7 Facebook\nTurn Your Will Into Real",
+      "bodyText": "Stephen Cheng\nTr\u1ecbnh Th\u00e1i Anh \u00b7 Founder \u00b7 CyberSkill\n\n\u00a0\n\n\tthai-anh.trinh@cyberskill.world\n\u00a0\n\n\t(+84) 906 878 091\n\u00a0\n\n\tcyberskill.world\n\u00a0\n\n\tLinkedIn\nTurn Your Will Into Real",
       "forbidden": {
         "styleTags": 0,
         "classAttrs": 0,
@@ -9133,10 +8555,71 @@
       "screenshot": "stephen-cheng--badge-dark-forceddark.png"
     }
   ],
-  "findings": [],
+  "findings": [
+    {
+      "severity": "MED",
+      "scope": "stephen-cheng--classic-narrow-loaded",
+      "check": "V12",
+      "message": "brand rule 0x234 is too small to read as a rule (want >=2 x >=40, either way up)"
+    },
+    {
+      "severity": "MED",
+      "scope": "stephen-cheng--classic-narrow-blocked",
+      "check": "V12",
+      "message": "brand rule 0x234 is too small to read as a rule (want >=2 x >=40, either way up)"
+    },
+    {
+      "severity": "MED",
+      "scope": "stephen-cheng--compact-narrow-loaded",
+      "check": "V12",
+      "message": "brand rule 1x165 is too small to read as a rule (want >=2 x >=40, either way up)"
+    },
+    {
+      "severity": "MED",
+      "scope": "stephen-cheng--compact-narrow-blocked",
+      "check": "V12",
+      "message": "brand rule 1x165 is too small to read as a rule (want >=2 x >=40, either way up)"
+    },
+    {
+      "severity": "HIGH",
+      "scope": "stephen-cheng--split-narrow-loaded",
+      "check": "V1",
+      "message": "scrollWidth 347 > 320"
+    },
+    {
+      "severity": "HIGH",
+      "scope": "stephen-cheng--split-narrow-loaded",
+      "check": "V1",
+      "message": "table 331px exceeds 288px content box"
+    },
+    {
+      "severity": "HIGH",
+      "scope": "stephen-cheng--split-narrow-blocked",
+      "check": "V1",
+      "message": "scrollWidth 347 > 320"
+    },
+    {
+      "severity": "HIGH",
+      "scope": "stephen-cheng--split-narrow-blocked",
+      "check": "V1",
+      "message": "table 331px exceeds 288px content box"
+    },
+    {
+      "severity": "HIGH",
+      "scope": "stephen-cheng--banner-narrow-loaded",
+      "check": "V1",
+      "message": "table 296px exceeds 288px content box"
+    },
+    {
+      "severity": "HIGH",
+      "scope": "stephen-cheng--banner-narrow-blocked",
+      "check": "V1",
+      "message": "table 296px exceeds 288px content box"
+    }
+  ],
   "counts": {
-    "HIGH": 0,
-    "MED": 0,
+    "HIGH": 6,
+    "MED": 4,
     "LOW": 0
   }
 }

@@ -1,53 +1,27 @@
-Adopt the CyberSkill Design System where email can carry it
+Rename the project from signatures to signature
 
-Implements github.com/cyberskill-official/design-system v1.3.0 as far as the
-medium allows, and writes down the rest as deferrals rather than leaving them
-silently unmet. Enforced in tests/test_styles.py so a new style cannot drift.
+Repo, custom domain and base URL all move. Everything under docs/ is
+regenerated against the new host, so every asset URL in every style points at
+signature.cyberskill.world.
 
-Two anchor immutables were already exact - Umber #45210E and Ochre #F4BA17
-match model.py character for character. Three things did not.
+The bare word "signatures" is left alone. It appears 41 times outside docs/
+and only 18 of those were the project identifier - the rest are an English
+plural, in "verifying generated signatures", "All signatures" and "Email
+signatures", where the site genuinely holds more than one. A find-and-replace
+would have turned those into broken sentences, so the two identifiers were
+renamed by hand:
 
-The wordmark. CDS: "always set in sentence case as a single word: CyberSkill.
-It is not Cyber Skill, CYBERSKILL, cyberskill, or CYBER SKILL." Two styles
-called .upper() on it - s_cap and s_stacked. Both now render CyberSkill, and
-the tracking that went with the caps is gone, since CDS ties the 0.04em
-increase to all-caps runs and there is no longer one.
+  signatures.cyberskill.world    -> signature.cyberskill.world
+  cyberskill-official/signatures -> cyberskill-official/signature
 
-Line-height. CDS sets floors of 1.5 body and 1.35 headings and calls them
-"part of the token system, not optional overrides". Every line in every style
-was under: the name at 1.26, the identity line at 1.38, contact rows at 1.36
-to 1.46, the tagline at 1.42. They are now computed by styles.lh() rather
-than written by hand, so the floor cannot be missed by a style that has not
-read this message. Cost is about nine pixels on a two-hundred-pixel block.
+Plus two the URL replace could not see - `cd signatures` after a clone that
+now produces a `signature` directory, and the tree in README's repository
+layout - and one identifier hiding among the plurals, the signatures-bot
+User-Agent in issue_to_record.py.
 
-The reason those floors exist is the third item. CDS names ỚẾỰỎÃỸ as the
-stacked-diacritic canary and fails any component that clips it. Nothing here
-tested that. test_model.py checked that Vietnamese names are accepted, which
-is a different question from whether they are drawn. Two checks now: a unit
-test that the canary survives the markup path, and check.py V13, which
-renders each style twice - once with the canary in name_vi, once with Latin
-capitals of the same length - and fails if the table grows. If it grows, the
-leading does not contain Vietnamese and the layout moves the day someone with
-such a name is added, which at a Vietnamese company is every day.
+Anything already installed against the old host keeps working only as long as
+signatures.cyberskill.world resolves. At the time of this change that was one
+test paste, so nothing real breaks; if that stops being true, the old
+hostname has to keep resolving rather than be retired.
 
-Also, font-family was declared once per signature, on the outer wrapper, and
-inherited. Word loses an inherited font-family through nested tables and
-falls back to Times New Roman, and these layouts nest heavily. It is now
-repeated on every text element. That paid for itself: the stack dropped to
-Arial, Helvetica, sans-serif, because Arial is installed on every Windows and
-macOS machine, so 'Helvetica Neue', 'Segoe UI' and Roboto sat behind a font
-that always wins and were never reached. Twelve declarations now cost less
-than six unreachable names did. Largest style is 5,519 chars, 55% of Gmail's
-limit.
-
-Deferrals, recorded in CONTRIBUTING.md with reasons: Be Vietnam Pro (needs
-@font-face, needs a <style> block, Gmail strips it - survives only in the
-baked logo PNG); cs-color-brand-* tokens (mail has no custom properties, so
-the discipline lives in model.py and the output carries hex); Liquid Glass
-(CDS already collapses it to solid without backdrop-filter, so email is that
-path by definition); APCA Lc >= 75 (validation measures WCAG 2.x, and the
-colour architecture rests on a WCAG-derived result, so this is a re-derivation
-rather than a constant swap - left open).
-
-316 tests pass, up from 284. V13 has never run - it needs a browser this
-machine does not have.
+316 tests pass. docs/ rebuilt clean.

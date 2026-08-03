@@ -3,7 +3,7 @@
 One Gmail signature per employee, generated from a YAML record and a photo,
 published as a site that staff use to install their own.
 
-**https://signatures.cyberskill.world**
+**https://signature.cyberskill.world**
 
 ## If you work here
 
@@ -12,9 +12,9 @@ need to clone this repo.
 
 | I want to | Go to |
 |---|---|
-| Install my signature | [find your name](https://signatures.cyberskill.world/), open your page, press **Verify & copy**, paste into Gmail |
-| Get one - I am not listed | [signatures.cyberskill.world/help](https://signatures.cyberskill.world/help/) |
-| Change my details or photo | [signatures.cyberskill.world/help](https://signatures.cyberskill.world/help/) |
+| Install my signature | [find your name](https://signature.cyberskill.world/), open your page, press **Verify & copy**, paste into Gmail |
+| Get one - I am not listed | [signature.cyberskill.world/help](https://signature.cyberskill.world/help/) |
+| Change my details or photo | [signature.cyberskill.world/help](https://signature.cyberskill.world/help/) |
 
 Raising the change yourself instead? [CONTRIBUTING.md](CONTRIBUTING.md) has
 the browser-only route and the local one.
@@ -108,7 +108,7 @@ to appear here is not consent to appear anywhere else.
 ## Repository layout
 
 ```
-signatures/
+signature/
 ├── docs/                 <- GitHub Pages root. 100% generated, never hand-edited.
 │   ├── index.html            signature directory
 │   ├── help/index.html       how to get one or change yours
@@ -166,7 +166,7 @@ still be green. Uploading the built tree and calling `deploy-pages` makes the
 deploy part of the same run, so it either happens or the run fails.
 
 The custom domain is stored in repository settings, not in `docs/CNAME`, so
-this source change keeps `signatures.cyberskill.world` and its certificate.
+this source change keeps `signature.cyberskill.world` and its certificate.
 `docs/CNAME` is still generated and committed; Pages ignores it under this
 source, and it keeps the branch-deploy fallback intact.
 

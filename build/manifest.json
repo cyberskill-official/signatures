@@ -1,5 +1,5 @@
 {
-  "base": "https://signatures.cyberskill.world/",
+  "base": "https://signature.cyberskill.world/",
   "styles": [
     {
       "id": "classic",
@@ -58,18 +58,18 @@
       "name": "Stephen Cheng",
       "role": "Founder",
       "style": "classic",
-      "chars": 5224,
+      "chars": 5219,
       "sizes": {
-        "classic": 5224,
-        "plate": 5375,
-        "cap": 5064,
-        "footer": 5085,
-        "sidebar": 5349,
-        "compact": 5020,
-        "stacked": 5445,
-        "split": 5519,
-        "banner": 5422,
-        "badge": 5041
+        "classic": 5219,
+        "plate": 5369,
+        "cap": 5059,
+        "footer": 5080,
+        "sidebar": 5343,
+        "compact": 5014,
+        "stacked": 5440,
+        "split": 5513,
+        "banner": 5416,
+        "badge": 5036
       },
       "over_limit": false,
       "over_styles": []
