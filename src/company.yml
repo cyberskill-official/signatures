@@ -31,13 +31,25 @@ repo: https://github.com/cyberskill-official/signatures
 # to load them, so that part cannot be closed off.
 index_site: false
 
+# Domains a staff signature address may use. A record with an address outside
+# this list fails the build rather than publishing, which catches the mistake
+# somebody will eventually make: copying the template and pasting a personal
+# address into it.
+#
+# Exact matches only - a subdomain you actually send from has to be listed.
+email_domains:
+  - cyberskill.world
+
 # Channels every employee shares. A person can override any of these in their
 # own record, or set it to null to drop the row entirely.
 website: cyberskill.world
 website_href: https://cyberskill.world
 
+# Add a channel the day somebody owns the inbox, not before. A link that
+# nobody reads is worse than no link: it looks reachable, and whoever writes
+# to it hears nothing back and draws a conclusion about the company.
+#
+# Zalo goes here once it is set up - the icon set already carries it.
 socials:
   - label: LinkedIn
     href: https://linkedin.com/company/cyberskill
-  - label: Facebook
-    href: https://www.facebook.com/cyberskill.world

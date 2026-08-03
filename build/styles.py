@@ -367,26 +367,31 @@ def s_badge(rec, company, base):
 
 
 # Order is the order they appear on the page. First is the default.
+#
+# Names and one-line descriptions are NOT here - they live in src/locales/,
+# because the picker is shown in whatever language the reader chose and a
+# label baked into Python can only ever be English. This list answers "which
+# styles exist"; the locale files answer "what do we call them".
 STYLES = [
-    ("classic", "Classic", "Photo left, ochre rule. The house default.", s_classic),
-    ("plate", "Plate", "Name reversed out of an umber block.", s_plate),
-    ("cap", "Cap", "Company across the top, you underneath.", s_cap),
-    ("footer", "Footer", "Brand bar along the bottom.", s_footer),
-    ("sidebar", "Sidebar", "Photo and logo stacked in a colour column.", s_sidebar),
-    ("compact", "Compact", "The smallest block that still says everything.", s_compact),
-    ("stacked", "Stacked", "No photo. Logo leads.", s_stacked),
-    ("split", "Split", "You on the left, how to reach you on the right.", s_split),
-    ("banner", "Banner", "Ruled top and bottom, like a printed card.", s_banner),
-    ("badge", "Badge", "Logo in a colour square. No photo.", s_badge),
+    ("classic", s_classic),
+    ("plate", s_plate),
+    ("cap", s_cap),
+    ("footer", s_footer),
+    ("sidebar", s_sidebar),
+    ("compact", s_compact),
+    ("stacked", s_stacked),
+    ("split", s_split),
+    ("banner", s_banner),
+    ("badge", s_badge),
 ]
 
-BY_ID = {sid: (sid, label, note, fn) for sid, label, note, fn in STYLES}
+BY_ID = dict(STYLES)
 DEFAULT_STYLE = STYLES[0][0]
 
 
 def render(style_id, rec, company, base):
     try:
-        fn = BY_ID[style_id][3]
+        fn = BY_ID[style_id]
     except KeyError:
         raise SystemExit(
             f"unknown style '{style_id}' - known: {', '.join(BY_ID)}")

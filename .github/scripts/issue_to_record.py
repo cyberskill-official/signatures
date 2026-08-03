@@ -42,7 +42,8 @@ sys.path.insert(0, os.path.join(
     os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
     "build"))
 from model import (ID_RE, PEOPLE_SRC, AVATARS_SRC, RecordError,  # noqa: E402
-                   check_text, check_url, load_company)
+                   check_email, check_text, check_url, load_company)
+from styles import BY_ID                                       # noqa: E402
 
 # Only these hosts serve GitHub issue attachments. A substring check on
 # "github" would accept github.evil.example.
@@ -144,6 +145,18 @@ def build_record(form, company, mode, existing):
     take("work email", "email")
     take("phone number", "phone")
 
+    # The dropdown renders as "plate - Plate: Name reversed out of an umber
+    # block." - only the id before the first space means anything. Validated
+    # against the registry rather than trusted, because the label is free text
+    # in a YAML file anyone can edit and a silent fallback to the default is
+    # exactly the bug that leaves someone wondering why their choice vanished.
+    style = (form.get("which style") or "").strip().split(" ")[0].strip()
+    if style:
+        if style not in BY_ID:
+            raise RecordError(
+                f"style '{style}' is not one of {', '.join(sorted(BY_ID))}")
+        rec["style"] = style
+
     # Free-text "what is changing" on the update form, one key: value per line.
     for line in (form.get("what is changing") or "").split("\n"):
         if ":" not in line:
@@ -170,6 +183,11 @@ def build_record(form, company, mode, existing):
             check_text("request", f, rec[f])
     if rec.get("website_href"):
         check_url("request", "website_href", rec["website_href"])
+    # Domain check here as well as in the loader. Both would catch it, but
+    # only this one puts "that is not a CyberSkill address" on the issue the
+    # person is looking at, instead of in a CI log they will not open.
+    if rec.get("email"):
+        check_email("request", rec["email"], company["email_domains"])
     return rec
 
 

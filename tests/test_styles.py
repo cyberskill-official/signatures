@@ -253,3 +253,63 @@ def test_record_values_are_escaped(sid, rec):
 
     Sniff().feed(m)
     assert not handlers, f"style '{sid}' produced event handlers: {handlers}"
+
+
+# --- the names, which live in the locale files -----------------------------
+
+def _locales():
+    sys.path.insert(0, os.path.join(ROOT, "build"))
+    import make_site as M
+    return M.load_locales()
+
+
+def test_every_style_is_named_in_every_language():
+    """The registry says a style exists; the locale files say what to call it.
+    A style added to one without the other puts an English label on a
+    Vietnamese page, or crashes the build - the second is the good outcome
+    and this test is the early version of it."""
+    loc = _locales()
+    for code, strings in sorted(loc.items()):
+        for sid in IDS:
+            for part in ("label", "note"):
+                assert f"style.{sid}.{part}" in strings, \
+                    f"{code}.yml has no style.{sid}.{part}"
+
+
+def test_no_orphan_style_strings():
+    """The other direction: a name left behind after a style was deleted."""
+    loc = _locales()
+    for code, strings in sorted(loc.items()):
+        named = {k.split(".")[1] for k in strings if k.startswith("style.")}
+        assert named <= set(IDS), \
+            f"{code}.yml names styles that do not exist: {sorted(named - set(IDS))}"
+
+
+def test_the_issue_form_offers_exactly_the_registered_styles():
+    """The dropdown people pick from is static YAML on GitHub - it cannot be
+    generated at build time, so it is pinned here instead. Without this it is
+    a fourth copy of the names, free to drift the moment a style is renamed."""
+    import yaml
+    loc = _locales()
+    en = loc["en"]
+    want = [f"{sid} - {en[f'style.{sid}.label']}: {en[f'style.{sid}.note']}"
+            for sid in IDS]
+    forms = [os.path.join(ROOT, ".github", "ISSUE_TEMPLATE", f)
+             for f in ("new-signature.yml", "update-signature.yml")]
+    for path in forms:
+        if not os.path.isfile(path):
+            pytest.skip(f"{os.path.basename(path)} not present")
+        with open(path, encoding="utf-8") as fh:
+            doc = yaml.safe_load(fh)
+        drop = [b for b in doc["body"]
+                if b.get("type") == "dropdown" and b.get("id") == "style"]
+        assert len(drop) == 1, f"{path}: expected one style dropdown"
+        got = drop[0]["attributes"]["options"]
+        assert got == want, (
+            f"{os.path.basename(path)} is out of step with src/locales/en.yml"
+            f"\n  form: {got}\n  want: {want}")
+        default = drop[0]["attributes"].get("default")
+        assert default is not None and IDS[default] == S.DEFAULT_STYLE, (
+            f"{os.path.basename(path)} preselects "
+            f"'{IDS[default] if default is not None else None}', "
+            f"build default is '{S.DEFAULT_STYLE}'")

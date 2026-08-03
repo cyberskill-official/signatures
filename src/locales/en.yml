@@ -118,6 +118,32 @@ help:
     Nothing you send can break anyone else's signature, and nothing reaches the
     live site until a person has looked at it.
 
+  styles_h: Ten looks, one set of details
+  styles_who: Pick on your own page. Takes a minute.
+  styles_body: >-
+    Every style carries exactly the same name, job title and contact rows -
+    what changes is where the colour sits, whether your photo leads, and how
+    tall the block is. Open your page, press each one, and look at the
+    previews before you copy. Two of them show no photo at all, if you would
+    rather not publish one.
+  styles_stick: >-
+    Your page remembers the last one you pressed, in that browser. To make it
+    permanent, so it is what your page ships with and what anyone else opening
+    it sees, name the style in your request.
+  faq_style_q: Can I change how mine looks?
+  faq_style_a: >-
+    Yes. Your page has ten styles - press one and every preview updates, then
+    copy. That choice is remembered in your browser. If you want it to stick
+    for everyone, say which one in your request and it goes into your record.
+  faq_invert_q: The colours look wrong in dark mode.
+  faq_invert_a: >-
+    Some mail apps have no real dark mode and invert the whole message
+    instead. Our umber comes back as a pale pink when they do. Nothing becomes
+    unreadable, because the text inverts along with the background it sits on,
+    but the brand colour is not the brand colour. It cannot be prevented from
+    the markup. The styles without a large block of colour - Classic, Stacked
+    and Split - are the least affected.
+
   faq_public_q: What ends up public?
   faq_public_a: >-
     Your name, job title, work email, your photo, and the phone number if you
@@ -170,3 +196,84 @@ notfound:
   try_all_rest: "- find your name in the list."
   try_help: Get a signature
   try_help_rest: "- if you are not listed yet, or your details changed."
+
+person:
+  # "Verify & copy" stays English in every locale on purpose: it is the label
+  # printed on the button, and the help page tells people to press it by name.
+  # Translating one and not the other sends someone hunting for a control that
+  # does not exist under that name.
+  copy_btn: Verify &amp; copy
+  title: "{name} - email signature"
+  desc: >-
+    Install {name}'s {company} email signature: verify the images, copy, paste
+    into Gmail.
+  h1: Your email signature
+  subtitle: Verify the images, copy, then paste into Gmail.
+  crumb_all: All signatures
+  crumb_wrong: Something here is wrong
+  pick_h: Pick a style
+  pick_note: >-
+    Every style carries the same details. Pick one, check it below, then copy.
+    To make it stick, put <code>style: {style}</code> in your record -
+    otherwise the page opens on whichever you chose last time.
+  not_verified: Not verified
+  copying: Copying...
+  copied: "All {n} images OK - copied. Paste into Gmail."
+  blocked: Your browser blocked the clipboard - copy from the Raw HTML box below.
+  head_desktop: Desktop
+  head_phone: "Phone, 320px"
+  squeezed: narrowed by this screen - open on a computer to see it
+  dark_h: Dark mode
+  dark_light: Light
+  dark_dark: Dark
+  dark_inv: Forced inversion
+  paste_h: Paste it into Gmail
+  paste_1: "Press <strong>Verify &amp; copy</strong> above."
+  paste_2: >-
+    Gmail &rarr; <strong>Settings</strong> (gear, top right) &rarr;
+    <strong>See all settings</strong> &rarr; <strong>General</strong>.
+  paste_3: Scroll to <strong>Signature</strong>. Create one if you have none.
+  paste_4: Click into the box and paste with <strong>Cmd/Ctrl+V</strong>.
+  paste_5: >-
+    Set it as your default for new mail and replies if you want it everywhere.
+  paste_6: >-
+    <strong>Save changes</strong> at the very bottom - it is easy to miss.
+  raw_pre: Raw HTML (
+  raw_post: " chars) - if the button is blocked by your browser"
+
+# --- signature styles ----------------------------------------------
+# One entry per id in build/styles.py STYLES. A style with no entry
+# here fails the build - an untranslated name in the picker is how a
+# page stops being in the language it claims to be.
+
+style:
+  classic:
+    label: "Classic"
+    note: "Photo left, ochre rule. The house default."
+  plate:
+    label: "Plate"
+    note: "Name reversed out of an umber block."
+  cap:
+    label: "Cap"
+    note: "Company across the top, you underneath."
+  footer:
+    label: "Footer"
+    note: "Brand bar along the bottom."
+  sidebar:
+    label: "Sidebar"
+    note: "Photo and logo stacked in a colour column."
+  compact:
+    label: "Compact"
+    note: "The smallest block that still says everything."
+  stacked:
+    label: "Stacked"
+    note: "No photo. Logo leads."
+  split:
+    label: "Split"
+    note: "You on the left, how to reach you on the right."
+  banner:
+    label: "Banner"
+    note: "Ruled top and bottom, like a printed card."
+  badge:
+    label: "Badge"
+    note: "Logo in a colour square. No photo."

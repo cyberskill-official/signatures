@@ -123,6 +123,32 @@ help:
     Không có gì bạn gửi có thể làm hỏng chữ ký của người khác, và không có gì
     lên trang thật trước khi có người xem qua.
 
+  styles_h: Mười kiểu, cùng một bộ thông tin
+  styles_who: Chọn ngay trên trang của bạn. Mất khoảng một phút.
+  styles_body: >-
+    Mọi kiểu đều mang đúng cùng tên, chức danh và các dòng liên hệ - khác nhau
+    ở chỗ màu nằm đâu, ảnh của bạn có nổi bật không, và khối chữ ký cao bao
+    nhiêu. Mở trang của bạn, nhấn thử từng kiểu, và xem phần xem trước trước
+    khi sao chép. Có hai kiểu không hiện ảnh, nếu bạn không muốn công khai ảnh.
+  styles_stick: >-
+    Trang của bạn nhớ kiểu bạn nhấn gần nhất, trên trình duyệt đó. Muốn cố định
+    luôn, để trang của bạn mặc định dùng kiểu đó và người khác mở ra cũng thấy
+    vậy, hãy ghi rõ kiểu bạn muốn trong yêu cầu.
+  faq_style_q: Tôi đổi được kiểu chữ ký của mình không?
+  faq_style_a: >-
+    Được. Trang của bạn có mười kiểu - nhấn một kiểu là mọi phần xem trước đổi
+    theo, rồi sao chép. Lựa chọn đó được nhớ trên trình duyệt của bạn. Nếu muốn
+    cố định cho mọi người, hãy nói rõ kiểu nào trong yêu cầu và nó sẽ được ghi
+    vào hồ sơ của bạn.
+  faq_invert_q: Màu sắc trông sai khi ở giao diện tối.
+  faq_invert_a: >-
+    Một số ứng dụng email không có chế độ tối thật, mà đảo ngược màu toàn bộ
+    email. Khi đó màu nâu đất của chúng ta hiện thành hồng nhạt. Không có gì
+    trở nên khó đọc, vì chữ cũng đảo ngược cùng với nền nó nằm trên, nhưng màu
+    thương hiệu thì không còn đúng. Không thể ngăn điều này từ phía mã. Các
+    kiểu không có mảng màu lớn - Classic, Stacked và Split - ít bị ảnh hưởng
+    nhất.
+
   faq_public_q: Những thông tin nào sẽ công khai?
   faq_public_a: >-
     Tên, chức danh, email công việc, ảnh của bạn, và số điện thoại nếu bạn cung
@@ -175,3 +201,83 @@ notfound:
   try_all_rest: "- tìm tên bạn trong danh sách."
   try_help: Đăng ký chữ ký
   try_help_rest: "- nếu bạn chưa có trong danh sách, hoặc thông tin đã thay đổi."
+
+person:
+  # Xem ghi chú tiếng Anh: nhãn nút giữ nguyên tiếng Anh ở mọi ngôn ngữ.
+  copy_btn: Verify &amp; copy
+  title: "{name} - chữ ký email"
+  desc: >-
+    Cài chữ ký email {company} của {name}: kiểm tra ảnh, sao chép, dán vào
+    Gmail.
+  h1: Chữ ký email của bạn
+  subtitle: Kiểm tra ảnh, sao chép, rồi dán vào Gmail.
+  crumb_all: Tất cả chữ ký
+  crumb_wrong: Có gì đó ở đây bị sai
+  pick_h: Chọn một kiểu
+  pick_note: >-
+    Mọi kiểu đều mang cùng thông tin. Chọn một kiểu, xem thử bên dưới, rồi sao
+    chép. Muốn cố định luôn, hãy ghi <code>style: {style}</code> vào hồ sơ của
+    bạn - nếu không, trang sẽ mở lại theo kiểu bạn chọn lần gần nhất.
+  not_verified: Chưa kiểm tra
+  copying: Đang sao chép...
+  copied: "Cả {n} ảnh đều tải được - đã sao chép. Dán vào Gmail."
+  blocked: >-
+    Trình duyệt của bạn chặn clipboard - hãy sao chép từ ô Raw HTML bên dưới.
+  head_desktop: Máy tính
+  head_phone: "Điện thoại, 320px"
+  squeezed: bị màn hình này thu hẹp - mở trên máy tính để xem đúng
+  dark_h: Giao diện tối
+  dark_light: Sáng
+  dark_dark: Tối
+  dark_inv: Đảo ngược màu
+  paste_h: Dán vào Gmail
+  paste_1: "Nhấn <strong>Verify &amp; copy</strong> ở trên."
+  paste_2: >-
+    Gmail &rarr; <strong>Cài đặt</strong> (biểu tượng bánh răng, góc trên bên
+    phải) &rarr; <strong>Xem tất cả cài đặt</strong> &rarr;
+    <strong>Chung</strong>.
+  paste_3: >-
+    Cuộn xuống mục <strong>Chữ ký</strong>. Tạo mới nếu bạn chưa có.
+  paste_4: Bấm vào ô và dán bằng <strong>Cmd/Ctrl+V</strong>.
+  paste_5: >-
+    Đặt làm mặc định cho thư mới và thư trả lời nếu bạn muốn dùng ở mọi nơi.
+  paste_6: >-
+    <strong>Lưu thay đổi</strong> ở cuối trang - rất dễ bỏ sót.
+  raw_pre: "Raw HTML ("
+  raw_post: " ký tự) - nếu trình duyệt chặn nút sao chép"
+
+# --- signature styles ----------------------------------------------
+# Ten kieu giu nguyen tieng Anh: do la ten cua kieu, va trang tro
+# giup bao nguoi dung bam dung ten do trong ca hai ngon ngu.
+
+style:
+  classic:
+    label: "Classic"
+    note: "Ảnh bên trái, đường kẻ vàng đất. Kiểu mặc định."
+  plate:
+    label: "Plate"
+    note: "Tên chữ trắng trên khối màu nâu."
+  cap:
+    label: "Cap"
+    note: "Tên công ty ở trên, bạn ở dưới."
+  footer:
+    label: "Footer"
+    note: "Dải màu thương hiệu chạy dọc phía dưới."
+  sidebar:
+    label: "Sidebar"
+    note: "Ảnh và logo xếp chồng trong cột màu."
+  compact:
+    label: "Compact"
+    note: "Khối nhỏ nhất mà vẫn đủ thông tin."
+  stacked:
+    label: "Stacked"
+    note: "Không có ảnh. Logo dẫn đầu."
+  split:
+    label: "Split"
+    note: "Bạn bên trái, cách liên hệ bên phải."
+  banner:
+    label: "Banner"
+    note: "Kẻ trên kẻ dưới, như một tấm danh thiếp in."
+  badge:
+    label: "Badge"
+    note: "Logo trong ô vuông màu. Không có ảnh."

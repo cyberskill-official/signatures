@@ -396,9 +396,9 @@ def audit_signature(engines, sig_by_id, people, findings, runs):
                     path=os.path.join(OUT, f"{tag}.png"))
                 page.close()
 
-                d.update(client=cid, label=label, engine=eng, transform=xf,
-                         transformed=(sig != raw), width=width, scheme=scheme,
-                         screenshot=f"{tag}.png")
+                d.update(person=pid, client=cid, label=label, engine=eng,
+                         transform=xf, transformed=(sig != raw), width=width,
+                         scheme=scheme, screenshot=f"{tag}.png")
                 runs.append(d)
 
                 # ---- assertions ------------------------------------------
@@ -447,11 +447,23 @@ def audit_signature(engines, sig_by_id, people, findings, runs):
 
                 # Geometry must not depend on the host's inherited styles.
                 if hostile:
+                    # Against THIS signature's own plain render. `runs` is
+                    # global, so without the person filter this matched the
+                    # first apple-mail run ever recorded - classic - and every
+                    # other style was measured against a layout it has no
+                    # reason to resemble. It reported eight leaks that were
+                    # just ten styles being ten different heights, and in
+                    # doing so tested nine of them against nothing.
                     plain = next((r for r in runs
-                                  if r["client"] == "apple-mail-macos"
+                                  if r.get("person") == pid
+                                  and r["client"] == "apple-mail-macos"
                                   and r["engine"] == eng and r["width"] == 900
                                   and r["scheme"] == "light"), None)
-                    if plain:
+                    if plain is None:
+                        add("MED", tag, "X7",
+                            "no plain render to compare against - host-leak "
+                            "check did not run")
+                    else:
                         if abs(plain["tableW"] - d["tableW"]) > 1 or \
                                 abs(plain["tableH"] - d["tableH"]) > 2:
                             add("HIGH", tag, "X7",
@@ -534,11 +546,29 @@ def audit_site(engines, people, findings, runs):
                         continue
                     rel = os.path.relpath(d, DOCS).replace(os.sep, "/")
                     rel = "" if rel == "." else rel + "/"
-                    if rel.startswith("people/"):
-                        continue          # covered by the signature runs
+                    if "people/" in rel:
+                        continue          # install pages, handled below
                     pages.append((rel, rel.rstrip("/") or "index"))
                 if not pages:
                     raise SystemExit("no site pages found under docs/")
+
+                # Install pages, in every language they were built in. This
+                # was `people/<id>/` spelled out, which tested the copy button
+                # - the one control anybody has to press - in English only,
+                # while half the staff would open the Vietnamese page.
+                installs = []
+                for d, _, files in os.walk(DOCS):
+                    if "index.html" not in files:
+                        continue
+                    rel = os.path.relpath(d, DOCS).replace(os.sep, "/")
+                    parts = rel.split("/")
+                    if len(parts) >= 2 and parts[-2] == "people":
+                        installs.append((rel + "/", rel.replace("/", "-")))
+                if len(installs) < len(people):
+                    raise SystemExit(
+                        f"found {len(installs)} install page(s) for "
+                        f"{len(people)} person record(s) - the build writes "
+                        f"one per person per language")
 
                 # "vi/help" is a legitimate page name and an illegal filename
                 # fragment - left alone it writes site--vi/help--*.png, which
@@ -572,12 +602,11 @@ def audit_site(engines, people, findings, runs):
                                  "status": f"{len(set(dead))} internal link(s) ok",
                                  "screenshot": f"{tag}.png"})
 
-                for rec in people:
-                    url = f"{local}people/{rec['id']}/"
-                    page.goto(url, wait_until="networkidle")
+                for rel, who in sorted(installs):
+                    page.goto(local + rel, wait_until="networkidle")
                     page.wait_for_timeout(300)
 
-                    tag = f"site--{rec['id']}--{eng}--{label}"
+                    tag = f"site--{who}--{eng}--{label}"
                     page.screenshot(path=os.path.join(OUT, f"{tag}.png"),
                                     full_page=True)
 
@@ -605,7 +634,7 @@ def audit_site(engines, people, findings, runs):
                     if not ok:
                         add("HIGH", tag, "S2",
                             f"copy failed in {eng}: {status[1][:110]}")
-                    runs.append({"kind": "site", "person": rec["id"],
+                    runs.append({"kind": "site", "person": who,
                                  "engine": eng, "width": width,
                                  "copyOk": ok, "status": status[1][:160],
                                  "screenshot": f"{tag}.png"})
@@ -676,7 +705,7 @@ def main():
     # against 14 clients and called it coverage.
     sig_by_id = {}
     for rec in people:
-        for sid, _l, _n, _f in STYLES:
+        for sid, _fn in STYLES:
             fp = os.path.join(tmp, rec["id"], f"sig-{sid}.html")
             if not os.path.isfile(fp):
                 raise SystemExit(f"{fp} missing - generate.py runs first")
@@ -687,7 +716,7 @@ def main():
 
     findings, runs = [], []
     variants = [dict(r, id=f'{r["id"]}--{sid}')
-                for r in people for sid, _l, _n, _f in STYLES]
+                for r in people for sid, _fn in STYLES]
     audit_signature(engines, sig_by_id, variants, findings, runs)
     if not args.skip_site:
         audit_site(engines, people, findings, runs)

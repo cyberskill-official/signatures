@@ -1,0 +1,32 @@
+Translate person pages, and fix two checks that had stopped checking
+
+Person pages were the last English page on the site. A Vietnamese employee
+followed a Vietnamese index to an English page carrying the one button they
+actually have to press. Each language now gets its own /people/<id>/.
+
+Style names moved out of Python and into src/locales/. The registry in
+styles.py says which styles exist; the locale files say what to call them,
+so the picker reads in the language the reader chose. That also removes a
+third copy of the names - the GitHub issue form is now pinned to en.yml by
+a test rather than kept in step by hand.
+
+Two checks were passing without testing anything:
+
+- crossclient's X7 compared each style's hostile render against the first
+  apple-mail run ever recorded, which is classic. Nine of ten styles were
+  measured against a layout they have no reason to resemble; it reported
+  eight leaks that were just ten styles being ten different heights, while
+  testing none of them. Now scoped per signature, and a missing baseline is
+  reported instead of skipped.
+
+- crossclient's install-page audit was hardcoded to people/<id>/, so the
+  copy button - the one control anybody has to press - was tested in
+  English only. Install pages are now discovered from disk, and the run
+  fails if it finds fewer than one per person.
+
+Also: the locale flattener str()'d a nested map instead of rejecting it, so
+a two-level section would have shipped a Python dict repr into the page with
+nothing failing anywhere. It now recurses, and a non-scalar leaf is fatal.
+
+validation/crossclient/report.json predates the X7 fix - its eight HIGH
+findings are the bug described above. Re-run to get a real answer.

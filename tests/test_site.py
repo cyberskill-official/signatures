@@ -5,8 +5,10 @@ before the build and do not silently pass against stale committed output.
 
 Two of these exist because the bug happened during the work that added the
 feature: a translated index kept the person links relative, so every name on
-the Vietnamese page pointed at /vi/people/<id>/ - a directory that is never
-built. It rendered perfectly and every link was dead.
+the Vietnamese page pointed at /vi/people/<id>/ - a directory that was never
+built. It rendered perfectly and every link was dead. The fix at the time was
+to reach up to the English pages; the fix now is that /vi/people/ exists. Both
+are only correct if the href and the build agree, so that is what is asserted.
 """
 import importlib.util
 import os
@@ -91,24 +93,35 @@ def test_vietnamese_is_actually_vietnamese(loc):
 
 # --- the link that broke ---------------------------------------------------
 
-def test_translated_index_points_at_the_real_person_pages(loc, data):
-    """Person pages are built once, in English, at /people/. An index one
-    directory deeper must reach up to them."""
+@pytest.mark.parametrize("code", ["en", "vi"])
+def test_index_links_resolve_to_the_directory_the_build_writes(loc, data, code):
+    """The bug, stated as an equation: the href on the index and the path
+    main() writes the page to must be the same place. Checking the href alone
+    passes happily while pointing at nothing."""
     company, people = data
     if not people:
         pytest.skip("no people to link to")
-    html = M.build_index(company, people, "https://x/vi/", tr(loc, "vi"),
-                         None, "../people/")
+    html = M.build_index(company, people, f"https://x/{code}/", tr(loc, code))
+    index_at = M.locale_dir(code)
     for r in people:
-        assert f'href="../people/{r["id"]}/"' in html
+        m = re.search(rf'<a class="card person" href="([^"]*{re.escape(r["id"])}/)"',
+                      html)
+        assert m, f"{code} index has no link for {r['id']}"
+        resolved = os.path.normpath(os.path.join(index_at, m.group(1)))
+        assert resolved == os.path.normpath(M.person_dir(code, r["id"])), (
+            f"{code} index links to {resolved}, build writes "
+            f"{M.person_dir(code, r['id'])}")
 
 
-def test_default_index_does_not_reach_up(loc, data):
+@pytest.mark.parametrize("code", ["en", "vi"])
+def test_person_links_stay_in_their_own_language(loc, data, code):
     company, people = data
     if not people:
         pytest.skip("no people to link to")
-    html = M.build_index(company, people, "https://x/", tr(loc, "en"))
-    assert 'href="../people/' not in html
+    html = M.build_index(company, people, f"https://x/{code}/", tr(loc, code))
+    assert 'href="../people/' not in html, (
+        "reaching up out of the language directory - person pages are built "
+        "per language now")
 
 
 @pytest.mark.parametrize("code", ["en", "vi"])
@@ -159,7 +172,7 @@ def test_preview_surfaces_never_follow_the_page_theme(loc, data, code):
         pytest.skip("no person page to render")
     # build_person now takes every style, because the page offers a picker.
     import styles as SS
-    sigs = {sid: f"<i>{sid}</i>" for sid, _l, _n, _f in SS.STYLES}
+    sigs = {sid: f"<i>{sid}</i>" for sid, _fn in SS.STYLES}
     html = M.build_person(company, people[0], "https://x/", sigs, tr(loc, code))
     for m in re.finditer(r"\.surface(?:\.\w+)?\{[^}]*\}", html, re.S):
         rule = m.group(0)

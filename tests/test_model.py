@@ -18,11 +18,12 @@ sys.path.insert(0, os.path.join(
     os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "build"))
 
 import model                                                # noqa: E402
-from model import RecordError, check_text, check_url        # noqa: E402
+from model import (RecordError, check_email, check_text,   # noqa: E402
+                   check_url)
 
 COMPANY = {"name": "TestCo", "tagline": "Tagline",
            "website": "test.example", "website_href": "https://test.example",
-           "socials": []}
+           "socials": [], "email_domains": ["test.example"]}
 
 MINIMAL = {"name": "Mai Tran", "role": "Engineer", "email": "mai@test.example"}
 
@@ -243,3 +244,112 @@ def test_people_sort_by_order_then_name(people_dir):
     people_dir("beth.yml", dict(MINIMAL, name="Beth"))     # default 999
     assert [p["name"] for p in model.load_people(COMPANY)] == \
         ["Zoe", "Adam", "Beth"]
+
+
+# ----------------------------------------------------------------- email ---
+#
+# email was the only required field with no rule of its own: it was accepted
+# on the strength of containing an "@", while website_href got a scheme
+# allowlist and phone_href was forced to digits. A record reading
+# stephen@gmail.com published without complaint.
+
+DOMS = ["test.example"]
+
+
+@pytest.mark.parametrize("addr", [
+    "mai@test.example",
+    "thai-anh.trinh@test.example",     # hyphens and dots in the local part
+    "mai+careers@test.example",        # plus addressing
+    "Mai@Test.Example",                # domains are case-insensitive
+    "m@test.example",                  # one-character local part
+])
+def test_real_addresses_are_accepted(addr):
+    check_email("t", addr, DOMS)
+
+
+@pytest.mark.parametrize("addr,why", [
+    ("mai@gmail.com", "domain"),       # the mistake that will actually happen
+    ("mai@sub.test.example", "domain"),  # subdomains are not implied
+    ("a@b", "usable address"),
+    ("mai @ test.example", "space"),
+    (" mai@test.example", "whitespace"),
+    ("mai@test.example ", "whitespace"),
+    ("mai@@test.example", "@ signs"),
+    ("@test.example", "usable address"),
+    ("mai@", "usable address"),
+    ("mai@test.example.", "usable address"),
+    ("mai@test", "usable address"),    # no suffix
+    ("javascript:alert(1)@test.example", "usable address"),
+    (12345, "must be text"),
+])
+def test_bad_addresses_are_rejected(addr, why):
+    with pytest.raises(RecordError, match=why):
+        check_email("t", addr, DOMS)
+
+
+@pytest.mark.parametrize("addr", [
+    "mai@test.example?subject=hi",
+    "mai@test.example&body=owned",
+])
+def test_a_query_string_is_named_as_such(addr):
+    """As a mailto: this prefills the subject and body of every reply. The
+    message says so, because "invalid address" would send someone hunting
+    for a typo that is not there."""
+    with pytest.raises(RecordError, match="query string"):
+        check_email("t", addr, DOMS)
+
+
+def test_the_domain_error_says_where_to_fix_it():
+    with pytest.raises(RecordError, match="company.yml"):
+        check_email("t", "mai@gmail.com", DOMS)
+
+
+def test_a_record_with_a_foreign_domain_does_not_load(people_dir):
+    with pytest.raises(RecordError, match="gmail.com"):
+        load(people_dir, dict(MINIMAL, email="mai@gmail.com"))
+
+
+# --------------------------------------------------- the allowlist itself ---
+
+def _company(**over):
+    c = {"base_url": "https://x.example/", "name": "TestCo",
+         "email_domains": ["test.example"]}
+    c.update(over)
+    return c
+
+
+def test_missing_allowlist_is_fatal(tmp_path, monkeypatch):
+    """Not optional-with-a-default. An absent list would mean the domain
+    check quietly does not run - a check that passes because it looked at
+    nothing is the failure this repo keeps finding."""
+    monkeypatch.setattr(model, "SRC", str(tmp_path))
+    for value in ({}, {"email_domains": []}, {"email_domains": "test.example"}):
+        (tmp_path / "company.yml").write_text(
+            yaml.safe_dump(_company(**value) if value else
+                           {k: v for k, v in _company().items()
+                            if k != "email_domains"}),
+            encoding="utf-8")
+        with pytest.raises(RecordError, match="email_domains"):
+            model.load_company()
+
+
+@pytest.mark.parametrize("bad", [
+    "@test.example", "https://test.example", "test.example/path",
+    "TEST.example", "test", "",
+])
+def test_allowlist_entries_must_be_bare_lowercase_domains(tmp_path,
+                                                          monkeypatch, bad):
+    monkeypatch.setattr(model, "SRC", str(tmp_path))
+    (tmp_path / "company.yml").write_text(
+        yaml.safe_dump(_company(email_domains=[bad])), encoding="utf-8")
+    with pytest.raises(RecordError, match="email_domains"):
+        model.load_company()
+
+
+def test_a_duplicate_domain_is_rejected(tmp_path, monkeypatch):
+    monkeypatch.setattr(model, "SRC", str(tmp_path))
+    (tmp_path / "company.yml").write_text(
+        yaml.safe_dump(_company(email_domains=["a.example", "a.example"])),
+        encoding="utf-8")
+    with pytest.raises(RecordError, match="twice"):
+        model.load_company()

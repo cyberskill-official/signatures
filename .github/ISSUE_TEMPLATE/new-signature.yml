@@ -68,6 +68,30 @@ body:
     validations:
       required: false
 
+  - type: dropdown
+    id: style
+    attributes:
+      label: Which style?
+      description: >-
+        All ten carry exactly the same details - only the arrangement changes.
+        You can see them side by side on your page afterwards and switch any
+        time; this just sets which one your page ships with. Leave it if you
+        do not mind.
+      options:
+        - "classic - Classic: Photo left, ochre rule. The house default."
+        - "plate - Plate: Name reversed out of an umber block."
+        - "cap - Cap: Company across the top, you underneath."
+        - "footer - Footer: Brand bar along the bottom."
+        - "sidebar - Sidebar: Photo and logo stacked in a colour column."
+        - "compact - Compact: The smallest block that still says everything."
+        - "stacked - Stacked: No photo. Logo leads."
+        - "split - Split: You on the left, how to reach you on the right."
+        - "banner - Banner: Ruled top and bottom, like a printed card."
+        - "badge - Badge: Logo in a colour square. No photo."
+      default: 0
+    validations:
+      required: false
+
   - type: input
     id: preferred_id
     attributes:

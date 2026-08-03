@@ -112,14 +112,16 @@ signatures/
 ├── docs/                 <- GitHub Pages root. 100% generated, never hand-edited.
 │   ├── index.html            signature directory
 │   ├── help/index.html       how to get one or change yours
-│   ├── vi/                   the same two pages in Vietnamese
+│   ├── vi/                   the whole site again in Vietnamese
+│   │   ├── index.html, help/, people/<id>/
 │   ├── 404.html              absolute links, so it works at any depth
 │   ├── robots.txt            follows index_site in company.yml
 │   ├── .nojekyll             stops Jekyll dropping files
 │   ├── people/<id>/
 │   │   ├── index.html        install page, with the style picker
 │   │   ├── signature.html    the chosen style, for old links
-│   │   └── sig-<style>.html  all ten, one file each
+│   │   └── sig-<style>.html  all ten, one file each — the markup itself,
+│   │                         shared by every language
 │   └── assets/
 │       ├── shared/           logo, 4 icons, favicon, og-card
 │       └── people/<id>/      that person's baked avatar
@@ -129,7 +131,7 @@ signatures/
 │   ├── people/_template.yml  copied by contributors; underscore = ignored
 │   ├── people/<id>.yml
 │   ├── avatars/<id>.png
-│   └── locales/en.yml, vi.yml   every word of site chrome
+│   └── locales/en.yml, vi.yml   every word of site chrome + style names
 ├── build/                model, styles, asset baker, generator, site
 ├── tests/                pytest - records, safety, workflows, locales, styles
 ├── validation/

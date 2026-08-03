@@ -32,6 +32,9 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from model import DOCS_PEOPLE, load_company, load_people  # noqa: E402
 from styles import DEFAULT_STYLE, STYLES, render  # noqa: E402
+# The manifest is read by CI and by humans, so it carries the English names -
+# but from the locale file, not a second copy in Python.
+from make_site import DEFAULT_LOCALE, load_locales  # noqa: E402
 
 GMAIL_LIMIT = 10000
 
@@ -68,8 +71,10 @@ def main():
     if not wanted:
         raise SystemExit(f"unknown style '{args.only_style}'")
 
+    names = load_locales()[DEFAULT_LOCALE]
     manifest = {"base": base, "styles": [
-        {"id": s, "label": l, "note": n} for s, l, n, _ in STYLES],
+        {"id": s, "label": names[f"style.{s}.label"],
+         "note": names[f"style.{s}.note"]} for s, _fn in STYLES],
         "people": []}
     worst = 0
 
@@ -79,7 +84,7 @@ def main():
         chosen = rec.get("style") or DEFAULT_STYLE
         sizes, over_any = {}, []
 
-        for sid, _label, _note, _fn in wanted:
+        for sid, _fn in wanted:
             markup = one(rec, company, base, sid)
             sizes[sid] = len(markup)
             worst = max(worst, len(markup))

@@ -105,6 +105,61 @@ def check_text(where, field, value, limit=None):
     return value
 
 
+# Deliberately narrower than RFC 5322, which permits quoted strings, comments
+# and characters no corporate mailbox has ever used. A signature address that
+# is merely legal is not good enough: it has to work when someone taps it in
+# a mail client, and it is printed on every message its owner ever sends.
+#
+# If a real address is ever rejected here, widen this - loudly, in a pull
+# request - rather than loosening the check that caught it.
+EMAIL_RE = re.compile(
+    r"^[A-Za-z0-9._%+-]{1,64}"
+    r"@(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\.)+[A-Za-z]{2,}$")
+
+DOMAIN_RE = re.compile(
+    r"^(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z]{2,}$")
+
+
+def check_email(where, value, domains):
+    """The one required field that had no rule of its own.
+
+    website_href gets a scheme allowlist, socials[].href gets the same, and
+    phone_href is forced to digits - while email, which every signature must
+    get right, was accepted on the strength of containing an "@". A record
+    reading stephen@gmail.com published without complaint.
+    """
+    if not isinstance(value, str):
+        raise RecordError(
+            f"{where}: email must be text, got {type(value).__name__}")
+    if value != value.strip():
+        raise RecordError(f"{where}: email has leading or trailing whitespace")
+
+    # Named diagnostics for the three mistakes people actually make, because
+    # "does not look like an address" tells you nothing about which part.
+    if " " in value:
+        raise RecordError(f"{where}: email '{value}' contains a space")
+    if "?" in value or "&" in value:
+        raise RecordError(
+            f"{where}: email '{value}' contains a query string. That is a "
+            f"URL, not an address - as a mailto: it would prefill the "
+            f"subject and body of every reply anyone sends.")
+    if value.count("@") != 1:
+        raise RecordError(
+            f"{where}: email '{value}' has {value.count('@')} @ signs")
+    if not EMAIL_RE.match(value):
+        raise RecordError(
+            f"{where}: email '{value}' is not a usable address - it needs a "
+            f"local part, an @, and a domain with a dot and a real suffix")
+
+    domain = value.rsplit("@", 1)[1].lower()
+    if domain not in domains:
+        raise RecordError(
+            f"{where}: email domain '{domain}' is not one of "
+            f"{', '.join(sorted(domains))}. Set it in company.yml under "
+            f"email_domains if it should be. Subdomains are not implied - "
+            f"list each one you actually use.")
+
+
 def check_url(where, field, value):
     """Allowlist schemes. This is the layer escaping cannot provide.
 
@@ -145,6 +200,27 @@ def load_company():
     for field in ("website_href", "repo"):
         if c.get(field):
             check_url("company.yml", field, c[field])
+    # Required, not optional-with-a-default. An absent list would mean the
+    # domain check quietly does not run, which is the failure mode this whole
+    # repo exists to avoid - a check that passes because it looked at nothing.
+    doms = c.get("email_domains")
+    if not isinstance(doms, list) or not doms:
+        raise RecordError(
+            "company.yml: email_domains must be a non-empty list of the "
+            "domains staff addresses may use, e.g.\n"
+            "  email_domains:\n"
+            "    - cyberskill.world")
+    seen = []
+    for i, d in enumerate(doms):
+        if not isinstance(d, str) or not DOMAIN_RE.match(d):
+            raise RecordError(
+                f"company.yml: email_domains[{i}] is {d!r} - it must be a "
+                f"bare lowercase domain with no @, scheme or path")
+        if d in seen:
+            raise RecordError(f"company.yml: email_domains lists {d!r} twice")
+        seen.append(d)
+    c["email_domains"] = seen
+
     for i, s in enumerate(c.get("socials") or []):
         if not isinstance(s, dict) or "label" not in s or "href" not in s:
             raise RecordError(
@@ -185,8 +261,7 @@ def load_people(company):
         missing = [k for k in REQUIRED if not rec.get(k)]
         if missing:
             raise RecordError(f"{fn}: missing required field(s) {missing}")
-        if "@" not in rec["email"]:
-            raise RecordError(f"{fn}: email does not look like an address")
+        check_email(fn, rec["email"], company["email_domains"])
         if rec.get("phone") and not rec.get("phone_href"):
             raise RecordError(
                 f"{fn}: phone is set but phone_href is missing - the tel: "

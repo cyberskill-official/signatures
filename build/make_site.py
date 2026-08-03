@@ -47,12 +47,29 @@ def load_locales():
         code = os.path.splitext(fn)[0]
         with open(os.path.join(LOCALES, fn), encoding="utf-8") as fh:
             doc = yaml.safe_load(fh) or {}
+        # Nested sections flatten to dotted keys. A leaf that is not a
+        # scalar is rejected rather than str()'d: `str({"label": "Classic"})`
+        # is a perfectly good Python string and would have shipped a dict
+        # repr into the page with nothing failing anywhere.
         flat = {}
-        for section, items in doc.items():
-            if not isinstance(items, dict):
-                raise SystemExit(f"{fn}: '{section}' must be a map of strings")
-            for k, v in items.items():
-                flat[f"{section}.{k}"] = "" if v is None else str(v)
+
+        def walk(node, prefix, path):
+            if not isinstance(node, dict):
+                raise SystemExit(
+                    f"{fn}: '{path}' is {type(node).__name__}, expected a "
+                    f"map or a string")
+            for k, v in node.items():
+                key = f"{prefix}{k}"
+                if isinstance(v, dict):
+                    walk(v, f"{key}.", key)
+                elif v is None or isinstance(v, (str, int, float, bool)):
+                    flat[key] = "" if v is None else str(v)
+                else:
+                    raise SystemExit(
+                        f"{fn}: '{key}' is a {type(v).__name__} - locale "
+                        f"values must be strings")
+
+        walk(doc, "", "(root)")
         out[code] = flat
 
     if DEFAULT_LOCALE not in out:
@@ -531,6 +548,13 @@ def build_help(company, base, t, alt=None):
   </div>
 
   <div class="card route">
+    <h3>{t.esc("help.styles_h")}</h3>
+    <p class="who">{t.esc("help.styles_who")}</p>
+    <p>{t("help.styles_body")}</p>
+    <p class="note">{t("help.styles_stick")}</p>
+  </div>
+
+  <div class="card route">
     <h3>{t.esc("help.next_h")}</h3>
     <p class="who">{t.esc("help.next_who")}</p>
     <ul>{"".join(li(f"help.next_{i}") for i in (1, 2, 3, 4, 5))}</ul>
@@ -539,8 +563,8 @@ def build_help(company, base, t, alt=None):
 
   <div class="card faq">
     {"".join(faq(f"help.faq_{k}_q", f"help.faq_{k}_a") for k in
-             ("public", "phone", "photo", "accents", "images", "outlook",
-              "stale"))}
+             ("style", "public", "phone", "photo", "accents",
+              "images", "invert", "outlook", "stale"))}
   </div>"""
 
     n = company["name"]
@@ -551,11 +575,27 @@ def build_help(company, base, t, alt=None):
             + body + footer("../", t))
 
 
-def build_index(company, people, base, t, alt=None, people_root="people/"):
-    """`people_root` exists because person pages are built once, in the
-    default locale, at /people/. A translated index sits one directory deeper,
-    so a bare "people/<id>/" from there points at a directory that does not
-    exist. This is the only cross-locale link in the site."""
+PEOPLE_ROOT = "people/"
+
+
+def locale_dir(code):
+    """Where a language's pages are written."""
+    return DOCS if code == DEFAULT_LOCALE else os.path.join(DOCS, code)
+
+
+def person_dir(code, pid):
+    """Where `PEOPLE_ROOT + pid` resolves to from that language's index."""
+    return os.path.join(locale_dir(code), *PEOPLE_ROOT.strip("/").split("/"),
+                        pid)
+
+
+def build_index(company, people, base, t, alt=None):
+    """Person links are relative and stay inside the current language, which
+    only works because every language gets its own /people/. It did not once:
+    the translated index kept `people/<id>/` while pages were built in English
+    only, so every name on the Vietnamese index pointed at a directory that
+    was never created. It rendered perfectly and every link was dead - hence
+    `locale_dir` and `person_dir` below, and the test that pairs them."""
     logo = asset_url(base, f"assets/shared/logo-{LOGO}-2x.png",
                      shared_asset(f"logo-{LOGO}-2x.png"))
     cards = []
@@ -567,7 +607,7 @@ def build_index(company, people, base, t, alt=None, people_root="people/"):
         else:
             thumb = f'<div class="ph">{H.escape(initials(r["name"]))}</div>'
         cards.append(
-            f'<a class="card person" href="{people_root}{r["id"]}/" '
+            f'<a class="card person" href="{PEOPLE_ROOT}{r["id"]}/" '
             f'data-search="{H.escape((r["name"] + " " + r["role"] + " " + r["email"]).lower())}">'
             f'{thumb}<div><div class="n">{H.escape(r["name"])}</div>'
             f'<div class="r">{H.escape(r["role"])}</div></div>'
@@ -629,7 +669,7 @@ def build_index(company, people, base, t, alt=None, people_root="people/"):
             + body + footer("./", t))
 
 
-def build_person(company, rec, base, sigs, t):
+def build_person(company, rec, base, sigs, t, alt=None, canon=None):
     """`sigs` is {style_id: markup} for every style, because the picker lets
     people compare before they commit. Each one is parked in a hidden
     textarea rather than a div: .value returns the exact bytes the generator
@@ -643,74 +683,75 @@ def build_person(company, rec, base, sigs, t):
     picker = "".join(
         f'<button class="stylebtn" type="button" data-style="{sid}" '
         f'aria-pressed="{"true" if sid == chosen else "false"}">'
-        f'<span class="sname">{H.escape(label)}</span>'
-        f'<span class="snote">{H.escape(note)}</span></button>'
-        for sid, label, note, _ in STYLES if sid in sigs)
+        f'<span class="sname">{t.esc(f"style.{sid}.label")}</span>'
+        f'<span class="snote">{t.esc(f"style.{sid}.note")}</span></button>'
+        for sid, _fn in STYLES if sid in sigs)
     sources = "".join(
         f'<textarea id="src-{sid}" hidden readonly>{H.escape(m)}</textarea>'
         for sid, m in sigs.items())
-    return (head(f"{rec['name']} - email signature",
-                 f"Install {rec['name']}'s {company['name']} email signature: "
-                 f"verify the images, copy, paste into Gmail.",
-                 base, f"{base}people/{rec['id']}/", company, t)
+    nm, co = rec["name"], company["name"]
+    # The count is only known in the browser, so the translated sentence
+    # ships with a placeholder JS substitutes. A plain token, not \x00 - a
+    # NUL survives here by luck (json escapes it) and an HTML5 parser is
+    # entitled to turn a real one into U+FFFD, which would fail silently.
+    COUNT = "%n"
+    j_copying = json.dumps(t("person.copying"))
+    j_copied = json.dumps(t("person.copied", n=COUNT))
+    j_blocked = json.dumps(t("person.blocked"))
+    j_notv = json.dumps(t("person.not_verified"))
+    j_squeezed = json.dumps(t("person.squeezed"))
+    return (head(t("person.title", name=nm),
+                 t("person.desc", name=nm, company=co),
+                 base, canon or f"{base}people/{rec['id']}/", company, t)
             + site_header(company, logo, "../../",
-                          "Verify the images, copy, then paste into Gmail.",
-                          "Your email signature", t, here="index")
+                          t.esc("person.subtitle"), t("person.h1"), t,
+                          alt, here="index")
             + f"""
-  <p class="crumb"><a href="../../">&larr; All signatures</a>
-     &nbsp;&middot;&nbsp; <a href="../../help/">Something here is wrong</a></p>
+  <p class="crumb"><a href="../../">&larr; {t.esc("person.crumb_all")}</a>
+     &nbsp;&middot;&nbsp; <a href="../../help/">{t.esc("person.crumb_wrong")}</a></p>
   <h2 class="person-name">{H.escape(rec['name'])}</h2>
   <p class="person-role">{H.escape(rec['role'])} - {H.escape(company['name'])}</p>
 
-  <div class="sec" style="margin-top:26px;">Pick a style</div>
+  <div class="sec" style="margin-top:26px;">{t.esc("person.pick_h")}</div>
   <div class="styles" id="styles">{picker}</div>
-  <p class="sub" style="margin:0 0 20px;">Every style carries the same
-     details. Pick one, check it below, then copy. To make it stick, put
-     <code>style: <span id="stylehint">{chosen}</span></code> in your record - otherwise the page opens on
-     whichever you chose last time.</p>
+  <p class="sub" style="margin:0 0 20px;">{t("person.pick_note",
+     style=f'<span id="stylehint">{chosen}</span>')}</p>
 
   <div class="bar">
-    <button class="btn" id="copy">Verify &amp; copy</button>
-    <span class="status" id="status">Not verified</span>
+    <button class="btn" id="copy">{t("person.copy_btn")}</button>
+    <span class="status" id="status">{t.esc("person.not_verified")}</span>
   </div>
 
   <div class="grid">
     <div class="col desk">
-      <div class="colhead">Desktop <span class="dim" id="d-desktop"></span></div>
+      <div class="colhead">{t.esc("person.head_desktop")} <span class="dim" id="d-desktop"></span></div>
       <div class="surface desk"><div id="s-desktop">{sig}</div></div>
     </div>
     <div class="col narrow">
-      <div class="colhead">Phone, 320px <span class="dim" id="d-narrow"></span></div>
+      <div class="colhead">{t.esc("person.head_phone")} <span class="dim" id="d-narrow"></span></div>
       <div class="surface w320"><div id="s-narrow">{sig}</div></div>
     </div>
   </div>
 
-  <div class="sec">Dark mode</div>
+  <div class="sec">{t.esc("person.dark_h")}</div>
   <div class="grid dark3">
-    <div class="col"><div class="sub">Light</div>
+    <div class="col"><div class="sub">{t.esc("person.dark_light")}</div>
       <div class="surface"><div id="s-l">{sig}</div></div></div>
-    <div class="col"><div class="sub">Dark</div>
+    <div class="col"><div class="sub">{t.esc("person.dark_dark")}</div>
       <div class="surface dark"><div id="s-d">{sig}</div></div></div>
-    <div class="col"><div class="sub">Forced inversion</div>
+    <div class="col"><div class="sub">{t.esc("person.dark_inv")}</div>
       <div class="surface inv"><div id="s-i">{sig}</div></div></div>
   </div>
 
   <div class="card steps" style="margin-top:34px;">
-    <h2>Paste it into Gmail</h2>
+    <h2>{t.esc("person.paste_h")}</h2>
     <ol>
-      <li>Press <strong>Verify &amp; copy</strong> above.</li>
-      <li>Gmail &rarr; <strong>Settings</strong> (gear, top right) &rarr;
-          <strong>See all settings</strong> &rarr; <strong>General</strong>.</li>
-      <li>Scroll to <strong>Signature</strong>. Create one if you have none.</li>
-      <li>Click into the box and paste with <strong>Cmd/Ctrl+V</strong>.</li>
-      <li>Set it as your default for new mail and replies if you want it everywhere.</li>
-      <li><strong>Save changes</strong> at the very bottom - it is easy to miss.</li>
+      {"".join(f"<li>{t(f'person.paste_{i}')}</li>" for i in range(1, 7))}
     </ol>
   </div>
 
   <details>
-    <summary>Raw HTML (<span id="rawn">{len(sig)}</span> chars) - if the
-       button is blocked by your browser</summary>
+    <summary>{t.esc("person.raw_pre")}<span id="rawn">{len(sig)}</span>{t.esc("person.raw_post")}</summary>
     <textarea readonly spellcheck="false" id="raw">{esc}</textarea>
   </details>
   <div class="vh" aria-hidden="true">{sources}</div>
@@ -776,10 +817,12 @@ def build_person(company, rec, base, sigs, t):
 
   function run() {{
     var btn = document.getElementById('copy'), st = document.getElementById('status');
+    var W = {{copying: {j_copying}, copied: {j_copied},
+              blocked: {j_blocked}}};
     if (state === 'bad') {{
       st.className = 'status err'; st.textContent = reason.message; return;
     }}
-    btn.disabled = true; st.className = 'status'; st.textContent = 'Copying...';
+    btn.disabled = true; st.className = 'status'; st.textContent = W.copying;
 
     var write;
     try {{
@@ -800,17 +843,18 @@ def build_person(company, rec, base, sigs, t):
 
     write.then(function () {{
       st.className = 'status ok';
-      st.textContent = 'All ' + URLS.length + ' images OK - copied. Paste into Gmail.';
+      st.textContent = W.copied.replace('%n', URLS.length);
     }}, function (e) {{
       st.className = 'status err';
       st.textContent = (e && /unreachable/.test(e.message || ''))
         ? e.message
-        : 'Your browser blocked the clipboard - copy from the Raw HTML box below.';
+        : W.blocked;
       console.error(e);
     }}).then(function () {{ btn.disabled = false; }});
   }}
   document.getElementById('copy').addEventListener('click', run);
 
+  var SQ = {j_squeezed};
   function measure() {{
     [['s-desktop','d-desktop', {TABLE_W}], ['s-narrow','d-narrow', 0]].forEach(function (p) {{
       var el = document.getElementById(p[0]), out = document.getElementById(p[1]);
@@ -822,7 +866,7 @@ def build_person(company, rec, base, sigs, t):
       // that looks like a measurement of the signature.
       var squeezed = p[2] && host.clientWidth < p[2];
       if (squeezed) {{
-        out.textContent = 'narrowed by this screen - open on a computer to see it';
+        out.textContent = SQ;
         out.className = 'dim';
         return;
       }}
@@ -838,6 +882,7 @@ def build_person(company, rec, base, sigs, t):
   // the copy button will hand over - from one source of truth, so the thing
   // you looked at is the thing you paste.
   var SURFACES = ['s-desktop', 's-narrow', 's-l', 's-d', 's-i'];
+  var NOTV = {j_notv};
   var KEY = 'sig-style:{rec["id"]}';
 
   function select(sid, remember) {{
@@ -858,7 +903,7 @@ def build_person(company, rec, base, sigs, t):
         b.getAttribute('data-style') === sid ? 'true' : 'false');
     }});
     var st = document.getElementById('status');
-    st.className = 'status'; st.textContent = 'Not verified';
+    st.className = 'status'; st.textContent = NOTV;
     verify();
     measure();
     if (remember) {{ try {{ localStorage.setItem(KEY, sid); }} catch (e) {{}} }}
@@ -895,8 +940,7 @@ def main():
     en = T(DEFAULT_LOCALE, locales[DEFAULT_LOCALE])
     others = [c for c in sorted(locales) if c != DEFAULT_LOCALE]
 
-    def site_dir(code):
-        return DOCS if code == DEFAULT_LOCALE else os.path.join(DOCS, code)
+    site_dir = locale_dir
 
     def site_url(code):
         return base if code == DEFAULT_LOCALE else f"{base}{code}/"
@@ -927,8 +971,7 @@ def main():
 
         with open(os.path.join(d, "index.html"), "w", encoding="utf-8") as fh:
             fh.write(build_index(
-                company, people, site_url(code), t, alt,
-                "people/" if code == DEFAULT_LOCALE else "../people/"))
+                company, people, site_url(code), t, alt))
 
         helpdir = os.path.join(d, "help")
         os.makedirs(helpdir, exist_ok=True)
@@ -965,7 +1008,9 @@ def main():
         urls = ([base, base + "help/"]
                 + [f"{base}{c}/" for c in others]
                 + [f"{base}{c}/help/" for c in others]
-                + [f"{base}people/{r['id']}/" for r in people])
+                + [f"{base}{PEOPLE_ROOT}{r['id']}/" for r in people]
+                + [f"{base}{c}/{PEOPLE_ROOT}{r['id']}/"
+                   for c in others for r in people])
         entries = "".join(f"<url><loc>{H.escape(u)}</loc></url>" for u in urls)
         with open(os.path.join(DOCS, "sitemap.xml"), "w",
                   encoding="utf-8") as fh:
@@ -993,26 +1038,49 @@ def main():
         os.remove(cname)
         print("  docs/CNAME removed (no custom_domain set)")
 
+    # The person page carries the one button anybody actually has to press.
+    # Leaving it English while the index that led here is Vietnamese hands
+    # someone a translated path to an untranslated destination.
     for rec in people:
-        d = os.path.join(DOCS_PEOPLE, rec["id"])
-        os.makedirs(d, exist_ok=True)
+        src = os.path.join(DOCS_PEOPLE, rec["id"])
         # Every style the generator produced, so the page can offer all of
         # them. Missing files are a build ordering bug, not something to
         # paper over - generate.py runs first and writes all ten.
         sigs = {}
-        for sid, _l, _n, _f in STYLES:
-            fp = os.path.join(d, f"sig-{sid}.html")
+        for sid, _fn in STYLES:
+            fp = os.path.join(src, f"sig-{sid}.html")
             if not os.path.isfile(fp):
                 raise SystemExit(
                     f"{fp} is missing - run build/generate.py before "
                     f"build/make_site.py")
             with open(fp, encoding="utf-8") as fh:
                 sigs[sid] = fh.read()
-        with open(os.path.join(d, "index.html"), "w", encoding="utf-8") as fh:
-            fh.write(build_person(company, rec, base, sigs, en))
-        print(f"  docs/people/{rec['id']}/index.html")
 
-    print(f"site -> docs/index.html + {len(people)} person page(s)")
+        for code in [DEFAULT_LOCALE] + others:
+            t = T(code, locales[code])
+            d = person_dir(code, rec["id"])
+            os.makedirs(d, exist_ok=True)
+
+            alt_p = None
+            if others:
+                oc = others[0] if code == DEFAULT_LOCALE else DEFAULT_LOCALE
+                ot = T(oc, locales[oc])
+                href = (f"../../{oc}/people/{rec['id']}/"
+                        if code == DEFAULT_LOCALE
+                        else f"../../../people/{rec['id']}/")
+                alt_p = (href, ot("meta.name"), ot("meta.html_lang"))
+
+            with open(os.path.join(d, "index.html"), "w",
+                      encoding="utf-8") as fh:
+                fh.write(build_person(
+                    company, rec, base, sigs, t, alt_p,
+                    canon=f"{site_url(code)}people/{rec['id']}/"))
+            print(f"  {os.path.relpath(d, os.path.dirname(DOCS))}"
+                  f"/index.html ({code})")
+
+    langs = 1 + len(others)
+    print(f"site -> docs/index.html + "
+          f"{len(people) * langs} person page(s) in {langs} language(s)")
 
 
 if __name__ == "__main__":

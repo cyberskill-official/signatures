@@ -219,7 +219,7 @@ def run():
         # as a gate that skips silently.
         jobs = []
         for rec in people:
-            for sid, _l, _n, _f in STYLES:
+            for sid, _fn in STYLES:
                 fp = os.path.join(tmp, rec["id"], f"sig-{sid}.html")
                 if not os.path.isfile(fp):
                     raise SystemExit(f"{fp} missing - generate.py runs first")

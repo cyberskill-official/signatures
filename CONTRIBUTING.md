@@ -133,24 +133,84 @@ python3 build/make_assets.py --sheet   # check the crop in docs/assets/_avatar-s
 ./install.sh --skip-icons              # rebuild and run the local checks
 ```
 
-The record and workflow tests run in a fraction of a second and need no
-browser:
-
-```bash
-python3 -m pytest tests/ -q
-```
-
-The full render suite needs one:
-
-```bash
-python3 -m playwright install chromium
-python3 validation/check.py
-python3 validation/crossclient.py --engines chromium
-```
-
 Committing `docs/` is optional. If you do commit it, it has to match a clean
 build exactly - CI compares them and fails on any hand-edit. If you leave it
 alone, CI rebuilds and commits it after merge.
+
+---
+
+## Testing locally
+
+Three levels. Run the first after every change; the third before you push
+anything that touches layout.
+
+### 1. Build and unit tests - a second, no browser
+
+```bash
+./install.sh --skip-icons      # rebuild docs/ from src/
+python3 -m pytest tests/ -q    # records, safety, workflows, locales, styles
+```
+
+`--skip-icons` reuses the existing icon PNGs. Drop it if you changed the icon
+set. `install.sh` fails on its own if a record is malformed, a signature
+exceeds Gmail's limit, or a localhost URL leaked into the output.
+
+### 2. Open the site
+
+```bash
+cd docs && python3 -m http.server 8000
+```
+
+Then <http://localhost:8000/>. Worth opening, in this order:
+
+| Page | What it should do |
+|---|---|
+| `/` and `/vi/` | every name links to a page that exists |
+| `/people/<id>/` | ten styles, previews change when you press one |
+| `/vi/people/<id>/` | the same page in Vietnamese |
+| Language link, top right | lands on the same person, not the front page |
+| Theme buttons | light / dark / system, and the choice survives a reload |
+| **Verify & copy** | status goes green, then paste into Gmail |
+
+Images are absolute URLs pointing at the published site, so they load from
+production rather than from your build. That is deliberate - it is what a
+recipient's mail client does. To preview a build whose images are local too:
+
+```bash
+python3 build/generate.py --base http://localhost:8000/
+python3 build/make_site.py --base http://localhost:8000/
+```
+
+Rebuild with plain `./install.sh` before committing. `docs/` would otherwise
+carry localhost URLs into everyone's signature; `install.sh` refuses to pass
+if it finds one, so this fails loudly rather than shipping.
+
+### 3. The render suites - minutes, needs browsers
+
+```bash
+python3 -m playwright install chromium firefox webkit
+python3 validation/check.py                    # layout, contrast, blocked images
+python3 validation/crossclient.py              # 14 clients x 3 engines
+```
+
+`check.py` renders every style at desktop and phone width and checks overflow,
+contrast and image reachability. `crossclient.py` puts each one through the
+sanitiser of 14 real mail clients in three engines, light and dark, plus a
+hostile host that tries to push its own styles in.
+
+Both print `HIGH / MED / LOW` counts and write a report - `validation/report.json`
+and `validation/crossclient/report.json` - alongside a screenshot per run. A
+HIGH is a defect; read the screenshot rather than trusting the number.
+
+If a browser is missing, `crossclient.py` records `UNCOVERED` rather than
+passing quietly. Chromium alone is a reasonable quick pass:
+
+```bash
+python3 validation/crossclient.py --engines chromium
+```
+
+CI runs all three on every pull request, so a WebKit-only defect is caught
+there even if you never install it.
 
 ---
 
@@ -193,8 +253,8 @@ like it worked and then quietly stops working. CI fails the pull request to
 stop that reaching main.
 
 **Company-wide values live in `src/company.yml`.** The tagline, the shared
-website and the social links are there. Changing one changes every employee's
-signature, so those changes go through a maintainer.
+website, the social links and `email_domains` are there. Changing one changes
+every employee's signature, so those changes go through a maintainer.
 
 **Your photo is published.** It ends up at a public URL so mail clients can
 fetch it, which is how hosted email images work everywhere. Use a photo you are
@@ -234,6 +294,8 @@ colleague wrote them.
 
 | Rule | Reason |
 |---|---|
+| Your email must be on a company domain | Listed in `email_domains` in `src/company.yml`. Catches the mistake somebody eventually makes: copying the template and pasting a personal address. Subdomains are not implied - each one you send from has to be listed. |
+| Your email must be a usable address | It is printed on every message you ever send and has to work when someone taps it. `a@b` has no suffix, and a `?` or `&` makes it a URL rather than an address - as a `mailto:` that would prefill the subject and body of every reply. |
 | Links must start with `https://`, `mailto:` or `tel:` | `javascript:` and `data:` URLs are executable. Plain `http://` is not accepted either. |
 | No `<` or `>` in any text field | A job title has no reason to contain markup. |
 | No invisible characters | Zero-width spaces and right-to-left overrides let a name hide what it actually says. |
@@ -272,8 +334,14 @@ publish one, pick either and leave `avatar` out.
 
 ### Adding a style
 
-Write the function, add it to `STYLES`, run `python3 -m pytest tests/ -q`. The
-tests enforce four rules on every style, and they are not suggestions:
+Write the function, add it to `STYLES` in `build/styles.py`, then name it in
+every file under `src/locales/` — `label` and `note` under `style: <id>:`. The
+registry says which styles exist; the locale files say what to call them, so
+the picker can be read in whatever language someone chose. A style with no
+name fails the build.
+
+Then run `python3 -m pytest tests/ -q`. The tests enforce four rules on every
+style, and they are not suggestions:
 
 | Rule | Why |
 |---|---|
@@ -308,8 +376,14 @@ rather than falling back to English, because a page that is half-translated
 looks finished and only the people it fails will notice. If you add a string,
 add it to both.
 
-Person pages are deliberately not translated. They are mostly proper nouns
-and one button, and every string on them is tied to live JavaScript state.
+Every page is translated, person pages included — a Vietnamese index that
+leads to an English page has only moved the problem to the one screen with
+the button on it. Each language gets its own `/people/<id>/`.
+
+A few strings stay English on purpose, and `vi.yml` says which and why. The
+main one is **Verify & copy**: it is the label printed on the button and the
+help page tells people to press it by name, so translating one and not the
+other sends someone hunting for a control that does not exist.
 
 ### When someone leaves
 
