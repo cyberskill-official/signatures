@@ -20,8 +20,10 @@ needs doing again when something in `build/styles.py` changes.
 4. Narrow the reading pane to roughly a third of the window.
 5. Work down the table below.
 
-Repeat for `classic`, `plate` and `split`. Those three between them use every
+Repeat for `classic`, `plate` and `sidebar`. Those three between them use every
 construction the others do: a plain rule, a reversed-out block, and columns.
+(`split` was the columns case until it was retired; `sidebar` covers it now
+with its 88px umber column.)
 
 ## What each row is actually testing
 

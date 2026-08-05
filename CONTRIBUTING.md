@@ -341,9 +341,9 @@ style: plate
 ```
 
 Valid values are the ids in [`build/styles.py`](build/styles.py): `classic`,
-`plate`, `cap`, `footer`, `sidebar`, `compact`, `stacked`, `split`, `banner`,
-`badge`. A typo fails the build rather than quietly falling back, so you are
-never left wondering why your choice did not stick.
+`plate`, `cap`, `footer`, `sidebar`, `compact`, `stacked`, `banner`, `badge`.
+A typo fails the build rather than quietly falling back, so you are never left
+wondering why your choice did not stick.
 
 Two styles never show a photo - `stacked` and `badge`. If you would rather not
 publish one, pick either and leave `avatar` out.

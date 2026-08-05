@@ -133,10 +133,15 @@ signature/
 │   ├── avatars/<id>.png
 │   └── locales/en.yml, vi.yml   every word of site chrome + style names
 ├── build/                model, styles, asset baker, generator, site
-├── tests/                pytest - records, safety, workflows, locales, styles
+│   └── fixtures.py           the synthetic worst-case record V14 renders
+├── tests/                pytest - records, safety, workflows, locales, styles,
+│                             plus static guards on the validation scripts
+│                             and on this documentation
 ├── validation/
 │   ├── check.py              layout, contrast, blocked images
-│   └── crossclient.py        client sanitisers x 3 engines
+│   ├── crossclient.py        client sanitisers x 3 engines
+│   ├── baseline.json         recorded geometry, compared by V15
+│   └── OUTLOOK.md            the manual Word-engine test, done by hand
 ├── .github/
 │   ├── ISSUE_TEMPLATE/       intake forms for staff with no GitHub knowledge
 │   ├── scripts/              issue_to_record.py, pr_previews.py
@@ -218,21 +223,28 @@ episode is now a test.
 ## The design
 
 ```
-[avatar]  │  Stephen Cheng                    22px bold
-          │  Trịnh Thái Anh                   15px, lang="vi"
-          │  Founder - CyberSkill             14px
+[avatar]  │  Stephen Cheng                           19px bold
+          │  Trịnh Thái Anh · Founder · CyberSkill   13px
           │
-          │  [✉]  info@cyberskill.world
+          │  [✉]  thai-anh.trinh@cyberskill.world
           │  [☎]  (+84) 906 878 091
           │  [🌐]  cyberskill.world
-          │  [👥]  LinkedIn | Facebook
+          │  [👥]  LinkedIn
 ─────────────────────────────────────────
-[logo]  Turn Your Will Into Real
+[logo]  Turn Your Will Into Real                     12px
 ```
 
-520px on desktop, 288px at a 320px viewport, **248px tall in both** - the
-layout does not reflow between widths, so the phone rendering is the desktop
-rendering, just narrower.
+That is `classic`, the default; the other eight styles rearrange the same
+parts. Identity is one 19px name above a single 13px line. Three separate
+lines was the largest contributor to the old height, and joining them with
+`&middot;` is what removed it.
+
+520px on desktop, 288px at a 320px viewport. Text rewraps as the box narrows,
+so `classic` measures 195px tall on desktop and 234px at 320px: the phone
+rendering is the desktop rendering with more lines, not a different layout.
+Three of the nine - `badge`, `cap` and `stacked` - hold one height at every
+width. Nothing moves horizontally at any width, which is what V1 enforces and
+`validation/baseline.json` records.
 
 ### The colour architecture - the decision that matters most
 
@@ -269,11 +281,13 @@ PNG (18px display) through Chromium.
 
 **No brand marks are used anywhere.** Lucide ships none, and Simple Icons no
 longer ships LinkedIn - LinkedIn asked to be removed on trademark grounds.
-Tracing a replacement would defeat that request, and a real Facebook mark
-beside a synthetic LinkedIn one would look inconsistent regardless. So
-LinkedIn and Facebook share one neutral "people" glyph on a single row, each
-named in its own link text. That also cut the block from five rows to four,
-which is what lets 320px render without reflowing.
+Tracing a replacement would defeat that request, and a real mark for one
+network sitting beside a synthetic one for another would look inconsistent
+regardless. So every social shares one neutral "people" glyph on a single row
+and is named in its own link text instead. `src/company.yml` currently lists
+LinkedIn alone; adding another costs a link, never a row. That holds the
+contact block to four rows rather than one per network, which is most of why
+it fits 320px at all.
 
 PNG rather than SVG because Gmail strips inline SVG and is unreliable with SVG
 in `img src`. Icon fonts are not an option either - Gmail strips `@font-face`.
@@ -333,8 +347,9 @@ wrapper pinned the table at 520px inside Outlook's reading pane and overflowed
 it by 36px at 500px and 136px at 400px - a three-pane Outlook window on a
 laptop. The cap bought nothing to pay for that: every element is left-aligned
 and the widest line of ink is about 285px, so removing it changes only how
-much empty space trails the content. Measured identical at 400px and 1400px,
-248px tall at both.
+much empty space trails the content. Measured identical from 400px of viewport
+up to 1400px - `classic` is 195px tall at every one of them, and only below
+400px does anything rewrap.
 
 Every spacer is a table row with `mso-line-height-rule:exactly`, not a `div`;
 Outlook renders a spacer div's `&nbsp;` as a full text line regardless of
@@ -350,7 +365,7 @@ Three layers, cheapest first.
 
 ```bash
 pip install -r requirements.txt --break-system-packages
-python3 -m pytest tests/ -q        # 81 tests, well under a second
+python3 -m pytest tests/ -q        # 333 tests, well under a second
 ```
 
 Records, input safety, and workflow definitions. Every injection payload that
@@ -394,6 +409,12 @@ directory, so a localhost URL can never reach the published tree - and
 | V10 | no `colspan` exceeds its table's real column count |
 | V11 | under 10,000 characters |
 | V12 | Ochre rule renders ≥3x100px with a `bgcolor` attribute |
+| V13 | the stacked-diacritic canary `ỚẾỰỎÃỸ` does not grow the line box |
+| V14 | a synthetic worst-case record still fits 320px without scrolling |
+| V15 | table geometry matches `validation/baseline.json` |
+
+There is no V3. It was retired rather than renumbered, so that an old report
+and a new one can never disagree about what an id meant.
 
 **Gate: HIGH 0, MED 0, LOW 0.** No allowlist. If a contrast assertion fails,
 coloured text has been reintroduced - find it rather than widening the
@@ -449,8 +470,10 @@ inheriting. That is 5.6:1 on white, comfortably readable - it degrades rather
 than breaks, and there is no markup that prevents it.
 
 **Outlook for Windows drops `padding` on anything that is not a table cell.**
-Two `padding-top:2px` divs lose 4px, so the block measures 244px tall in
-Outlook against 248px everywhere else. Cosmetic; nothing moves horizontally.
+Two `padding-top:2px` divs lose 4px, so the block renders 4px shorter in
+Outlook than everywhere else. Cosmetic; nothing moves horizontally. Reasoned
+from how Word behaves rather than measured - `validation/OUTLOOK.md` is the
+manual pass that would settle it.
 
 **Blocked images draw placeholder boxes.** `alt=""` does not prevent that.
 It is what Gmail and Outlook do for any hosted image, and it is why the checks

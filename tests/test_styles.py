@@ -1,8 +1,8 @@
 """Every style must satisfy the same four rules.
 
 These are written against the markup rather than against a promise, because
-the whole point of a registry is that someone will add an eleventh style
-later and will not have read styles.py first.
+the whole point of a registry is that someone will add a tenth style later
+and will not have read styles.py first.
 """
 import os
 import re

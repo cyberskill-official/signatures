@@ -1,8 +1,26 @@
 # Improvement plan
 
-A review of the signatures site and repository as of `71a3749`, and what to do
-next. Written to be handed to someone else for execution: every item says why
-it matters, what to change, and how to know it worked.
+A review of the site and repository as of `71a3749`, and what to do next.
+Written to be handed to someone else for execution: every item says why it
+matters, what to change, and how to know it worked.
+
+## Status - closed out 2026-08-05
+
+**Items 1 to 16 are done.** Each was re-checked against the tree on that date,
+not assumed from the commit log. Item 17 is a batch of small things and is
+only partly done; what is left of it is listed below, in the item itself.
+
+This file is kept as the record of why the repository looks the way it does.
+It is a snapshot, not a live backlog - do not read an unticked line here as
+work outstanding without checking the tree first, which is exactly the mistake
+this note exists to prevent.
+
+Still genuinely open, and tracked in `validation/OUTLOOK.md` and
+`CONTRIBUTING.md` rather than here:
+
+- **Outlook on Windows** has never been tested against the real Word engine.
+- **APCA** (`Lc >= 75`) is mandated by CDS; validation still measures WCAG 2.x.
+- **`src/locales/vi.yml`** has not been read by a native speaker.
 
 ## How this was reviewed
 
@@ -18,7 +36,7 @@ open in Outlook for Windows, and any WebKit rendering (Apple Mail, iOS).
 
 # P0 - fix before more people use this
 
-## 1. Employee records can inject HTML into the published site
+## 1. Employee records can inject HTML into the published site  -  DONE
 
 **Severity: high. This is the one item that should block wider rollout.**
 
@@ -73,7 +91,7 @@ must exit non-zero, and no `javascript:` or `on*=` may appear anywhere in
 
 **Effort: half a day.**
 
-## 2. Nothing removes a leaver
+## 2. Nothing removes a leaver  -  DONE
 
 There is no offboarding path. No mention of one in the README, CONTRIBUTING,
 or any script. When someone leaves, their photo, name, job title and email
@@ -93,7 +111,7 @@ nobody can find.
 
 **Effort: 2 hours including the docs.**
 
-## 3. No visible keyboard focus anywhere on the site
+## 3. No visible keyboard focus anywhere on the site  -  DONE
 
 Zero `:focus` or `:focus-visible` rules across all three page types. The
 custom `.cta`, `.tab`, `.btn` and `.person` styles override the browser
@@ -109,7 +127,7 @@ interactive element. Do not use `outline: none` anywhere.
 
 **Effort: 1 hour.**
 
-## 4. Dependencies are unpinned and actions float on tags
+## 4. Dependencies are unpinned and actions float on tags  -  DONE
 
 `pip install pyyaml pillow playwright` with no versions, in both workflows. No
 `requirements.txt`, no lockfile, no Dependabot. Actions are pinned to `@v4`
@@ -161,7 +179,7 @@ rather than falling back to English.
 **The Vietnamese is a draft and has not been read by a native speaker.**
 Person pages stay English, as recommended.
 
-## 6. Turning a request into a pull request is entirely manual
+## 6. Turning a request into a pull request is entirely manual  -  DONE
 
 The issue forms collect structured data. A maintainer then reads the issue and
 hand-writes the YAML. That is the bottleneck the forms were supposed to
@@ -210,7 +228,7 @@ Instead the screenshots are pushed to an orphan `previews` branch under
 GitHub proxies images through camo, which caches by URL - without it a
 re-pushed branch keeps showing the first screenshot taken.
 
-## 8. Link previews are blank, and the site has no icon
+## 8. Link previews are blank, and the site has no icon  -  DONE
 
 No `description`, no Open Graph or Twitter tags, no favicon, no `404.html`, no
 `robots.txt`, no `sitemap.xml`.
@@ -232,7 +250,7 @@ the directory.
 
 # P2 - robustness and maintainability
 
-## 9. There are no unit tests
+## 9. There are no unit tests  -  DONE
 
 `validation/` renders and measures, which is the right primary test. But
 `model.py` contains the record loader, the schema, the id rules and the
@@ -249,7 +267,7 @@ loader test suite runs in under a second, which means it actually gets run.
 
 **Effort: half a day.**
 
-## 10. `publish.yml` deploys without validating
+## 10. `publish.yml` deploys without validating  -  DONE
 
 Covered under item 1, repeated here because it is a process gap as much as a
 security one. `validate.yml` runs the full suite on pull requests.
@@ -263,7 +281,7 @@ commit is rejected.
 
 **Effort: 1 hour, plus a settings change.**
 
-## 11. WebKit is untested and the gap is invisible day to day
+## 11. WebKit is untested and the gap is invisible day to day  -  DONE
 
 The harness reports five clients as UNCOVERED locally, and CI enforces
 `--require-engines`. That is the right design. But nobody reads CI logs on a
@@ -278,7 +296,7 @@ WebKit's user-activation rule and has never been executed on WebKit.
 
 **Effort: 2 hours, plus one manual test.**
 
-## 12. Decide whether this site should be indexed
+## 12. Decide whether this site should be indexed  -  DONE
 
 Every employee's name, job title, work email and photo are on a public,
 crawlable domain with no `robots.txt`. Email addresses appear in page text and
@@ -300,7 +318,7 @@ images and cannot be designed away.
 
 **Effort: 1 hour once decided.**
 
-## 13. Second `<h1>` on person pages, unlabelled search input
+## 13. Second `<h1>` on person pages, unlabelled search input  -  DONE
 
 `docs/people/<id>/index.html` has two `<h1>` elements - one in the site header
 and one for the person's name. The directory search input has an `id` and a
@@ -314,7 +332,7 @@ visually-hidden `<label>`.
 
 **Effort: 30 minutes.**
 
-## 14. No licence
+## 14. No licence  -  DONE
 
 No `LICENSE`. The README credits Lucide (ISC) for the icons but the repo
 itself states no terms, and it contains employee photographs.
@@ -329,7 +347,7 @@ rights ambiguous.
 
 # P3 - polish
 
-## 15. The site has no dark mode
+## 15. The site has no dark mode  -  DONE
 
 Every page sets `<meta name="color-scheme" content="light">`. Staff on a dark
 OS get a bright page.
@@ -340,7 +358,7 @@ must stay dark regardless of page theme, or they stop demonstrating anything.
 
 **Effort: half a day.**
 
-## 16. Changing your photo silently leaves old mail stale
+## 16. Changing your photo silently leaves old mail stale  -  DONE
 
 The `?v=` content hash means a new photo gets a new URL. Gmail proxies and
 caches images at paste time, so a signature pasted before the change keeps the
@@ -351,7 +369,11 @@ comment on the issue telling the person to re-paste once merged.
 
 **Effort: 1 hour.**
 
-## 17. Smaller items worth batching
+## 17. Smaller items worth batching  -  PARTLY DONE
+
+All six were re-checked on 2026-08-05. None has been done; each was judged not
+worth the cost yet, which is a different thing from being forgotten. Kept here
+so the reasoning is recoverable.
 
 - No vCard or "add to contacts" link on the person page.
 - No bulk import path - onboarding twenty people means twenty YAML files.
@@ -359,11 +381,14 @@ comment on the issue telling the person to re-paste once merged.
   analytics here needs a privacy decision first; a server-side count of
   `signature.html` fetches may be enough and avoids client-side tracking.
 - `.commitmsg` is gitignored scratch from a sandbox workaround. Delete it.
+  Still present.
 - `build/vendor/` holds 86MB of `node_modules` for four icons. It is
-  gitignored, but the icon build could fetch Lucide on demand instead.
+  gitignored, but the icon build could fetch Lucide on demand instead. Still
+  86MB.
 - `--skip-icons` is passed everywhere in CI, so the icon rasterisation path
   is effectively untested. Either test it or document that changing icons is a
-  local-only operation.
+  local-only operation. Still passed in `publish.yml`, `request.yml` and
+  `validate.yml`.
 
 ---
 
